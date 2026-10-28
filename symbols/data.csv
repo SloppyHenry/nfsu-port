@@ -1,0 +1,37 @@
+addr,name,type,size,module,note
+0x6e30d0,g_render_count,int32_t,,speed/game,Zählung der Renderbilder (clock.c)
+0x6e46b4,g_rng_state,uint32_t,,speed/game,Zufallsbasis (system.c)
+0x6f2b0c,g_session_index,int32_t,,speed/game,Index für start_track_load
+0x6f84a8,g_menu_ctx,uint8_t[1],,speed/game,Menükontext (frontend.c)
+0x727a04,g_time_scale,float,,speed/game,(game.c)
+0x727a08,g_heaps,void *[8],,speed/game,"Heap-Zeiger, Index = flags & 7"
+0x727a28,g_main_pool_storage,uint8_t[1],,speed/game,Hauptpool
+0x7295b8,g_7295b8,int32_t,,speed/game,Bildzähler (frame.c)
+0x7295e0,g_flag_7295e0,int32_t,,speed/game,
+0x7295e4,g_flag_7295e4,int32_t,,speed/game,
+0x729698,g_session_flag,int32_t,,speed/game,unklar; 0 = Frontend laden
+0x729700,g_flag_729700,int32_t,,speed/game,
+0x7299ec,g_memory_inited,int32_t,,speed/game,
+0x72a4d8,g_flag_a4d8,int32_t,,speed/game,
+0x72a5b8,g_frontend_sys,void *,,speed/game,Frontend-System (init_frontend_system)
+0x72af08,g_af08,int32_t,,speed/game,laufende Ladevorgänge (assets.c)
+0x72af44,g_quit_requested,int32_t,,speed/game,
+0x72afdc,g_update_count,int32_t,,speed/game,Anzahl der Instanzen (game.c)
+0x72b008,g_host,int32_t *,,speed/game,Zeiger auf den Hostzustand (game.c)
+0x72b184,g_d3d_device,IDirect3DDevice9 *,,speed/game,"D3D9-Device (IDirect3D9::CreateDevice); hiess g_frontend_obj, korrigiert WP-04/WP-06"
+0x72b324,g_b324,int32_t,,speed/game,(frontend.c)
+0x72b32c,g_b32c,uint8_t,,speed/game,(frontend.c)
+0x72b32d,g_b32d,uint8_t,,speed/game,(frontend.c)
+0x72ca18,g_render_ticks,int32_t,,speed/game,Renderzeit (clock.c)
+0x72ca1c,g_dt_ca1c,float,,speed/game,Frame-Zeit-Parameter (game.c)
+0x76c3d4,g_state_fn,state_fn_t,,speed/game,
+0x76c3d8,g_state_arg,uint32_t,,speed/game,
+0x76c3dc,g_state_name,const char *,,speed/game,Name des Zustands (Debug-Text)
+0x76c3e0,g_post_state_hook,hook_fn_t,,speed/game,optionaler Hook nach der Zustandsschleife
+0x76c3e8,g_state_pending,uint8_t,,speed/game,Bedeutung unklar
+0x76c3f0,g_state_mode,int32_t,,speed/game,Wert 3 = Entladen (Ableitung aus start_track_load)
+0x77bdc0,g_track_cfg_base,int32_t,,speed/game,Konfigurationsindex (game.c)
+0x72b180,g_d3d9,IDirect3D9 *,4,speed/render,Direct3DCreate9-Rückgabe
+0x70b8a8,g_dsound,IDirectSound *,4,speed/platform,DirectSoundCreate
+0x72b168,g_dinput8,IDirectInput8A *,4,speed/platform,DirectInput8Create
+0x72b150,g_dinput8_b,IDirectInput8A *,4,speed/platform,"DirectInput8Create (zweite Instanz, 0x417960)"

@@ -1,0 +1,117 @@
+id,name,dateien,anzahl,min_size,max_size,container,handler_addr,zeiger,note,name_mw
+00000000,,Cars/*.bin;FrontEnd/*.bin;FrontEnd/*.lzc;Global/*.bin;Global/*.bun;Global/*.lzc;Languages/*.bin;Tracks/*.bin;Tracks/*.bu,16822,0,326296,nein,nicht gefunden,,,
+00030201,,Global/*.bun;Languages/*.bin,67,880,12656,nein,nicht gefunden,,,FEngFont
+00030203,,Global/*.bun;Global/*.lzc,22,1672,44144,nein,0x4e2cb0;0x4e2d40;0x4e2df0;0x4e2e40,,,FEngFiles
+00030210,,FrontEnd/*.lzc;Global/*.bun;Global/*.lzc,201,532,22316,nein,0x4e2cb0;0x4e2d40;0x4e2d80;0x4e2df0,,,FNGCompress
+00030220,,FrontEnd/*.lzc,1,189888,189888,nein,nicht gefunden,,,PresetRides
+00030230,,Global/*.bun;Global/*.lzc,2,23024,23024,nein,nicht gefunden,,,MagazinesFrontend
+00030240,,FrontEnd/*.lzc,1,564,564,nein,nicht gefunden,,,WideDecals
+00034026,,Global/*.bun;Global/*.lzc;Tracks/*.lzc,33,256,19968,nein,0x570460,,,Smokeables
+00034027,,Tracks/*.lzc,24,120,49848,nein,0x570460,,,SmokeableSpawners / WorldBounds
+00034035,,Tracks/*.bun,175,136,164,nein,0x4734b0;0x4734f0,,,
+00034036,,Global/*.bun;Global/*.lzc,2,272,272,nein,nicht gefunden,,,
+00034101,,Tracks/*.bun,593,60,68,nein,nicht gefunden,,,ScenerySectionHeader
+00034102,,Tracks/*.bun,593,72,11664,nein,nicht gefunden,,,SceneryInfos
+00034103,,Tracks/*.bun,593,60,36588,nein,nicht gefunden,,,SceneryInstances
+00034104,,Tracks/*.bun,593,24,4584,nein,nicht gefunden,,,
+00034107,,Tracks/*.lzc,31,2408,22456,nein,nicht gefunden,,,PrecullerInfos / SceneryOverride
+00034108,,Tracks/*.lzc,31,12,12,nein,nicht gefunden,,,SceneryOverrideInfos / SceneryGroup
+00034121,,Tracks/*.lzc,31,0,464724,nein,nicht gefunden,,,
+00034122,,Tracks/*.lzc,30,128,4608,nein,nicht gefunden,,,
+00034123,,Tracks/*.lzc,14,368,2576,nein,nicht gefunden,,,
+00034124,,Tracks/*.lzc,20,264,2112,nein,nicht gefunden,,,
+00034130,,Tracks/*.lzc,31,152,5044,nein,0x43e690;0x43e790,,,
+00034131,,Tracks/*.lzc,31,344,16296,nein,0x43e690;0x43e790,,,
+00034132,,Tracks/*.lzc,31,18624,772640,nein,0x43e690;0x43e790,,,
+00034133,,Tracks/*.lzc,31,1564,68612,nein,0x43e690;0x43e790,,,
+00034134,,Tracks/*.lzc,31,32,44,nein,0x43e690;0x43e790,,,
+00034146,,Tracks/*.lzc,31,440,1064,nein,0x43f200,,,TrackPositionMarkers
+00034148,,Tracks/*.lzc,31,40,40,nein,nicht gefunden,,,
+00034149,,Tracks/*.lzc,31,200,2000,nein,nicht gefunden,,,
+0003414a,,Tracks/*.lzc,31,0,10800,nein,nicht gefunden,,,TrackPathZones
+00034151,,Tracks/*.lzc,31,560,14140,nein,0x4442d0,,,VisibleSectionManageInfo
+00034152,,Tracks/*.lzc,31,592,14948,nein,0x4442d0,,,VisibleSectionBoundaries
+00034153,,Tracks/*.lzc,31,0,272,nein,0x4442d0,,,DrivableScenerySections
+00034154,,Tracks/*.lzc,31,0,32,nein,0x4442d0,,,
+00034201,,Global/*.bun;Global/*.lzc,2,7812,7812,nein,nicht gefunden,,,TrackInfos
+00034202,,Global/*.bun;Global/*.lzc,2,1100,1100,nein,nicht gefunden,,,SunInfos
+00034250,,Tracks/*.lzc,31,24,21136,nein,nicht gefunden,,,GenericRegions / Weatherman
+00034492,,Global/*.bun;Global/*.lzc,2,5048,5048,nein,0x475840;0x475a70,,,
+00034600,,Global/*.bun;Global/*.lzc,2,112568,112568,nein,nicht gefunden,,,CarTypeInfos
+00034601,,Global/*.bun;Global/*.lzc,2,6080,6080,nein,nicht gefunden,,,CarSkins
+00034603,,Global/*.bun;Global/*.lzc,2,32,32,nein,nicht gefunden,,,DBCarParts_Header
+00034604,,Global/*.bun;Global/*.lzc,2,217776,217776,nein,nicht gefunden,,,DBCarParts_Array
+00034605,,Global/*.bun;Global/*.lzc,2,64904,64904,nein,nicht gefunden,,,DBCarParts_Attribs
+00034606,,Global/*.bun;Global/*.lzc,2,21248,21248,nein,nicht gefunden,,,DBCarParts_Strings
+00034a01,,FrontEnd/*.lzc,1,800,800,nein,nicht gefunden,,,GCareer_Upgrade
+00034a02,,FrontEnd/*.lzc,1,38512,38512,nein,nicht gefunden,,,GCareer_Races_Old
+00034a03,,FrontEnd/*.lzc,1,6400,6400,nein,nicht gefunden,,,
+00034a07,,Global/*.bun;Global/*.lzc,2,1000,1000,nein,nicht gefunden,,,StyleMomentsInfo
+00034a08,,Global/*.bun;Global/*.lzc,2,3656,3656,nein,nicht gefunden,,,StylePartitions
+00034a09,,FrontEnd/*.lzc,1,144,144,nein,nicht gefunden,,,GCareer_Stars
+00034a0a,,FrontEnd/*.lzc,1,1384,1384,nein,nicht gefunden,,,GCareer_Styles
+00034b00,,Global/*.bun;Global/*.lzc,2,2092,2092,nein,nicht gefunden,,,DifficultyInfo
+00035020,,Global/*.bun;Global/*.lzc;Tracks/*.lzc,33,24,39960,nein,0x402790;0x402860,,,AcidEffects
+00035021,,Global/*.bun;Global/*.lzc;Tracks/*.lzc,33,24,48984,nein,0x402790;0x402860,,,AcidEmitters
+00036001,,Tracks/*.lzc,31,24,24,nein,nicht gefunden,,,EventTriggerPackHeader
+00036002,,Tracks/*.lzc,31,64,53440,nein,nicht gefunden,,,EventTriggerNodes
+00036003,,Tracks/*.lzc,31,8,28680,nein,nicht gefunden,,,EventTriggerEntries
+00039000,,Languages/*.bin,22,40828,192492,nein,0x516d10,,,STRBlocks
+00039010,,FrontEnd/*.lzc,1,864,864,nein,nicht gefunden,,,Subtitles
+00039200,,Cars/*.bin;Global/*.bun;Global/*.lzc;Tracks/*.lzc,2506,88,100,nein,0x46b250,,,
+00039201,,Cars/*.bin;Global/*.bun;Global/*.lzc;Tracks/*.lzc,2506,288,2928,nein,nicht gefunden,,,
+00039202,,Cars/*.bin;Global/*.bun;Global/*.lzc;Tracks/*.lzc,2506,56,692,nein,nicht gefunden,,,
+0003a000,,Global/*.bun;Global/*.lzc,2,16388,16388,nein,nicht gefunden,,,
+0003b200,,Tracks/*.lzc,31,0,692,nein,nicht gefunden,,,ICECatalog
+0003b300,,Tracks/*.lzc,31,114568,117288,nein,nicht gefunden,,,
+00134002,eSolidListHeader (0x80),Cars/*.bin;FrontEnd/*.lzc;Global/*.bun;Global/*.lzc;Tracks/*.bun,1275,128,128,nein,0x523f30;0x5242b0,leer,WP-14,MeshContainerHeader (SolidListInfo)
+00134003,eSolidIndexEntry[],Cars/*.bin;FrontEnd/*.lzc;Global/*.bun;Global/*.lzc;Tracks/*.bun,1275,8,11808,nein,0x523f30;0x5242b0,,WP-14,MeshContainerKeys
+00134004,eStreamingEntry[],Cars/*.bin,39,20,29520,nein,0x523f30;0x5242b0,,WP-14,MeshContainerOffsets
+00134011,eSolid-Kopf,Cars/*.bin;FrontEnd/*.lzc;Global/*.bun;Global/*.lzc;Tracks/*.bun,18513,176,188,nein,0x524010;0x524330,,WP-14,SolidInfo (SolidListObjHead)
+00134012,Texturtabelle (Hashes),Cars/*.bin;FrontEnd/*.lzc;Global/*.bun;Global/*.lzc;Tracks/*.bun,18513,0,272,nein,0x524010,,WP-14,SolidTextures (Texture hashes)
+00134013,Lichtmaterialtabelle,Cars/*.bin;Tracks/*.bun,10352,8,72,nein,0x524010,,WP-14,SolidShaders (LightMaterials)
+00134017,NormalSmoother-Daten,Cars/*.bin,4968,12,12,nein,0x524010;0x524330,,WP-14,MeshNormalSmoother
+00134018,NormalSmoother-Daten,Cars/*.bin,4968,32,16888,nein,0x524010;0x524330,,WP-14,MeshSmoothVertices
+00134019,NormalSmoother-Daten,Cars/*.bin,4968,48,29928,nein,0x524010;0x524330,,WP-14,MeshSmoothVertexPlats
+0013401a,PositionMarkerTable,Cars/*.bin;FrontEnd/*.lzc,2213,80,1448,nein,0x524010;0x524330,,WP-14,SolidMarkers
+00134900,eModel-Kopf,Cars/*.bin;FrontEnd/*.lzc;Global/*.bun;Global/*.lzc;Tracks/*.bun,18513,64,72,nein,0x40b760,,WP-14,MeshInfoHeader (SolidMeshDescriptor)
+00134b01,Vertexdaten (36/24 B Stride),Cars/*.bin;FrontEnd/*.lzc;Global/*.bun;Global/*.lzc;Tracks/*.bun,18513,8,1081448,nein,0x40b760,,WP-14,MeshVertexBuffer
+00134b02,StripEntry[] (60 B),Cars/*.bin;FrontEnd/*.lzc;Global/*.bun;Global/*.lzc;Tracks/*.bun,18513,8,2040,nein,0x40b760,,WP-14,MeshShaderInfos (SolidObjectShadingGroups)
+00134b03,Indexdaten (uint16),Cars/*.bin;FrontEnd/*.lzc;Global/*.bun;Global/*.lzc;Tracks/*.bun,18513,8,136372,nein,0x40b760,,WP-14,MeshPolygons (SolidMeshFaces)
+00135001,,Tracks/*.lzc,31,28,28,nein,nicht gefunden,,,LightSourcePackHeader
+00135002,,Tracks/*.lzc,31,76,54460,nein,nicht gefunden,,,LightAABBNodes
+00135003,,Tracks/*.lzc,31,8,86024,nein,nicht gefunden,,,LightSources
+00135101,,Tracks/*.lzc,31,64,64,nein,nicht gefunden,,,LightFlarePackHeader
+00135102,,Tracks/*.lzc,31,8,63368,nein,nicht gefunden,,,LightFlare
+00135200,,Global/*.bun;Global/*.lzc,278,160,160,nein,nicht gefunden,,,LightMaterials
+00e34009,,Global/*.bun;Global/*.lzc,16,840,6584,nein,nicht gefunden,,,EAGLSkeletons
+00e34010,,Global/*.bun;Global/*.lzc;Tracks/*.bun,712,728,113912,nein,0x4749f0,,,EAGLAnimations
+30300101,,Global/*.bun;Global/*.lzc;Tracks/*.bun,35,16,16,nein,nicht gefunden,,,TextureAnimPackHeader
+30300102,,Global/*.bun;Global/*.lzc;Tracks/*.bun,35,52,520,nein,nicht gefunden,,,TextureAnimEntry
+30300103,,Global/*.bun;Global/*.lzc;Tracks/*.bun,35,32,608,nein,nicht gefunden,,,TextureAnimFrames
+33310001,TexturePackHeader (0x7c),Cars/*.bin;FrontEnd/*.bin;FrontEnd/*.lzc;Global/*.bin;Global/*.bun;Global/*.lzc;Languages/*.bin;Tracks/*.bin;Tracks/*.bu,347,124,124,nein,0x529410;0x529560,leer,WP-13,TexturePackInfoHeader
+33310002,TextureIndexEntry[] (8),Cars/*.bin;FrontEnd/*.bin;FrontEnd/*.lzc;Global/*.bin;Global/*.bun;Global/*.lzc;Languages/*.bin;Tracks/*.bin;Tracks/*.bu,347,0,7504,nein,0x529410,,WP-13,TexturePackInfoKeys (Hashes)
+33310003,"eStreamingEntry[] (0x14), je Textur JDLZ-Block",Cars/*.bin;FrontEnd/*.bin;Global/*.bin;Languages/*.bin,84,0,18760,nein,0x529410,,WP-13,TexturePackInfoEntries
+33310004,TextureInfo[] (0x7c),Cars/*.bin;FrontEnd/*.bin;FrontEnd/*.lzc;Global/*.bin;Global/*.bun;Global/*.lzc;Languages/*.bin;Tracks/*.bin;Tracks/*.bu,347,0,116312,nein,0x529410,leer,WP-13,TexturePackInfoTextures
+33310005,"TextureInfoPlatInfo[] (0x20, PC, D3DFORMAT +0x14)",Cars/*.bin;FrontEnd/*.bin;FrontEnd/*.lzc;Global/*.bin;Global/*.bun;Global/*.lzc;Languages/*.bin;Tracks/*.bin;Tracks/*.bu,347,0,30016,nein,0x529410,,WP-13,TexturePackInfoComps
+33320001,"Datenkopf (24 B, +0x0C Dateinamenshash)",Cars/*.bin;FrontEnd/*.bin;FrontEnd/*.lzc;Global/*.bin;Global/*.bun;Global/*.lzc;Languages/*.bin;Tracks/*.bin;Tracks/*.bu,347,24,24,nein,nicht gefunden,,WP-13,TexturePackDataHeader
+33320002,"Texturdaten, Basis = nächste 0x80-Grenze",Cars/*.bin;FrontEnd/*.bin;FrontEnd/*.lzc;Global/*.bin;Global/*.bun;Global/*.lzc;Languages/*.bin;Tracks/*.bin;Tracks/*.bu,347,120,19412120,nein,nicht gefunden,,WP-13,TexturePackDataArray
+80034020,,Cars/*.bin;Global/*.bun;Global/*.lzc;Tracks/*.lzc,68,576,60260,ja,0x46b250,,,
+80034100,,Tracks/*.bun,593,248,49336,ja,nicht gefunden,,,ScenerySection
+80034147,,Tracks/*.lzc,31,604,12484,ja,0x440840,,,TrackPathManager
+80034150,,Tracks/*.lzc,31,1216,29424,ja,0x4442d0,,,VisibleSectionManager
+80034602,,Global/*.bun;Global/*.lzc,2,303992,303992,ja,nicht gefunden,,,DBCarParts
+80034a00,,FrontEnd/*.lzc,1,39328,39328,ja,nicht gefunden,,,GCareer_Old
+80036000,,Tracks/*.lzc,31,120,82168,ja,nicht gefunden,,,EventTriggerPack / EmitterTriggers
+8003b000,,Tracks/*.lzc,31,0,0,ja,0x578780;0x578810,,,QuickSplines
+80134000,,Cars/*.bin;FrontEnd/*.lzc;Global/*.bun;Global/*.lzc;Tracks/*.bun,1275,588,20865932,ja,nicht gefunden,,,GeometryPack
+80134001,,Cars/*.bin;FrontEnd/*.lzc;Global/*.bun;Global/*.lzc;Tracks/*.bun,1275,160,41488,ja,0x5242b0,,,MeshContainerInfo
+80134008,,Cars/*.bin;FrontEnd/*.lzc;Global/*.bun;Global/*.lzc;Tracks/*.bun,1275,0,0,ja,0x523f30;0x5242b0,,,MeshContainerEmpty
+80134010,,Cars/*.bin;FrontEnd/*.lzc;Global/*.bun;Global/*.lzc;Tracks/*.bun,18513,328,1219520,ja,0x524010;0x524330,,,SolidPack
+80134100,,Cars/*.bin;FrontEnd/*.lzc;Global/*.bun;Global/*.lzc;Tracks/*.bun,18513,128,1219304,ja,0x524010;0x524330,,,MeshInfoContainer
+80135000,,Tracks/*.lzc,31,136,140536,ja,nicht gefunden,,,LightSourcesPack
+80135100,,Tracks/*.lzc,31,88,63448,ja,nicht gefunden,,,LightFlaresPack
+b0300100,,Global/*.bun;Global/*.lzc;Tracks/*.bun,35,124,1168,ja,nicht gefunden,,,TextureAnimPack
+b3300000,TexturePack (Container),Cars/*.bin;FrontEnd/*.bin;FrontEnd/*.lzc;Global/*.bin;Global/*.bun;Global/*.lzc;Languages/*.bin;Tracks/*.bin;Tracks/*.bu,347,504,19560856,ja,nicht gefunden,,WP-13,TexturePack
+b3310000,TexturePack-Kopfteil,Cars/*.bin;FrontEnd/*.bin;FrontEnd/*.lzc;Global/*.bin;Global/*.bun;Global/*.lzc;Languages/*.bin;Tracks/*.bin;Tracks/*.bu,347,164,172756,ja,0x529410 InternalLoadTexturePackHeaderChunks,,WP-13,TexturePackInfo
+b3320000,TexturePack-Datenteil (0x80-ausgerichtet),Cars/*.bin;FrontEnd/*.bin;FrontEnd/*.lzc;Global/*.bin;Global/*.bun;Global/*.lzc;Languages/*.bin;Tracks/*.bin;Tracks/*.bu,347,248,19412248,ja,0x4451d0,,WP-13,TexturePackData

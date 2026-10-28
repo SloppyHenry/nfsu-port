@@ -1,0 +1,8899 @@
+// Automatisch erzeugt von tools/gc_types.py aus dem DWARF der GC-Speed.elf (dtk dwarf dump).
+// Layouts gelten für die 32-Bit-PowerPC-Zielplattform (Zeiger = 4 Byte). Offsets stehen als Kommentar.
+// Virtuelle Methoden stehen als Kommentar in Deklarationsreihenfolge (GCC 2.95: Vptr ist ein echtes Feld _vptr_<Klasse>).
+// Innere Typen stehen auf oberster Ebene; bei Namenskollision als <Äußere>_<Innere>.
+// ACHTUNG: In diesem GCC-2.95-SN-Build belegt bool 4 Byte (DWARF meldet size 0x1, die Offsets zeigen 4).
+//          Größenprüfung daher mit -Dbool=int:  tools/gc_types.py --check
+// Nicht von Hand bearbeiten.
+#pragma once
+
+struct __vtbl_ptr_type;
+
+// ---- Enums ----
+enum ARAM_DIRECTION {
+    ARAM_LOW = 0,
+    ARAM_HIGH = 256,
+};
+// innerer Typ von Transform
+enum Axis {
+    X_AXIS = 0,
+    Y_AXIS = 4,
+    Z_AXIS = 8,
+};
+enum CHARTYPE {
+    CH_REGULAR = 0,
+    CH_PERCENT = 1,
+    CH_DOT = 2,
+    CH_STAR = 3,
+    CH_ZERO = 4,
+    CH_DIGIT = 5,
+    CH_FLAG = 6,
+    CH_SIZE = 7,
+    CH_TYPE = 8,
+};
+enum CarEffectPosition {
+    CARFXPOS_NONE = 0,
+    CARFXPOS_FRONT_TIRES = 1,
+    CARFXPOS_REAR_TIRES = 2,
+    CARFXPOS_LEFT_TIRES = 3,
+    CARFXPOS_RIGHT_TIRES = 4,
+    CARFXPOS_TIRE_FL = 5,
+    CARFXPOS_TIRE_FR = 6,
+    CARFXPOS_TIRE_RR = 7,
+    CARFXPOS_TIRE_RL = 8,
+    CARFXPOS_ENGINE = 9,
+    CARFXPOS_EXHAUST = 10,
+    CARFXPOS_RADIATOR = 11,
+    CARFXPOS_WINDSHIELD = 12,
+    CARFXPOS_WINDOW_REAR = 13,
+    CARFXPOS_WINDOW_LEFT_FRONT = 14,
+    CARFXPOS_WINDOW_LEFT_REAR = 15,
+    CARFXPOS_WINDOW_RIGHT_FRONT = 16,
+    CARFXPOS_WINDOW_RIGHT_REAR = 17,
+    CARFXPOS_HEADLIGHT = 18,
+    CARFXPOS_BRAKELIGHT = 19,
+    CARFXPOS_HEADLIGHT_LEFT = 20,
+    CARFXPOS_HEADLIGHT_RIGHT = 21,
+    CARFXPOS_BRAKELIGHT_LEFT = 22,
+    CARFXPOS_BRAKELIGHT_RIGHT = 23,
+    CARFXPOS_SIDE_MIRROR_LEFT = 24,
+    CARFXPOS_SIDE_MIRROR_RIGHT = 25,
+    CARFXPOS_LICENSE_PLATE_FRONT = 26,
+    CARFXPOS_LICENSE_PLATE_REAR = 27,
+    NUM_CARFXPOS = 28,
+};
+enum ConditionForceNumber {
+    CONDITION_0 = 0,
+    CONDITION_1 = 1,
+    CONDITION_2 = 2,
+    CONDITION_3 = 3,
+    CONDITION_4 = 4,
+    CONDITION_5 = 5,
+    CONDITION_6 = 6,
+    CONDITION_7 = 7,
+};
+enum ConstantForceNumber {
+    CONSTANT_0 = 0,
+    CONSTANT_1 = 1,
+    CONSTANT_2 = 2,
+    CONSTANT_3 = 3,
+    CONSTANT_4 = 4,
+    CONSTANT_5 = 5,
+    CONSTANT_6 = 6,
+    CONSTANT_7 = 7,
+};
+enum DEMOMemStatArg {
+    DEMO_STAT_MEM_CP = 0,
+    DEMO_STAT_MEM_TC = 1,
+    DEMO_STAT_MEM_CPUR = 2,
+    DEMO_STAT_MEM_CPUW = 3,
+    DEMO_STAT_MEM_DSP = 4,
+    DEMO_STAT_MEM_IO = 5,
+    DEMO_STAT_MEM_VI = 6,
+    DEMO_STAT_MEM_PE = 7,
+    DEMO_STAT_MEM_RF = 8,
+    DEMO_STAT_MEM_FI = 9,
+};
+enum DEMOPixStatArg {
+    DEMO_STAT_PIX_TI = 0,
+    DEMO_STAT_PIX_TO = 1,
+    DEMO_STAT_PIX_BI = 2,
+    DEMO_STAT_PIX_BO = 3,
+    DEMO_STAT_PIX_CI = 4,
+    DEMO_STAT_PIX_CC = 5,
+};
+enum DEMOStatDispMode {
+    DEMO_STAT_TL = 0,
+    DEMO_STAT_BL = 1,
+    DEMO_STAT_TLD = 2,
+    DEMO_STAT_BLD = 3,
+    DEMO_STAT_IO = 4,
+};
+enum DEMOStatType {
+    DEMO_STAT_GP0 = 0,
+    DEMO_STAT_GP1 = 1,
+    DEMO_STAT_MEM = 2,
+    DEMO_STAT_PIX = 3,
+    DEMO_STAT_VC = 4,
+    DEMO_STAT_FR = 5,
+    DEMO_STAT_TBW = 6,
+    DEMO_STAT_TBP = 7,
+    DEMO_STAT_MYC = 8,
+    DEMO_STAT_MYR = 9,
+};
+enum DEMOVcStatArg {
+    DEMO_STAT_VC_CHK = 0,
+    DEMO_STAT_VC_MISS = 1,
+    DEMO_STAT_VC_STALL = 2,
+};
+enum DMTexFlt {
+    DMTF_POINTSAMPLE = 0,
+    DMTF_BILERP = 1,
+};
+enum DemoDiscEndReason {
+    DEMO_DISC_ENDREASON_NONE = -1,
+    DEMO_DISC_ENDREASON_ATTRACT_INTERRUPTED = 0,
+    DEMO_DISC_ENDREASON_ATTRACT_COMPLETE = 1,
+    DEMO_DISC_ENDREASON_PLAYABLE_INACTIVITY_TIMEOUT = 2,
+    DEMO_DISC_ENDREASON_PLAYABLE_GAMEPLAY_TIMEOUT = 3,
+    DEMO_DISC_ENDREASON_PLAYABLE_COMPLETE = 4,
+    DEMO_DISC_ENDREASON_PLAYABLE_QUIT = 5,
+};
+enum ENVMAP_FACES {
+    ENVMAP_F = 0,
+    ENVMAP_R = 1,
+    ENVMAP_B = 2,
+    ENVMAP_L = 3,
+    ENVMAP_U = 4,
+    ENVMAP_D = 5,
+    ENVMAP_NUM_FACES = 6,
+};
+enum EVIEWMODE {
+    EVIEWMODE_NONE = 0,
+    EVIEWMODE_ONE = 1,
+    EVIEWMODE_ONE_RVM = 2,
+    EVIEWMODE_TWOH = 3,
+    EVIEWMODE_TWOV = 4,
+};
+enum EVIEW_CLIP_PLANE {
+    EVIEW_LEFT = 0,
+    EVIEW_RIGHT = 1,
+    EVIEW_BOTTOM = 2,
+    EVIEW_TOP = 3,
+    EVIEW_NEAR = 4,
+    EVIEW_FAR = 5,
+    EVIEW_CLIP_FIRST = 0,
+    EVIEW_CLIP_LAST = 5,
+    EVIEW_CLIP_NUM = 6,
+};
+enum EVIEW_ID {
+    EVIEW_NONE = -1,
+    EVIEW_FLAILER = 0,
+    EVIEW_PLAYER1 = 1,
+    EVIEW_PLAYER2 = 2,
+    EVIEW_PLAYER1_RVM = 3,
+    EVIEW_PLAYER1_REFLECTION = 4,
+    EVIEW_PLAYER2_REFLECTION = 5,
+    EVIEW_PLAYER1_GLOW = 6,
+    EVIEW_PLAYER2_GLOW = 7,
+    EVIEW_HEADLIGHT_P1 = 8,
+    EVIEW_HEADLIGHT_P2 = 9,
+    EVIEW_ENVMAP0F = 10,
+    EVIEW_ENVMAP0R = 11,
+    EVIEW_ENVMAP0B = 12,
+    EVIEW_ENVMAP0L = 13,
+    EVIEW_ENVMAP0U = 14,
+    EVIEW_ENVMAP0D = 15,
+    EVIEW_FIRST = 0,
+    EVIEW_LAST = 15,
+    EVIEW_FIRST_RENDER = 1,
+    EVIEW_LAST_RENDER = 15,
+    EVIEW_FIRST_PLAYER = 1,
+    EVIEW_LAST_PLAYER = 3,
+    EVIEW_FIRST_RVM = 3,
+    EVIEW_LAST_RVM = 3,
+    EVIEW_FIRST_ENVMAP = 10,
+    EVIEW_LAST_ENVMAP = 15,
+    NUM_EVIEWS = 16,
+    NUM_RENDER_VIEWS = 15,
+    NUM_PLAYER_VIEWS = 3,
+    NUM_RVM_VIEWS = 1,
+};
+// innerer Typ von EasterEggs
+enum EasterEggButtons {
+    L1 = 173,
+    L2 = 174,
+    R1 = 175,
+    R2 = 176,
+    LT = 177,
+    RT = 178,
+    SQ = 179,
+    TR = 180,
+    UP = 183,
+    DN = 184,
+    XX = 0,
+};
+// innerer Typ von EasterEggs
+enum EasterEggGroups {
+    EASTER_EGG_NO_GROUP = 0,
+    EASTER_EGG_RENDERING_GROUP = 1,
+};
+enum EasterEggsSpecial {
+    EASTER_EGG_SPECIAL_LANGUAGES_TOGGLE = 0,
+    EASTER_EGG_SPECIAL_XBOX_SAFEZONE = 1,
+};
+// innerer Typ von EasterEggs
+enum EasterEggsType {
+    EASTER_EGG_CARS = 0,
+    EASTER_EGG_VISUAL_PARTS = 1,
+    EASTER_EGG_PERF_PARTS = 2,
+    EASTER_EGG_DRIFT_PHYSICS = 3,
+    EASTER_EGG_TRACK = 4,
+    EASTER_EGG_SPECIAL = 5,
+    EASTER_EGG_PRESETCARS = 6,
+};
+enum EspressoFunctions {
+    EF_IsCaffeineRunning = 0,
+    EF_InitCommunication = 1,
+    EF_AddMessage = 2,
+    EF_CloseCaffeine = 3,
+    EF_LoadWorld = 4,
+    EF_ReloadWorld = 5,
+    EF_SaveWorld = 6,
+    EF_EmptyLayer = 7,
+    EF_GetFirstObject = 8,
+    EF_GetNextObject = 9,
+    EF_GetLayerState = 10,
+    EF_IsLayerReadOnly = 11,
+    EF_GetLayerHandle = 12,
+    EF_CreateObject = 13,
+    EF_CreateObjectAsync = 14,
+    EF_DeleteObject = 15,
+    EF_GetObjectType = 16,
+    EF_GetObjectLayer = 17,
+    EF_GetObjectPosition = 18,
+    EF_SetObjectPosition = 19,
+    EF_GetObjectPositionFix = 20,
+    EF_SetObjectPositionFix = 21,
+    EF_GetObjectMatrix = 22,
+    EF_SetObjectMatrix = 23,
+    EF_GetMeshName = 24,
+    EF_SetMeshName = 25,
+    EF_CreateUserMesh = 26,
+    EF_SetUserMeshFace = 27,
+    EF_SetSphereRadius = 28,
+    EF_LinkObject = 29,
+    EF_UnlinkObject = 30,
+    EF_GetLink = 31,
+    EF_GetNumReverseLinks = 32,
+    EF_GetReverseLink = 33,
+    EF_IsAttributeSet = 34,
+    EF_GetAttributeString = 35,
+    EF_GetAttributeInt = 36,
+    EF_GetAttributeFloat = 37,
+    EF_SetAttributeString = 38,
+    EF_SetAttributeInt = 39,
+    EF_SetAttributeFloat = 40,
+    EF_GetAttributeHandle = 41,
+    EF_GetString = 42,
+    EF_SetString = 43,
+    EF_GetLong = 44,
+    EF_SetLong = 45,
+    EF_GetFloat = 46,
+    EF_SetFloat = 47,
+    EF_IsObjectSelected = 48,
+    EF_SelectObject = 49,
+    EF_UnselectObject = 50,
+    EF_UnselectAllObjects = 51,
+    EF_GetNumSelectedObjects = 52,
+    EF_GetSelectedObject = 53,
+    EF_GetCameraPosition = 54,
+    EF_SetCameraPosition = 55,
+    EF_GetCameraPositionFix = 56,
+    EF_SetCameraPositionFix = 57,
+    EF_GetCursorPosition = 58,
+    EF_SetCursorPosition = 59,
+};
+enum ExportedVariableFlags {
+    VAR_VOLATILE = 1,
+    VAR_CPUVARIABLE = 2,
+};
+enum FEButtonMap_Directions {
+    FEBM_Dir_Up = 0,
+    FEBM_Dir_UpRight = 1,
+    FEBM_Dir_Right = 2,
+    FEBM_Dir_DownRight = 3,
+    FEBM_Dir_Down = 4,
+    FEBM_Dir_DownLeft = 5,
+    FEBM_Dir_Left = 6,
+    FEBM_Dir_UpLeft = 7,
+};
+enum FEButtonWrapMode {
+    Wrap_None = 0,
+    Wrap_Horizontal = 1,
+    Wrap_Vertical = 2,
+    Wrap_Both = 3,
+};
+enum FEInterpMethod {
+    IT_None = 0,
+    IT_Linear = 1,
+    IT_Spline = 2,
+    IT_MoveToLinear = 3,
+    IT_MoveToSpline = 4,
+    IT_InterpTypeCount = 5,
+};
+enum FEKeyTrack_Indices {
+    FETrack_Color = 0,
+    FETrack_Pivot = 1,
+    FETrack_Position = 2,
+    FETrack_Rotation = 3,
+    FETrack_Size = 4,
+    FETrack_UpperLeft = 5,
+    FETrack_LowerRight = 6,
+    FETrack_FrameNumber = 7,
+    FETrack_Color1 = 7,
+    FETrack_Color2 = 8,
+    FETrack_Color3 = 9,
+    FETrack_Color4 = 10,
+    Num_BaseFETracks = 11,
+};
+enum FEMessageResponseCommands {
+    MR_SetScript = 0,
+    MR_PostMessageToFEng = 1,
+    MR_PostMessageToGame = 2,
+    MR_PostMessageToSound = 3,
+    MR_SetActiveButton = 256,
+    MR_SetInputProcessing = 257,
+    MR_RecordCurrentButton = 258,
+    MR_RecallRecordedButton = 259,
+    MR_DontNavigate = 260,
+    MR_PassControlToChildCurrent = 261,
+    MR_PassControlToChildGlobal = 262,
+    MR_PassControlToParentCurrent = 263,
+    MR_PassControlToParentGlobal = 264,
+    MR_SwitchToPackage = 512,
+    MR_PushPackageGlobal = 513,
+    MR_PushPackageCurrent = 514,
+    MR_PopPackage = 515,
+    MR_PushPackageNone = 516,
+    MR_RecordPackageMarker = 704,
+    MR_SwitchToPackageMarker = 705,
+    MR_ClearPackageMarkers = 706,
+    MR_IfScriptEquals = 768,
+    MR_IfScriptNotEquals = 769,
+    MR_Else = 1280,
+    MR_EndIf = 1281,
+};
+enum FEObjType {
+    FE_None = 0,
+    FE_Image = 1,
+    FE_String = 2,
+    FE_Model = 3,
+    FE_List = 4,
+    FE_Group = 5,
+    FE_CodeList = 6,
+    FE_Movie = 7,
+    FE_Effect = 8,
+    FE_ColoredImage = 9,
+    FE_AnimImage = 10,
+    FE_SimpleImage = 11,
+    FE_UserMin = 256,
+};
+enum FEObject_Flags {
+    FF_HideInEdit = -2147483648,
+    FF_AffectAllScripts = 1073741824,
+    FF_PerspectiveProjection = 536870912,
+    FF_IsButton = 268435456,
+    FF_ObjectLocked = 134217728,
+    FF_IgnoreButton = 67108864,
+    FF_Dirty = 33554432,
+    FF_DirtyTransform = 16777216,
+    FF_DirtyColor = 8388608,
+    FF_DirtyCode = 4194304,
+    FF_CodeSuppliedResource = 2097152,
+    FF_UsesLibraryObject = 1048576,
+    FF_DontNavigate = 524288,
+    FF_SaveStaticTracks = 262144,
+};
+enum FEParamType {
+    PT_Bool = 0,
+    PT_Int = 1,
+    PT_Float = 2,
+    PT_Vector2 = 3,
+    PT_Vector3 = 4,
+    PT_Quaternion = 5,
+    PT_Color = 6,
+    PT_ParamTypeCount = 7,
+};
+enum FEPlayActions {
+    AT_Once = 0,
+    AT_Loop = 1,
+    AT_PingPong = 2,
+    AT_ActionTypeCount = 3,
+};
+enum FEResourceType {
+    RT_None = 0,
+    RT_Image = 1,
+    RT_Font = 2,
+    RT_Model = 3,
+    RT_Movie = 4,
+    RT_Effect = 5,
+    RT_AnimImage = 6,
+    RT_ResourceTypeCount = 7,
+};
+enum FEStringFormatting {
+    _FESTRING_JUSTIFY_HCENTER = 0,
+    _FESTRING_JUSTIFY_HRIGHT = 1,
+    _FESTRING_JUSTIFY_VCENTER = 2,
+    _FESTRING_JUSTIFY_VBOTTOM = 3,
+    _FESTRING_FORMAT_WORDWRAP = 4,
+    FESTRING_JUSTIFY_FORCEU32 = -1,
+};
+enum FILEERR {
+    FERR_NormalEnd = 0,
+    FERR_NoOps = 1,
+    FERR_NoHandles = 2,
+    FERR_BigClose = 3,
+    FERR_BigOpen = 4,
+    FERR_NoExist = 5,
+    FERR_InvalidHandle = 6,
+    FERR_NumErrors = 7,
+};
+enum FILEOPTYPE {
+    FOPTYPE_unused = 0,
+    FOPTYPE_used = 1,
+    FOPTYPE_open = 2,
+    FOPTYPE_close = 3,
+    FOPTYPE_read = 4,
+    FOPTYPE_write = 5,
+    FOPTYPE_size = 6,
+    FOPTYPE_null = 7,
+    FOPTYPE_exist = 8,
+    FOPTYPE_addbig = 9,
+    FOPTYPE_delbig = 10,
+    FOPTYPE_delete = 11,
+};
+enum FILE_TypeEnum {
+    FREE_FILE = 0,
+    BIG_FILE = 1,
+    DVD_FILE = 2,
+    HOST_FILE = 3,
+};
+enum FILTER_ID {
+    FILTER_DEFAULT = 0,
+    FILTER_EFB_XFB = 1,
+    FILTER_CUBE_FACES = 2,
+    FILTER_SPHERE_MAP = 3,
+    FILTER_REFLECTION = 4,
+    FILTER_MOTIONBLUR = 5,
+    FILTER_GLOWBLOOM = 6,
+    FILTER_TOTAL = 7,
+};
+enum FONTVALUE {
+    FONT_FALSE = 0,
+    FONT_TRUE = 1,
+    FONT_FILTER_POINT = 0,
+    FONT_FILTER_BILINEAR = 1,
+    FONT_DEPTHWRITE_DISABLE = 0,
+    FONT_DEPTHWRITE_ENABLE = 1,
+};
+enum FS_EVNT {
+    FS_EVNT_AS_CMDCOMPL = 0,
+    FS_EVNT_OPEN = 1,
+    FS_EVNT_CLOSE = 2,
+    FS_EVNT_AS_READ = 3,
+    FS_EVNT_AS_WRITE = 4,
+    FS_EVNT_AS_EXIST = 5,
+    FS_EVNT_AS_ADDBIG = 6,
+    FS_EVNT_CD_READ = 7,
+    FS_EVNT_CD_READCOMPL = 8,
+    FS_EVNT_CACHEFILE = 9,
+    FS_EVNT_CACHEWRITE = 10,
+    FS_EVNT_CACHEHIT = 11,
+};
+enum FileReadStateEnum {
+    START = 0,
+    SMALL_FILE = 1,
+    ALIGN_THE_START = 2,
+    ALIGN_READ = 3,
+    NONALIGN_READ = 4,
+    DONE = 5,
+};
+enum FogPalleteModes {
+    FOG_NORMAL_P = 0,
+    FOG_NIGHT_P = 1,
+    FOG_DEPTH_P = 2,
+    FOG_SINGLE_P = 3,
+    FOG_VOLUME_P = 4,
+    FOG_HEADLIGHT_P = 5,
+    FOG_NUM_MODES = 6,
+};
+enum FogVolumeBlend {
+    FOG_BLEND_NORMAL = 0,
+    FOG_BLEND_ADDATIVE = 1,
+    FOG_BLEND_SUBTRACTIVE = 2,
+};
+enum FogVolumeShape {
+    SPHERE = 0,
+    HALF_SPHERE = 1,
+    CUBE = 2,
+    CYLINDER = 3,
+    CONE = 4,
+    FOG_NUM_SHAPES = 5,
+};
+enum FogVolumeType {
+    DISTANT_FOG = 0,
+    VOLUME_FOG = 1,
+    HEADLIGHT_FOG = 2,
+};
+enum ForceType {
+    SPRING = 0,
+    CONSTANT = 1,
+    DAMPER = 2,
+    SIDE_COLLISION = 3,
+    FRONTAL_COLLISION = 4,
+    DIRT_ROAD = 5,
+    BUMPY_ROAD = 6,
+    SLIPPERY_ROAD = 7,
+    SURFACE_EFFECT = 8,
+    CAR_AIRBORNE = 9,
+    NUMBER_FORCE_EFFECTS = 10,
+};
+enum FrontendSoundEvent {
+    FE_SOUND_NONE = 0,
+    FE_SOUND_MENU_LEFT = 1,
+    FE_SOUND_MENU_RIGHT = 2,
+    FE_SOUND_MENU_UP = 3,
+    FE_SOUND_MENU_DOWN = 4,
+    FE_SOUND_MENU_SELECT = 5,
+    FE_SOUND_MENU_BACK = 6,
+    FE_SOUND_MENU_START = 7,
+    FE_SOUND_BROWSER_LEFT = 8,
+    FE_SOUND_BROWSER_RIGHT = 9,
+    FE_SOUND_SLIDER_LEFT = 10,
+    FE_SOUND_SLIDER_RIGHT = 11,
+    FE_SOUND_SUMMON_DIALOG = 12,
+    FE_SOUND_SUMMON_HELP = 13,
+    FE_SOUND_SUMMON_CUSTOMIZE = 14,
+    FE_SOUND_KEYBOARD_LEFT = 15,
+    FE_SOUND_KEYBOARD_RIGHT = 16,
+    FE_SOUND_KEYBOARD_UP = 17,
+    FE_SOUND_KEYBOARD_DOWN = 18,
+    FE_SOUND_KEYBOARD_ENTER = 19,
+    FE_SOUND_KEYBOARD_DELETE = 20,
+};
+enum GXWarningLevel {
+    GX_WARN_NONE = 0,
+    GX_WARN_SEVERE = 1,
+    GX_WARN_MEDIUM = 2,
+    GX_WARN_ALL = 3,
+};
+enum GameFlowState {
+    GAMEFLOW_STATE_NONE = 0,
+    GAMEFLOW_STATE_LOADING_FRONTEND = 1,
+    GAMEFLOW_STATE_UNLOADING_FRONTEND = 2,
+    GAMEFLOW_STATE_IN_FRONTEND = 3,
+    GAMEFLOW_STATE_LOADING_TRACK_COMMON = 4,
+    GAMEFLOW_STATE_LOADING_TRACK_SPECIFIC = 5,
+    GAMEFLOW_STATE_RACING = 6,
+    GAMEFLOW_STATE_UNLOADING_TRACK_SPECIFIC = 7,
+    GAMEFLOW_STATE_UNLOADING_TRACK_COMMON = 8,
+    GAMEFLOW_STATE_EXIT_DEMO_DISC = 9,
+};
+enum GamecubeButtonBits {
+    BIT_A = 16,
+    BIT_B = 17,
+    BIT_X = 18,
+    BIT_Y = 19,
+    BIT_Z = 20,
+    BIT_START = 21,
+    BIT_DPADU = 24,
+    BIT_DPADD = 25,
+    BIT_DPADL = 26,
+    BIT_DPADR = 27,
+    BITS_LTRIGGER = 8,
+    BITS_RTRIGGER = 0,
+    BITS_ANALOG_LEFT_X = 56,
+    BITS_ANALOG_LEFT_Y = 48,
+    BITS_ANALOG_RIGHT_X = 40,
+    BITS_ANALOG_RIGHT_Y = 32,
+};
+enum GamecubeControllerModelType {
+    PAD_STANDARD = 65,
+    PAD_LOGITECH_WHEEL = 80,
+    PAD_LOGITECH_WHEEL_PEDALS = 81,
+    PAD_NOT_PLUGGED_IN = 255,
+};
+enum GamecubeTerminalType {
+    TERM_NONE = 0,
+    TERM_DEFAULT = 1,
+};
+// innerer Typ von AttributeId
+enum ID {
+    ID_INVALID = 0,
+    ID_FPS = 1,
+    ID_MAX = 2,
+    ID_USERBASE = 128,
+};
+enum JoyEvent {
+    JOY_EVENT_NULL = 0,
+    JOY_EVENT_TYPE_CHANGED = 1,
+    JOY_EVENT_EXIT_DEMO_DISC = 2,
+    JOY_EVENT_SCROLL_UP = 3,
+    JOY_EVENT_SCROLL_DOWN = 4,
+    JOY_EVENT_SCROLL_LEFT = 5,
+    JOY_EVENT_SCROLL_RIGHT = 6,
+    JOY_EVENT_START = 7,
+    JOY_EVENT_SELECT = 8,
+    JOY_EVENT_MENU_SELECT = 9,
+    JOY_EVENT_MENU_CANCEL = 10,
+    JOY_EVENT_MENU_BACK = 11,
+    JOY_EVENT_MENU_HELP = 12,
+    JOY_EVENT_MENU_L1 = 13,
+    JOY_EVENT_MENU_L2 = 14,
+    JOY_EVENT_MENU_R1 = 15,
+    JOY_EVENT_MENU_R2 = 16,
+    JOY_EVENT_MENU_SQUARE = 17,
+    JOY_EVENT_MENU_ANALOG_LEFT = 18,
+    JOY_EVENT_MENU_ANALOG_RIGHT = 19,
+    JOY_EVENT_MENU_ANALOG_UP = 20,
+    JOY_EVENT_MENU_ANALOG_DOWN = 21,
+    JOY_EVENT_FENG_START = 22,
+    JOY_EVENT_FENG_BUTTON0 = 23,
+    JOY_EVENT_FENG_BUTTON1 = 24,
+    JOY_EVENT_FENG_BUTTON2 = 25,
+    JOY_EVENT_FENG_BUTTON3 = 26,
+    JOY_EVENT_FENG_LTRIGGER = 27,
+    JOY_EVENT_FENG_RTRIGGER = 28,
+    JOY_EVENT_FENG_SELECT = 29,
+    JOY_EVENT_FENG_SELECT_ALTERNATE = 30,
+    JOY_EVENT_FENG_CANCEL = 31,
+    JOY_EVENT_FENG_CANCEL_ALTERNATE = 32,
+    JOY_EVENT_FENG_HELP = 33,
+    JOY_EVENT_FENG_PAD_UP = 34,
+    JOY_EVENT_FENG_PAD_DOWN = 35,
+    JOY_EVENT_FENG_PAD_LEFT = 36,
+    JOY_EVENT_FENG_PAD_RIGHT = 37,
+    JOY_EVENT_FENG_PAD_UP_ALTERNATE = 38,
+    JOY_EVENT_FENG_PAD_DOWN_ALTERNATE = 39,
+    JOY_EVENT_FENG_PAD_LEFT_ALTERNATE = 40,
+    JOY_EVENT_FENG_PAD_RIGHT_ALTERNATE = 41,
+    JOY_EVENT_FENG_QUIT = 42,
+    JOY_EVENT_FENG_RACEOPTIONS = 43,
+    JOY_EVENT_DEBUG_LANGUAGE_CHANGE = 44,
+    JOY_EVENT_SKIP_DEMO_MODE = 45,
+    JOY_EVENT_MAIN_MENU_SELECT_TRANSMISSION = 46,
+    JOY_EVENT_ANY = 47,
+    JOY_EVENT_EXIT_EDIT_TEXT = 48,
+    JOY_EVENT_CLEAR_TEXT = 49,
+    JOY_EVENT_CANCEL_EDIT_TEXT = 50,
+    JOY_EVENT_DELETE_CHAR = 51,
+    JOY_EVENT_ROTATE_LETTER_UP = 52,
+    JOY_EVENT_ROTATE_LETTER_DOWN = 53,
+    JOY_EVENT_PREV_CHAR = 54,
+    JOY_EVENT_NEXT_CHAR = 55,
+    JOY_EVENT_CARSEL_CHANGE_MODE = 56,
+    JOY_EVENT_CARSEL_UNLOCK = 57,
+    JOY_EVENT_CARSEL_ORBIT_LEFT = 58,
+    JOY_EVENT_CARSEL_ORBIT_RIGHT = 59,
+    JOY_EVENT_CARSEL_ORBIT_UP = 60,
+    JOY_EVENT_CARSEL_ORBIT_DOWN = 61,
+    JOY_EVENT_CARSEL_ORBIT_IN = 62,
+    JOY_EVENT_CARSEL_ORBIT_OUT = 63,
+    JOY_EVENT_CARSEL_ORBIT_LEFTRIGHT = 64,
+    JOY_EVENT_CARSEL_ORBIT_UPDOWN = 65,
+    JOY_EVENT_CARSEL_ORBIT_INOUT = 66,
+    JOY_EVENT_DIRECTION = 67,
+    JOY_EVENT_CHANGE_DEBUG_CAMERA = 68,
+    JOY_EVENT_DEBUG_CAMERA_ROTATE_RIGHT = 69,
+    JOY_EVENT_DEBUG_CAMERA_ROTATE_LEFT = 70,
+    JOY_EVENT_DEBUG_CAMERA_ROTATE_UP = 71,
+    JOY_EVENT_DEBUG_CAMERA_ROTATE_DOWN = 72,
+    JOY_EVENT_DEBUG_CAMERA_MOVE_CLOSER = 73,
+    JOY_EVENT_DEBUG_CAMERA_MOVE_FARTHER = 74,
+    JOY_EVENT_DEBUG_CAMERA_NEXT_CAR = 75,
+    JOY_EVENT_DEBUG_CAMERA_PREV_CAR = 76,
+    JOY_EVENT_DEBUG_CAMERA_FOLLOW_CHOPPER = 77,
+    JOY_EVENT_DEBUG_CAMERA_TURN_LEFT = 78,
+    JOY_EVENT_DEBUG_CAMERA_TURN_RIGHT = 79,
+    JOY_EVENT_DEBUG_CAMERA_TURN_DOWN = 80,
+    JOY_EVENT_DEBUG_CAMERA_TURN_UP = 81,
+    JOY_EVENT_DEBUG_CAMERA_MOVE_DOWN = 82,
+    JOY_EVENT_DEBUG_CAMERA_MOVE_UP = 83,
+    JOY_EVENT_DEBUG_CAMERA_MOVE_FWD = 84,
+    JOY_EVENT_DEBUG_CAMERA_MOVE_BACK = 85,
+    JOY_EVENT_DEBUG_CAMERA_MOVE_LEFT = 86,
+    JOY_EVENT_DEBUG_CAMERA_MOVE_RIGHT = 87,
+    JOY_EVENT_DEBUG_CAMERA_TURBO = 88,
+    JOY_EVENT_DEBUG_CAMERA_SUPER_TURBO = 89,
+    JOY_EVENT_DEBUG_CAMERA_SLOW = 90,
+    JOY_EVENT_DEBUG_CAMERA_FORWARD_BLINK = 91,
+    JOY_EVENT_DEBUG_CAMERA_BACKWARD_BLINK = 92,
+    JOY_EVENT_DEBUG_CAMERA_DROP_CAR = 93,
+    JOY_EVENT_DEBUG_CAMERA_ROTATE_LEFTRIGHT = 94,
+    JOY_EVENT_DEBUG_CAMERA_ROTATE_UPDOWN = 95,
+    JOY_EVENT_DEBUG_CAMERA_STRAFE_LEFTRIGHT = 96,
+    JOY_EVENT_DEBUG_CAMERA_INOUT = 97,
+    JOY_EVENT_TRACKROUTE_EDITOR_TURN_LEFTRIGHT = 98,
+    JOY_EVENT_TRACKROUTE_EDITOR_TURN_UPDOWN = 99,
+    JOY_EVENT_TRACKROUTE_EDITOR_DRIVE_FORWARDBACKWARD = 100,
+    JOY_EVENT_TRACKROUTE_EDITOR_DRIVE_LEFTRIGHT = 101,
+    JOY_EVENT_TRACKROUTE_EDITOR_DRIVE_TURBO = 102,
+    JOY_EVENT_TRACKROUTE_EDITOR_MOVE_UP = 103,
+    JOY_EVENT_TRACKROUTE_EDITOR_MOVE_DOWN = 104,
+    JOY_EVENT_TRACKROUTE_EDITOR_DPAD_UP = 105,
+    JOY_EVENT_TRACKROUTE_EDITOR_DPAD_DOWN = 106,
+    JOY_EVENT_TRACKROUTE_EDITOR_DPAD_LEFT = 107,
+    JOY_EVENT_TRACKROUTE_EDITOR_DPAD_RIGHT = 108,
+    JOY_EVENT_TRACKROUTE_EDITOR_NEXT_ROUTE = 109,
+    JOY_EVENT_TRACKROUTE_EDITOR_NEXT_POINT = 110,
+    JOY_EVENT_TRACKROUTE_EDITOR_PREV_POINT = 111,
+    JOY_EVENT_TRACKROUTE_EDITOR_RESET_POS = 112,
+    JOY_EVENT_TRACKROUTE_EDITOR_EDIT_RIGHT_WIDTH = 113,
+    JOY_EVENT_TRACKROUTE_EDITOR_EDIT_LEFT_WIDTH = 114,
+    JOY_EVENT_TRACKROUTE_EDITOR_EDIT_POSITION = 115,
+    JOY_EVENT_TOGGLE_TRACK_MARKER = 116,
+    JOY_EVENT_CAMERA_POV_CHANGE = 117,
+    JOY_EVENT_CAMERA_LOOKBACK = 118,
+    JOY_EVENT_ZONE_FREEZE = 119,
+    JOY_EVENT_ZONE_PREVIEW = 120,
+    JOY_EVENT_ZONE_SLOMO = 121,
+    JOY_EVENT_ZONE_WARP = 122,
+    JOY_EVENT_REPLAY_SKIP = 123,
+    JOY_EVENT_REPLAY_PAUSE = 124,
+    JOY_EVENT_REPLAY_PREVIOUS_MARKER = 125,
+    JOY_EVENT_REPLAY_NEXT_MARKER = 126,
+    JOY_EVENT_REPLAY_PLAYBACK_SPEED = 127,
+    JOY_EVENT_REPLAY_CAMERA_ANGLE = 128,
+    JOY_EVENT_REPLAY_CAMERA_TARGET = 129,
+    JOY_EVENT_REPLAY_HELP = 130,
+    JOY_EVENT_REPLAY_HIDE_TIMELINE = 131,
+    JOY_EVENT_REPLAY_MARK_DEMO = 132,
+    JOY_EVENT_REPLAY_TEST_DEMO = 133,
+    JOY_EVENT_REPLAY_ERASE_DEMO = 134,
+    JOY_EVENT_STEER = 135,
+    JOY_EVENT_STEER_ANALOG = 136,
+    JOY_EVENT_THROTTLE = 137,
+    JOY_EVENT_THROTTLE_ANALOG = 138,
+    JOY_EVENT_THROTTLE_ANALOG_ALTERNATE = 139,
+    JOY_EVENT_BRAKE = 140,
+    JOY_EVENT_BRAKE_ANALOG = 141,
+    JOY_EVENT_BRAKE_ANALOG_ALTERNATE = 142,
+    JOY_EVENT_REVERSE = 143,
+    JOY_EVENT_REVERSE_ANALOG = 144,
+    JOY_EVENT_EBRAKE = 145,
+    JOY_EVENT_EBRAKE_ANALOG = 146,
+    JOY_EVENT_SHIFTUP = 147,
+    JOY_EVENT_SHIFTDOWN = 148,
+    JOY_EVENT_SHIFTUP_ALTERNATE = 149,
+    JOY_EVENT_SHIFTDOWN_ALTERNATE = 150,
+    JOY_EVENT_DISENGAGE_CLUTCH = 151,
+    JOY_EVENT_DISENGAGE_CLUTCH_ANALOG = 152,
+    JOY_EVENT_RESET_CAR = 153,
+    JOY_EVENT_HONK_HORN = 154,
+    JOY_EVENT_NITRO_BOOST = 155,
+    JOY_EVENT_NITRO_BOOST_ALTERNATE = 156,
+    JOY_EVENT_REQUEST_ROADBLOCK = 157,
+    JOY_EVENT_REQUEST_HELICOPTER = 158,
+    JOY_EVENT_FIRE_ROCKET = 159,
+    JOY_EVENT_AIM_ROCKET_LR = 160,
+    JOY_EVENT_AIM_ROCKET_UD = 161,
+    JOY_EVENT_AIM_ZOOM = 162,
+    JOY_EVENT_AUTO_PILOT = 163,
+    JOY_EVENT_STEER_ROCKET_ANALOG = 164,
+    JOY_EVENT_DETONANTE_ROCKET = 165,
+    JOY_EVENT_DRAG_RACE_CHANGE_LANE_LEFT = 166,
+    JOY_EVENT_DRAG_RACE_CHANGE_LANE_RIGHT = 167,
+    JOY_EVENT_DRAG_RACE_CHANGE_LANE_LEFT_ANALOG = 168,
+    JOY_EVENT_DRAG_RACE_CHANGE_LANE_RIGHT_ANALOG = 169,
+    JOY_EVENT_CYCLE_HUD = 170,
+    JOY_EVENT_PAUSE = 171,
+    JOY_EVENT_SKIP = 172,
+    JOY_EVENT_EASTER_EGG_L1 = 173,
+    JOY_EVENT_EASTER_EGG_L2 = 174,
+    JOY_EVENT_EASTER_EGG_R1 = 175,
+    JOY_EVENT_EASTER_EGG_R2 = 176,
+    JOY_EVENT_EASTER_EGG_DPAD_LEFT = 177,
+    JOY_EVENT_EASTER_EGG_DPAD_RIGHT = 178,
+    JOY_EVENT_EASTER_EGG_SQUARE = 179,
+    JOY_EVENT_EASTER_EGG_TRIANGLE = 180,
+    JOY_EVENT_EASTER_EGG_L3 = 181,
+    JOY_EVENT_EASTER_EGG_R3 = 182,
+    JOY_EVENT_EASTER_EGG_DPADU = 183,
+    JOY_EVENT_EASTER_EGG_DPADD = 184,
+    JOY_EVENT_EASTER_EGG_START = 185,
+    JOY_EVENT_EASTER_EGG_SELECT = 186,
+    JOY_EVENT_EASTER_EGG_CROSS = 187,
+    JOY_EVENT_EASTER_EGG_CIRCLE = 188,
+    NUM_JOY_EVENTS = 189,
+};
+enum JoylogChannel {
+    JOYLOG_CHANNEL_NONE = 0,
+    JOYLOG_CHANNEL_CONFIG = 1,
+    JOYLOG_CHANNEL_JOYEVENTS = 2,
+    JOYLOG_CHANNEL_TIMESTEP = 3,
+    JOYLOG_CHANNEL_CHECKSUM = 4,
+    JOYLOG_CHANNEL_LOOP_COUNTER = 5,
+    JOYLOG_CHANNEL_QUEUEDFILE_STATUS = 6,
+    JOYLOG_CHANNEL_MOVIE_PLAYER_STATUS = 7,
+    JOYLOG_CHANNEL_MEMORY_CARD = 8,
+    JOYLOG_CHANNEL_TRACK_STREAMER = 9,
+    JOYLOG_CHANNEL_RANDOM = 10,
+    JOYLOG_NUM_CHANNELS = 11,
+};
+enum JoystickPort {
+    JOYSTICK_PORT_NONE = -1,
+    JOYSTICK_PORT1 = 0,
+    JOYSTICK_PORT2 = 1,
+    JOYSTICK_PORT3 = 2,
+    JOYSTICK_PORT4 = 3,
+};
+enum LOCALESTATE {
+    LOCALE_LANGUAGEID = 0,
+    LOCALE_LANGUAGECOUNT = 1,
+    LOCALE_STRINGCOUNT = 2,
+    LOCALE_HASINDEX = 3,
+};
+enum MIPMAP_FLAG {
+    MIPMAP_KEEP = -1,
+    MIPMAP_OFF = 0,
+    MIPMAP_ON = 1,
+};
+enum MemFill_t {
+    MEMFILL_NOFILL = 0,
+    MEMFILL_FILL = 1,
+};
+enum OS_THREAD_STATE {
+    OS_THREAD_STATE_READY = 1,
+    OS_THREAD_STATE_RUNNING = 2,
+    OS_THREAD_STATE_WAITING = 4,
+    OS_THREAD_STATE_MORIBUND = 8,
+};
+enum PRINTCHANNEL {
+    PRINT_ALL = 0,
+    PRINT_REAL = 1,
+    PRINT_ALERT = 2,
+    PRINT_GENERAL = 3,
+    PRINT_MEM = 4,
+    PRINT_GRAPHICS = 5,
+    PRINT_SHAPE = 6,
+    PRINT_FILE = 7,
+    PRINT_INPUT = 8,
+    PRINT_SYSTEM = 9,
+    PRINT_FONT = 10,
+    PRINT_CODEC = 11,
+    PRINT_MATH = 12,
+    PRINT_DEBUG = 13,
+    PRINT_USER_CHANNEL = 14,
+};
+enum PRINTDEVICE {
+    PRINT_NULL = 0,
+    PRINT_CONSOLE = 1,
+    PRINT_DEBUGGER = 2,
+    PRINT_LOGFILE = 3,
+    PRINT_USER_DEVICE = 4,
+};
+enum PeriodicForceNumber {
+    PERIODIC_0 = 0,
+    PERIODIC_1 = 1,
+    PERIODIC_2 = 2,
+    PERIODIC_3 = 3,
+    PERIODIC_4 = 4,
+    PERIODIC_5 = 5,
+    PERIODIC_6 = 6,
+    PERIODIC_7 = 7,
+};
+enum QueuedFileStatus {
+    WAITING = 0,
+    READING = 1,
+    QueuedFileStatus_DONE = 2, // im Original: DONE
+    ERROR = 3,
+};
+enum QuickSplineBasisType {
+    QUICKSPLINE_OVERHAUSER = 0,
+};
+enum QuickSplineEndPointType {
+    QUICKSPLINE_LOOP = 0,
+    QUICKSPLINE_LINE = 1,
+    QUICKSPLINE_EXTRAPOLATED = 2,
+};
+enum RCMessage {
+    RC_MSG_NONE = 0,
+    RC_ACTIVATE = 1,
+    RC_UNACTIVATE = 2,
+    RC_TICK = 3,
+    RC_SKIP = 4,
+    RC_REQUEST_PAUSE = 5,
+    RC_REQUEST_UNPAUSE = 6,
+    RC_REQUEST_AUTO_REPLAY = 7,
+    RC_RESTART_RACE = 8,
+    RC_NEXT_RACE = 9,
+    RC_QUIT_RACE = 10,
+    RC_SKIP_REPLAY = 11,
+    RC_START_REPLAY = 12,
+    RC_TAKE_AUTOSNAPSHOT = 13,
+    RC_MOVE_REPLAY = 14,
+    RC_REQUEST_OPEN_TUTORIAL = 15,
+    RC_REQUEST_CLOSE_TUTORIAL = 16,
+    NUM_RC_MSGS = 17,
+};
+enum RCState {
+    RCSTATE_NONE = 0,
+    RCSTATE_LOADING = 1,
+    RCSTATE_CAMERA_FLYBY = 2,
+    RCSTATE_PRERACE = 3,
+    RCSTATE_RACE_IN_PROGRESS = 4,
+    RCSTATE_INSTANT_REPLAY = 5,
+    RCSTATE_AUTO_REPLAY = 6,
+    RCSTATE_PAUSE = 7,
+    RCSTATE_POSTRACE = 8,
+    RCSTATE_AI_DEMO_MODE = 9,
+    RCSTATE_REPLAY_DEMO_MODE = 10,
+    RCSTATE_TUTORIAL = 11,
+    NUM_RCSTATES = 12,
+};
+enum RampForceNumber {
+    RAMP_0 = 0,
+    RAMP_1 = 1,
+    RAMP_2 = 2,
+    RAMP_3 = 3,
+    RAMP_4 = 4,
+    RAMP_5 = 5,
+    RAMP_6 = 6,
+    RAMP_7 = 7,
+};
+enum ReplayChannel {
+    REPLAY_CHANNEL_JOYEVENTS = 0,
+    REPLAY_CHANNEL_TIMESTEP = 1,
+    REPLAY_CHANNEL_CHECKSUM = 2,
+    REPLAY_CHANNEL_SNAPSHOT_MARKER = 3,
+    REPLAY_NUM_CHANNELS = 4,
+};
+enum Result {
+    RESULT_OK = 0,
+    RESULT_ERR_MEM = -1,
+    RESULT_ERR_ALLOCATE = -2,
+    RESULT_ERR_HANDLEEXPIRED = -3,
+    RESULT_ERR_UNUSED = -4,
+    RESULT_ERR_NOTFOUND = -5,
+    RESULT_ERR_UNINITIALIZED = -6,
+};
+enum SHAPE_TYPE_ENUM {
+    SSH_P_4 = 1,
+    SSH_P_8 = 2,
+    SSH_ARGB_1555 = 3,
+    SSH_RGB_888 = 4,
+    SSH_ARGB_8888 = 5,
+    SSH_DXT1 = 96,
+    SSH_DXT3 = 97,
+    SSH_DXT5 = 98,
+    SSH_ARGB_8888_IPU_TILED = 6,
+    SSH_CLUT_ARGB_1555 = 32,
+    SSH_CLUT_ARGB_8888 = 33,
+    GSH_P_4 = 24,
+    GSH_P_8 = 25,
+    GSH_5A3 = 21,
+    GSH_RGB_565 = 20,
+    GSH_ARGB_8888 = 22,
+    GSH_DXT1 = 30,
+    GSH_L_4 = 16,
+    GSH_L_8 = 17,
+    GSH_AL_44 = 18,
+    GSH_AL_88 = 19,
+    GSH_YUV411 = 28,
+    GSH_CLUT_5A3 = 50,
+    GSH_CLUT_RGB_565 = 49,
+    GSH_CLUT_AL_88 = 48,
+    GSH_CLUT_ARGB_8888 = 51,
+    XSH_P_8 = 123,
+    XSH_P_4 = 121,
+    XSH_P_4H = 122,
+    XSH_ARGB_4444 = 109,
+    XSH_ARGB_1555 = 126,
+    XSH_RGB_565 = 120,
+    XSH_RGB_888 = 127,
+    XSH_ARGB_8888 = 125,
+    XSH_DXT1 = 96,
+    XSH_DXT3 = 97,
+    XSH_DXT5 = 98,
+    XSH_A_8 = 100,
+    XSH_AL_88 = 101,
+    XSH_YUY2 = 104,
+    XSH_YUV411 = 108,
+    XSH_LVU_655 = 103,
+    XSH_CLUT_ARGB_8888 = 42,
+    FSH_P_4 = 121,
+    FSH_P_8 = 123,
+    FSH_P_4H = 122,
+    FSH_ARGB_4444 = 109,
+    FSH_ARGB_1555 = 126,
+    FSH_RGB_565 = 120,
+    FSH_RGB_888 = 127,
+    FSH_ARGB_8888 = 125,
+    FSH_ARGB_6666 = 102,
+    FSH_ARGB_2101010 = 106,
+    FSH_DXT1 = 96,
+    FSH_DXT3 = 97,
+    FSH_DXT5 = 98,
+    FSH_A_8 = 100,
+    FSH_AL_88 = 101,
+    FSH_YUY2 = 104,
+    FSH_YUV411 = 108,
+    FSH_MADYUV = 99,
+    FSH_LVU_655 = 103,
+    FSH_CLUT_ARGB_1555 = 45,
+    FSH_CLUT_RGB_565 = 41,
+    FSH_CLUT_ARGB_8888 = 42,
+    FSH_CLUT_RGB_666 = 34,
+    FSH_CLUT_RGB_888 = 36,
+    FSH_CLUT_AXRGB_88565 = 44,
+    FSH_CLUT_AXARGB_881555 = 46,
+    ASH_P_4 = 1,
+    ASH_P_8 = 2,
+    ASH_ARGB_1555 = 3,
+    ASH_CLUT_ARGB_1555 = 32,
+    MSH_P_4 = 88,
+    MSH_P_8 = 89,
+    MSH_ARGB_1555 = 90,
+    MSH_RGB_565 = 91,
+    MSH_ARGB_4444 = 92,
+    MSH_RGB_888 = 93,
+    MSH_ARGB_8888 = 94,
+    MSH_CLUT_ARGB_8888 = 56,
+    SHP_NAME = 112,
+    SHP_HOT_SPOTS = 124,
+    SHP_CLUT_ANIMATION = 110,
+    SHP_COMMENT = 111,
+    SHP_METAL = 105,
+};
+enum SHIFTBits {
+    s_LEFT = 0,
+    s_RIGHT = 1,
+    s_DOWN = 2,
+    s_UP = 3,
+    s_TZ = 4,
+    s_TR = 5,
+    s_TL = 6,
+    s_A = 8,
+    s_B = 9,
+    s_X = 10,
+    s_Y = 11,
+    s_MENU = 12,
+    s_START = 12,
+};
+enum STATE {
+    ST_NORMAL = 0,
+    ST_PERCENT = 1,
+    ST_FLAG = 2,
+    ST_WIDTH = 3,
+    ST_DOT = 4,
+    ST_PRECIS = 5,
+    ST_SIZE = 6,
+    ST_TYPE = 7,
+};
+enum STREAMREQUESTSTATE {
+    STREAMREQUEST_FREE = 0,
+    STREAMREQUEST_PENDING = 1,
+    STREAMREQUEST_EXECUTING = 2,
+    STREAMREQUEST_COMPLETED = 3,
+    STREAMREQUEST_CANCELED = 4,
+};
+enum STREAMSTATE {
+    STREAM_IDLE = 0,
+    STREAM_RUNNING = 1,
+    STREAM_STOPPED = 2,
+};
+enum SWIZZLE_FLAG {
+    SWIZZLE_KEEP = -1,
+    SWIZZLE_OFF = 0,
+    SWIZZLE_ON = 1,
+};
+enum SlotPoolFlags {
+    SLOTPOOL_FLAG_OVERFLOW_IF_FULL = 1,
+    SLOTPOOL_FLAG_ZERO_ALLOCATED_MEMORY = 2,
+    SLOTPOOL_FLAG_WARN_IF_OVERFLOW = 4,
+    SLOTPOOL_FLAG_WARN_IF_NONEMPTY_DELETE = 8,
+};
+enum SplineType {
+    OVERHAUSER_LINE = 0,
+    OVERHAUSER_LOOP = 1,
+    OVERHAUSER_EXTRAPOLATED = 2,
+};
+enum TARGET_ID {
+    TARGET_FLAYER = 0,
+    TARGET_PLAYER1 = 1,
+    TARGET_PLAYER2 = 2,
+    TARGET_HEADLIGHT_P1 = 3,
+    TARGET_HEADLIGHT_P2 = 4,
+    TARGET_PLAYER1_RVM = 5,
+    TARGET_PLAYER1_REFLECTION = 6,
+    TARGET_PLAYER2_REFLECTION = 7,
+    TARGET_ENVMAP0F = 8,
+    TARGET_ENVMAP0R = 9,
+    TARGET_ENVMAP0B = 10,
+    TARGET_ENVMAP0L = 11,
+    TARGET_ENVMAP0U = 12,
+    TARGET_ENVMAP0D = 13,
+    TARGET_ENVMAP0_FULL = 14,
+    TOTAL_RENDER_TARGETS = 15,
+    FIRST_RENDER_TARGET = 0,
+    LAST_RENDER_TARGET = 14,
+    NUM_RENDER_TARGETS = 15,
+};
+enum THREAD_PRIORITY {
+    IDLE_PRIORITY = -3,
+    LOW_PRIORITY = -2,
+    BELOW_PRIORITY = -1,
+    NORM_PRIORITY = 0,
+    ABOVE_PRIORITY = 1,
+    HIGH_PRIORITY = 2,
+    CRIT_PRIORITY = 3,
+};
+enum TerrainEffect {
+    TERRAINFX_DRIVE_OVER = 0,
+    TERRAINFX_DRIVE_OVER2 = 1,
+    TERRAINFX_SKID_SMOKE = 2,
+    TERRAINFX_TIRE_SPEW = 3,
+    TERRAINFX_BOTTOM_OUT = 4,
+    TERRAINFX_COLLISION_IMPACT = 5,
+    TERRAINFX_COLLISION_SCRAPE = 6,
+    NUM_TERRAINFX = 7,
+};
+enum TerrainType {
+    TERRAIN_TYPE_NONE = 0,
+    TERRAIN_TYPE_ROAD = 1,
+    TERRAIN_TYPE_ROAD_WET = 2,
+    TERRAIN_TYPE_ROAD_DRIFT = 3,
+    TERRAIN_TYPE_ROAD_SMOKE_1 = 4,
+    TERRAIN_TYPE_ROAD_SMOKE_2 = 5,
+    TERRAIN_TYPE_ROAD_SMOKE_3 = 6,
+    TERRAIN_TYPE_BRIDGE = 7,
+    TERRAIN_TYPE_DIRT = 8,
+    TERRAIN_TYPE_GRAVEL = 9,
+    TERRAIN_TYPE_ROUGH_ROAD = 10,
+    TERRAIN_TYPE_COBBLESTONE = 11,
+    TERRAIN_TYPE_STAIRS = 12,
+    TERRAIN_TYPE_PUDDLE = 13,
+    TERRAIN_TYPE_DEEP_WATER = 14,
+    TERRAIN_TYPE_GRASS = 15,
+    TERRAIN_TYPE_SIDEWALK = 16,
+    TERRAIN_TYPE_WOOD = 17,
+    TERRAIN_TYPE_PLASTIC = 18,
+    TERRAIN_TYPE_GLASS = 19,
+    TERRAIN_TYPE_SOLID_WALL = 20,
+    TERRAIN_TYPE_SEE_THROUGH_WALL = 21,
+    TERRAIN_TYPE_PLANT = 22,
+    TERRAIN_TYPE_POST = 23,
+    TERRAIN_TYPE_PILLAR = 24,
+    TERRAIN_TYPE_METAL_GRATE = 25,
+    TERRAIN_TYPE_METAL = 26,
+    TERRAIN_TYPE_CHAINLINK = 27,
+    TERRAIN_TYPE_CAR = 28,
+    NUM_TERRAIN_TYPES = 29,
+};
+enum TextureAlphaBlendType {
+    TEXBLEND_SRCCOPY = 0,
+    TEXBLEND_BLEND = 1,
+    TEXBLEND_ADDATIVE = 2,
+    TEXBLEND_SUBTRACTIVE = 3,
+    TEXBLEND_OVERBRIGHT = 4,
+    TEXBLEND_DEST_BLEND = 5,
+    TEXBLEND_DEST_ADDATIVE = 6,
+    TEXBLEND_DEST_SUBTRACTIVE = 7,
+    TEXBLEND_DEST_OVERBRIGHT = 8,
+};
+enum TextureAlphaUsageType {
+    TEXUSAGE_NONE = 0,
+    TEXUSAGE_PUNCHTHRU = 1,
+    TEXUSAGE_MODULATED = 2,
+};
+enum TextureCompressionType {
+    TEXCOMP_DEFAULT = 0,
+    TEXCOMP_4BIT = 4,
+    TEXCOMP_8BIT = 8,
+    TEXCOMP_16BIT = 16,
+    TEXCOMP_24BIT = 24,
+    TEXCOMP_32BIT = 32,
+    TEXCOMP_DXT = 33,
+    TEXCOMP_S3TC = 34,
+    TEXCOMP_DXTC1 = 34,
+    TEXCOMP_DXTC3 = 36,
+    TEXCOMP_16BIT_1555 = 17,
+    TEXCOMP_16BIT_565 = 18,
+    TEXCOMP_16BIT_3555 = 19,
+    TEXCOMP_8BIT_16 = 128,
+    TEXCOMP_8BIT_64 = 129,
+};
+enum TextureLockType {
+    TEXLOCK_READ = 0,
+    TEXLOCK_WRITE = 1,
+    TEXLOCK_READWRITE = 2,
+};
+enum TextureMapsIndicies {
+    TEXMAP_BASE = 0,
+    TEXMAP_MTEX0 = 1,
+    TEXMAP_MTEX1 = 2,
+    TEXMAP_MTEX2 = 3,
+    TEXMAP_NUM = 4,
+};
+enum TextureScrollType {
+    TEXSCROLL_NONE = 0,
+    TEXSCROLL_SMOOTH = 1,
+    TEXSCROLL_SNAP = 2,
+    TEXSCROLL_OFFSETSCALE = 3,
+};
+enum TopologyTreePolygonFlags {
+    TOPOLOGY_TREE_POLYGON_FLAG_OVERLAPPING = 1,
+    TOPOLOGY_TREE_POLYGON_FLAG_VERTICAL = 2,
+    TOPOLOGY_TREE_POLYGON_FLAG_INFINITELY_HIGH = 4,
+    TOPOLOGY_TREE_POLYGON_FLAG_UPSIDE_DOWN = 8,
+    TOPOLOGY_TREE_POLYGON_FLAG_4VERTICES = 16,
+};
+// innerer Typ von AnimTypeId
+enum Type {
+    ANIM_INVALID = -1,
+    ANIM_RAWPOSE = 0,
+    ANIM_RAWEVENT = 1,
+    ANIM_RAWLINEAR = 2,
+    ANIM_CYCLE = 3,
+    ANIM_EVENTBLENDER = 4,
+    ANIM_GRAFT = 5,
+    ANIM_POSEBLENDER = 6,
+    ANIM_POSEMIRROR = 7,
+    ANIM_RUNBLENDER = 8,
+    ANIM_TURNBLENDER = 9,
+    ANIM_DELTALERP = 10,
+    ANIM_DELTAQUAT = 11,
+    ANIM_KEYLERP = 12,
+    ANIM_KEYQUAT = 13,
+    ANIM_PHASE = 14,
+    ANIM_COMPOUND = 15,
+    ANIM_RAWSTATE = 16,
+    ANIM_DELTAQ = 17,
+    ANIM_DELTAQFAST = 18,
+    ANIM_DELTASINGLEQ = 19,
+    ANIM_DELTAF3 = 20,
+    ANIM_DELTAF1 = 21,
+    ANIM_STATELESSQ = 22,
+    ANIM_STATELESSF3 = 23,
+    ANIM_MAX = 24,
+};
+enum UnPauseReasonType {
+    UNPAUSE_REASON_NONE = 0,
+    UNPAUSE_REASON_RESUME_RACE = 1,
+    UNPAUSE_REASON_RESTART_RACE = 2,
+    UNPAUSE_REASON_QUIT_RACE = 3,
+    UNPAUSE_REASON_INSTANT_REPLAY = 4,
+};
+enum UnmatchedInterface {
+    UNMATCHEDINTERFACE_FAIL = 0,
+    UNMATCHEDINTERFACE_ABORT = 1,
+};
+enum VIDEO_MODE {
+    MODE_PAL = 0,
+    MODE_NTSC = 1,
+    NUM_VIDEO_MODES = 2,
+};
+enum VITVMode {
+    VI_TVMODE_NTSC_INT = 0,
+    VI_TVMODE_NTSC_DS = 1,
+    VI_TVMODE_NTSC_PROG = 2,
+    VI_TVMODE_PAL_INT = 4,
+    VI_TVMODE_PAL_DS = 5,
+    VI_TVMODE_EURGB60_INT = 20,
+    VI_TVMODE_EURGB60_DS = 21,
+    VI_TVMODE_MPAL_INT = 8,
+    VI_TVMODE_MPAL_DS = 9,
+    VI_TVMODE_DEBUG_INT = 12,
+    VI_TVMODE_DEBUG_PAL_INT = 16,
+    VI_TVMODE_DEBUG_PAL_DS = 17,
+};
+enum VIXFBMode {
+    VI_XFBMODE_SF = 0,
+    VI_XFBMODE_DF = 1,
+};
+enum VShaderMode {
+    eVS_SCREEN = 0,
+    eVS_MODEL = 1,
+    eVS_PRIM = 2,
+    eVS_DEBUG_TEXT = 3,
+    eVS_MAXNUM = 4,
+};
+enum WeatherType {
+    WEATHER_RAIN = 0,
+    WEATHER_FOG = 1,
+    WEATHER_SNOW = 2,
+    WEATHER_WIND = 3,
+    WEATHER_FOG_VOLUME = 4,
+    NUM_WEATHER_TYPES = 5,
+};
+enum _GXAlphaOp {
+    GX_AOP_AND = 0,
+    GX_AOP_OR = 1,
+    GX_AOP_XOR = 2,
+    GX_AOP_XNOR = 3,
+    GX_MAX_ALPHAOP = 4,
+};
+enum _GXAlphaReadMode {
+    GX_READ_00 = 0,
+    GX_READ_FF = 1,
+    GX_READ_NONE = 2,
+};
+enum _GXAnisotropy {
+    GX_ANISO_1 = 0,
+    GX_ANISO_2 = 1,
+    GX_ANISO_4 = 2,
+    GX_MAX_ANISOTROPY = 3,
+};
+enum _GXAttnFn {
+    GX_AF_SPEC = 0,
+    GX_AF_SPOT = 1,
+    GX_AF_NONE = 2,
+};
+enum _GXAttr {
+    GX_VA_PNMTXIDX = 0,
+    GX_VA_TEX0MTXIDX = 1,
+    GX_VA_TEX1MTXIDX = 2,
+    GX_VA_TEX2MTXIDX = 3,
+    GX_VA_TEX3MTXIDX = 4,
+    GX_VA_TEX4MTXIDX = 5,
+    GX_VA_TEX5MTXIDX = 6,
+    GX_VA_TEX6MTXIDX = 7,
+    GX_VA_TEX7MTXIDX = 8,
+    GX_VA_POS = 9,
+    GX_VA_NRM = 10,
+    GX_VA_CLR0 = 11,
+    GX_VA_CLR1 = 12,
+    GX_VA_TEX0 = 13,
+    GX_VA_TEX1 = 14,
+    GX_VA_TEX2 = 15,
+    GX_VA_TEX3 = 16,
+    GX_VA_TEX4 = 17,
+    GX_VA_TEX5 = 18,
+    GX_VA_TEX6 = 19,
+    GX_VA_TEX7 = 20,
+    GX_POS_MTX_ARRAY = 21,
+    GX_NRM_MTX_ARRAY = 22,
+    GX_TEX_MTX_ARRAY = 23,
+    GX_LIGHT_ARRAY = 24,
+    GX_VA_NBT = 25,
+    GX_VA_MAX_ATTR = 26,
+    GX_VA_NULL = 255,
+};
+enum _GXAttrType {
+    GX_NONE = 0,
+    GX_DIRECT = 1,
+    GX_INDEX8 = 2,
+    GX_INDEX16 = 3,
+};
+enum _GXBlendFactor {
+    GX_BL_ZERO = 0,
+    GX_BL_ONE = 1,
+    GX_BL_SRCCLR = 2,
+    GX_BL_INVSRCCLR = 3,
+    GX_BL_SRCALPHA = 4,
+    GX_BL_INVSRCALPHA = 5,
+    GX_BL_DSTALPHA = 6,
+    GX_BL_INVDSTALPHA = 7,
+    GX_BL_DSTCLR = 2,
+    GX_BL_INVDSTCLR = 3,
+};
+enum _GXBlendMode {
+    GX_BM_NONE = 0,
+    GX_BM_BLEND = 1,
+    GX_BM_LOGIC = 2,
+    GX_BM_SUBTRACT = 3,
+    GX_MAX_BLENDMODE = 4,
+};
+enum _GXCITexFmt {
+    GX_TF_C4 = 8,
+    GX_TF_C8 = 9,
+    GX_TF_C14X2 = 10,
+};
+enum _GXChannelID {
+    GX_COLOR0 = 0,
+    GX_COLOR1 = 1,
+    GX_ALPHA0 = 2,
+    GX_ALPHA1 = 3,
+    GX_COLOR0A0 = 4,
+    GX_COLOR1A1 = 5,
+    GX_COLOR_ZERO = 6,
+    GX_ALPHA_BUMP = 7,
+    GX_ALPHA_BUMPN = 8,
+    GX_COLOR_NULL = 255,
+};
+enum _GXClipMode {
+    GX_CLIP_ENABLE = 0,
+    GX_CLIP_DISABLE = 1,
+};
+enum _GXColorSrc {
+    GX_SRC_REG = 0,
+    GX_SRC_VTX = 1,
+};
+enum _GXCompCnt {
+    GX_POS_XY = 0,
+    GX_POS_XYZ = 1,
+    GX_NRM_XYZ = 0,
+    GX_NRM_NBT = 1,
+    GX_NRM_NBT3 = 2,
+    GX_CLR_RGB = 0,
+    GX_CLR_RGBA = 1,
+    GX_TEX_S = 0,
+    GX_TEX_ST = 1,
+};
+enum _GXCompType {
+    GX_U8 = 0,
+    GX_S8 = 1,
+    GX_U16 = 2,
+    GX_S16 = 3,
+    GX_F32 = 4,
+    GX_RGB565 = 0,
+    GX_RGB8 = 1,
+    GX_RGBX8 = 2,
+    GX_RGBA4 = 3,
+    GX_RGBA6 = 4,
+    GX_RGBA8 = 5,
+};
+enum _GXCompare {
+    GX_NEVER = 0,
+    GX_LESS = 1,
+    GX_EQUAL = 2,
+    GX_LEQUAL = 3,
+    GX_GREATER = 4,
+    GX_NEQUAL = 5,
+    GX_GEQUAL = 6,
+    GX_ALWAYS = 7,
+};
+enum _GXCopyMode {
+    GX_COPY_PROGRESSIVE = 0,
+    GX_COPY_INTLC_EVEN = 2,
+    GX_COPY_INTLC_ODD = 3,
+};
+enum _GXCullMode {
+    GX_CULL_NONE = 0,
+    GX_CULL_FRONT = 1,
+    GX_CULL_BACK = 2,
+    GX_CULL_ALL = 3,
+};
+enum _GXDiffuseFn {
+    GX_DF_NONE = 0,
+    GX_DF_SIGN = 1,
+    GX_DF_CLAMP = 2,
+};
+enum _GXDistAttnFn {
+    GX_DA_OFF = 0,
+    GX_DA_GENTLE = 1,
+    GX_DA_MEDIUM = 2,
+    GX_DA_STEEP = 3,
+};
+enum _GXEvent {
+    GX_VCACHE_MISS_ALL = 0,
+    GX_VCACHE_MISS_POS = 1,
+    GX_VCACHE_MISS_NRM = 2,
+};
+enum _GXFBClamp {
+    GX_CLAMP_NONE = 0,
+    GX_CLAMP_TOP = 1,
+    GX_CLAMP_BOTTOM = 2,
+};
+enum _GXFogType {
+    GX_FOG_NONE = 0,
+    GX_FOG_PERSP_LIN = 2,
+    GX_FOG_PERSP_EXP = 4,
+    GX_FOG_PERSP_EXP2 = 5,
+    GX_FOG_PERSP_REVEXP = 6,
+    GX_FOG_PERSP_REVEXP2 = 7,
+    GX_FOG_ORTHO_LIN = 10,
+    GX_FOG_ORTHO_EXP = 12,
+    GX_FOG_ORTHO_EXP2 = 13,
+    GX_FOG_ORTHO_REVEXP = 14,
+    GX_FOG_ORTHO_REVEXP2 = 15,
+    GX_FOG_LIN = 2,
+    GX_FOG_EXP = 4,
+    GX_FOG_EXP2 = 5,
+    GX_FOG_REVEXP = 6,
+    GX_FOG_REVEXP2 = 7,
+};
+enum _GXGamma {
+    GX_GM_1_0 = 0,
+    GX_GM_1_7 = 1,
+    GX_GM_2_2 = 2,
+};
+enum _GXIndTexAlphaSel {
+    GX_ITBA_OFF = 0,
+    GX_ITBA_S = 1,
+    GX_ITBA_T = 2,
+    GX_ITBA_U = 3,
+    GX_MAX_ITBALPHA = 4,
+};
+enum _GXIndTexBiasSel {
+    GX_ITB_NONE = 0,
+    GX_ITB_S = 1,
+    GX_ITB_T = 2,
+    GX_ITB_ST = 3,
+    GX_ITB_U = 4,
+    GX_ITB_SU = 5,
+    GX_ITB_TU = 6,
+    GX_ITB_STU = 7,
+    GX_MAX_ITBIAS = 8,
+};
+enum _GXIndTexFormat {
+    GX_ITF_8 = 0,
+    GX_ITF_5 = 1,
+    GX_ITF_4 = 2,
+    GX_ITF_3 = 3,
+    GX_MAX_ITFORMAT = 4,
+};
+enum _GXIndTexMtxID {
+    GX_ITM_OFF = 0,
+    GX_ITM_0 = 1,
+    GX_ITM_1 = 2,
+    GX_ITM_2 = 3,
+    GX_ITM_S0 = 5,
+    GX_ITM_S1 = 6,
+    GX_ITM_S2 = 7,
+    GX_ITM_T0 = 9,
+    GX_ITM_T1 = 10,
+    GX_ITM_T2 = 11,
+};
+enum _GXIndTexScale {
+    GX_ITS_1 = 0,
+    GX_ITS_2 = 1,
+    GX_ITS_4 = 2,
+    GX_ITS_8 = 3,
+    GX_ITS_16 = 4,
+    GX_ITS_32 = 5,
+    GX_ITS_64 = 6,
+    GX_ITS_128 = 7,
+    GX_ITS_256 = 8,
+    GX_MAX_ITSCALE = 9,
+};
+enum _GXIndTexStageID {
+    GX_INDTEXSTAGE0 = 0,
+    GX_INDTEXSTAGE1 = 1,
+    GX_INDTEXSTAGE2 = 2,
+    GX_INDTEXSTAGE3 = 3,
+    GX_MAX_INDTEXSTAGE = 4,
+};
+enum _GXIndTexWrap {
+    GX_ITW_OFF = 0,
+    GX_ITW_256 = 1,
+    GX_ITW_128 = 2,
+    GX_ITW_64 = 3,
+    GX_ITW_32 = 4,
+    GX_ITW_16 = 5,
+    GX_ITW_0 = 6,
+    GX_MAX_ITWRAP = 7,
+};
+enum _GXLightID {
+    GX_LIGHT0 = 1,
+    GX_LIGHT1 = 2,
+    GX_LIGHT2 = 4,
+    GX_LIGHT3 = 8,
+    GX_LIGHT4 = 16,
+    GX_LIGHT5 = 32,
+    GX_LIGHT6 = 64,
+    GX_LIGHT7 = 128,
+    GX_MAX_LIGHT = 256,
+    GX_LIGHT_NULL = 0,
+};
+enum _GXLogicOp {
+    GX_LO_CLEAR = 0,
+    GX_LO_AND = 1,
+    GX_LO_REVAND = 2,
+    GX_LO_COPY = 3,
+    GX_LO_INVAND = 4,
+    GX_LO_NOOP = 5,
+    GX_LO_XOR = 6,
+    GX_LO_OR = 7,
+    GX_LO_NOR = 8,
+    GX_LO_EQUIV = 9,
+    GX_LO_INV = 10,
+    GX_LO_REVOR = 11,
+    GX_LO_INVCOPY = 12,
+    GX_LO_INVOR = 13,
+    GX_LO_NAND = 14,
+    GX_LO_SET = 15,
+};
+enum _GXMiscToken {
+    GX_MT_XF_FLUSH = 1,
+    GX_MT_DL_SAVE_CONTEXT = 2,
+    GX_MT_ABORT_WAIT_COPYOUT = 3,
+    GX_MT_NULL = 0,
+};
+enum _GXPTTexMtx {
+    GX_PTTEXMTX0 = 64,
+    GX_PTTEXMTX1 = 67,
+    GX_PTTEXMTX2 = 70,
+    GX_PTTEXMTX3 = 73,
+    GX_PTTEXMTX4 = 76,
+    GX_PTTEXMTX5 = 79,
+    GX_PTTEXMTX6 = 82,
+    GX_PTTEXMTX7 = 85,
+    GX_PTTEXMTX8 = 88,
+    GX_PTTEXMTX9 = 91,
+    GX_PTTEXMTX10 = 94,
+    GX_PTTEXMTX11 = 97,
+    GX_PTTEXMTX12 = 100,
+    GX_PTTEXMTX13 = 103,
+    GX_PTTEXMTX14 = 106,
+    GX_PTTEXMTX15 = 109,
+    GX_PTTEXMTX16 = 112,
+    GX_PTTEXMTX17 = 115,
+    GX_PTTEXMTX18 = 118,
+    GX_PTTEXMTX19 = 121,
+    GX_PTIDENTITY = 125,
+};
+enum _GXPerf0 {
+    GX_PERF0_VERTICES = 0,
+    GX_PERF0_CLIP_VTX = 1,
+    GX_PERF0_CLIP_CLKS = 2,
+    GX_PERF0_XF_WAIT_IN = 3,
+    GX_PERF0_XF_WAIT_OUT = 4,
+    GX_PERF0_XF_XFRM_CLKS = 5,
+    GX_PERF0_XF_LIT_CLKS = 6,
+    GX_PERF0_XF_BOT_CLKS = 7,
+    GX_PERF0_XF_REGLD_CLKS = 8,
+    GX_PERF0_XF_REGRD_CLKS = 9,
+    GX_PERF0_CLIP_RATIO = 10,
+    GX_PERF0_TRIANGLES = 11,
+    GX_PERF0_TRIANGLES_CULLED = 12,
+    GX_PERF0_TRIANGLES_PASSED = 13,
+    GX_PERF0_TRIANGLES_SCISSORED = 14,
+    GX_PERF0_TRIANGLES_0TEX = 15,
+    GX_PERF0_TRIANGLES_1TEX = 16,
+    GX_PERF0_TRIANGLES_2TEX = 17,
+    GX_PERF0_TRIANGLES_3TEX = 18,
+    GX_PERF0_TRIANGLES_4TEX = 19,
+    GX_PERF0_TRIANGLES_5TEX = 20,
+    GX_PERF0_TRIANGLES_6TEX = 21,
+    GX_PERF0_TRIANGLES_7TEX = 22,
+    GX_PERF0_TRIANGLES_8TEX = 23,
+    GX_PERF0_TRIANGLES_0CLR = 24,
+    GX_PERF0_TRIANGLES_1CLR = 25,
+    GX_PERF0_TRIANGLES_2CLR = 26,
+    GX_PERF0_QUAD_0CVG = 27,
+    GX_PERF0_QUAD_NON0CVG = 28,
+    GX_PERF0_QUAD_1CVG = 29,
+    GX_PERF0_QUAD_2CVG = 30,
+    GX_PERF0_QUAD_3CVG = 31,
+    GX_PERF0_QUAD_4CVG = 32,
+    GX_PERF0_AVG_QUAD_CNT = 33,
+    GX_PERF0_CLOCKS = 34,
+    GX_PERF0_NONE = 35,
+};
+enum _GXPerf1 {
+    GX_PERF1_TEXELS = 0,
+    GX_PERF1_TX_IDLE = 1,
+    GX_PERF1_TX_REGS = 2,
+    GX_PERF1_TX_MEMSTALL = 3,
+    GX_PERF1_TC_CHECK1_2 = 4,
+    GX_PERF1_TC_CHECK3_4 = 5,
+    GX_PERF1_TC_CHECK5_6 = 6,
+    GX_PERF1_TC_CHECK7_8 = 7,
+    GX_PERF1_TC_MISS = 8,
+    GX_PERF1_VC_ELEMQ_FULL = 9,
+    GX_PERF1_VC_MISSQ_FULL = 10,
+    GX_PERF1_VC_MEMREQ_FULL = 11,
+    GX_PERF1_VC_STATUS7 = 12,
+    GX_PERF1_VC_MISSREP_FULL = 13,
+    GX_PERF1_VC_STREAMBUF_LOW = 14,
+    GX_PERF1_VC_ALL_STALLS = 15,
+    GX_PERF1_VERTICES = 16,
+    GX_PERF1_FIFO_REQ = 17,
+    GX_PERF1_CALL_REQ = 18,
+    GX_PERF1_VC_MISS_REQ = 19,
+    GX_PERF1_CP_ALL_REQ = 20,
+    GX_PERF1_CLOCKS = 21,
+    GX_PERF1_NONE = 22,
+};
+enum _GXPixelFmt {
+    GX_PF_RGB8_Z24 = 0,
+    GX_PF_RGBA6_Z24 = 1,
+    GX_PF_RGB565_Z16 = 2,
+    GX_PF_Z24 = 3,
+    GX_PF_Y8 = 4,
+    GX_PF_U8 = 5,
+    GX_PF_V8 = 6,
+    GX_PF_YUV420 = 7,
+};
+enum _GXPosNrmMtx {
+    GX_PNMTX0 = 0,
+    GX_PNMTX1 = 3,
+    GX_PNMTX2 = 6,
+    GX_PNMTX3 = 9,
+    GX_PNMTX4 = 12,
+    GX_PNMTX5 = 15,
+    GX_PNMTX6 = 18,
+    GX_PNMTX7 = 21,
+    GX_PNMTX8 = 24,
+    GX_PNMTX9 = 27,
+};
+enum _GXPrimitive {
+    GX_POINTS = 184,
+    GX_LINES = 168,
+    GX_LINESTRIP = 176,
+    GX_TRIANGLES = 144,
+    GX_TRIANGLESTRIP = 152,
+    GX_TRIANGLEFAN = 160,
+    GX_QUADS = 128,
+};
+enum _GXProjectionType {
+    GX_PERSPECTIVE = 0,
+    GX_ORTHOGRAPHIC = 1,
+};
+enum _GXSpotFn {
+    GX_SP_OFF = 0,
+    GX_SP_FLAT = 1,
+    GX_SP_COS = 2,
+    GX_SP_COS2 = 3,
+    GX_SP_SHARP = 4,
+    GX_SP_RING1 = 5,
+    GX_SP_RING2 = 6,
+};
+enum _GXTevAlphaArg {
+    GX_CA_APREV = 0,
+    GX_CA_A0 = 1,
+    GX_CA_A1 = 2,
+    GX_CA_A2 = 3,
+    GX_CA_TEXA = 4,
+    GX_CA_RASA = 5,
+    GX_CA_KONST = 6,
+    GX_CA_ZERO = 7,
+    GX_CA_ONE = 6,
+};
+enum _GXTevBias {
+    GX_TB_ZERO = 0,
+    GX_TB_ADDHALF = 1,
+    GX_TB_SUBHALF = 2,
+    GX_MAX_TEVBIAS = 3,
+};
+enum _GXTevClampMode {
+    GX_TC_LINEAR = 0,
+    GX_TC_GE = 1,
+    GX_TC_EQ = 2,
+    GX_TC_LE = 3,
+    GX_MAX_TEVCLAMPMODE = 4,
+};
+enum _GXTevColorArg {
+    GX_CC_CPREV = 0,
+    GX_CC_APREV = 1,
+    GX_CC_C0 = 2,
+    GX_CC_A0 = 3,
+    GX_CC_C1 = 4,
+    GX_CC_A1 = 5,
+    GX_CC_C2 = 6,
+    GX_CC_A2 = 7,
+    GX_CC_TEXC = 8,
+    GX_CC_TEXA = 9,
+    GX_CC_RASC = 10,
+    GX_CC_RASA = 11,
+    GX_CC_ONE = 12,
+    GX_CC_HALF = 13,
+    GX_CC_KONST = 14,
+    GX_CC_ZERO = 15,
+    GX_CC_TEXRRR = 16,
+    GX_CC_TEXGGG = 17,
+    GX_CC_TEXBBB = 18,
+    GX_CC_QUARTER = 14,
+};
+enum _GXTevColorChan {
+    GX_CH_RED = 0,
+    GX_CH_GREEN = 1,
+    GX_CH_BLUE = 2,
+    GX_CH_ALPHA = 3,
+};
+enum _GXTevKAlphaSel {
+    GX_TEV_KASEL_8_8 = 0,
+    GX_TEV_KASEL_7_8 = 1,
+    GX_TEV_KASEL_6_8 = 2,
+    GX_TEV_KASEL_5_8 = 3,
+    GX_TEV_KASEL_4_8 = 4,
+    GX_TEV_KASEL_3_8 = 5,
+    GX_TEV_KASEL_2_8 = 6,
+    GX_TEV_KASEL_1_8 = 7,
+    GX_TEV_KASEL_1 = 0,
+    GX_TEV_KASEL_3_4 = 2,
+    GX_TEV_KASEL_1_2 = 4,
+    GX_TEV_KASEL_1_4 = 6,
+    GX_TEV_KASEL_K0_R = 16,
+    GX_TEV_KASEL_K1_R = 17,
+    GX_TEV_KASEL_K2_R = 18,
+    GX_TEV_KASEL_K3_R = 19,
+    GX_TEV_KASEL_K0_G = 20,
+    GX_TEV_KASEL_K1_G = 21,
+    GX_TEV_KASEL_K2_G = 22,
+    GX_TEV_KASEL_K3_G = 23,
+    GX_TEV_KASEL_K0_B = 24,
+    GX_TEV_KASEL_K1_B = 25,
+    GX_TEV_KASEL_K2_B = 26,
+    GX_TEV_KASEL_K3_B = 27,
+    GX_TEV_KASEL_K0_A = 28,
+    GX_TEV_KASEL_K1_A = 29,
+    GX_TEV_KASEL_K2_A = 30,
+    GX_TEV_KASEL_K3_A = 31,
+};
+enum _GXTevKColorID {
+    GX_KCOLOR0 = 0,
+    GX_KCOLOR1 = 1,
+    GX_KCOLOR2 = 2,
+    GX_KCOLOR3 = 3,
+    GX_MAX_KCOLOR = 4,
+};
+enum _GXTevKColorSel {
+    GX_TEV_KCSEL_8_8 = 0,
+    GX_TEV_KCSEL_7_8 = 1,
+    GX_TEV_KCSEL_6_8 = 2,
+    GX_TEV_KCSEL_5_8 = 3,
+    GX_TEV_KCSEL_4_8 = 4,
+    GX_TEV_KCSEL_3_8 = 5,
+    GX_TEV_KCSEL_2_8 = 6,
+    GX_TEV_KCSEL_1_8 = 7,
+    GX_TEV_KCSEL_1 = 0,
+    GX_TEV_KCSEL_3_4 = 2,
+    GX_TEV_KCSEL_1_2 = 4,
+    GX_TEV_KCSEL_1_4 = 6,
+    GX_TEV_KCSEL_K0 = 12,
+    GX_TEV_KCSEL_K1 = 13,
+    GX_TEV_KCSEL_K2 = 14,
+    GX_TEV_KCSEL_K3 = 15,
+    GX_TEV_KCSEL_K0_R = 16,
+    GX_TEV_KCSEL_K1_R = 17,
+    GX_TEV_KCSEL_K2_R = 18,
+    GX_TEV_KCSEL_K3_R = 19,
+    GX_TEV_KCSEL_K0_G = 20,
+    GX_TEV_KCSEL_K1_G = 21,
+    GX_TEV_KCSEL_K2_G = 22,
+    GX_TEV_KCSEL_K3_G = 23,
+    GX_TEV_KCSEL_K0_B = 24,
+    GX_TEV_KCSEL_K1_B = 25,
+    GX_TEV_KCSEL_K2_B = 26,
+    GX_TEV_KCSEL_K3_B = 27,
+    GX_TEV_KCSEL_K0_A = 28,
+    GX_TEV_KCSEL_K1_A = 29,
+    GX_TEV_KCSEL_K2_A = 30,
+    GX_TEV_KCSEL_K3_A = 31,
+};
+enum _GXTevMode {
+    GX_MODULATE = 0,
+    GX_DECAL = 1,
+    GX_BLEND = 2,
+    GX_REPLACE = 3,
+    GX_PASSCLR = 4,
+};
+enum _GXTevOp {
+    GX_TEV_ADD = 0,
+    GX_TEV_SUB = 1,
+    GX_TEV_COMP_R8_GT = 8,
+    GX_TEV_COMP_R8_EQ = 9,
+    GX_TEV_COMP_GR16_GT = 10,
+    GX_TEV_COMP_GR16_EQ = 11,
+    GX_TEV_COMP_BGR24_GT = 12,
+    GX_TEV_COMP_BGR24_EQ = 13,
+    GX_TEV_COMP_RGB8_GT = 14,
+    GX_TEV_COMP_RGB8_EQ = 15,
+    GX_TEV_COMP_A8_GT = 14,
+    GX_TEV_COMP_A8_EQ = 15,
+};
+enum _GXTevRegID {
+    GX_TEVPREV = 0,
+    GX_TEVREG0 = 1,
+    GX_TEVREG1 = 2,
+    GX_TEVREG2 = 3,
+    GX_MAX_TEVREG = 4,
+};
+enum _GXTevScale {
+    GX_CS_SCALE_1 = 0,
+    GX_CS_SCALE_2 = 1,
+    GX_CS_SCALE_4 = 2,
+    GX_CS_DIVIDE_2 = 3,
+    GX_MAX_TEVSCALE = 4,
+};
+enum _GXTevStageID {
+    GX_TEVSTAGE0 = 0,
+    GX_TEVSTAGE1 = 1,
+    GX_TEVSTAGE2 = 2,
+    GX_TEVSTAGE3 = 3,
+    GX_TEVSTAGE4 = 4,
+    GX_TEVSTAGE5 = 5,
+    GX_TEVSTAGE6 = 6,
+    GX_TEVSTAGE7 = 7,
+    GX_TEVSTAGE8 = 8,
+    GX_TEVSTAGE9 = 9,
+    GX_TEVSTAGE10 = 10,
+    GX_TEVSTAGE11 = 11,
+    GX_TEVSTAGE12 = 12,
+    GX_TEVSTAGE13 = 13,
+    GX_TEVSTAGE14 = 14,
+    GX_TEVSTAGE15 = 15,
+    GX_MAX_TEVSTAGE = 16,
+};
+enum _GXTevSwapSel {
+    GX_TEV_SWAP0 = 0,
+    GX_TEV_SWAP1 = 1,
+    GX_TEV_SWAP2 = 2,
+    GX_TEV_SWAP3 = 3,
+    GX_MAX_TEVSWAP = 4,
+};
+enum _GXTexCacheSize {
+    GX_TEXCACHE_32K = 0,
+    GX_TEXCACHE_128K = 1,
+    GX_TEXCACHE_512K = 2,
+    GX_TEXCACHE_NONE = 3,
+};
+enum _GXTexCoordID {
+    GX_TEXCOORD0 = 0,
+    GX_TEXCOORD1 = 1,
+    GX_TEXCOORD2 = 2,
+    GX_TEXCOORD3 = 3,
+    GX_TEXCOORD4 = 4,
+    GX_TEXCOORD5 = 5,
+    GX_TEXCOORD6 = 6,
+    GX_TEXCOORD7 = 7,
+    GX_MAX_TEXCOORD = 8,
+    GX_TEXCOORD_NULL = 255,
+};
+enum _GXTexFilter {
+    GX_NEAR = 0,
+    GX_LINEAR = 1,
+    GX_NEAR_MIP_NEAR = 2,
+    GX_LIN_MIP_NEAR = 3,
+    GX_NEAR_MIP_LIN = 4,
+    GX_LIN_MIP_LIN = 5,
+};
+enum _GXTexFmt {
+    GX_TF_I4 = 0,
+    GX_TF_I8 = 1,
+    GX_TF_IA4 = 2,
+    GX_TF_IA8 = 3,
+    GX_TF_RGB565 = 4,
+    GX_TF_RGB5A3 = 5,
+    GX_TF_RGBA8 = 6,
+    GX_TF_CMPR = 14,
+    GX_CTF_R4 = 32,
+    GX_CTF_RA4 = 34,
+    GX_CTF_RA8 = 35,
+    GX_CTF_YUVA8 = 38,
+    GX_CTF_A8 = 39,
+    GX_CTF_R8 = 40,
+    GX_CTF_G8 = 41,
+    GX_CTF_B8 = 42,
+    GX_CTF_RG8 = 43,
+    GX_CTF_GB8 = 44,
+    GX_TF_Z8 = 17,
+    GX_TF_Z16 = 19,
+    GX_TF_Z24X8 = 22,
+    GX_CTF_Z4 = 48,
+    GX_CTF_Z8M = 57,
+    GX_CTF_Z8L = 58,
+    GX_CTF_Z16L = 60,
+    GX_TF_A8 = 39,
+};
+enum _GXTexGenSrc {
+    GX_TG_POS = 0,
+    GX_TG_NRM = 1,
+    GX_TG_BINRM = 2,
+    GX_TG_TANGENT = 3,
+    GX_TG_TEX0 = 4,
+    GX_TG_TEX1 = 5,
+    GX_TG_TEX2 = 6,
+    GX_TG_TEX3 = 7,
+    GX_TG_TEX4 = 8,
+    GX_TG_TEX5 = 9,
+    GX_TG_TEX6 = 10,
+    GX_TG_TEX7 = 11,
+    GX_TG_TEXCOORD0 = 12,
+    GX_TG_TEXCOORD1 = 13,
+    GX_TG_TEXCOORD2 = 14,
+    GX_TG_TEXCOORD3 = 15,
+    GX_TG_TEXCOORD4 = 16,
+    GX_TG_TEXCOORD5 = 17,
+    GX_TG_TEXCOORD6 = 18,
+    GX_TG_COLOR0 = 19,
+    GX_TG_COLOR1 = 20,
+};
+enum _GXTexGenType {
+    GX_TG_MTX3x4 = 0,
+    GX_TG_MTX2x4 = 1,
+    GX_TG_BUMP0 = 2,
+    GX_TG_BUMP1 = 3,
+    GX_TG_BUMP2 = 4,
+    GX_TG_BUMP3 = 5,
+    GX_TG_BUMP4 = 6,
+    GX_TG_BUMP5 = 7,
+    GX_TG_BUMP6 = 8,
+    GX_TG_BUMP7 = 9,
+    GX_TG_SRTG = 10,
+};
+enum _GXTexMapID {
+    GX_TEXMAP0 = 0,
+    GX_TEXMAP1 = 1,
+    GX_TEXMAP2 = 2,
+    GX_TEXMAP3 = 3,
+    GX_TEXMAP4 = 4,
+    GX_TEXMAP5 = 5,
+    GX_TEXMAP6 = 6,
+    GX_TEXMAP7 = 7,
+    GX_MAX_TEXMAP = 8,
+    GX_TEXMAP_NULL = 255,
+    GX_TEX_DISABLE = 256,
+};
+enum _GXTexMtx {
+    GX_TEXMTX0 = 30,
+    GX_TEXMTX1 = 33,
+    GX_TEXMTX2 = 36,
+    GX_TEXMTX3 = 39,
+    GX_TEXMTX4 = 42,
+    GX_TEXMTX5 = 45,
+    GX_TEXMTX6 = 48,
+    GX_TEXMTX7 = 51,
+    GX_TEXMTX8 = 54,
+    GX_TEXMTX9 = 57,
+    GX_IDENTITY = 60,
+};
+enum _GXTexMtxType {
+    GX_MTX3x4 = 0,
+    GX_MTX2x4 = 1,
+};
+enum _GXTexOffset {
+    GX_TO_ZERO = 0,
+    GX_TO_SIXTEENTH = 1,
+    GX_TO_EIGHTH = 2,
+    GX_TO_FOURTH = 3,
+    GX_TO_HALF = 4,
+    GX_TO_ONE = 5,
+    GX_MAX_TEXOFFSET = 6,
+};
+enum _GXTexWrapMode {
+    GX_CLAMP = 0,
+    GX_REPEAT = 1,
+    GX_MIRROR = 2,
+    GX_MAX_TEXWRAPMODE = 3,
+};
+enum _GXTlut {
+    GX_TLUT0 = 0,
+    GX_TLUT1 = 1,
+    GX_TLUT2 = 2,
+    GX_TLUT3 = 3,
+    GX_TLUT4 = 4,
+    GX_TLUT5 = 5,
+    GX_TLUT6 = 6,
+    GX_TLUT7 = 7,
+    GX_TLUT8 = 8,
+    GX_TLUT9 = 9,
+    GX_TLUT10 = 10,
+    GX_TLUT11 = 11,
+    GX_TLUT12 = 12,
+    GX_TLUT13 = 13,
+    GX_TLUT14 = 14,
+    GX_TLUT15 = 15,
+    GX_BIGTLUT0 = 16,
+    GX_BIGTLUT1 = 17,
+    GX_BIGTLUT2 = 18,
+    GX_BIGTLUT3 = 19,
+};
+enum _GXTlutFmt {
+    GX_TL_IA8 = 0,
+    GX_TL_RGB565 = 1,
+    GX_TL_RGB5A3 = 2,
+    GX_MAX_TLUTFMT = 3,
+};
+enum _GXTlutSize {
+    GX_TLUT_16 = 1,
+    GX_TLUT_32 = 2,
+    GX_TLUT_64 = 4,
+    GX_TLUT_128 = 8,
+    GX_TLUT_256 = 16,
+    GX_TLUT_512 = 32,
+    GX_TLUT_1K = 64,
+    GX_TLUT_2K = 128,
+    GX_TLUT_4K = 256,
+    GX_TLUT_8K = 512,
+    GX_TLUT_16K = 1024,
+};
+enum _GXVCachePerf {
+    GX_VC_POS = 0,
+    GX_VC_NRM = 1,
+    GX_VC_CLR0 = 2,
+    GX_VC_CLR1 = 3,
+    GX_VC_TEX0 = 4,
+    GX_VC_TEX1 = 5,
+    GX_VC_TEX2 = 6,
+    GX_VC_TEX3 = 7,
+    GX_VC_TEX4 = 8,
+    GX_VC_TEX5 = 9,
+    GX_VC_TEX6 = 10,
+    GX_VC_TEX7 = 11,
+    GX_VC_ALL = 15,
+};
+enum _GXVtxFmt {
+    GX_VTXFMT0 = 0,
+    GX_VTXFMT1 = 1,
+    GX_VTXFMT2 = 2,
+    GX_VTXFMT3 = 3,
+    GX_VTXFMT4 = 4,
+    GX_VTXFMT5 = 5,
+    GX_VTXFMT6 = 6,
+    GX_VTXFMT7 = 7,
+    GX_MAX_VTXFMT = 8,
+};
+enum _GXXFFlushVal {
+    GX_XF_FLUSH_NONE = 0,
+    GX_XF_FLUSH_SAFE = 8,
+};
+enum _GXZFmt16 {
+    GX_ZC_LINEAR = 0,
+    GX_ZC_NEAR = 1,
+    GX_ZC_MID = 2,
+    GX_ZC_FAR = 3,
+};
+enum _GXZTexOp {
+    GX_ZT_DISABLE = 0,
+    GX_ZT_ADD = 1,
+    GX_ZT_REPLACE = 2,
+    GX_MAX_ZTEXOP = 3,
+};
+enum __fdlibm_version {
+    __fdlibm_ieee = -1,
+    __fdlibm_svid = 0,
+    __fdlibm_xopen = 1,
+    __fdlibm_posix = 2,
+};
+enum afxEmitterState {
+    AFX_STATE_OFF = 0,
+    AFX_STATE_ON = 1,
+    AFX_STATE_DISABLED = 2,
+    AFX_STATE_LIBRARY = 3,
+};
+enum eBackgroundStyle {
+    BACKGROUND_STYLE_PLAIN = 0,
+    BACKGROUND_STYLE_PHOTO = 1,
+    BACKGROUND_STYLE_ABSTRACT = 2,
+};
+enum eBuildRegion {
+    BUILD_REGION_AMERICA = 0,
+    BUILD_REGION_EUROPE = 1,
+    BUILD_REGION_KOREA = 2,
+    BUILD_REGION_JAPAN = 3,
+    NUM_BUILD_REGIONS = 4,
+};
+enum eCarPositionMarkerFlags {
+    CPM_HEADLIGHT = 0,
+    CPM_BRAKELIGHT = 1,
+    CPM_REVERSELIGHT = 2,
+    CPM_FOGLIGHT = 3,
+    CPM_COPLIGHTRED = 4,
+    CPM_COPLIGHTBLUE = 5,
+    CPM_COPLIGHTWHITE = 6,
+    CPM_TYPE_MASK = 255,
+    CPM_TYPE_SHIFT = 0,
+    CPM_DIR_PX = 0,
+    CPM_DIR_MX = 256,
+    CPM_DIR_PY = 512,
+    CPM_DIR_MY = 768,
+    CPM_DIR_PMX = 1024,
+    CPM_DIR_PMY = 1280,
+    CPM_DIR_MASK = 65280,
+    CPM_DIR_SHIFT = 8,
+};
+enum eConstraintType {
+    eCONSTRAIN_BY_ROTATION = 0,
+    eCONSTRAIN_BY_SCALE = 1,
+};
+enum eContinueRaceType {
+    CONTINUE_RACE_TYPE_NONE = 0,
+    CONTINUE_RACE_TYPE_NEXT_RACE = 1,
+    CONTINUE_RACE_TYPE_RESTART = 2,
+};
+enum eFE_CUBIC_FLAGS {
+    eFE_ONE_SPLINE = 0,
+    eFE_RE_EVALUATE = 1,
+};
+enum eFE_CUBIC_STATE {
+    eFE_RESTING = 0,
+    eFE_INPROGRESS = 1,
+    eFE_NEWSPLINE = 2,
+};
+enum eFILE_SYS_STATES {
+    eFILE_SYS_IDLE = 0,
+    eFILE_SYS_SAVE = 1,
+    eFILE_SYS_LOAD = 2,
+    eFILE_SYS_CHECK_EXISTENCE = 3,
+    eFILE_SYS_GET_DIR = 4,
+    eFILE_SYS_FORMAT = 5,
+    eFILE_SYS_UNFORMAT = 6,
+    eFILE_SYS_VERIFY = 7,
+    eFILE_SYS_WAITING = 8,
+    eFILE_SYS_TOTAL = 9,
+};
+enum eFILE_SYS_SUBSTATES {
+    eFILE_SYS_SUBSTATES_IDLE = 0,
+    eFILE_SYS_CREATE_DIR = 1,
+    eFILE_SYS_DELETE_ICONS = 2,
+    eFILE_SYS_CREATE_ICON_SYS = 3,
+    eFILE_SYS_CREATE_ICONS = 4,
+    eFILE_SYS_CREATE_FILE = 5,
+};
+enum eFILE_TYPE {
+    eINITIAL_FILES = 0,
+    eSETTINGS_FILE = 1,
+};
+enum eLanguages {
+    eLANGUAGE_NONE = -1,
+    eLANGUAGE_FIRST = 0,
+    eLANGUAGE_ENGLISH = 0,
+    eLANGUAGE_FRENCH = 1,
+    eLANGUAGE_GERMAN = 2,
+    eLANGUAGE_ITALIAN = 3,
+    eLANGUAGE_SPANISH = 4,
+    eLANGUAGE_DUTCH = 5,
+    eLANGUAGE_SWEDISH = 6,
+    eLANGUAGE_LARGEST = 7,
+    eLANGUAGE_LABELS = 8,
+    eLANGUAGE_MAX = 9,
+};
+enum eLightAttenuation {
+    ELIGHT_ATTENUATION_NONE = 0,
+    ELIGHT_ATTENUATION_NEAR = 1,
+    ELIGHT_ATTENUATION_FAR = 2,
+    ELIGHT_ATTENUATION_INVERSE = 4,
+    ELIGHT_ATTENUATION_INVERSE_SQUARE = 8,
+};
+enum eLightFlareFlags {
+    ELF_BIDIRECTIONAL = 1,
+};
+enum eLightFlareType {
+    ELF_CAR_HEADLIGHT = 0,
+    ELF_CAR_BRAKELIGHT = 1,
+    ELF_CAR_REVERSELIGHT = 2,
+    ELF_CAR_FOGLIGHT = 3,
+    ELF_CAR_COPLIGHTRED = 4,
+    ELF_CAR_COPLIGHTBLUE = 5,
+    ELF_CAR_COPLIGHTWHITE = 6,
+    ELF_CAR_COPHEADLIGHTRIGHT = 7,
+    ELF_CAR_COPHEADLIGHTLEFT = 8,
+    ELF_LAMPPOST = 9,
+};
+enum eLightReflexionType {
+    REF_NONE = 0,
+    REF_TOPO = 1,
+    REF_FAST = 2,
+};
+enum eLightShape {
+    ELIGHT_SHAPE_CIRCLE = 0,
+    ELIGHT_SHAPE_RECTANGLE = 1,
+    ELIGHT_SHAPE_SPHERE = 2,
+    ELIGHT_SHAPE_AABB = 3,
+};
+enum eLightState {
+    ELIGHT_STATE_OFF = 0,
+    ELIGHT_STATE_ON = 1,
+};
+enum eLightType {
+    ELIGHT_AMBIENT = 0,
+    ELIGHT_FREE_DIRECTIONAL = 1,
+    ELIGHT_OMNI = 2,
+    ELIGHT_FREE_SPOT = 3,
+    ELIGHT_EXCLUDE = 4,
+    ELIGHT_NUM_LIGHTTYPES = 5,
+};
+enum eMovementPhase {
+    MP_GLOBAL_PHASE = 0,
+    MP_COLLISION_DETECTION_PHASE = 1,
+};
+enum eMoverType {
+    MT_NONE = 0,
+    MT_TEST = 1,
+    MT_RIGIDBODY = 2,
+    MT_ROCKET = 3,
+    MT_ANIMATION = 4,
+    MT_SPLINE = 5,
+    MT_CAR = 6,
+    MT_SEMIWHEEL = 7,
+    MT_NUM_MOVER_TYPES = 8,
+};
+enum ePhysicsUpgradeLevel {
+    ePHYSICS_UPGRADE_LEVEL_0 = 0,
+    ePHYSICS_UPGRADE_LEVEL_1 = 1,
+    ePHYSICS_UPGRADE_LEVEL_2 = 2,
+    ePHYSICS_UPGRADE_LEVEL_3 = 3,
+    NUM_PHYSICS_UPGRADE_LEVELS = 4,
+};
+enum ePhysicsUpgradePath {
+    PUP_WEIGHT_REDUCTION = 0,
+    PUP_SUSPENSION = 1,
+    PUP_ENGINE = 2,
+    PUP_TURBO = 3,
+    PUP_NOS = 4,
+    PUP_ECU = 5,
+    PUP_TRANSMISSION = 6,
+    PUP_TIRES = 7,
+    PUP_BRAKE = 8,
+    PUP_SPOILER = 9,
+    PUP_GROUND_EFFECTS = 10,
+    NUM_UPGRADE_PATHS = 11,
+};
+enum eRenderFlags {
+    ERF_NONE = 0,
+    ERF_DISABLE_ENVMAP = 1,
+    ERF_DISABLE_LIGHT = 2,
+    ERF_FULL_VISIBLE = 4,
+    ERF_NOT_VISIBLE = 8,
+    ERF_FORCE_CLIP = 16,
+    ERF_IGNORE_SOLID = 32,
+    ERF_IGNORE_ALPHA = 64,
+    ERF_FOG_VOLUME = 128,
+    ERF_NO_PROJ_TEX = 256,
+    ERF_PROJ_TEX = 512,
+    ERF_ONLY_AMBIENT = 1024,
+    ERF_ONLY_DIFFUSE = 2048,
+    ERF_NO_REFLECTION = 4096,
+};
+enum eReplaySpecialEvent {
+    REPLAY_SPECIAL_EVENT_FORCE_RACE_FINISH = 0,
+    REPLAY_SPECIAL_EVENT_DRIVER_MODE = 1,
+    REPLAY_SPECIAL_EVENT_DAMAGE_MODE = 2,
+    REPLAY_SPECIAL_EVENT_TRANSMISSION_TYPE = 3,
+    REPLAY_SPECIAL_EVENT_JUMP_CAM = 4,
+    REPLAY_SPECIAL_EVENT_ZONE_CAM = 5,
+    REPLAY_SPECIAL_EVENT_SUPER_EASY_AI = 6,
+    NUM_REPLAY_SPECIAL_EVENTS = 7,
+};
+enum eSolidFlags {
+    ESOLID_COMPRESSED_VERTS = 1,
+    ESOLID_SHADOWMAP = 8,
+    ESOLID_VERTEX_ANIMATION = 16,
+    ESOLID_RANDOMIZE_START_FRAME = 32,
+    ESOLID_ISLIT = 64,
+    ESOLID_DUPLICATE_NAME = 128,
+    ESOLID_DUPLICATE_NAME_ERROR = 256,
+    ESOLID_DUPLICATED = 512,
+};
+// innerer Typ von SoundImplementer
+enum eSpecialSounds {
+    SPECIAL_SOUND_HISTORY = 0,
+    SPECIAL_SOUND_DIALOG_OPEN = 1,
+    SPECIAL_SOUND_DIALOG_CLOSE = 2,
+};
+enum eStomper {
+    eSTOMPER_NONE = 0,
+    eSTOMPER_CARTOON = 1,
+    eSTOMPER_WIRE_ORANGE = 2,
+    eSTOMPER_NEGATIVE_BLUE_FOG = 3,
+    eSTOMPER_NEGATIVE_CREAM_FOG = 4,
+    eSTOMPER_FLAT_ORANGE = 5,
+    eSTOMPER_BLUE_NIGHT = 6,
+    eSTOMPER_HOT_MAGENTA = 7,
+    eSTOMPER_MOTION_BLUR = 8,
+    eSTOMPER_BLACK_AND_WHITE = 9,
+    eSTOMPER_COOL_FOG = 10,
+    eSTOMPER_CUTIE_PETOOTIE = 11,
+    eSTOMPER_CHROME_CARS = 12,
+};
+enum eStomperTypes {
+    eSTOMPER_DATA_INT8 = 0,
+    eSTOMPER_DATA_INT16 = 1,
+    eSTOMPER_DATA_INT32 = 2,
+    eSTOMPER_DATA_FLOAT = 3,
+    eSTOMPER_FUNCTION_INT = 4,
+    eSTOMPER_FUNCTION_FLOAT = 5,
+    eSTOMPER_NESTED = 6,
+    eSTOMPER_END = 7,
+};
+enum eStripDataFlags {
+    ESDF_HAS_XYZ = 1,
+    ESDF_HAS_RGBA = 2,
+    ESDF_HAS_NORM = 4,
+    ESDF_HAS_ST0 = 16,
+    ESDF_HAS_ST1 = 32,
+    ESDF_HAS_ST2 = 64,
+    ESDF_HAS_ST3 = 128,
+};
+enum eSuperBenderDebuggerLevel {
+    SB_DEBUGGER_LEVEL_NONE = 0,
+    SB_DEBUGGER_LEVEL_MID = 1,
+    SB_DEBUGGER_LEVEL_FULL = 2,
+};
+enum eVisibleState {
+    EVISIBLESTATE_NOT = 0,
+    EVISIBLESTATE_PARTIAL = 1,
+    EVISIBLESTATE_FULL = 2,
+};
+enum eVtxDesc {
+    VTXDESC_DIRECT = 0,
+    VTXDESC_I1 = 1,
+    VTXDESC_I2 = 2,
+    VTXDESC_NUM = 3,
+};
+enum flareType {
+    FLARE_NORM = 0,
+    FLARE_ENV = 1,
+    FLARE_REFLECT = 2,
+};
+enum my_platform_types {
+    MYPLAT_PS2 = 0,
+    MYPLAT_XBOX = 1,
+    MYPLAT_GAMECUBE = 2,
+    MYPLAT_PC = 3,
+};
+
+// ---- Vorwärtsdeklarationen ----
+struct ARAM_DLList;
+struct ARAM_DLNode;
+struct ARAM_POOL;
+struct ARAM_POOL_MANAGER;
+struct ARGB;
+struct ARQRequest;
+struct ASinTableEntry;
+struct AcidActiveGroup;
+struct AcidEffect;
+struct AcidEffectSystem;
+struct AcidEmitter;
+struct AcidEmitterData;
+struct AcidEmitterDataPackHeader;
+struct AcidEmitterPackHeader;
+struct AeroInfo;
+struct AllocationHeader;
+struct AnimBank;
+struct AnimMemoryMap;
+struct AnimStat;
+struct AnimTypeId;
+struct AnimationMover;
+struct AnimationTarget;
+struct Attribute;
+struct AttributeBlock;
+struct AttributeDictionary;
+struct AttributeId;
+struct Average;
+struct AverageBase;
+struct AverageWindow;
+struct Avoidable;
+struct BIGENTRY16;
+struct BIGENTRY24;
+struct BIGENTRY32;
+struct BIGENTRY40;
+struct BIGFileInfo;
+struct BIGHEADER;
+struct BIGHEADER24;
+struct BankStat;
+struct Base64;
+struct BodyTypeInfo;
+struct BoneMask;
+struct BrakeUpgradeInfo;
+struct CARDFileInfo;
+struct CARDStat;
+struct CAnimCtrl;
+struct CAnimSkeleton;
+struct CLUTHeader;
+struct CONVERTER;
+struct COORD2;
+struct COORD2_s16;
+struct COORD2_s8;
+struct COORD2_u16;
+struct COORD2_u8;
+struct COORD3;
+struct COORD32;
+struct COORD33;
+struct COORD3_s16;
+struct COORD3_s8;
+struct COORD3_u16;
+struct COORD3_u8;
+struct COORD4;
+struct CPUINFO;
+struct CachedRealFileHandle;
+struct Camera;
+struct CameraDataItems;
+struct CameraMover;
+struct CameraNoiseParams;
+struct CameraParams;
+struct Car;
+struct CarPhysicsInfo;
+struct CarWorldObject;
+struct CarWorldObjectMover;
+struct CharacterInfo;
+struct Clan;
+struct Class;
+struct ClassConstructorClient;
+struct ClassDestructorClient;
+struct ClassHandle;
+struct Collision;
+struct CollisionSample;
+struct Colour;
+struct CompleatCarPhysicsInfo;
+struct ComputationIndex;
+struct ComputationIndexPrivateData;
+struct Condition;
+struct Constant;
+struct ConstructorPool;
+struct Constructors;
+struct ControlInfo;
+struct DBInterface;
+struct DEMOPadStatus;
+struct DEMOStatObj;
+struct DSBranch;
+struct DSCache;
+struct DSCacheNode;
+struct DSHashTable;
+struct DSLink;
+struct DSList;
+struct DSPADPCM;
+struct DSTree;
+struct DVDCommandBlock;
+struct DVDDir;
+struct DVDDirEntry;
+struct DVDDiskID;
+struct DVDFileInfo;
+struct DebugTopology;
+struct DefaultAnimBank;
+struct DemoCameraCoordinator;
+struct DemoDiscManager;
+struct DestructorEntry;
+struct Device;
+struct DeviceExtension;
+struct DevicePrivate;
+struct DotWall;
+struct DriveTrainInfo;
+struct DriverInfo;
+struct DummyFEngNewType;
+struct DynamicCollisionBody;
+struct DynamicLoader;
+struct EasterEggs;
+struct EasterEggsData;
+struct ElipseTable;
+struct EndingNisCameraCoordinator;
+struct EngineInfo;
+struct EngineUpgradeInfo;
+struct EventHandler;
+struct EventNode;
+struct EventSetup;
+struct FEButtonMap;
+struct FECodeListBox;
+struct FEColor;
+struct FEEffect;
+struct FEEvent;
+struct FEEventList;
+struct FEGameInterface;
+struct FEGenericVal;
+struct FEGroup;
+struct FEHashList;
+struct FEHashNode;
+struct FEHashNodePtr;
+struct FEImage;
+struct FEKeyData;
+struct FEKeyNode;
+struct FEKeyTrack;
+struct FELabelCallback;
+struct FEList;
+struct FEMatrix4;
+struct FEMessageResponse;
+struct FEMinList;
+struct FEMinNode;
+struct FEModel;
+struct FEMovie;
+struct FENode;
+struct FEObjData;
+struct FEObject;
+struct FEObjectDestructorCallback;
+struct FEPackage;
+struct FEPoint;
+struct FEQuaternion;
+struct FERect;
+struct FERefList;
+struct FEResponse;
+struct FEScript;
+struct FEString;
+struct FEVector2;
+struct FEVector3;
+struct FEVector4;
+struct FEWideString;
+struct FILEBIG_def;
+struct FILEOPERATION_def;
+struct FILEREQUEST;
+struct FILESYSOPTS;
+struct FONT;
+struct FONTCHAR;
+struct FONTCHARBUF;
+struct FONTDRIVER;
+struct FONTDRIVEREXT;
+struct FONTKERN;
+struct FS_EVNT_AS_READ_INFO;
+struct FS_EVNT_CB_INFO;
+struct FS_EVNT_CD_READ_INFO;
+struct FernFlattener;
+struct FernShaker;
+struct FernShakerInfo;
+struct FloatColour;
+struct FloatVector;
+struct FlyByCameraCoordinator;
+struct FnAnim;
+struct FnAnimBank;
+struct FnAnimFactory;
+struct FnAnimMemoryMap;
+struct FnAnimSuper;
+struct FnDefaultAnimBank;
+struct FogDistDef;
+struct FogVolume;
+struct FogVolumeDef;
+struct Font;
+struct Force;
+struct FreeBlock;
+struct Function;
+struct FunctionClient;
+struct FunctionEntry;
+struct FunctionHandle;
+struct GCColourRGB565;
+struct GCColourRGB8;
+struct GCColourRGBA4;
+struct GCColourRGBA6;
+struct GFileDevice_def;
+struct GXFifoObj;
+struct GameFlowManager;
+struct GlobalVariable;
+struct GlobalVariableHandle;
+struct GrandSceneryCullInfo;
+struct Graph;
+struct GraphEntry_bVector2_;
+struct GraphEntry_bVector3_;
+struct GraphEntry_bVector4_;
+struct GraphEntry_float_;
+struct GroundEffectsUpgradeInfo;
+struct HANDLE_def;
+struct IAllocator;
+struct InitTerrainType;
+struct Initializer;
+struct InterfaceId;
+struct IntroNisCameraCoordinator;
+struct Irradiance;
+struct JLZHash;
+struct JLZHashPool;
+struct JollyRancherResponsePacket;
+struct JoyData;
+struct Joylog;
+struct JoylogBuffer;
+struct Joystick;
+struct JunkmanUpgradeInfo;
+struct LGConditionForceParams;
+struct LGConstantForceParams;
+struct LGEnvelopeParams;
+struct LGForceEffect;
+struct LGPeriodicForceParams;
+struct LGPosition;
+struct LGRampForceParams;
+struct LGWheels;
+struct LString;
+struct LZHeader;
+struct LapSnapshotInfo;
+struct Linear;
+struct ListPicker;
+struct ListPickerItem;
+struct LongVector;
+union MATRIX3;
+union MATRIX4;
+struct MEMCLASS;
+struct MUTEX;
+struct MagazineBackground;
+struct MagazineCamera;
+struct MagazineEvent;
+struct MagazineFemale;
+struct MagazineHeadline;
+struct MagazineName;
+struct MagazineName2ThumbMapping;
+struct MagazineScreenDebugData;
+struct MagazineSetup;
+struct MagazineTemplateDatabase;
+struct MatchPhaseInput;
+struct MemBlockInfo_t;
+struct MemoryPool;
+struct MemoryPoolManager;
+struct MenuScreen;
+struct MiscCarTunings;
+struct MobileTopology;
+struct Mover;
+struct MtxStack;
+struct NitrousInfo;
+struct NitrousUpgradeInfo;
+union OP_def;
+struct OSAlarm;
+struct OSCalendarTime;
+struct OSCond;
+struct OSContext;
+struct OSFontHeader;
+struct OSImportInfo;
+struct OSMessageQueue;
+struct OSModuleHeader;
+struct OSModuleInfo;
+struct OSModuleLink;
+struct OSModuleQueue;
+struct OSMutex;
+struct OSMutexLink;
+struct OSMutexQueue;
+struct OSRel;
+struct OSResetFunctionInfo;
+struct OSSectionInfo;
+struct OSSemaphore;
+struct OSStopwatch;
+struct OSThread;
+struct OSThreadLink;
+struct OSThreadQueue;
+struct ObjectPool_FEKeyNode_256_;
+struct ObjectPool_FEMessageResponse_64_;
+struct ObjectPool_FEScript_32_;
+struct PADStatus;
+struct PPC_DMA_L_t;
+union PPC_DMA_L_u;
+struct PPC_DMA_U_t;
+union PPC_DMA_U_u;
+struct PPC_GQR_t;
+union PPC_GQR_u;
+struct PadData;
+union Parameter;
+struct PerfMeter;
+struct Periodic;
+struct PersistentMenuScreenData;
+struct PhaseChan;
+struct PhaseValue;
+struct PhysicsSystem;
+struct PhysicsUpgradeSpecification;
+struct PidError;
+struct PostRaceCameraCoordinator;
+struct PreRaceCameraCoordinator;
+struct PreviewRoute;
+struct ProfileDataEntry;
+struct ProfileManager;
+struct ProfileNode;
+struct ProfileSectionEntry;
+struct Quaternion;
+struct QueuedFile;
+struct QueuedFileBundle;
+struct QuickSpline;
+struct RCQueuedMessage;
+struct REALELEMENT;
+struct REALQUEUE;
+struct REQUESTQUEUE;
+struct REQUESTSTRUCTtag;
+struct RaceCoordinator;
+struct Ramp;
+struct ReadStatus;
+struct RecyclingThumbnailNode;
+struct RecyclingThumbnailScroller;
+struct RenderContext;
+struct RenderContextBase;
+struct RenderContextExtension;
+struct RenderContextPrivate;
+struct RenderMethod;
+struct ReplayManager;
+struct ReplayScreen;
+struct ReplaySnapshot;
+struct ReplaySnapshotSectionInfo;
+struct ReplaySpecialEventInfo;
+struct RigidBody;
+struct RigidBodyInfo;
+struct RigidBodyMover;
+struct RuntimeAllocConstructorPool;
+struct RuntimeAllocDestructorEntry;
+struct S16Vec;
+struct SCATTERREQUEST;
+struct SCOORD;
+struct SHAPE;
+struct SHAPEFILE;
+struct SHAPETABLEENTRY;
+struct SIGNAL;
+union SN_PS_type;
+struct STREAMCHUNKHDR;
+struct STRUCT_DSP_TASK;
+struct SYNC_TRANSFER_OP;
+struct SampleMover;
+struct ScannerConfig;
+struct SceneryBoundingBox;
+struct SceneryCullInfo;
+struct SceneryDrawInfo;
+struct SceneryInfo;
+struct SceneryInstance;
+struct SceneryLogInfo;
+struct ScenerySectionHeader;
+struct SceneryTreeGroupNode;
+struct SceneryTreeNode;
+struct ScreenConstructorData;
+struct ScrollerDatum;
+struct ScrollerDatumNode;
+struct ScrollerSlot;
+struct ScrollerSlotNode;
+struct Scrollerina;
+struct ScrollyLogic;
+struct SemiWheelMover;
+struct SetupStats;
+struct Skeleton;
+struct SkeletonData;
+struct SkidMaker;
+struct SkidSegment;
+struct SkidSet;
+struct SlotPool;
+struct SlotPoolEntry;
+struct SlotPoolManager;
+struct SmokeableInfo;
+struct SoundImplementer;
+struct SoundObject;
+struct SpaceCadet;
+struct SpaceCase;
+struct SpaceNode;
+struct Spline;
+struct SpoilerUpgradeInfo;
+struct State;
+struct StateTest;
+struct StompEntry;
+struct Stomper;
+struct SubTitleDesc;
+struct SuspensionInfo;
+struct SuspensionUpgradeInfo;
+struct Symbol;
+struct SymbolEntry;
+struct SymbolPool;
+struct System;
+struct TAR;
+struct TARExtension;
+struct TARPrivate;
+struct TEXDescriptor;
+struct TEXHeader;
+struct TEXPalette;
+struct THREAD;
+struct Table;
+struct TableBase;
+struct TerrainEffectEmitters;
+struct TerrainTypeInfo;
+struct TestMover;
+struct TextureAnim;
+struct TextureAnimEntry;
+struct TextureAnimPack;
+struct TextureAnimPackHeader;
+struct TextureIndexEntry;
+struct TextureInfo;
+struct TextureInfoPlat;
+struct TextureInfoPlatInfo;
+struct TextureInfoPlatInfoOBJ;
+struct TextureInfoPlatInterface;
+struct TexturePack;
+struct TexturePackHeader;
+struct TextureRenderContext;
+struct ThumbObject;
+struct ThumbnailNode;
+struct ThumbnailScroller;
+struct Timer;
+struct TireInfo;
+struct TireUpgradeInfo;
+struct TopologyCoordinate;
+struct TopologyEntry;
+struct TopologyTree;
+struct TopologyTreeFilePolygon;
+struct TopologyTreeNode;
+struct TopologyTreePolygon;
+struct TopologyTreeSquare;
+struct TrackHeader;
+struct TrackPolygon;
+struct TrackPolygonCollisionBody;
+struct TrackPositionMarker;
+struct TrackRoutePoint;
+struct TrainInfo;
+struct Transform;
+struct TransmissionUpgradeInfo;
+struct TurboUpgradeInfo;
+struct ValidJoystickConfiguration;
+struct Vec;
+struct VerbosityControl;
+struct ViewPort;
+struct VisibleData;
+struct WeatherQuery;
+struct WeatherRegion;
+struct WeatherRegionPack;
+struct WeightReductionUpgradeInfo;
+struct WheelInfo;
+struct Wheels;
+struct WorldEntity;
+struct WorldEntityList;
+struct WorldEntityRegistration;
+struct WorldEntityType;
+struct WorldModel;
+struct WorldObject;
+struct WorldObjectAnimationInfo;
+struct WorldObjectCollisionBody;
+struct WorldObjectInfo;
+struct _AXPB;
+struct _AXPBADDR;
+struct _AXPBADPCM;
+struct _AXPBADPCMLOOP;
+struct _AXPBDPOP;
+struct _AXPBFIR;
+struct _AXPBITD;
+struct _AXPBITDBUFFER;
+struct _AXPBLPF;
+struct _AXPBMIX;
+struct _AXPBSRC;
+struct _AXPBU;
+struct _AXPBUPDATE;
+struct _AXPBVE;
+struct _AXPROFILE;
+struct _AXSPB;
+struct _AXVPB;
+struct _Bigint;
+struct _GXColor;
+struct _GXColorS10;
+struct _GXFogAdjTable;
+struct _GXLightObj;
+struct _GXRenderModeObj;
+struct _GXTexObj;
+struct _GXTexRegion;
+struct _GXTlutObj;
+struct _GXTlutRegion;
+struct _GXVtxAttrFmtList;
+struct _GXVtxDescList;
+union __dmath;
+struct __exception;
+struct __fmath_type;
+struct __sFILE;
+struct __sbuf;
+struct __va_list_tag;
+struct __va_regsave_t;
+struct __vtbl_ptr_type;
+struct _atexit;
+struct _glue;
+struct _reent;
+struct _types_fd_set;
+struct bChunk;
+struct bFile;
+struct bFileCallbackEntry;
+struct bFileClosePacket;
+struct bFileDirectoryEntry;
+struct bFileOpenPacket;
+struct bFileReadPacket;
+struct bFileWritePacket;
+struct bFixVector2;
+struct bFixVector3;
+struct bFunkCodeineAddServerPacket;
+struct bFunkJoylogCaptureInitPacket;
+struct bFunkPacket;
+struct bFunkPacketHeader;
+struct bFunkServer;
+struct bFunkServerPlatform;
+struct bList;
+struct bMatrix4;
+struct bMemoryTraceAllocatePacket;
+struct bMemoryTraceDeletePoolPacket;
+struct bMemoryTraceFreePacket;
+struct bMemoryTraceNewPoolPacket;
+struct bNode;
+struct bPList_QuickSpline_;
+struct bPList_QuickSpline__bTList_bPNode_;
+struct bPList_SkidSet_;
+struct bPList_SkidSet__bTList_bPNode_;
+struct bPNode;
+struct bPolar;
+struct bQuaternion;
+struct bRepeat;
+struct bRepeatChannel;
+struct bSpline;
+struct bTList_AcidActiveGroup_;
+struct bTList_AcidEmitter_;
+struct bTList_AllocationHeader_;
+struct bTList_CAnimSkeleton_;
+struct bTList_CachedRealFileHandle_;
+struct bTList_CameraMover_;
+struct bTList_Clan_;
+struct bTList_DebugTopology_;
+struct bTList_EventSetup_;
+struct bTList_FernFlattener_;
+struct bTList_FernShaker_;
+struct bTList_FreeBlock_;
+struct bTList_ListPicker__ListPickerItem_;
+struct bTList_MagazineBackground_;
+struct bTList_MagazineCamera_;
+struct bTList_MagazineEvent_;
+struct bTList_MagazineFemale_;
+struct bTList_MagazineHeadline_;
+struct bTList_MagazineName_;
+struct bTList_MagazineSetup_;
+struct bTList_Mover_;
+struct bTList_QueuedFile_;
+struct bTList_RCQueuedMessage_;
+struct bTList_RecyclingThumbnailNode_;
+struct bTList_ReplaySnapshot_;
+struct bTList_ScrollerDatumNode_;
+struct bTList_ScrollerDatum_;
+struct bTList_ScrollerSlotNode_;
+struct bTList_ScrollerSlot_;
+struct bTList_SetupStats_;
+struct bTList_SlotPool_;
+struct bTList_SpaceNode_;
+struct bTList_ThumbObject_;
+struct bTList_ThumbnailNode_;
+struct bTList_TrackPolygon_;
+struct bTList_WeatherRegion_;
+struct bTList_WorldEntityList_;
+struct bTList_WorldEntityType_;
+struct bTList_WorldEntity_;
+struct bTList_WorldModel_;
+struct bTList_bFileCallbackEntry_;
+struct bTList_bPNode_;
+struct bTList_eDynamicLight_;
+struct bTList_eLightFlare_;
+struct bTList_eModel_;
+struct bTList_eSolid_;
+struct bTNode_AcidEmitterData_;
+struct bTNode_AcidEmitter_;
+struct bTNode_AllocationHeader_;
+struct bTNode_CAnimSkeleton_;
+struct bTNode_CachedRealFileHandle_;
+struct bTNode_Clan_;
+struct bTNode_DebugTopology_;
+struct bTNode_EventSetup_;
+struct bTNode_FernFlattener_;
+struct bTNode_FernShaker_;
+struct bTNode_Font_;
+struct bTNode_FreeBlock_;
+struct bTNode_ListPicker__ListPickerItem_;
+struct bTNode_MagazineBackground_;
+struct bTNode_MagazineCamera_;
+struct bTNode_MagazineEvent_;
+struct bTNode_MagazineFemale_;
+struct bTNode_MagazineHeadline_;
+struct bTNode_MagazineName_;
+struct bTNode_MagazineSetup_;
+struct bTNode_Mover_;
+struct bTNode_QueuedFile_;
+struct bTNode_RCQueuedMessage_;
+struct bTNode_RecyclingThumbnailNode_;
+struct bTNode_ReplaySnapshot_;
+struct bTNode_ScenerySectionHeader_;
+struct bTNode_ScrollerDatumNode_;
+struct bTNode_ScrollerDatum_;
+struct bTNode_ScrollerSlotNode_;
+struct bTNode_ScrollerSlot_;
+struct bTNode_SetupStats_;
+struct bTNode_SkidSet_;
+struct bTNode_SlotPool_;
+struct bTNode_SpaceNode_;
+struct bTNode_TextureAnimPack_;
+struct bTNode_TextureInfoPlatInfo_;
+struct bTNode_TextureInfo_;
+struct bTNode_TexturePack_;
+struct bTNode_ThumbObject_;
+struct bTNode_ThumbnailNode_;
+struct bTNode_TrackPolygon_;
+struct bTNode_TrackPositionMarker_;
+struct bTNode_WeatherRegionPack_;
+struct bTNode_WeatherRegion_;
+struct bTNode_WorldEntityType_;
+struct bTNode_WorldEntity_;
+struct bTNode_WorldModel_;
+struct bTNode_bFileCallbackEntry_;
+struct bTNode_bFunkServer_;
+struct bTNode_bPNode_;
+struct bTNode_eDynamicFrameMemory_;
+struct bTNode_eDynamicLightPack_;
+struct bTNode_eDynamicLight_;
+struct bTNode_eLightFlarePackHeader_;
+struct bTNode_eLightFlare_;
+struct bTNode_eLightMaterial_;
+struct bTNode_eLightPack_;
+struct bTNode_eModel_;
+struct bTNode_ePoly_;
+struct bTNode_eSolidListHeader_;
+struct bTNode_eSolid_;
+struct bVU0Float;
+struct bVector2;
+struct bVector3;
+struct bVector3Image;
+struct bVector3Reg;
+struct bVector4;
+struct bVirtualDestructNode;
+struct bad_alloc;
+struct cCaptureBuffer;
+struct cDBFileSys;
+struct cDBFilesBase;
+struct cFEngRender;
+struct cMC;
+struct cPoint;
+struct cPostRaceScreenMgrInterface;
+struct cQuarterSizeMap;
+struct cReflectMap;
+struct cSphereMap;
+struct div_t;
+struct eAnimationSolid;
+struct eAnimationTree;
+struct eAnimationTreeNode;
+struct eDamageInfo;
+struct eDamageVertex;
+struct eDataRenderDynamic;
+struct eDmaChain;
+struct eDmaData;
+struct eDmaDataList;
+struct eDynamicFrameMemory;
+struct eDynamicLight;
+struct eDynamicLightPack;
+struct eEnvMap;
+struct eFilter;
+struct eFogParams;
+struct eLight;
+struct eLightContext;
+struct eLightFlare;
+struct eLightFlarePackHeader;
+struct eLightMaterial;
+struct eLightMaterialData;
+struct eLightMaterialEntry;
+struct eLightMaterialPlatInfo;
+struct eLightMaterialPlatInterface;
+struct eLightPack;
+struct eModel;
+struct eNormalSmoother;
+struct ePointSprite3D;
+struct ePoly;
+struct ePositionMarker;
+struct eRenderTarget;
+struct eReplacementTextureTable;
+struct eRigidAnimation;
+struct eSmoothVertex;
+struct eSmoothVertexPlat;
+struct eSolid;
+struct eSolidIndexEntry;
+struct eSolidListHeader;
+struct eSolidPlatInfo;
+struct eSolidPlatInterface;
+struct eStreamingEntry;
+struct eStripData;
+struct eStripDataE;
+struct eStripEntry;
+struct eTextureBucket;
+struct eTextureEntry;
+struct eVertexAnimator;
+struct eView;
+struct eViewPlatInfo;
+struct eViewPlatInterface;
+struct eflock;
+struct fMatrix4;
+struct fVector2;
+struct fVector3;
+struct fVector4;
+struct fVectorW;
+struct fVectorX;
+struct fVectorY;
+struct fVectorZ;
+struct flock;
+struct ldiv_t;
+struct sepdef;
+struct stat;
+struct tCubic1D;
+struct tCubic2D;
+struct tCubic3D;
+struct tFESettingsFile;
+struct tGraph_bVector2_;
+struct tGraph_bVector3_;
+struct tGraph_bVector4_;
+struct tGraph_float_;
+struct tTTFontHeader;
+struct tTTGlyph;
+struct tTTKerningPair;
+struct tTable_bVector2_;
+struct tTable_bVector3_;
+struct tTable_bVector4_;
+struct tTable_float_;
+struct tm;
+union uPPCWGPipe;
+struct vAABB;
+struct vAABBTree;
+struct vSphere;
+
+// ---- vorgezogene Strukturen ----
+// total size: 0xC
+struct __va_list_tag {
+    char gpr; // offset 0x0, size 0x1
+    char fpr; // offset 0x1, size 0x1
+    char * overflow_arg_area; // offset 0x4, size 0x4
+    char * reg_save_area; // offset 0x8, size 0x4
+};
+
+// ---- Typedefs ----
+typedef char int8;
+typedef unsigned char uint8;
+typedef short int16;
+typedef unsigned short uint16;
+typedef int int32;
+typedef unsigned int uint32;
+typedef long long int64;
+typedef unsigned long long uint64;
+typedef unsigned int type_operator_new;
+typedef void * CodeineReloadExeFunction(int);
+typedef int bFix;
+typedef unsigned short bAngle;
+typedef char s8;
+typedef short s16;
+typedef int s32;
+typedef long long s64;
+typedef unsigned char u8;
+typedef unsigned short u16;
+typedef unsigned int u32;
+typedef unsigned long long u64;
+typedef volatile unsigned char vu8;
+typedef volatile unsigned short vu16;
+typedef volatile unsigned long vu32;
+typedef volatile unsigned long long vu64;
+typedef volatile signed char vs8;
+typedef volatile short vs16;
+typedef volatile long vs32;
+typedef volatile long long vs64;
+typedef float f32;
+typedef double f64;
+typedef volatile float vf32;
+typedef volatile double vf64;
+typedef char * Ptr;
+typedef int BOOL;
+typedef unsigned char GXBool;
+typedef enum _GXAttr GXAttr;
+typedef enum _GXVtxFmt GXVtxFmt;
+typedef enum _GXAttrType GXAttrType;
+typedef enum _GXTexCoordID GXTexCoordID;
+typedef enum _GXTexGenType GXTexGenType;
+typedef enum _GXTexGenSrc GXTexGenSrc;
+typedef enum _GXCompCnt GXCompCnt;
+typedef enum _GXCompType GXCompType;
+typedef enum _GXChannelID GXChannelID;
+typedef enum _GXColorSrc GXColorSrc;
+typedef enum _GXLightID GXLightID;
+typedef enum _GXDiffuseFn GXDiffuseFn;
+typedef enum _GXAttnFn GXAttnFn;
+typedef enum _GXSpotFn GXSpotFn;
+typedef enum _GXDistAttnFn GXDistAttnFn;
+typedef enum _GXPosNrmMtx GXPosNrmMtx;
+typedef enum _GXTexMtx GXTexMtx;
+typedef enum _GXPTTexMtx GXPTTexMtx;
+typedef enum _GXTexMtxType GXTexMtxType;
+typedef enum _GXPrimitive GXPrimitive;
+typedef enum _GXTexOffset GXTexOffset;
+typedef enum _GXCullMode GXCullMode;
+typedef enum _GXClipMode GXClipMode;
+typedef enum _GXTexWrapMode GXTexWrapMode;
+typedef enum _GXTexFilter GXTexFilter;
+typedef enum _GXCITexFmt GXCITexFmt;
+typedef enum _GXTexFmt GXTexFmt;
+typedef enum _GXTlutFmt GXTlutFmt;
+typedef enum _GXTlutSize GXTlutSize;
+typedef enum _GXTlut GXTlut;
+typedef enum _GXTexMapID GXTexMapID;
+typedef enum _GXTexCacheSize GXTexCacheSize;
+typedef enum _GXIndTexFormat GXIndTexFormat;
+typedef enum _GXIndTexBiasSel GXIndTexBiasSel;
+typedef enum _GXIndTexAlphaSel GXIndTexAlphaSel;
+typedef enum _GXIndTexMtxID GXIndTexMtxID;
+typedef enum _GXIndTexWrap GXIndTexWrap;
+typedef enum _GXIndTexScale GXIndTexScale;
+typedef enum _GXIndTexStageID GXIndTexStageID;
+typedef enum _GXTevStageID GXTevStageID;
+typedef enum _GXTevRegID GXTevRegID;
+typedef enum _GXTevOp GXTevOp;
+typedef enum _GXTevColorArg GXTevColorArg;
+typedef enum _GXTevAlphaArg GXTevAlphaArg;
+typedef enum _GXTevBias GXTevBias;
+typedef enum _GXTevClampMode GXTevClampMode;
+typedef enum _GXTevKColorID GXTevKColorID;
+typedef enum _GXTevKColorSel GXTevKColorSel;
+typedef enum _GXTevKAlphaSel GXTevKAlphaSel;
+typedef enum _GXTevSwapSel GXTevSwapSel;
+typedef enum _GXTevColorChan GXTevColorChan;
+typedef enum _GXAlphaOp GXAlphaOp;
+typedef enum _GXTevScale GXTevScale;
+typedef enum _GXFogType GXFogType;
+typedef enum _GXBlendMode GXBlendMode;
+typedef enum _GXBlendFactor GXBlendFactor;
+typedef enum _GXCompare GXCompare;
+typedef enum _GXLogicOp GXLogicOp;
+typedef enum _GXPixelFmt GXPixelFmt;
+typedef enum _GXZFmt16 GXZFmt16;
+typedef enum _GXTevMode GXTevMode;
+typedef enum _GXGamma GXGamma;
+typedef enum _GXProjectionType GXProjectionType;
+typedef enum _GXEvent GXEvent;
+typedef enum _GXFBClamp GXFBClamp;
+typedef enum _GXAnisotropy GXAnisotropy;
+typedef enum _GXZTexOp GXZTexOp;
+typedef enum _GXAlphaReadMode GXAlphaReadMode;
+typedef enum _GXPerf0 GXPerf0;
+typedef enum _GXPerf1 GXPerf1;
+typedef enum _GXVCachePerf GXVCachePerf;
+typedef enum _GXCopyMode GXCopyMode;
+typedef enum _GXMiscToken GXMiscToken;
+typedef enum _GXXFFlushVal GXXFFlushVal;
+typedef void (* VIRetraceCallback)(unsigned long);
+typedef struct _GXColor GXColor;
+typedef struct _GXColorS10 GXColorS10;
+typedef struct _GXTexObj GXTexObj;
+typedef struct _GXTlutObj GXTlutObj;
+typedef struct _GXLightObj GXLightObj;
+typedef struct _GXVtxAttrFmtList GXVtxAttrFmtList;
+typedef struct _GXTexRegion GXTexRegion;
+typedef struct _GXTlutRegion GXTlutRegion;
+typedef struct _GXVtxDescList GXVtxDescList;
+typedef struct _GXRenderModeObj GXRenderModeObj;
+typedef struct _GXFogAdjTable GXFogAdjTable;
+typedef struct __va_list_tag __va_list[1];
+typedef __va_list __gnuc_va_list;
+typedef __va_list va_list;
+typedef long long OSTime;
+typedef unsigned int OSTick;
+typedef int OSHeapHandle;
+typedef void (* OSAllocVisitor)(void *, unsigned long);
+typedef void (* OSAlarmHandler)(OSAlarm *, OSContext *);
+typedef unsigned char __OSException;
+typedef void (* __OSExceptionHandler)(unsigned char, OSContext *);
+typedef unsigned short OSError;
+typedef void (* OSErrorHandler)(unsigned short, OSContext *, ...);
+typedef short __OSInterrupt;
+typedef void (* __OSInterruptHandler)(short, OSContext *);
+typedef unsigned int OSInterruptMask;
+typedef int OSPriority;
+typedef void (* OSIdleFunction)(void *);
+typedef void (* OSSwitchThreadCallback)(OSThread *, OSThread *);
+typedef void * OSMessage;
+typedef unsigned int OSModuleID;
+typedef void (* OSResetCallback)();
+typedef int (* OSResetFunction)(int);
+typedef Vec * VecPtr;
+typedef Vec Point3d;
+typedef Vec * Point3dPtr;
+typedef S16Vec * S16VecPtr;
+typedef Quaternion * QuaternionPtr;
+typedef Quaternion Qtrn;
+typedef Quaternion * QtrnPtr;
+typedef float Mtx[3][4];
+typedef float (* MtxPtr)[4];
+typedef float ROMtx[4][3];
+typedef float (* ROMtxPtr)[3];
+typedef float Mtx44[4][4];
+typedef float (* Mtx44Ptr)[4];
+typedef MtxStack * MtxStackPtr;
+typedef GXTexRegion * (* GXTexRegionCallback)(const GXTexObj *, GXTexMapID);
+typedef GXTlutRegion * (* GXTlutRegionCallback)(unsigned long);
+typedef void * eVERTEXBUFFER;
+typedef void * eINDEXBUFFER;
+typedef void (* GXBreakPtCallback)();
+typedef void (* GXDrawSyncCallback)(unsigned short);
+typedef void (* GXDrawDoneCallback)();
+typedef union uPPCWGPipe PPCWGPipe;
+typedef void (* GXVerifyCallback)(GXWarningLevel, unsigned long, const char *);
+typedef double sn_ps;
+typedef int __int32_t;
+typedef unsigned int __uint32_t;
+typedef unsigned int size_t;
+typedef unsigned int clock_t;
+typedef int time_t;
+typedef unsigned int ULong;
+typedef int _fpos_t;
+typedef struct __fmath_type fBaseType;
+typedef void (* PADSamplingCallback)();
+typedef void (* JoyHandler)(enum JoystickPort, enum JoyEvent, unsigned char, void *);
+typedef void (* JoyHandlerAlternate)(int, int, unsigned char, void *);
+typedef unsigned short (* JoyScanner)(struct EventNode *, unsigned int *, unsigned int *, struct ScannerConfig *, struct Joystick *);
+typedef void (* DVDCBCallback)(long, DVDCommandBlock *);
+typedef void (* DVDCallback)(long, DVDFileInfo *);
+typedef void (* AISCallback)(unsigned long);
+typedef void (* AIDCallback)();
+typedef void (* ARCallback)();
+typedef struct _AXPROFILE AXPROFILE;
+typedef struct _AXPBMIX AXPBMIX;
+typedef struct _AXPBITD AXPBITD;
+typedef struct _AXPBUPDATE AXPBUPDATE;
+typedef struct _AXPBDPOP AXPBDPOP;
+typedef struct _AXPBVE AXPBVE;
+typedef struct _AXPBFIR AXPBFIR;
+typedef struct _AXPBADDR AXPBADDR;
+typedef struct _AXPBADPCM AXPBADPCM;
+typedef struct _AXPBSRC AXPBSRC;
+typedef struct _AXPBADPCMLOOP AXPBADPCMLOOP;
+typedef struct _AXPBLPF AXPBLPF;
+typedef struct _AXPB AXPB;
+typedef struct _AXSPB AXSPB;
+typedef void (* AXUserCallback)();
+typedef void (* AXAuxCallback)(void *, void *);
+typedef void (* AXVoiceCallback)(void *);
+typedef struct _AXVPB AXVPB;
+typedef struct _AXPBU AXPBU;
+typedef struct _AXPBITDBUFFER AXPBITDBUFFER;
+typedef void (* ARQCallback)(unsigned long);
+typedef void (* DSPCallback)(void *);
+typedef struct STRUCT_DSP_TASK DSPTaskInfo;
+typedef void (* CARDCallback)(long, long);
+typedef DSLink * DSLinkPtr;
+typedef DSList * DSListPtr;
+typedef DSBranch * DSBranchPtr;
+typedef DSTree * DSTreePtr;
+typedef unsigned short DSHashFunc(char *);
+typedef DSCacheNode * DSCacheNodePtr;
+typedef DSCache * DSCachePtr;
+typedef CLUTHeader * CLUTHeaderPtr;
+typedef TEXHeader * TEXHeaderPtr;
+typedef TEXDescriptor * TEXDescriptorPtr;
+typedef TEXPalette * TEXPalettePtr;
+typedef int fpos_t;
+typedef struct __sFILE FILE;
+typedef void (* __FileSysCallback)(void *);
+typedef char INT8;
+typedef unsigned char UINT8;
+typedef short INT16;
+typedef unsigned short UINT16;
+typedef int INT32;
+typedef unsigned int UINT32;
+typedef long long INT64;
+typedef unsigned long long UINT64;
+typedef void * (* MemVectorAlloc)(const char *, int, int, int, int);
+typedef void (* MemVectorFree)(void *);
+typedef void (* MemVectorFreeSize)(void *, int);
+typedef void THREADPROC();
+typedef void THREAD2PROC(void *);
+typedef int SYNCTASKFUNC(int, int);
+typedef unsigned int QUEUEFUNC(REALELEMENT *, void *);
+typedef int QUEUECOMPAREFUNC(REALELEMENT *, REALELEMENT *);
+typedef void PRINTFUNCTION(PRINTCHANNEL, const char *);
+typedef SYNCTASKFUNC EACHOOKCALLBACKFUNC;
+typedef unsigned short USTR;
+typedef long long FILE_SIZE_T;
+typedef int FILEOP;
+typedef void FILESYS_CALLBACK(int, int, void *);
+typedef int FILESYS_ATOM(int, void *);
+typedef void ASYNCFILE_CALLBACK(int);
+typedef int STREAMHANDLE;
+typedef int STREAMREQUESTID;
+typedef struct MemBlockInfo_t MemBlockInfo;
+typedef void (* AllocFreeCallback)(const MemBlockInfo *);
+typedef unsigned int ARAM_POINTER;
+typedef void MOVER(unsigned char *, const unsigned char *, int);
+typedef void bFunkHandleASyncFunction(const void *, int);
+typedef int bFunkHandleSyncFunction(const void *, int, void *);
+typedef FunctionClient MemberDataClient;
+typedef FunctionClient GlobalVariableClient;
+typedef int ptrdiff_t;
+typedef unsigned int wint_t;
+typedef char int8_t;
+typedef short int16_t;
+typedef int int32_t;
+typedef unsigned char uint8_t;
+typedef unsigned short uint16_t;
+typedef unsigned int uint32_t;
+typedef char int_least8_t;
+typedef short int_least16_t;
+typedef int int_least32_t;
+typedef unsigned char uint_least8_t;
+typedef unsigned short uint_least16_t;
+typedef unsigned int uint_least32_t;
+typedef char int_fast8_t;
+typedef short int_fast16_t;
+typedef int int_fast32_t;
+typedef unsigned char uint_fast8_t;
+typedef unsigned short uint_fast16_t;
+typedef unsigned int uint_fast32_t;
+typedef float float_t;
+typedef double double_t;
+typedef long long int64_t;
+typedef unsigned long long uint64_t;
+typedef unsigned long long intptr_t;
+typedef long long intmax_t;
+typedef unsigned long long uintmax_t;
+typedef void (* SceneryCallback)(struct SceneryDrawInfo *);
+typedef FogDistDef * FogDistDefPtr;
+typedef FogVolumeDef * FogVolumeDefPtr;
+typedef unsigned int hObj;
+typedef unsigned int hAtt;
+typedef unsigned int hLayer;
+typedef void (* MatrixMultiplier)(struct Transform *, const struct Transform *, const struct Transform *);
+typedef unsigned short CheckSum;
+typedef void * (* NewFunctionType)(unsigned int, const char *);
+typedef void (* DeleteFunctionType)(void *, unsigned int);
+typedef int Int4[4];
+typedef short Short4[4];
+typedef unsigned int argb8888;
+typedef void (* Constructor)(void *, struct DynamicLoader *, const char *);
+typedef void (* Destructor)(void *);
+typedef void * (* RuntimeAllocConstructor)(const char *, struct DynamicLoader *, int &, bool &, const char *);
+typedef void (* RuntimeAllocDestructor)(void *, int);
+typedef void * (* DynamicUserCallback)(const char *, bool &);
+typedef int i32;
+typedef short i16;
+typedef char i8;
+typedef struct MenuScreen * (* MenuScreenCreateFunction)(struct ScreenConstructorData *);
+typedef int fixed;
+typedef COORD4 RQUAT;
+typedef unsigned int RCROT;
+typedef struct HANDLE_def HANDLE;
+typedef struct sepdef sep;
+typedef union OP_def OP;
+typedef struct FILEOPERATION_def FILEOPERATION;
+typedef struct FILEBIG_def FILEBIG;
+typedef enum MemFill_t MemFill;
+typedef struct GFileDevice_def GFileDevice;
+typedef int asyncopfunc(int, int, void *, int, int, void *);
+typedef struct REQUESTSTRUCTtag REQUESTSTRUCT;
+typedef unsigned char u_char;
+typedef unsigned short u_short;
+typedef unsigned int u_int;
+typedef unsigned int u_long;
+typedef unsigned short ushort;
+typedef unsigned int uint;
+typedef int daddr_t;
+typedef char * caddr_t;
+typedef unsigned short ino_t;
+typedef short dev_t;
+typedef int off_t;
+typedef unsigned short uid_t;
+typedef unsigned short gid_t;
+typedef int pid_t;
+typedef int key_t;
+typedef int ssize_t;
+typedef unsigned int mode_t;
+typedef unsigned short nlink_t;
+typedef int fd_mask;
+
+// ---- Strukturen und Klassen ----
+// total size: 0x8
+struct ARAM_DLList {
+    ARAM_DLNode * head; // offset 0x0, size 0x4
+    ARAM_DLNode * tail; // offset 0x4, size 0x4
+};
+// total size: 0x8
+struct ARAM_DLNode {
+    struct ARAM_DLNode * next; // offset 0x0, size 0x4
+    struct ARAM_DLNode * prev; // offset 0x4, size 0x4
+};
+// total size: 0x1C
+struct ARAM_POOL {
+    ARAM_DLNode MyNode; // offset 0x0, size 0x8
+    ARAM_DLList FreeList; // offset 0x8, size 0x8
+    ARAM_DLList AllocList; // offset 0x10, size 0x8
+    char * Name; // offset 0x18, size 0x4
+};
+// total size: 0x14
+struct ARAM_POOL_MANAGER {
+    ARAM_DLList PoolList; // offset 0x0, size 0x8
+    unsigned int Alignment; // offset 0x8, size 0x4
+    unsigned int MaxSizeOfDebugString; // offset 0xC, size 0x4
+    void * NodePool; // offset 0x10, size 0x4
+};
+// total size: 0x4
+struct ARGB {
+    unsigned char a; // offset 0x0, size 0x1
+    unsigned char r; // offset 0x1, size 0x1
+    unsigned char g; // offset 0x2, size 0x1
+    unsigned char b; // offset 0x3, size 0x1
+};
+// total size: 0x20
+struct ARQRequest {
+    struct ARQRequest * next; // offset 0x0, size 0x4
+    unsigned int owner; // offset 0x4, size 0x4
+    unsigned int type; // offset 0x8, size 0x4
+    unsigned int priority; // offset 0xC, size 0x4
+    unsigned int source; // offset 0x10, size 0x4
+    unsigned int dest; // offset 0x14, size 0x4
+    unsigned int length; // offset 0x18, size 0x4
+    void (* callback)(unsigned long); // offset 0x1C, size 0x4
+};
+// total size: 0x8
+struct ASinTableEntry {
+    unsigned short Angle; // offset 0x0, size 0x2
+    float Slope; // offset 0x4, size 0x4
+};
+struct AcidActiveGroup {
+};
+struct AcidEffect {
+};
+// total size: 0x8
+struct bNode {
+    struct bNode * Next; // offset 0x0, size 0x4
+    struct bNode * Prev; // offset 0x4, size 0x4
+};
+// total size: 0x8
+struct bList {
+    struct bNode HeadNode; // offset 0x0, size 0x8
+};
+// total size: 0x8
+struct bTList_AcidActiveGroup_ : public bList {
+};
+// total size: 0x8
+struct bTList_AcidEmitter_ : public bList {
+};
+// total size: 0x10
+struct bVector3 {
+    float x; // offset 0x0, size 0x4
+    float y; // offset 0x4, size 0x4
+    float z; // offset 0x8, size 0x4
+    float pad; // offset 0xC, size 0x4
+};
+// total size: 0x60
+struct AcidEffectSystem {
+    struct bTList_AcidActiveGroup_ ActiveGroupList; // offset 0x0, size 0x8
+    struct bTList_AcidEmitter_ AutoEmitterList; // offset 0x8, size 0x8
+    struct bVector3 InterestPoints[3]; // offset 0x10, size 0x30
+    struct AcidEmitter * CurrentEmitter; // offset 0x40, size 0x4
+    int SelectEmitterIndex; // offset 0x44, size 0x4
+    char DebugStats; // offset 0x48, size 0x1
+    char CreateEmitterMaxScript; // offset 0x49, size 0x1
+    char pad; // offset 0x4A, size 0x1
+    char PrintEmitterList; // offset 0x4B, size 0x1
+    char PrintNearbyEmitters; // offset 0x4C, size 0x1
+    char OnlyShowCurrentEmitter; // offset 0x4D, size 0x1
+    int NumAutoEmitters; // offset 0x50, size 0x4
+    int NumVisibleParticles; // offset 0x54, size 0x4
+    float RenderTime; // offset 0x58, size 0x4
+    float UpdateTime; // offset 0x5C, size 0x4
+};
+// total size: 0x10
+struct bVector4 {
+    float x; // offset 0x0, size 0x4
+    float y; // offset 0x4, size 0x4
+    float z; // offset 0x8, size 0x4
+    float w; // offset 0xC, size 0x4
+};
+// total size: 0x40
+struct bMatrix4 {
+    struct bVector4 v0; // offset 0x0, size 0x10
+    struct bVector4 v1; // offset 0x10, size 0x10
+    struct bVector4 v2; // offset 0x20, size 0x10
+    struct bVector4 v3; // offset 0x30, size 0x10
+};
+// total size: 0x8
+struct bTNode_AcidEmitter_ : public bNode {
+};
+// total size: 0xC0
+struct AcidEmitter : public bTNode_AcidEmitter_ {
+    unsigned int NameHash; // offset 0x8, size 0x4
+    unsigned int EmitterDataNameHash; // offset 0xC, size 0x4
+    int State; // offset 0x10, size 0x4
+    float RemainingCycleTime; // offset 0x14, size 0x4
+    float EmissionCountdown; // offset 0x18, size 0x4
+    struct AcidEmitterData * EmitterData; // offset 0x1C, size 0x4
+    struct AcidActiveGroup * LastActiveGroup; // offset 0x20, size 0x4
+    unsigned int RandomSeed; // offset 0x24, size 0x4
+    unsigned int DontEmit; // offset 0x28, size 0x4
+    unsigned int pad2; // offset 0x2C, size 0x4
+    struct bMatrix4 LocalWorld; // offset 0x30, size 0x40
+    struct bVector4 InheritVelocity; // offset 0x70, size 0x10
+    char Name[64]; // offset 0x80, size 0x40
+};
+// total size: 0x8
+struct bTNode_AcidEmitterData_ : public bNode {
+};
+// total size: 0x220
+struct AcidEmitterData : public bTNode_AcidEmitterData_ {
+    unsigned int NameHash; // offset 0x8, size 0x4
+    unsigned int TextureNameHash; // offset 0xC, size 0x4
+    unsigned int GroupNameHash; // offset 0x10, size 0x4
+    struct TextureInfo * Texture; // offset 0x14, size 0x4
+    char SpreadAsDisc; // offset 0x18, size 0x1
+    char ContactSheetW; // offset 0x19, size 0x1
+    char ContactSheetH; // offset 0x1A, size 0x1
+    char AnimFPS; // offset 0x1B, size 0x1
+    char RandomStartFrame; // offset 0x1C, size 0x1
+    char RandomRotationDirection; // offset 0x1D, size 0x1
+    char MotionLive; // offset 0x1E, size 0x1
+    char pad1; // offset 0x1F, size 0x1
+    float OnCycle; // offset 0x20, size 0x4
+    float OnCycleVariance; // offset 0x24, size 0x4
+    float OffCycle; // offset 0x28, size 0x4
+    float OffCycleVariance; // offset 0x2C, size 0x4
+    float NumParticles; // offset 0x30, size 0x4
+    float NumParticlesVariance; // offset 0x34, size 0x4
+    float Life; // offset 0x38, size 0x4
+    float LifeVariance; // offset 0x3C, size 0x4
+    float Speed; // offset 0x40, size 0x4
+    float SpeedVariance; // offset 0x44, size 0x4
+    float InitialAngleRange; // offset 0x48, size 0x4
+    float SpreadAngle; // offset 0x4C, size 0x4
+    float MotionInherit; // offset 0x50, size 0x4
+    float MotionInheritVariance; // offset 0x54, size 0x4
+    enum CarEffectPosition CarPosition; // offset 0x58, size 0x4
+    int pad2; // offset 0x5C, size 0x4
+    struct bVector4 VolumeCenter; // offset 0x60, size 0x10
+    struct bVector4 VolumeExtent; // offset 0x70, size 0x10
+    float FarClip; // offset 0x80, size 0x4
+    float Gravity; // offset 0x84, size 0x4
+    float Drag; // offset 0x88, size 0x4
+    float MaxPixelSize; // offset 0x8C, size 0x4
+    struct bVector4 KeyPositions; // offset 0x90, size 0x10
+    struct bMatrix4 ColourMatrix; // offset 0xA0, size 0x40
+    struct bVector4 Size; // offset 0xE0, size 0x10
+    struct bVector4 RelativeAngle; // offset 0xF0, size 0x10
+    struct bMatrix4 ColourBasis; // offset 0x100, size 0x40
+    struct bMatrix4 ExtraBasis; // offset 0x140, size 0x40
+    char Name[64]; // offset 0x180, size 0x40
+    char TextureName[48]; // offset 0x1C0, size 0x30
+    char GroupName[48]; // offset 0x1F0, size 0x30
+};
+// total size: 0x10
+struct AcidEmitterDataPackHeader {
+    int pad0; // offset 0x0, size 0x4
+    int pad1; // offset 0x4, size 0x4
+    int Version; // offset 0x8, size 0x4
+    int NumEmitterDatas; // offset 0xC, size 0x4
+};
+// total size: 0x10
+struct AcidEmitterPackHeader {
+    int pad0; // offset 0x0, size 0x4
+    int pad1; // offset 0x4, size 0x4
+    int Version; // offset 0x8, size 0x4
+    int NumEmitters; // offset 0xC, size 0x4
+};
+// total size: 0x10
+struct AeroInfo {
+    float Drag; // offset 0x0, size 0x4
+    float FrontDownforce; // offset 0x4, size 0x4
+    float RearDownforce; // offset 0x8, size 0x4
+    float AutoBalanceDownforce; // offset 0xC, size 0x4
+};
+// total size: 0x8
+// innerer Typ von AllocationHeader
+struct bTNode_AllocationHeader_ : public bNode {
+};
+// total size: 0x18
+struct AllocationHeader : public bTNode_AllocationHeader_ {
+    unsigned char PoolNum; // offset 0x8, size 0x1
+    unsigned char FrontPadding; // offset 0x9, size 0x1
+    short MagicNumber; // offset 0xA, size 0x2
+    int Size; // offset 0xC, size 0x4
+    int AllocationNumber; // offset 0x10, size 0x4
+    char DebugLine; // offset 0x14, size 0x1
+    char DebugText[3]; // offset 0x15, size 0x3
+};
+// total size: 0x18
+struct AnimBank {
+    int mSize; // offset 0x0, size 0x4
+    int mNumAnims; // offset 0x4, size 0x4
+    struct AttributeDictionary * mAttributeDictionary; // offset 0x8, size 0x4
+    struct AnimMemoryMap * * mAnims; // offset 0xC, size 0x4
+    const char * * mNames; // offset 0x10, size 0x4
+    struct BankStat * mStat; // offset 0x14, size 0x4
+};
+// total size: 0x2
+struct AnimTypeId {
+    unsigned short mId; // offset 0x0, size 0x2
+};
+// total size: 0x4
+struct AnimMemoryMap {
+    struct AnimTypeId mAnimTypeId; // offset 0x0, size 0x2
+    unsigned short mTargetCheckSum; // offset 0x2, size 0x2
+};
+struct AnimStat {
+};
+// total size: 0x8
+// innerer Typ von Mover
+struct bTNode_Mover_ : public bNode {
+};
+// total size: 0x14
+// virtuell: virtual ~Mover()
+struct Mover : public bTNode_Mover_ {
+    enum eMovementPhase mMovementPhase; // offset 0x8, size 0x4
+    struct SpaceNode * mpSpaceNode; // offset 0xC, size 0x4
+    const struct __vtbl_ptr_type * _vptr_Mover; // offset 0x10, size 0x4
+};
+// total size: 0x74
+struct AnimationMover : public Mover {
+    struct CAnimCtrl * mpAnimCtrl; // offset 0x14, size 0x4
+    struct bMatrix4 BaseMatrix; // offset 0x18, size 0x40
+    float mEstimatedTimeUntilTriggered; // offset 0x58, size 0x4
+    float mTriggerDAT; // offset 0x5C, size 0x4
+    struct WorldModel * mpTriggerModel; // offset 0x60, size 0x4
+    float mPreviousSkeletalAnimationElevation; // offset 0x64, size 0x4
+    bool mRenderTrigger; // offset 0x68, size 0x1
+    bool mKeepSkeletalAnimationOnGround; // offset 0x6C, size 0x1
+    bool mHavePreviousSkeletalAnimationElevation; // offset 0x70, size 0x1
+};
+// total size: 0x4
+struct AnimationTarget {
+    unsigned short mCheckSum; // offset 0x0, size 0x2
+    unsigned short mNumDofs; // offset 0x2, size 0x2
+};
+// total size: 0x2
+struct AttributeId {
+    unsigned short mId; // offset 0x0, size 0x2
+};
+// total size: 0x8
+struct Attribute {
+    struct AttributeId mId; // offset 0x0, size 0x2
+    unsigned short mSize; // offset 0x2, size 0x2
+    void * mData; // offset 0x4, size 0x4
+};
+// total size: 0xC
+struct AttributeBlock {
+    int mNumAttributes; // offset 0x0, size 0x4
+    struct Attribute mAttributes[1]; // offset 0x4, size 0x8
+};
+struct AttributeDictionary {
+};
+// total size: 0x8
+struct AverageBase {
+    unsigned char nSize; // offset 0x0, size 0x1
+    unsigned char nSlots; // offset 0x1, size 0x1
+    unsigned char nSamples; // offset 0x2, size 0x1
+    unsigned char nCurrentSlot; // offset 0x3, size 0x1
+    const struct __vtbl_ptr_type * _vptr_AverageBase; // offset 0x4, size 0x4
+};
+// total size: 0x28
+// virtuell: ~Average() override | void Recalculate() override
+struct Average : public AverageBase {
+    float fTotal; // offset 0x8, size 0x4
+    float fAverage; // offset 0xC, size 0x4
+    float * pData; // offset 0x10, size 0x4
+    float SmallDataBuffer[5]; // offset 0x14, size 0x14
+};
+// total size: 0x34
+// virtuell: ~AverageWindow() override
+struct AverageWindow : public Average {
+    float fTimeWindow; // offset 0x28, size 0x4
+    int iOldestValue; // offset 0x2C, size 0x4
+    float * pTimeData; // offset 0x30, size 0x4
+};
+struct Avoidable {
+};
+// total size: 0x5
+struct BIGENTRY16 {
+    char offset[2]; // offset 0x0, size 0x2
+    char length[2]; // offset 0x2, size 0x2
+    char name[1]; // offset 0x4, size 0x1
+};
+// total size: 0x7
+struct BIGENTRY24 {
+    char offset[3]; // offset 0x0, size 0x3
+    char length[3]; // offset 0x3, size 0x3
+    char name[1]; // offset 0x6, size 0x1
+};
+// total size: 0x9
+struct BIGENTRY32 {
+    char offset[4]; // offset 0x0, size 0x4
+    char length[4]; // offset 0x4, size 0x4
+    char name[1]; // offset 0x8, size 0x1
+};
+// total size: 0xA
+struct BIGENTRY40 {
+    char offset[5]; // offset 0x0, size 0x5
+    char length[4]; // offset 0x5, size 0x4
+    char name[1]; // offset 0x9, size 0x1
+};
+// total size: 0x8
+struct BIGFileInfo {
+    struct FILEBIG_def * fi; // offset 0x0, size 0x4
+    int bigoffset; // offset 0x4, size 0x4
+};
+// total size: 0x10
+struct BIGHEADER {
+    char type[4]; // offset 0x0, size 0x4
+    char len[4]; // offset 0x4, size 0x4
+    char num[4]; // offset 0x8, size 0x4
+    char hlen[4]; // offset 0xC, size 0x4
+};
+// total size: 0x6
+struct BIGHEADER24 {
+    char type[2]; // offset 0x0, size 0x2
+    char hlen[2]; // offset 0x2, size 0x2
+    char num[2]; // offset 0x4, size 0x2
+};
+struct BankStat {
+};
+// total size: 0x1
+struct Base64 {
+};
+// total size: 0xB4
+struct BodyTypeInfo {
+    char BodyTypeName[24]; // offset 0x0, size 0x18
+    unsigned int ObjectNameHashA; // offset 0x18, size 0x4
+    unsigned int ObjectNameHashB; // offset 0x1C, size 0x4
+    unsigned int ObjectNameHashC; // offset 0x20, size 0x4
+    unsigned int MappedBodyHash; // offset 0x24, size 0x4
+    unsigned int MappedHeadHash; // offset 0x28, size 0x4
+    unsigned int NumBodyHash; // offset 0x2C, size 0x4
+    unsigned int NumHeadHash; // offset 0x30, size 0x4
+    unsigned int BodySkinHash[16]; // offset 0x34, size 0x40
+    unsigned int HeadSkinHash[16]; // offset 0x74, size 0x40
+};
+// total size: 0x20
+struct BoneMask {
+    unsigned int mMask[8]; // offset 0x0, size 0x20
+};
+// total size: 0x10
+struct BrakeUpgradeInfo {
+    float Brake; // offset 0x0, size 0x4
+    float EBrake; // offset 0x4, size 0x4
+    float BrakeBias; // offset 0x8, size 0x4
+    float pad1; // offset 0xC, size 0x4
+};
+// total size: 0x14
+struct CARDFileInfo {
+    int chan; // offset 0x0, size 0x4
+    int fileNo; // offset 0x4, size 0x4
+    int offset; // offset 0x8, size 0x4
+    int length; // offset 0xC, size 0x4
+    unsigned short iBlock; // offset 0x10, size 0x2
+    unsigned short __padding; // offset 0x12, size 0x2
+};
+// total size: 0x6C
+struct CARDStat {
+    char fileName[32]; // offset 0x0, size 0x20
+    unsigned int length; // offset 0x20, size 0x4
+    unsigned int time; // offset 0x24, size 0x4
+    unsigned char gameName[4]; // offset 0x28, size 0x4
+    unsigned char company[2]; // offset 0x2C, size 0x2
+    unsigned char bannerFormat; // offset 0x2E, size 0x1
+    unsigned char __padding; // offset 0x2F, size 0x1
+    unsigned int iconAddr; // offset 0x30, size 0x4
+    unsigned short iconFormat; // offset 0x34, size 0x2
+    unsigned short iconSpeed; // offset 0x36, size 0x2
+    unsigned int commentAddr; // offset 0x38, size 0x4
+    unsigned int offsetBanner; // offset 0x3C, size 0x4
+    unsigned int offsetBannerTlut; // offset 0x40, size 0x4
+    unsigned long offsetIcon[8]; // offset 0x44, size 0x20
+    unsigned int offsetIconTlut; // offset 0x64, size 0x4
+    unsigned int offsetData; // offset 0x68, size 0x4
+};
+struct CAnimCtrl {
+};
+// total size: 0x8
+// innerer Typ von CAnimSkeleton
+struct bTNode_CAnimSkeleton_ : public bNode {
+};
+// total size: 0x24
+struct CAnimSkeleton : public bTNode_CAnimSkeleton_ {
+    int m_loaded; // offset 0x8, size 0x4
+    const char * m_pName; // offset 0xC, size 0x4
+    unsigned int m_NameHash; // offset 0x10, size 0x4
+    int m_internalDynLoader; // offset 0x14, size 0x4
+    struct DynamicLoader * m_pDynLoader; // offset 0x18, size 0x4
+    int m_DynLoaderSize; // offset 0x1C, size 0x4
+    struct Skeleton * m_pSkeleton; // offset 0x20, size 0x4
+};
+// total size: 0xC
+struct CLUTHeader {
+    unsigned short numEntries; // offset 0x0, size 0x2
+    unsigned char unpacked; // offset 0x2, size 0x1
+    unsigned char pad8; // offset 0x3, size 0x1
+    GXTlutFmt format; // offset 0x4, size 0x4
+    char * data; // offset 0x8, size 0x4
+};
+// total size: 0x10
+struct CONVERTER {
+    MOVER * mover; // offset 0x0, size 0x4
+    unsigned int destType; // offset 0x4, size 0x4
+    bool swizzleSupport; // offset 0x8, size 0x1
+    unsigned int chunkSize; // offset 0xC, size 0x4
+};
+// total size: 0x8
+struct COORD2 {
+    float x; // offset 0x0, size 0x4
+    float y; // offset 0x4, size 0x4
+};
+// total size: 0x4
+struct COORD2_s16 {
+    short x; // offset 0x0, size 0x2
+    short y; // offset 0x2, size 0x2
+};
+// total size: 0x2
+struct COORD2_s8 {
+    char x; // offset 0x0, size 0x1
+    char y; // offset 0x1, size 0x1
+};
+// total size: 0x4
+struct COORD2_u16 {
+    unsigned short x; // offset 0x0, size 0x2
+    unsigned short y; // offset 0x2, size 0x2
+};
+// total size: 0x2
+struct COORD2_u8 {
+    unsigned char x; // offset 0x0, size 0x1
+    unsigned char y; // offset 0x1, size 0x1
+};
+// total size: 0xC
+struct COORD3 {
+    float x; // offset 0x0, size 0x4
+    float y; // offset 0x4, size 0x4
+    float z; // offset 0x8, size 0x4
+};
+// total size: 0x18
+struct COORD32 {
+    float x1; // offset 0x0, size 0x4
+    float y1; // offset 0x4, size 0x4
+    float z1; // offset 0x8, size 0x4
+    float x2; // offset 0xC, size 0x4
+    float y2; // offset 0x10, size 0x4
+    float z2; // offset 0x14, size 0x4
+};
+// total size: 0x24
+struct COORD33 {
+    float x1; // offset 0x0, size 0x4
+    float y1; // offset 0x4, size 0x4
+    float z1; // offset 0x8, size 0x4
+    float x2; // offset 0xC, size 0x4
+    float y2; // offset 0x10, size 0x4
+    float z2; // offset 0x14, size 0x4
+    float x3; // offset 0x18, size 0x4
+    float y3; // offset 0x1C, size 0x4
+    float z3; // offset 0x20, size 0x4
+};
+// total size: 0x6
+struct COORD3_s16 {
+    short x; // offset 0x0, size 0x2
+    short y; // offset 0x2, size 0x2
+    short z; // offset 0x4, size 0x2
+};
+// total size: 0x3
+struct COORD3_s8 {
+    char x; // offset 0x0, size 0x1
+    char y; // offset 0x1, size 0x1
+    char z; // offset 0x2, size 0x1
+};
+// total size: 0x6
+struct COORD3_u16 {
+    unsigned short x; // offset 0x0, size 0x2
+    unsigned short y; // offset 0x2, size 0x2
+    unsigned short z; // offset 0x4, size 0x2
+};
+// total size: 0x3
+struct COORD3_u8 {
+    unsigned char x; // offset 0x0, size 0x1
+    unsigned char y; // offset 0x1, size 0x1
+    unsigned char z; // offset 0x2, size 0x1
+};
+// total size: 0x10
+struct COORD4 {
+    float x; // offset 0x0, size 0x4
+    float y; // offset 0x4, size 0x4
+    float z; // offset 0x8, size 0x4
+    float w; // offset 0xC, size 0x4
+};
+// total size: 0x18
+struct CPUINFO {
+    unsigned long long hz; // offset 0x0, size 0x8
+    char name[16]; // offset 0x8, size 0x10
+};
+// total size: 0x8
+struct bTNode_CachedRealFileHandle_ : public bNode {
+};
+// total size: 0xDC
+struct CachedRealFileHandle : public bTNode_CachedRealFileHandle_ {
+    int NumReferences; // offset 0x8, size 0x4
+    int FileHandle; // offset 0xC, size 0x4
+    int FileSize; // offset 0x10, size 0x4
+    char Filename[200]; // offset 0x14, size 0xC8
+};
+// total size: 0x10
+struct bVector3Image : public bVector3 {
+};
+// total size: 0xCC
+struct CameraParams {
+    struct bMatrix4 Matrix; // offset 0x0, size 0x40
+    struct bVector3Image Position; // offset 0x40, size 0x10
+    struct bVector3Image Direction; // offset 0x50, size 0x10
+    struct bVector3Image Target; // offset 0x60, size 0x10
+    struct bVector4 NoiseFrequency1; // offset 0x70, size 0x10
+    struct bVector4 NoiseAmplitude1; // offset 0x80, size 0x10
+    struct bVector4 NoiseFrequency2; // offset 0x90, size 0x10
+    struct bVector4 NoiseAmplitude2; // offset 0xA0, size 0x10
+    float TargetDistance; // offset 0xB0, size 0x4
+    float FocalDistance; // offset 0xB4, size 0x4
+    float DepthOfField; // offset 0xB8, size 0x4
+    float NearZ; // offset 0xBC, size 0x4
+    float FarZ; // offset 0xC0, size 0x4
+    unsigned short FieldOfView; // offset 0xC4, size 0x2
+    unsigned short DummyAngle; // offset 0xC6, size 0x2
+    float DummyFloat; // offset 0xC8, size 0x4
+};
+// total size: 0x27C
+struct Camera {
+    struct CameraParams CurrentKey; // offset 0x0, size 0xCC
+    struct CameraParams PreviousKey; // offset 0xCC, size 0xCC
+    struct CameraParams VelocityKey; // offset 0x198, size 0xCC
+    bool bClearVelocity; // offset 0x264, size 0x1
+    float ElapsedTime; // offset 0x268, size 0x4
+    int LastUpdateTime; // offset 0x26C, size 0x4
+    int LastDisparateTime; // offset 0x270, size 0x4
+    struct Car * CarNotToRender; // offset 0x274, size 0x4
+    int RenderDash; // offset 0x278, size 0x4
+};
+struct CameraDataItems {
+};
+struct CameraMover {
+};
+// total size: 0x4C
+struct CameraNoiseParams {
+    float Frequency1[4]; // offset 0x0, size 0x10
+    float Frequency2[4]; // offset 0x10, size 0x10
+    float Amplitude1[4]; // offset 0x20, size 0x10
+    float Amplitude2[4]; // offset 0x30, size 0x10
+    float ScaleAll; // offset 0x40, size 0x4
+    float ScaleX; // offset 0x44, size 0x4
+    float ScaleY; // offset 0x48, size 0x4
+};
+struct Car {
+};
+// total size: 0x30
+struct ControlInfo {
+    float Steering; // offset 0x0, size 0x4
+    float Brake; // offset 0x4, size 0x4
+    float EBrake; // offset 0x8, size 0x4
+    float BrakeBias; // offset 0xC, size 0x4
+    float YawControl; // offset 0x10, size 0x4
+    float YawControlNFS; // offset 0x14, size 0x4
+    float MaxZMomentAcc; // offset 0x18, size 0x4
+    float MaxZMomentAccExtreme; // offset 0x1C, size 0x4
+    float SpeedLimiter; // offset 0x20, size 0x4
+    float dummy[3]; // offset 0x24, size 0xC
+};
+// total size: 0x40
+struct DriveTrainInfo {
+    float ShiftUpPoint; // offset 0x0, size 0x4
+    float ShiftDownRPM; // offset 0x4, size 0x4
+    float FinalDrive[2]; // offset 0x8, size 0x8
+    float TorqueSplit; // offset 0x10, size 0x4
+    float ClutchStiffness; // offset 0x14, size 0x4
+    int NumGears; // offset 0x18, size 0x4
+    float ShiftSpeed; // offset 0x1C, size 0x4
+    float GearRatios[8]; // offset 0x20, size 0x20
+};
+// total size: 0x70
+struct EngineInfo {
+    float IdleRPM; // offset 0x0, size 0x4
+    float RedLineRPM; // offset 0x4, size 0x4
+    float MaxRPM; // offset 0x8, size 0x4
+    float MomentOfInertia; // offset 0xC, size 0x4
+    float TorqueCurveTable[9]; // offset 0x10, size 0x24
+    float TurboTorqueCurve[9]; // offset 0x34, size 0x24
+    float EngineBrakingTable[3]; // offset 0x58, size 0xC
+    float pad1; // offset 0x64, size 0x4
+    float pad2; // offset 0x68, size 0x4
+    float pad3; // offset 0x6C, size 0x4
+};
+// total size: 0x10
+struct NitrousInfo {
+    float TotalNOS; // offset 0x0, size 0x4
+    int NumBursts; // offset 0x4, size 0x4
+    float RechargeTime; // offset 0x8, size 0x4
+    float TorqueAdditive; // offset 0xC, size 0x4
+};
+// total size: 0x60
+struct RigidBodyInfo {
+    float Mass; // offset 0x0, size 0x4
+    float Xdim; // offset 0x4, size 0x4
+    float Ydim; // offset 0x8, size 0x4
+    float Zdim; // offset 0xC, size 0x4
+    struct bMatrix4 InertiaTensor; // offset 0x10, size 0x40
+    float InertiaTensorZExtend; // offset 0x50, size 0x4
+    float pad[3]; // offset 0x54, size 0xC
+};
+// total size: 0x20
+struct SuspensionInfo {
+    float Progression; // offset 0x0, size 0x4
+    float Stiffness; // offset 0x4, size 0x4
+    float Damping[2]; // offset 0x8, size 0x8
+    float SwayBarStiffness; // offset 0x10, size 0x4
+    float BumpStop[2]; // offset 0x14, size 0x8
+    float MaxRenderingCompression; // offset 0x1C, size 0x4
+};
+// total size: 0x20
+struct TireInfo {
+    float MaxSlipAngle; // offset 0x0, size 0x4
+    float MaxLoad; // offset 0x4, size 0x4
+    float ForceScale; // offset 0x8, size 0x4
+    float StaticFrictionCoefficient; // offset 0xC, size 0x4
+    float DynamicFrictionCoefficient; // offset 0x10, size 0x4
+    float dummy[3]; // offset 0x14, size 0xC
+};
+// total size: 0x30
+struct WheelInfo {
+    struct bVector3Image Position; // offset 0x0, size 0x10
+    float Radius; // offset 0x10, size 0x4
+    float Width; // offset 0x14, size 0x4
+    int WheelNumber; // offset 0x18, size 0x4
+    float YRenderOffset; // offset 0x1C, size 0x4
+    float WideBodyYRenderOffset; // offset 0x20, size 0x4
+    float pad[3]; // offset 0x24, size 0xC
+};
+// total size: 0xA
+struct LGPosition {
+    unsigned short button; // offset 0x0, size 0x2
+    unsigned char misc; // offset 0x2, size 0x1
+    char wheel; // offset 0x3, size 0x1
+    unsigned char accelerator; // offset 0x4, size 0x1
+    unsigned char brake; // offset 0x5, size 0x1
+    char combined; // offset 0x6, size 0x1
+    unsigned char triggerLeft; // offset 0x7, size 0x1
+    unsigned char triggerRight; // offset 0x8, size 0x1
+    char err; // offset 0x9, size 0x1
+};
+// total size: 0x880
+struct Wheels {
+    LGPosition Position[4]; // offset 0x0, size 0x28
+    short NonLinearWheel[4][256]; // offset 0x28, size 0x800
+    unsigned long WheelHandles[4]; // offset 0x828, size 0x10
+    unsigned long type[4]; // offset 0x838, size 0x10
+    unsigned long WheelHandle[4]; // offset 0x848, size 0x10
+    LGPosition PositionLast[4]; // offset 0x858, size 0x28
+};
+// total size: 0x2B0
+struct CarPhysicsInfo {
+    struct bVector3 CenterOfGravity; // offset 0x0, size 0x10
+    struct WheelInfo Wheels[4]; // offset 0x10, size 0xC0
+    struct TireInfo Tires[2]; // offset 0xD0, size 0x40
+    struct RigidBodyInfo Body; // offset 0x110, size 0x60
+    struct SuspensionInfo Suspension[2]; // offset 0x170, size 0x40
+    struct DriveTrainInfo DriveTrain; // offset 0x1B0, size 0x40
+    struct EngineInfo Engine; // offset 0x1F0, size 0x70
+    struct AeroInfo Aero; // offset 0x260, size 0x10
+    struct ControlInfo Control; // offset 0x270, size 0x30
+    struct NitrousInfo Nitrous; // offset 0x2A0, size 0x10
+};
+// total size: 0x4
+struct SpaceCase {
+    struct SpaceNode * mpSpaceNode; // offset 0x0, size 0x4
+};
+// total size: 0x10
+struct SpaceCadet : public SpaceCase {
+    struct Mover * mpMover; // offset 0x4, size 0x4
+    enum eMoverType mMovementMode; // offset 0x8, size 0x4
+    enum eMovementPhase mMovementPhase; // offset 0xC, size 0x4
+};
+// total size: 0x8
+// innerer Typ von WorldEntity
+struct bTNode_WorldEntity_ : public bNode {
+};
+// total size: 0x1C
+// virtuell: virtual ~WorldEntity() | virtual char * GetDebugString(char * buffer, int buffersize)
+struct WorldEntity : public bTNode_WorldEntity_ {
+    int mTypeHash; // offset 0x8, size 0x4
+    int mNameHash; // offset 0xC, size 0x4
+    int mIDNumber; // offset 0x10, size 0x4
+    struct WorldEntityType * mpWET; // offset 0x14, size 0x4
+    const struct __vtbl_ptr_type * _vptr_WorldEntity; // offset 0x18, size 0x4
+};
+// total size: 0x8C
+struct WorldObject : public WorldEntity, public SpaceCadet {
+    struct WorldObjectInfo * mpWorldObjectInfo; // offset 0x2C, size 0x4
+    struct WorldModel * mpWorldModel; // offset 0x30, size 0x4
+    struct WorldObjectCollisionBody * mpCollisionBody; // offset 0x34, size 0x4
+    struct MobileTopology * mpMobileTopology; // offset 0x38, size 0x4
+    struct SoundObject * mpSoundObject; // offset 0x3C, size 0x4
+    struct WorldObject * mpParent; // offset 0x40, size 0x4
+    bool FoundParent; // offset 0x44, size 0x1
+    struct Avoidable * mpAvoidable; // offset 0x48, size 0x4
+    struct bMatrix4 Rotation; // offset 0x4C, size 0x40
+};
+// total size: 0x90
+// virtuell: inline ~CarWorldObject() override
+struct CarWorldObject : public WorldObject {
+    struct Car * mpCar; // offset 0x8C, size 0x4
+};
+// total size: 0x18
+// virtuell: inline ~CarWorldObjectMover() override
+struct CarWorldObjectMover : public Mover {
+    struct Car * mpCar; // offset 0x14, size 0x4
+};
+// total size: 0x44
+struct CharacterInfo {
+    int CharacterNumber; // offset 0x0, size 0x4
+    char CharacterName[32]; // offset 0x4, size 0x20
+    char BodyTypeName[24]; // offset 0x24, size 0x18
+    int BodySkinNumber; // offset 0x3C, size 0x4
+    int HeadSkinNumber; // offset 0x40, size 0x4
+};
+// total size: 0x8
+// Template-Instanz, Layout von bTList_CameraMover_ übernommen
+struct bTList_bPNode_ : public bList {
+};
+// total size: 0x8
+struct bPList_SkidSet_ : public bTList_bPNode_ {
+};
+// total size: 0x8
+// innerer Typ von Clan
+struct bTNode_Clan_ : public bNode {
+};
+// total size: 0x48
+struct Clan : public bTNode_Clan_ {
+    struct bPList_SkidSet_ SkidSetList; // offset 0x8, size 0x8
+    unsigned int Hash; // offset 0x10, size 0x4
+    int LastUpdateTime; // offset 0x14, size 0x4
+    struct bVector3 Position; // offset 0x18, size 0x10
+    struct bVector3 BBoxMin; // offset 0x28, size 0x10
+    struct bVector3 BBoxMax; // offset 0x38, size 0x10
+};
+// total size: 0x1
+struct Class {
+};
+// total size: 0x10
+struct ClassConstructorClient {
+    void * reserved[2]; // offset 0x0, size 0x8
+    void (* pClientFunc)(struct Class *, Parameter *, void *); // offset 0x8, size 0x4
+    void * pClientData; // offset 0xC, size 0x4
+};
+// total size: 0x10
+struct ClassDestructorClient {
+    void * reserved[2]; // offset 0x0, size 0x8
+    void (* pClientFunc)(struct Class *, void *); // offset 0x8, size 0x4
+    void * pClientData; // offset 0xC, size 0x4
+};
+// total size: 0x8
+struct ClassHandle {
+    void * mpPrivate; // offset 0x0, size 0x4
+    int mKey; // offset 0x4, size 0x4
+};
+struct Collision {
+};
+struct CollisionSample {
+};
+// total size: 0x4
+struct Colour {
+    unsigned int c; // offset 0x0, size 0x4
+};
+// total size: 0x40
+struct EngineUpgradeInfo {
+    float IdleRPMAdjust; // offset 0x0, size 0x4
+    float RedLineRPMAdjust; // offset 0x4, size 0x4
+    float MaxRPMAdjust; // offset 0x8, size 0x4
+    float MomentOfInertiaAdjust; // offset 0xC, size 0x4
+    float TorqueCurveAdjust[9]; // offset 0x10, size 0x24
+    float EngineBrakingAdjust[3]; // offset 0x34, size 0xC
+};
+// total size: 0x10
+struct GroundEffectsUpgradeInfo {
+    float FrontDownforceAdjust; // offset 0x0, size 0x4
+    float RearDownforceAdjust; // offset 0x4, size 0x4
+    float AutoBalanceAdjust; // offset 0x8, size 0x4
+    float pad1; // offset 0xC, size 0x4
+};
+// total size: 0x90
+struct JunkmanUpgradeInfo {
+    float WeightReduction; // offset 0x0, size 0x4
+    float DriveTrainTorqueSplit; // offset 0x4, size 0x4
+    float NOSTorqueAdditive; // offset 0x8, size 0x4
+    float BrakeAdditive; // offset 0xC, size 0x4
+    float StaticFrictionAdditive[2]; // offset 0x10, size 0x8
+    float DynamicFrictionAdditive[2]; // offset 0x18, size 0x8
+    float EngineTorqueAdditive[9]; // offset 0x20, size 0x24
+    float ECUTorqueAdditive[9]; // offset 0x44, size 0x24
+    float TurboTorqueAdditive[9]; // offset 0x68, size 0x24
+    float pad; // offset 0x8C, size 0x4
+};
+// total size: 0x10
+struct NitrousUpgradeInfo {
+    struct NitrousInfo NOS; // offset 0x0, size 0x10
+};
+// total size: 0x10
+struct SpoilerUpgradeInfo {
+    float FrontDownforceAdjust; // offset 0x0, size 0x4
+    float RearDownforceAdjust; // offset 0x4, size 0x4
+    float AutoBalanceAdjust; // offset 0x8, size 0x4
+    float pad1; // offset 0xC, size 0x4
+};
+// total size: 0x50
+struct SuspensionUpgradeInfo {
+    struct SuspensionInfo FrontSuspension; // offset 0x0, size 0x20
+    struct SuspensionInfo RearSuspension; // offset 0x20, size 0x20
+    float COGLowering; // offset 0x40, size 0x4
+    float FrontLowering; // offset 0x44, size 0x4
+    float RearLowering; // offset 0x48, size 0x4
+    float pad2; // offset 0x4C, size 0x4
+};
+// total size: 0x40
+struct TireUpgradeInfo {
+    struct TireInfo FrontTires; // offset 0x0, size 0x20
+    struct TireInfo RearTires; // offset 0x20, size 0x20
+};
+// total size: 0x40
+struct TransmissionUpgradeInfo {
+    float ShiftUpPoint; // offset 0x0, size 0x4
+    float ShiftDownRPM; // offset 0x4, size 0x4
+    float FinalDrive[2]; // offset 0x8, size 0x8
+    float TorqueSplit; // offset 0x10, size 0x4
+    float ClutchStiffness; // offset 0x14, size 0x4
+    int NumGears; // offset 0x18, size 0x4
+    float ShiftSpeed; // offset 0x1C, size 0x4
+    float GearRatios[8]; // offset 0x20, size 0x20
+};
+// total size: 0x30
+struct TurboUpgradeInfo {
+    float TorqueAdditive[9]; // offset 0x0, size 0x24
+    float pad1; // offset 0x24, size 0x4
+    float pad2; // offset 0x28, size 0x4
+    float pad3; // offset 0x2C, size 0x4
+};
+// total size: 0x10
+struct WeightReductionUpgradeInfo {
+    float FractionOfBaseWeight; // offset 0x0, size 0x4
+    float ForwardCOGAdjustment; // offset 0x4, size 0x4
+    float InertiaTensorZExtend; // offset 0x8, size 0x4
+    float pad1; // offset 0xC, size 0x4
+};
+// total size: 0x8B0
+struct CompleatCarPhysicsInfo {
+    struct CarPhysicsInfo BasePhysicsInfo; // offset 0x0, size 0x2B0
+    struct WeightReductionUpgradeInfo WeightReductionUpgrades[3]; // offset 0x2B0, size 0x30
+    struct TransmissionUpgradeInfo TransmissionUpgrades[3]; // offset 0x2E0, size 0xC0
+    struct EngineUpgradeInfo EngineUpgrades[3]; // offset 0x3A0, size 0xC0
+    struct EngineUpgradeInfo ECUUpgrades[3]; // offset 0x460, size 0xC0
+    struct TurboUpgradeInfo TurboUpgrades[3]; // offset 0x520, size 0x90
+    struct TireUpgradeInfo TireUpgrades[3]; // offset 0x5B0, size 0xC0
+    struct NitrousUpgradeInfo NitrousUpgrades[3]; // offset 0x670, size 0x30
+    struct SpoilerUpgradeInfo SpoilerUpgrades[3]; // offset 0x6A0, size 0x30
+    struct GroundEffectsUpgradeInfo GroundEffectsUpgrades[3]; // offset 0x6D0, size 0x30
+    struct BrakeUpgradeInfo BrakeUpgrades[3]; // offset 0x700, size 0x30
+    struct SuspensionUpgradeInfo SuspensionUpgrades[3]; // offset 0x730, size 0xF0
+    struct JunkmanUpgradeInfo JunkmanUpgrades; // offset 0x820, size 0x90
+};
+// total size: 0x4
+struct ComputationIndexPrivateData {
+    short mCurrentComputationIndex; // offset 0x0, size 0x2
+    short mMaxComputationIndex; // offset 0x2, size 0x2
+};
+// total size: 0x4
+struct ComputationIndex {
+    struct ComputationIndexPrivateData mData; // offset 0x0, size 0x4
+};
+// total size: 0x100
+struct Force {
+    bool Playing[4][8]; // offset 0x0, size 0x20
+    unsigned long EffectID[4][8]; // offset 0x80, size 0x80
+};
+// total size: 0x100
+struct Condition : public Force {
+};
+// total size: 0x100
+struct Constant : public Force {
+};
+// total size: 0x14
+struct SymbolPool {
+    unsigned int mTableSize; // offset 0x0, size 0x4
+    unsigned int mTableLength; // offset 0x4, size 0x4
+    struct SymbolEntry * * mpSymbolTable; // offset 0x8, size 0x4
+    unsigned int mSymbolTableCRC32; // offset 0xC, size 0x4
+    struct FunctionEntry * mpFunctions; // offset 0x10, size 0x4
+};
+// total size: 0x28
+struct ConstructorPool {
+    struct SymbolPool conspool; // offset 0x0, size 0x14
+    struct SymbolPool despool; // offset 0x14, size 0x14
+};
+struct Constructors {
+};
+// total size: 0x10
+struct DBInterface {
+    unsigned int bPresent; // offset 0x0, size 0x4
+    unsigned int exceptionMask; // offset 0x4, size 0x4
+    void (* ExceptionDestination)(); // offset 0x8, size 0x4
+    void * exceptionReturn; // offset 0xC, size 0x4
+};
+// total size: 0xC
+struct PADStatus {
+    unsigned short button; // offset 0x0, size 0x2
+    char stickX; // offset 0x2, size 0x1
+    char stickY; // offset 0x3, size 0x1
+    char substickX; // offset 0x4, size 0x1
+    char substickY; // offset 0x5, size 0x1
+    unsigned char triggerLeft; // offset 0x6, size 0x1
+    unsigned char triggerRight; // offset 0x7, size 0x1
+    unsigned char analogA; // offset 0x8, size 0x1
+    unsigned char analogB; // offset 0x9, size 0x1
+    char err; // offset 0xA, size 0x1
+};
+// total size: 0x1E
+struct DEMOPadStatus {
+    PADStatus pst; // offset 0x0, size 0xC
+    unsigned short buttonDown; // offset 0xC, size 0x2
+    unsigned short buttonUp; // offset 0xE, size 0x2
+    unsigned short dirs; // offset 0x10, size 0x2
+    unsigned short dirsNew; // offset 0x12, size 0x2
+    unsigned short dirsReleased; // offset 0x14, size 0x2
+    short stickDeltaX; // offset 0x16, size 0x2
+    short stickDeltaY; // offset 0x18, size 0x2
+    short substickDeltaX; // offset 0x1A, size 0x2
+    short substickDeltaY; // offset 0x1C, size 0x2
+};
+// total size: 0x40
+struct DEMOStatObj {
+    char text[50]; // offset 0x0, size 0x32
+    DEMOStatType stat_type; // offset 0x34, size 0x4
+    unsigned int stat; // offset 0x38, size 0x4
+    unsigned int count; // offset 0x3C, size 0x4
+};
+// total size: 0x10
+struct DSBranch {
+    char * Prev; // offset 0x0, size 0x4
+    char * Next; // offset 0x4, size 0x4
+    char * Parent; // offset 0x8, size 0x4
+    char * Children; // offset 0xC, size 0x4
+};
+// total size: 0xC
+struct DSList {
+    unsigned int Offset; // offset 0x0, size 0x4
+    char * Head; // offset 0x4, size 0x4
+    char * Tail; // offset 0x8, size 0x4
+};
+// total size: 0x10
+struct DSCache {
+    unsigned char PurgeFlag; // offset 0x0, size 0x1
+    DSList CacheNodeList; // offset 0x4, size 0xC
+};
+// total size: 0x8
+struct DSLink {
+    char * Prev; // offset 0x0, size 0x4
+    char * Next; // offset 0x4, size 0x4
+};
+// total size: 0x18
+struct DSCacheNode {
+    DSLink Link; // offset 0x0, size 0x8
+    void (* Free)(char * *); // offset 0x8, size 0x4
+    char * Name; // offset 0xC, size 0x4
+    char * Data; // offset 0x10, size 0x4
+    unsigned short ReferenceCount; // offset 0x14, size 0x2
+};
+// total size: 0xC
+struct DSHashTable {
+    DSList * table; // offset 0x0, size 0x4
+    unsigned short tableSize; // offset 0x4, size 0x2
+    DSHashFunc * hash; // offset 0x8, size 0x4
+};
+// total size: 0x60
+struct DSPADPCM {
+    unsigned int num_samples; // offset 0x0, size 0x4
+    unsigned int num_adpcm_nibbles; // offset 0x4, size 0x4
+    unsigned int sample_rate; // offset 0x8, size 0x4
+    unsigned short loop_flag; // offset 0xC, size 0x2
+    unsigned short format; // offset 0xE, size 0x2
+    unsigned int sa; // offset 0x10, size 0x4
+    unsigned int ea; // offset 0x14, size 0x4
+    unsigned int ca; // offset 0x18, size 0x4
+    unsigned short coef[16]; // offset 0x1C, size 0x20
+    unsigned short gain; // offset 0x3C, size 0x2
+    unsigned short ps; // offset 0x3E, size 0x2
+    unsigned short yn1; // offset 0x40, size 0x2
+    unsigned short yn2; // offset 0x42, size 0x2
+    unsigned short lps; // offset 0x44, size 0x2
+    unsigned short lyn1; // offset 0x46, size 0x2
+    unsigned short lyn2; // offset 0x48, size 0x2
+    unsigned short pad[11]; // offset 0x4A, size 0x16
+};
+// total size: 0x8
+struct DSTree {
+    unsigned int Offset; // offset 0x0, size 0x4
+    char * Root; // offset 0x4, size 0x4
+};
+// total size: 0x30
+struct DVDCommandBlock {
+    struct DVDCommandBlock * next; // offset 0x0, size 0x4
+    struct DVDCommandBlock * prev; // offset 0x4, size 0x4
+    unsigned int command; // offset 0x8, size 0x4
+    int state; // offset 0xC, size 0x4
+    unsigned int offset; // offset 0x10, size 0x4
+    unsigned int length; // offset 0x14, size 0x4
+    void * addr; // offset 0x18, size 0x4
+    unsigned int currTransferSize; // offset 0x1C, size 0x4
+    unsigned int transferredSize; // offset 0x20, size 0x4
+    DVDDiskID * id; // offset 0x24, size 0x4
+    void (* callback)(long, struct DVDCommandBlock *); // offset 0x28, size 0x4
+    void * userData; // offset 0x2C, size 0x4
+};
+// total size: 0xC
+struct DVDDir {
+    unsigned int entryNum; // offset 0x0, size 0x4
+    unsigned int location; // offset 0x4, size 0x4
+    unsigned int next; // offset 0x8, size 0x4
+};
+// total size: 0xC
+struct DVDDirEntry {
+    unsigned int entryNum; // offset 0x0, size 0x4
+    int isDir; // offset 0x4, size 0x4
+    char * name; // offset 0x8, size 0x4
+};
+// total size: 0x20
+struct DVDDiskID {
+    char gameName[4]; // offset 0x0, size 0x4
+    char company[2]; // offset 0x4, size 0x2
+    unsigned char diskNumber; // offset 0x6, size 0x1
+    unsigned char gameVersion; // offset 0x7, size 0x1
+    unsigned char streaming; // offset 0x8, size 0x1
+    unsigned char streamingBufSize; // offset 0x9, size 0x1
+    unsigned char padding[22]; // offset 0xA, size 0x16
+};
+// total size: 0x3C
+struct DVDFileInfo {
+    DVDCommandBlock cb; // offset 0x0, size 0x30
+    unsigned int startAddr; // offset 0x30, size 0x4
+    unsigned int length; // offset 0x34, size 0x4
+    void (* callback)(long, struct DVDFileInfo *); // offset 0x38, size 0x4
+};
+// total size: 0x8
+struct bTNode_DebugTopology_ : public bNode {
+};
+// total size: 0x64
+struct DebugTopology : public bTNode_DebugTopology_ {
+    struct TopologyTreePolygon * pTopologyTreePolygon; // offset 0x8, size 0x4
+    int FaceHash; // offset 0xC, size 0x4
+    int CreationTime; // offset 0x10, size 0x4
+    struct bVector3 Vertices[4]; // offset 0x14, size 0x40
+    struct bVector3 Normal; // offset 0x54, size 0x10
+};
+// total size: 0x18
+struct DefaultAnimBank : public AnimBank {
+};
+struct DemoCameraCoordinator {
+};
+// total size: 0x4
+struct Timer {
+    int PackedTime; // offset 0x0, size 0x4
+};
+// total size: 0x30
+struct DemoDiscManager {
+    bool bActive; // offset 0x0, size 0x1
+    int Dummy; // offset 0x4, size 0x4
+    struct Timer StartTime; // offset 0x8, size 0x4
+    struct Timer LastActivityTime; // offset 0xC, size 0x4
+    enum DemoDiscEndReason nDemoDiscEndReason; // offset 0x10, size 0x4
+    int NumDemoLoops; // offset 0x14, size 0x4
+    unsigned short Language; // offset 0x18, size 0x2
+    unsigned short Aspect; // offset 0x1A, size 0x2
+    unsigned short PlayMode; // offset 0x1C, size 0x2
+    unsigned short InactiveTimeout; // offset 0x1E, size 0x2
+    unsigned short TotalTimeout; // offset 0x20, size 0x2
+    unsigned short MediaType; // offset 0x22, size 0x2
+    unsigned short MasterVolumeScale; // offset 0x24, size 0x2
+    unsigned short DirectorySectorNum; // offset 0x26, size 0x2
+    bool bCalledSCEADemoStart; // offset 0x28, size 0x1
+    bool bCalledSCEEDemoStart; // offset 0x2C, size 0x1
+};
+struct DestructorEntry {
+};
+// total size: 0x4
+struct DeviceExtension {
+    struct Device * mpBaseObject; // offset 0x0, size 0x4
+};
+// total size: 0x10
+struct DevicePrivate {
+    void * (* mpNewOverride)(unsigned int, const char *); // offset 0x0, size 0x4
+    void (* mpDeleteOverride)(void *, unsigned int); // offset 0x4, size 0x4
+    struct RenderContextBase * mFirstRenderContext; // offset 0x8, size 0x4
+    bool mAmInitialized; // offset 0xC, size 0x1
+};
+// total size: 0x14
+struct Device {
+    struct DeviceExtension EXTENSION_OBJ; // offset 0x0, size 0x4
+    struct DevicePrivate mPrivate; // offset 0x4, size 0x10
+};
+struct DotWall {
+};
+struct DriverInfo {
+};
+struct DummyFEngNewType {
+};
+struct DynamicCollisionBody {
+};
+// total size: 0x2C
+struct DynamicLoader {
+    void * handle; // offset 0x0, size 0x4
+    int nDestructors; // offset 0x4, size 0x4
+    struct DestructorEntry * destructors; // offset 0x8, size 0x4
+    struct RuntimeAllocDestructorEntry * RuntimeAllocDestructors; // offset 0xC, size 0x4
+    char * mpData; // offset 0x10, size 0x4
+    unsigned int mDataLen; // offset 0x14, size 0x4
+    char * mpReloc; // offset 0x18, size 0x4
+    void * (* mSearchCallback)(const char *, bool &); // offset 0x1C, size 0x4
+    int mNumPatchAddresses; // offset 0x20, size 0x4
+    int mMaxPatchAddresses; // offset 0x24, size 0x4
+    unsigned int * * mpPatchAddresses32; // offset 0x28, size 0x4
+};
+// total size: 0x40
+struct EasterEggs {
+    bool ButtonsEnabled; // offset 0x0, size 0x1
+    bool HaveUnlockMessage; // offset 0x4, size 0x1
+    unsigned int UnlockMessage; // offset 0x8, size 0x4
+    struct EasterEggsData * EasterEggsTable; // offset 0xC, size 0x4
+    unsigned int NumberOfEasterEggs; // offset 0x10, size 0x4
+    enum EasterEggButtons ButtonBuffer[8]; // offset 0x14, size 0x20
+    unsigned int NumberOfCurrentButtons; // offset 0x34, size 0x4
+    unsigned int CurrentStartButton; // offset 0x38, size 0x4
+    const struct __vtbl_ptr_type * _vptr_EasterEggs; // offset 0x3C, size 0x4
+};
+// total size: 0x38
+// innerer Typ von EasterEggs
+struct EasterEggsData {
+    enum EasterEggButtons buttons[8]; // offset 0x0, size 0x20
+    unsigned int type; // offset 0x20, size 0x4
+    unsigned int item; // offset 0x24, size 0x4
+    unsigned int group; // offset 0x28, size 0x4
+    unsigned int unlock_message; // offset 0x2C, size 0x4
+    bool unlocked; // offset 0x30, size 0x1
+    bool persistent; // offset 0x34, size 0x1
+};
+// total size: 0xC
+struct ElipseTable {
+    short * pTable; // offset 0x0, size 0x4
+    int nTableI; // offset 0x4, size 0x4
+    int nTableJ; // offset 0x8, size 0x4
+};
+struct EndingNisCameraCoordinator {
+};
+struct EventHandler {
+};
+struct EventNode {
+};
+// total size: 0x8
+// innerer Typ von EventSetup
+struct bTNode_EventSetup_ : public bNode {
+};
+// total size: 0x50
+struct EventSetup : public bTNode_EventSetup_ {
+    unsigned int EventSetupHash; // offset 0x8, size 0x4
+    int NumMagSetups; // offset 0xC, size 0x4
+    int PossibleMagSetups[16]; // offset 0x10, size 0x40
+};
+// total size: 0x8
+struct FEButtonMap {
+    struct FEObject * * pList; // offset 0x0, size 0x4
+    unsigned long Count; // offset 0x4, size 0x4
+};
+struct FECodeListBox {
+};
+// total size: 0x10
+struct FEColor {
+    int b; // offset 0x0, size 0x4
+    int g; // offset 0x4, size 0x4
+    int r; // offset 0x8, size 0x4
+    int a; // offset 0xC, size 0x4
+};
+struct FEEffect {
+};
+// total size: 0xC
+struct FEEvent {
+    unsigned long EventID; // offset 0x0, size 0x4
+    unsigned long Target; // offset 0x4, size 0x4
+    unsigned long tTime; // offset 0x8, size 0x4
+};
+// total size: 0x8
+struct FEEventList {
+    int Count; // offset 0x0, size 0x4
+    struct FEEvent * pEvent; // offset 0x4, size 0x4
+};
+struct FEGameInterface {
+};
+// total size: 0x10
+struct FEGenericVal {
+    unsigned long Data[4]; // offset 0x0, size 0x10
+};
+struct FEGroup {
+};
+// total size: 0x10
+struct FEMinList {
+    unsigned int numElements; // offset 0x0, size 0x4
+    struct FEMinNode * head; // offset 0x4, size 0x4
+    struct FEMinNode * tail; // offset 0x8, size 0x4
+    const struct __vtbl_ptr_type * _vptr_FEMinList; // offset 0xC, size 0x4
+};
+// total size: 0x1C
+struct FEHashList {
+    int TableSize; // offset 0x0, size 0x4
+    struct FEMinList * HashTable; // offset 0x4, size 0x4
+    struct FEMinList NodeList; // offset 0x8, size 0x10
+    const struct __vtbl_ptr_type * _vptr_FEHashList; // offset 0x18, size 0x4
+};
+// total size: 0xC
+struct FEMinNode {
+    struct FEMinNode * next; // offset 0x0, size 0x4
+    struct FEMinNode * prev; // offset 0x4, size 0x4
+    const struct __vtbl_ptr_type * _vptr_FEMinNode; // offset 0x8, size 0x4
+};
+// total size: 0x18
+struct FEHashNode : public FEMinNode {
+    char * Name; // offset 0xC, size 0x4
+    unsigned int Hash; // offset 0x10, size 0x4
+    struct FEHashNodePtr * myPtr; // offset 0x14, size 0x4
+};
+// total size: 0x10
+struct FEHashNodePtr : public FEMinNode {
+    struct FEHashNode * NodePtr; // offset 0xC, size 0x4
+};
+struct FEImage {
+};
+// total size: 0x14
+struct FEKeyData {
+    int tTime; // offset 0x0, size 0x4
+    struct FEGenericVal Val; // offset 0x4, size 0x10
+};
+// total size: 0x20
+// virtuell: inline ~FEKeyNode() override
+struct FEKeyNode : public FEMinNode {
+    int tTime; // offset 0xC, size 0x4
+    struct FEGenericVal Val; // offset 0x10, size 0x10
+};
+// total size: 0x10
+struct FERefList {
+    bool bIsReference; // offset 0x0, size 0x1
+    union {
+        struct FERefList * pRef; // offset 0x0, size 0x4
+        struct FEMinNode * head; // offset 0x0, size 0x4
+    }; // offset 0x4, size 0x4
+    struct FEMinNode * tail; // offset 0x8, size 0x4
+    const struct __vtbl_ptr_type * _vptr_FERefList; // offset 0xC, size 0x4
+};
+// total size: 0x38
+struct FEKeyTrack {
+    unsigned char ParamType; // offset 0x0, size 0x1
+    unsigned char ParamSize; // offset 0x1, size 0x1
+    unsigned char InterpType; // offset 0x2, size 0x1
+    unsigned char InterpAction; // offset 0x3, size 0x1
+    int Length : 24; // offset 0x4, size 0x4
+    int LongOffset : 8; // offset 0x4, size 0x4
+    struct FEKeyNode BaseKey; // offset 0x8, size 0x20
+    struct FERefList DeltaKeys; // offset 0x28, size 0x10
+};
+// total size: 0x4
+struct FELabelCallback {
+    const struct __vtbl_ptr_type * _vptr_FELabelCallback; // offset 0x0, size 0x4
+};
+// total size: 0x10
+// virtuell: inline ~FEList() override
+struct FEList : public FEMinList {
+};
+// total size: 0x40
+struct FEMatrix4 {
+    float m11; // offset 0x0, size 0x4
+    float m12; // offset 0x4, size 0x4
+    float m13; // offset 0x8, size 0x4
+    float m14; // offset 0xC, size 0x4
+    float m21; // offset 0x10, size 0x4
+    float m22; // offset 0x14, size 0x4
+    float m23; // offset 0x18, size 0x4
+    float m24; // offset 0x1C, size 0x4
+    float m31; // offset 0x20, size 0x4
+    float m32; // offset 0x24, size 0x4
+    float m33; // offset 0x28, size 0x4
+    float m34; // offset 0x2C, size 0x4
+    float m41; // offset 0x30, size 0x4
+    float m42; // offset 0x34, size 0x4
+    float m43; // offset 0x38, size 0x4
+    float m44; // offset 0x3C, size 0x4
+};
+// total size: 0x18
+struct FEMessageResponse : public FEMinNode {
+    unsigned long MsgID; // offset 0xC, size 0x4
+    unsigned long Count; // offset 0x10, size 0x4
+    struct FEResponse * pResponseList; // offset 0x14, size 0x4
+};
+struct FEModel {
+};
+struct FEMovie {
+};
+// total size: 0x14
+struct FENode : public FEMinNode {
+    char * name; // offset 0xC, size 0x4
+    unsigned int nameHash; // offset 0x10, size 0x4
+};
+// total size: 0x10
+struct FEQuaternion {
+    float x; // offset 0x0, size 0x4
+    float y; // offset 0x4, size 0x4
+    float z; // offset 0x8, size 0x4
+    float w; // offset 0xC, size 0x4
+};
+// total size: 0xC
+struct FEVector3 {
+    float x; // offset 0x0, size 0x4
+    float y; // offset 0x4, size 0x4
+    float z; // offset 0x8, size 0x4
+};
+// total size: 0x44
+struct FEObjData {
+    struct FEColor Col; // offset 0x0, size 0x10
+    struct FEVector3 Pivot; // offset 0x10, size 0xC
+    struct FEVector3 Pos; // offset 0x1C, size 0xC
+    struct FEQuaternion Rot; // offset 0x28, size 0x10
+    struct FEVector3 Size; // offset 0x38, size 0xC
+};
+// total size: 0x58
+struct FEObject : public FEMinNode {
+    unsigned long GUID; // offset 0xC, size 0x4
+    unsigned long NameHash; // offset 0x10, size 0x4
+    char * pName; // offset 0x14, size 0x4
+    enum FEObjType Type; // offset 0x18, size 0x4
+    unsigned long Flags; // offset 0x1C, size 0x4
+    unsigned short RenderContext; // offset 0x20, size 0x2
+    unsigned short ResourceIndex; // offset 0x22, size 0x2
+    unsigned long Handle; // offset 0x24, size 0x4
+    unsigned long UserParam; // offset 0x28, size 0x4
+    unsigned char * pData; // offset 0x2C, size 0x4
+    unsigned long DataSize; // offset 0x30, size 0x4
+    struct FEMinList Responses; // offset 0x34, size 0x10
+    struct FEMinList Scripts; // offset 0x44, size 0x10
+    struct FEScript * pCurrentScript; // offset 0x54, size 0x4
+};
+// total size: 0x4
+struct FEObjectDestructorCallback {
+    const struct __vtbl_ptr_type * _vptr_FEObjectDestructorCallback; // offset 0x0, size 0x4
+};
+struct FEPackage {
+};
+// total size: 0x8
+struct FEPoint {
+    float h; // offset 0x0, size 0x4
+    float v; // offset 0x4, size 0x4
+};
+// total size: 0x10
+struct FERect {
+    float left; // offset 0x0, size 0x4
+    float top; // offset 0x4, size 0x4
+    float right; // offset 0x8, size 0x4
+    float bottom; // offset 0xC, size 0x4
+};
+// total size: 0xC
+struct FEResponse {
+    unsigned long ResponseID; // offset 0x0, size 0x4
+    unsigned long ResponseParam; // offset 0x4, size 0x4
+    unsigned long ResponseTarget; // offset 0x8, size 0x4
+};
+// total size: 0x34
+struct FEScript : public FEMinNode {
+    int Length; // offset 0xC, size 0x4
+    int CurTime; // offset 0x10, size 0x4
+    unsigned long Flags; // offset 0x14, size 0x4
+    struct FEScript * pChainTo; // offset 0x18, size 0x4
+    unsigned long TrackCount; // offset 0x1C, size 0x4
+    struct FEKeyTrack * pTracks; // offset 0x20, size 0x4
+    struct FEEventList Events; // offset 0x24, size 0x8
+    char * pName; // offset 0x2C, size 0x4
+    unsigned long ID; // offset 0x30, size 0x4
+};
+// total size: 0x8
+struct FEWideString {
+    short * mpsString; // offset 0x0, size 0x4
+    unsigned long mulBufferLength; // offset 0x4, size 0x4
+};
+// total size: 0x74
+// virtuell: inline ~FEString() override | inline struct FEObject * Clone(bool bReference) override
+struct FEString : public FEObject {
+    char * pLabelName; // offset 0x58, size 0x4
+    unsigned long LabelHash; // offset 0x5C, size 0x4
+    struct FEWideString string; // offset 0x60, size 0x8
+    unsigned long Format; // offset 0x68, size 0x4
+    int Leading; // offset 0x6C, size 0x4
+    unsigned long MaxWidth; // offset 0x70, size 0x4
+};
+// total size: 0x8
+struct FEVector2 {
+    float x; // offset 0x0, size 0x4
+    float y; // offset 0x4, size 0x4
+};
+// total size: 0x10
+struct FEVector4 {
+    float x; // offset 0x0, size 0x4
+    float y; // offset 0x4, size 0x4
+    float z; // offset 0x8, size 0x4
+    float w; // offset 0xC, size 0x4
+};
+// total size: 0x18
+struct FILEBIG_def {
+    void * header; // offset 0x0, size 0x4
+    int headersize; // offset 0x4, size 0x4
+    int memflags; // offset 0x8, size 0x4
+    struct HANDLE_def * handle; // offset 0xC, size 0x4
+    struct FILEOPERATION_def * fop; // offset 0x10, size 0x4
+    struct FILEBIG_def * next; // offset 0x14, size 0x4
+};
+// total size: 0x4
+struct sepdef {
+    unsigned short count; // offset 0x0, size 0x2
+    unsigned char type; // offset 0x2, size 0x1
+    unsigned char index; // offset 0x3, size 0x1
+};
+union OP_def {
+    struct sepdef sep; // offset 0x0, size 0x4
+    int id; // offset 0x0, size 0x4
+};
+// total size: 0x30
+struct FILEOPERATION_def {
+    union OP_def op; // offset 0x0, size 0x4
+    int cancelled; // offset 0x4, size 0x4
+    volatile int status; // offset 0x8, size 0x4
+    enum FILEERR error; // offset 0xC, size 0x4
+    int priority; // offset 0x10, size 0x4
+    void * userdata; // offset 0x14, size 0x4
+    int value; // offset 0x18, size 0x4
+    int amount; // offset 0x1C, size 0x4
+    void * data; // offset 0x20, size 0x4
+    struct HANDLE_def * handle; // offset 0x24, size 0x4
+    void (* callback)(int, int, void *); // offset 0x28, size 0x4
+    struct FILEOPERATION_def * next; // offset 0x2C, size 0x4
+};
+// total size: 0x14
+struct FILEREQUEST {
+    const char * name; // offset 0x0, size 0x4
+    void * location; // offset 0x4, size 0x4
+    int parm; // offset 0x8, size 0x4
+    int abortflag; // offset 0xC, size 0x4
+    int flags; // offset 0x10, size 0x4
+};
+// total size: 0x14
+struct FILESYSOPTS {
+    int size; // offset 0x0, size 0x4
+    void * (* malloc)(const char *, int, int); // offset 0x4, size 0x4
+    bool (* free)(void *); // offset 0x8, size 0x4
+    unsigned char * FileSysThreadStack; // offset 0xC, size 0x4
+    unsigned int FileSysThreadStackSize; // offset 0x10, size 0x4
+};
+// total size: 0x80
+struct FONT {
+    unsigned int signature; // offset 0x0, size 0x4
+    unsigned int size; // offset 0x4, size 0x4
+    unsigned short version; // offset 0x8, size 0x2
+    unsigned short num; // offset 0xA, size 0x2
+    int flags; // offset 0xC, size 0x4
+    signed char centerx; // offset 0x10, size 0x1
+    signed char centery; // offset 0x11, size 0x1
+    unsigned char ascent; // offset 0x12, size 0x1
+    unsigned char descent; // offset 0x13, size 0x1
+    int chartbl; // offset 0x14, size 0x4
+    int kerntbl; // offset 0x18, size 0x4
+    int shape; // offset 0x1C, size 0x4
+    int states[24]; // offset 0x20, size 0x60
+};
+// total size: 0x10
+struct FONTCHAR {
+    unsigned short index; // offset 0x0, size 0x2
+    unsigned char width; // offset 0x2, size 0x1
+    unsigned char height; // offset 0x3, size 0x1
+    unsigned short u; // offset 0x4, size 0x2
+    unsigned short v; // offset 0x6, size 0x2
+    signed char advancey; // offset 0x8, size 0x1
+    signed char xoffset; // offset 0x9, size 0x1
+    signed char yoffset; // offset 0xA, size 0x1
+    unsigned char numkern; // offset 0xB, size 0x1
+    unsigned short kernindex; // offset 0xC, size 0x2
+    short advancex; // offset 0xE, size 0x2
+};
+// total size: 0xC
+struct FONTCHARBUF {
+    const FONTCHAR * ch; // offset 0x0, size 0x4
+    float x; // offset 0x4, size 0x4
+    float y; // offset 0x8, size 0x4
+};
+// total size: 0x14
+struct FONTDRIVER {
+    void (* draw)(FONT *, const FONTCHAR *, float, float); // offset 0x0, size 0x4
+    void (* startdraw)(FONT *); // offset 0x4, size 0x4
+    void (* enddraw)(FONT *); // offset 0x8, size 0x4
+    void (* createfont)(FONT *); // offset 0xC, size 0x4
+    void (* destroyfont)(FONT *); // offset 0x10, size 0x4
+};
+// total size: 0x1C
+struct FONTDRIVEREXT {
+    int size; // offset 0x0, size 0x4
+    void (* drawmany)(FONT *, struct FONTCHARBUF *, int); // offset 0x4, size 0x4
+    int (* drawlist_getsize)(int); // offset 0x8, size 0x4
+    void (* drawlist_build)(FONT *, struct FONTCHARBUF *, int, void *, bool); // offset 0xC, size 0x4
+    bool (* drawlist_setstate)(void *, int, unsigned int); // offset 0x10, size 0x4
+    bool (* drawlist_setstatef)(void *, int, float); // offset 0x14, size 0x4
+    void (* drawlist_draw)(void *, float, float); // offset 0x18, size 0x4
+};
+// total size: 0x4
+struct FONTKERN {
+    unsigned short previouscode; // offset 0x0, size 0x2
+    signed char kernvalue; // offset 0x2, size 0x1
+    unsigned char code; // offset 0x3, size 0x1
+};
+// total size: 0x14
+struct FS_EVNT_AS_READ_INFO {
+    char * name; // offset 0x0, size 0x4
+    int handle; // offset 0x4, size 0x4
+    int ofs; // offset 0x8, size 0x4
+    int nbytes; // offset 0xC, size 0x4
+    void * raddr; // offset 0x10, size 0x4
+};
+// total size: 0x8
+struct FS_EVNT_CB_INFO {
+    void (* pCbFn)(FS_EVNT, void *, void *); // offset 0x0, size 0x4
+    void * userdata; // offset 0x4, size 0x4
+};
+// total size: 0xC
+struct FS_EVNT_CD_READ_INFO {
+    char * name; // offset 0x0, size 0x4
+    int sector; // offset 0x4, size 0x4
+    int num_sectors; // offset 0x8, size 0x4
+};
+// total size: 0x8
+// innerer Typ von FernFlattener
+struct bTNode_FernFlattener_ : public bNode {
+};
+// total size: 0x58
+struct FernFlattener : public bTNode_FernFlattener_ {
+    struct bMatrix4 OriginalMatrix; // offset 0x8, size 0x40
+    struct SceneryInstance * pSceneryInstance; // offset 0x48, size 0x4
+    int SlotNumber; // offset 0x4C, size 0x4
+    float FlattenRatio; // offset 0x50, size 0x4
+    float LastFlattenTime; // offset 0x54, size 0x4
+};
+// total size: 0x8
+// innerer Typ von FernShaker
+struct bTNode_FernShaker_ : public bNode {
+};
+// total size: 0x1C
+struct FernShaker : public bTNode_FernShaker_ {
+    unsigned int SceneryCode; // offset 0x8, size 0x4
+    int StartTime; // offset 0xC, size 0x4
+    struct SceneryInstance * pSceneryInstance; // offset 0x10, size 0x4
+    struct WorldModel * pWorldModel; // offset 0x14, size 0x4
+    struct FernShakerInfo * pFernShakerInfo; // offset 0x18, size 0x4
+};
+// total size: 0x10
+struct FernShakerInfo {
+    unsigned int RigidAnimationNameHash; // offset 0x0, size 0x4
+    unsigned int EmitterGroupNameHash; // offset 0x4, size 0x4
+    struct bTList_AcidEmitter_ EmitterList; // offset 0x8, size 0x8
+};
+// total size: 0x10
+struct FloatColour {
+    float a; // offset 0x0, size 0x4
+    float r; // offset 0x4, size 0x4
+    float g; // offset 0x8, size 0x4
+    float b; // offset 0xC, size 0x4
+};
+// total size: 0xC
+struct FloatVector {
+    float x; // offset 0x0, size 0x4
+    float y; // offset 0x4, size 0x4
+    float z; // offset 0x8, size 0x4
+};
+struct FlyByCameraCoordinator {
+};
+// total size: 0x4
+struct FnAnimSuper {
+    const struct __vtbl_ptr_type * _vptr_FnAnimSuper; // offset 0x0, size 0x4
+};
+// total size: 0xC
+// virtuell: inline ~FnAnim() override
+struct FnAnim : FnAnimSuper {
+    struct AnimStat * mStat; // offset 0x4, size 0x4
+    enum Type mType; // offset 0x8, size 0x4
+};
+// total size: 0x4
+struct FnAnimBank {
+    const struct __vtbl_ptr_type * _vptr_FnAnimBank; // offset 0x0, size 0x4
+};
+// total size: 0x1
+struct FnAnimFactory {
+};
+// total size: 0x10
+struct FnAnimMemoryMap : public FnAnim {
+    struct AnimMemoryMap * mpAnim; // offset 0xC, size 0x4
+};
+// total size: 0x8
+// virtuell: inline void Init(struct AnimBank * bank) override | inline int GetNumAnims() const override | inline struct AnimMemoryMap * GetAnim(int i) override | inline const char * GetAnimName(int i) const override | inline struct AnimMemoryMap * GetAnim(const char * name) override | inline int GetAnimIndex(const char * name) override | inline const struct AttributeDictionary * GetAttributeDictionary() const override
+struct FnDefaultAnimBank : public FnAnimBank {
+    struct AnimBank * mpAnimBank; // offset 0x4, size 0x4
+};
+// total size: 0x3C
+struct FogDistDef {
+    unsigned int colour; // offset 0x0, size 0x4
+    float power; // offset 0x4, size 0x4
+    float fogstart; // offset 0x8, size 0x4
+    float radius; // offset 0xC, size 0x4
+    float falloffstart; // offset 0x10, size 0x4
+    struct bVector3 position; // offset 0x14, size 0x10
+    float FogFalloff; // offset 0x24, size 0x4
+    float FogFalloffX; // offset 0x28, size 0x4
+    float FogFalloffY; // offset 0x2C, size 0x4
+    float distance; // offset 0x30, size 0x4
+    unsigned int inFlags; // offset 0x34, size 0x4
+    float effect; // offset 0x38, size 0x4
+};
+// total size: 0x168
+struct FogVolumeDef {
+    struct eModel * model; // offset 0x0, size 0x4
+    unsigned int colour; // offset 0x4, size 0x4
+    enum FogVolumeBlend blendtype; // offset 0x8, size 0x4
+    enum FogVolumeType fogtype; // offset 0xC, size 0x4
+    enum FogPalleteModes fogpalette_mode; // offset 0x10, size 0x4
+    float power; // offset 0x14, size 0x4
+    struct bMatrix4 fogmatrix; // offset 0x18, size 0x40
+    struct bMatrix4 invmatrix; // offset 0x58, size 0x40
+    struct bMatrix4 ModifierMatrix; // offset 0x98, size 0x40
+    struct bVector3 ModifierPosition; // offset 0xD8, size 0x10
+    struct bVector3 modelAABB[8]; // offset 0xE8, size 0x80
+};
+// total size: 0x24B8
+struct FogVolume {
+    float FogFalloff; // offset 0x0, size 0x4
+    float FogFalloffX; // offset 0x4, size 0x4
+    float FogFalloffY; // offset 0x8, size 0x4
+    float DistFogStart; // offset 0xC, size 0x4
+    float DistFogPower; // offset 0x10, size 0x4
+    unsigned int DistFogColour; // offset 0x14, size 0x4
+    struct FogDistDef DistantFogs[150]; // offset 0x18, size 0x2328
+    struct FogVolumeDef FogVolumes[1]; // offset 0x2340, size 0x168
+    int indecies[1]; // offset 0x24A8, size 0x4
+    int numVols; // offset 0x24AC, size 0x4
+    int numDist; // offset 0x24B0, size 0x4
+    int numHeadlights; // offset 0x24B4, size 0x4
+};
+// total size: 0x8
+// innerer Typ von Font
+struct bTNode_Font_ : public bNode {
+};
+// total size: 0x428
+struct Font : public bTNode_Font_ {
+    struct tTTGlyph * CharacterLookupTable[256]; // offset 0x8, size 0x400
+    struct tTTFontHeader * Header; // offset 0x408, size 0x4
+    struct tTTGlyph * Glyphs; // offset 0x40C, size 0x4
+    struct tTTKerningPair * Kerning; // offset 0x410, size 0x4
+    struct TextureInfo * pTextureInfo; // offset 0x414, size 0x4
+    float t2w; // offset 0x418, size 0x4
+    float t2h; // offset 0x41C, size 0x4
+    float FontHeight; // offset 0x420, size 0x4
+    float FixedWidthCell; // offset 0x424, size 0x4
+};
+// total size: 0x8
+// innerer Typ von FreeBlock
+struct bTNode_FreeBlock_ : public bNode {
+};
+// total size: 0x10
+struct FreeBlock : public bTNode_FreeBlock_ {
+    int Size; // offset 0x8, size 0x4
+    int MagicNumber; // offset 0xC, size 0x4
+};
+// total size: 0x1
+struct Function {
+};
+// total size: 0x10
+struct FunctionClient {
+    void * reserved[2]; // offset 0x0, size 0x8
+    void (* pClientFunc)(Parameter *, void *); // offset 0x8, size 0x4
+    void * pClientData; // offset 0xC, size 0x4
+};
+// total size: 0xC
+struct FunctionEntry {
+    void * (* Address)(const char *, bool &); // offset 0x0, size 0x4
+    struct FunctionEntry * Prev; // offset 0x4, size 0x4
+    struct FunctionEntry * Next; // offset 0x8, size 0x4
+};
+// total size: 0x8
+struct FunctionHandle {
+    void * mpPrivate; // offset 0x0, size 0x4
+    int mKey; // offset 0x4, size 0x4
+};
+// total size: 0x2
+struct GCColourRGB565 {
+    unsigned short c; // offset 0x0, size 0x2
+};
+// total size: 0x3
+struct GCColourRGB8 {
+    unsigned char c[3]; // offset 0x0, size 0x3
+};
+// total size: 0x2
+struct GCColourRGBA4 {
+    unsigned short c; // offset 0x0, size 0x2
+};
+// total size: 0x3
+struct GCColourRGBA6 {
+    unsigned char c[3]; // offset 0x0, size 0x3
+};
+// total size: 0x28
+struct GFileDevice_def {
+    int maxfileops; // offset 0x0, size 0x4
+    int maxopen; // offset 0x4, size 0x4
+    int minpriority; // offset 0x8, size 0x4
+    int numopsqueued; // offset 0xC, size 0x4
+    volatile int callbacklevel; // offset 0x10, size 0x4
+    volatile FILEOPERATION * exec; // offset 0x14, size 0x4
+    FILEOPERATION * oplist; // offset 0x18, size 0x4
+    HANDLE * handlelist; // offset 0x1C, size 0x4
+    FILEOPERATION * opqhead; // offset 0x20, size 0x4
+    FILEBIG * bigfilelist; // offset 0x24, size 0x4
+};
+// total size: 0x80
+struct GXFifoObj {
+    unsigned char pad[128]; // offset 0x0, size 0x80
+};
+// total size: 0x20
+struct GameFlowManager {
+    void (* pSingleFunction)(int); // offset 0x0, size 0x4
+    int SingleFunctionParam; // offset 0x4, size 0x4
+    const char * pSingleFunctionName; // offset 0x8, size 0x4
+    void (* pLoopingFunction)(); // offset 0xC, size 0x4
+    const char * pLoopingFunctionName; // offset 0x10, size 0x4
+    bool WaitingForCallback; // offset 0x14, size 0x1
+    const char * pCallbackName; // offset 0x18, size 0x4
+    enum GameFlowState CurrentGameFlowState; // offset 0x1C, size 0x4
+};
+// total size: 0x1
+struct GlobalVariable {
+};
+// total size: 0x8
+struct GlobalVariableHandle {
+    void * mpPrivate; // offset 0x0, size 0x4
+    int mKey; // offset 0x4, size 0x4
+};
+// total size: 0xB8
+struct SceneryCullInfo {
+    struct bMatrix4 FacadeMatrix; // offset 0x0, size 0x40
+    struct bMatrix4 ClipMatrix; // offset 0x40, size 0x40
+    struct eView * pView; // offset 0x80, size 0x4
+    int ExcludeFlags; // offset 0x84, size 0x4
+    struct SceneryDrawInfo * pFirstDrawInfo; // offset 0x88, size 0x4
+    struct SceneryDrawInfo * pCurrentDrawInfo; // offset 0x8C, size 0x4
+    struct SceneryDrawInfo * pTopDrawInfo; // offset 0x90, size 0x4
+    struct bVector3 Position; // offset 0x94, size 0x10
+    struct bVector3 Direction; // offset 0xA4, size 0x10
+    float H; // offset 0xB4, size 0x4
+};
+// total size: 0x740
+struct GrandSceneryCullInfo {
+    struct SceneryCullInfo SceneryCullInfos[10]; // offset 0x0, size 0x730
+    int NumCullInfos; // offset 0x730, size 0x4
+    struct SceneryDrawInfo * pFirstDrawInfo; // offset 0x734, size 0x4
+    struct SceneryDrawInfo * pCurrentDrawInfo; // offset 0x738, size 0x4
+    struct SceneryDrawInfo * pTopDrawInfo; // offset 0x73C, size 0x4
+};
+// total size: 0x8
+struct Graph {
+    struct bVector2 * Points; // offset 0x0, size 0x4
+    int NumPoints; // offset 0x4, size 0x4
+};
+struct GraphEntry_bVector2_ {
+};
+struct GraphEntry_bVector3_ {
+};
+struct GraphEntry_bVector4_ {
+};
+struct GraphEntry_float_ {
+};
+// total size: 0x144
+struct HANDLE_def {
+    enum FILE_TypeEnum type; // offset 0x0, size 0x4
+    unsigned char allocated; // offset 0x4, size 0x1
+    char name[255]; // offset 0x5, size 0xFF
+    int length; // offset 0x104, size 0x4
+    union {
+        struct DVDFileInfo DVDfi; // offset 0x0, size 0x3C
+        int hFile; // offset 0x0, size 0x4
+        struct BIGFileInfo BIGfi; // offset 0x0, size 0x8
+    } info; // offset 0x108, size 0x3C
+};
+// total size: 0x4
+struct IAllocator {
+    const struct __vtbl_ptr_type * _vptr_IAllocator; // offset 0x0, size 0x4
+};
+// total size: 0x1
+struct InitTerrainType {
+};
+// total size: 0x1
+struct Initializer {
+};
+// total size: 0x8
+struct InterfaceId {
+    const char * pString; // offset 0x0, size 0x4
+    short systemCrc; // offset 0x4, size 0x2
+    short interfaceCrc; // offset 0x6, size 0x2
+};
+struct IntroNisCameraCoordinator {
+};
+// total size: 0xA0
+struct Irradiance {
+    float coeffs[10][4]; // offset 0x0, size 0xA0
+};
+// total size: 0x10
+struct JLZHash {
+    int Offset; // offset 0x0, size 0x4
+    unsigned char * pData; // offset 0x4, size 0x4
+    struct JLZHash * pPrev; // offset 0x8, size 0x4
+    struct JLZHash * pNext; // offset 0xC, size 0x4
+};
+// total size: 0xC
+struct JLZHashPool {
+    struct JLZHash * pPool; // offset 0x0, size 0x4
+    struct JLZHash * * pHead; // offset 0x4, size 0x4
+    int PoolSize; // offset 0x8, size 0x4
+};
+// total size: 0x44
+struct JollyRancherResponsePacket {
+    volatile int UseMatrix; // offset 0x0, size 0x4
+    volatile struct bMatrix4 CamMatrix; // offset 0x4, size 0x40
+};
+// total size: 0xA
+struct PadData {
+    unsigned short DigitalButtons; // offset 0x0, size 0x2
+    unsigned char LTrigger; // offset 0x2, size 0x1
+    unsigned char RTrigger; // offset 0x3, size 0x1
+    unsigned char AnalogLeftX; // offset 0x4, size 0x1
+    unsigned char AnalogLeftY; // offset 0x5, size 0x1
+    unsigned char AnalogRightX; // offset 0x6, size 0x1
+    unsigned char AnalogRightY; // offset 0x7, size 0x1
+    unsigned char Error; // offset 0x8, size 0x1
+    unsigned char Type; // offset 0x9, size 0x1
+};
+// total size: 0x3C
+struct JoyData {
+    struct PadData ThePadData[4]; // offset 0x0, size 0x28
+    unsigned char Bytes[4]; // offset 0x28, size 0x4
+    int RegularControllerType; // offset 0x2C, size 0x4
+    struct PADStatus padSTATUS; // offset 0x30, size 0xC
+};
+// total size: 0x1
+struct Joylog {
+};
+struct JoylogBuffer {
+};
+struct Joystick {
+};
+// total size: 0x8
+struct LGConditionForceParams {
+    char offset; // offset 0x0, size 0x1
+    unsigned char deadband; // offset 0x1, size 0x1
+    unsigned char saturationNeg; // offset 0x2, size 0x1
+    unsigned char saturationPos; // offset 0x3, size 0x1
+    short coefficientNeg; // offset 0x4, size 0x2
+    short coefficientPos; // offset 0x6, size 0x2
+};
+// total size: 0xC
+struct LGEnvelopeParams {
+    unsigned int attackTime; // offset 0x0, size 0x4
+    unsigned int fadeTime; // offset 0x4, size 0x4
+    unsigned char attackLevel; // offset 0x8, size 0x1
+    unsigned char fadeLevel; // offset 0x9, size 0x1
+    unsigned char pad[2]; // offset 0xA, size 0x2
+};
+// total size: 0x10
+struct LGConstantForceParams {
+    short magnitude; // offset 0x0, size 0x2
+    unsigned short direction; // offset 0x2, size 0x2
+    LGEnvelopeParams envelope; // offset 0x4, size 0xC
+};
+// total size: 0x18
+struct LGPeriodicForceParams {
+    unsigned char magnitude; // offset 0x0, size 0x1
+    unsigned char pad; // offset 0x1, size 0x1
+    unsigned short direction; // offset 0x2, size 0x2
+    unsigned short period; // offset 0x4, size 0x2
+    unsigned short phase; // offset 0x6, size 0x2
+    short offset; // offset 0x8, size 0x2
+    unsigned char pad2[2]; // offset 0xA, size 0x2
+    LGEnvelopeParams envelope; // offset 0xC, size 0xC
+};
+// total size: 0x6
+struct LGRampForceParams {
+    short magnitudeStart; // offset 0x0, size 0x2
+    short magnitudeEnd; // offset 0x2, size 0x2
+    unsigned short direction; // offset 0x4, size 0x2
+};
+// total size: 0x24
+struct LGForceEffect {
+    unsigned char type; // offset 0x0, size 0x1
+    unsigned char pad[3]; // offset 0x1, size 0x3
+    unsigned int duration; // offset 0x4, size 0x4
+    unsigned int startDelay; // offset 0x8, size 0x4
+    union {
+        LGConstantForceParams constant; // offset 0x0, size 0x10
+        LGRampForceParams ramp; // offset 0x0, size 0x6
+        LGPeriodicForceParams periodic; // offset 0x0, size 0x18
+        LGConditionForceParams condition[2]; // offset 0x0, size 0x10
+    } p; // offset 0xC, size 0x18
+};
+// total size: 0x100
+struct Periodic : public Force {
+};
+// total size: 0x100
+struct Ramp : public Force {
+};
+// total size: 0x16E4
+struct LGWheels {
+    LGPosition Position[4]; // offset 0x0, size 0x28
+    short NonLinearWheel[4][256]; // offset 0x28, size 0x800
+    struct Wheels wheels; // offset 0x828, size 0x880
+    struct Force force; // offset 0x10A8, size 0x100
+    struct Condition condition; // offset 0x11A8, size 0x100
+    struct Constant constant; // offset 0x12A8, size 0x100
+    struct Periodic periodic; // offset 0x13A8, size 0x100
+    struct Ramp ramp; // offset 0x14A8, size 0x100
+    unsigned char OverallGain; // offset 0x15A8, size 0x1
+    bool damperWasPlaying[4]; // offset 0x15AC, size 0x4
+    bool springWasPlaying[4]; // offset 0x15BC, size 0x4
+    bool wasPlayingBeforeAirborne[4][10]; // offset 0x15CC, size 0x28
+    bool IsAirborne[4]; // offset 0x166C, size 0x4
+    struct {
+        char offset; // offset 0x0, size 0x1
+        unsigned char saturation; // offset 0x1, size 0x1
+        short coefficient; // offset 0x2, size 0x2
+    } SpringForceParams[4]; // offset 0x167C, size 0x10
+    struct {
+        short magnitude; // offset 0x0, size 0x2
+        unsigned short direction; // offset 0x2, size 0x2
+    } ConstantForceParams[4]; // offset 0x168C, size 0x10
+    struct {
+        short coefficient; // offset 0x0, size 0x2
+    } DamperForceParams[4]; // offset 0x169C, size 0x8
+    struct {
+        short magnitude; // offset 0x0, size 0x2
+        unsigned short direction; // offset 0x2, size 0x2
+    } SideCollisionParams[4]; // offset 0x16A4, size 0x10
+    struct {
+        short magnitude; // offset 0x0, size 0x2
+    } FrontalCollisionParams[4]; // offset 0x16B4, size 0x8
+    struct {
+        short magnitude; // offset 0x0, size 0x2
+    } DirtRoadParams[4]; // offset 0x16BC, size 0x8
+    struct {
+        short magnitude; // offset 0x0, size 0x2
+    } BumpyRoadParams[4]; // offset 0x16C4, size 0x8
+    struct {
+        short magnitude; // offset 0x0, size 0x2
+    } SlipperyRoadParams[4]; // offset 0x16CC, size 0x8
+    struct {
+        unsigned char type; // offset 0x0, size 0x1
+        unsigned char magnitude; // offset 0x1, size 0x1
+        unsigned short period; // offset 0x2, size 0x2
+    } SurfaceEffectParams[4]; // offset 0x16D4, size 0x10
+};
+struct LString {
+};
+// total size: 0x10
+struct LZHeader {
+    unsigned int ID; // offset 0x0, size 0x4
+    unsigned char Version; // offset 0x4, size 0x1
+    unsigned char HeaderSize; // offset 0x5, size 0x1
+    unsigned short Flags; // offset 0x6, size 0x2
+    unsigned int UncompressedSize; // offset 0x8, size 0x4
+    unsigned int CompressedSize; // offset 0xC, size 0x4
+};
+struct LapSnapshotInfo {
+};
+// total size: 0x8
+struct Linear {
+    float m; // offset 0x0, size 0x4
+    float b; // offset 0x4, size 0x4
+};
+// total size: 0x8
+struct bTList_ListPicker__ListPickerItem_ : public bList {
+};
+// total size: 0x18
+struct ListPicker {
+    struct bTList_ListPicker__ListPickerItem_ ItemList; // offset 0x0, size 0x8
+    struct ListPickerItem * CurrentItem; // offset 0x8, size 0x4
+    struct FEObject * DisplayObject; // offset 0xC, size 0x4
+    struct FEObject * ButtonObject; // offset 0x10, size 0x4
+    const struct __vtbl_ptr_type * _vptr_ListPicker; // offset 0x14, size 0x4
+};
+// total size: 0x8
+struct bTNode_ListPicker__ListPickerItem_ : public bNode {
+};
+// total size: 0x14
+// innerer Typ von ListPicker
+struct ListPickerItem : public bTNode_ListPicker__ListPickerItem_ {
+    int State; // offset 0x8, size 0x4
+    const char * String; // offset 0xC, size 0x4
+    const struct __vtbl_ptr_type * _vptr_ListPickerItem; // offset 0x10, size 0x4
+};
+// total size: 0xC
+struct LongVector {
+    int x; // offset 0x0, size 0x4
+    int y; // offset 0x4, size 0x4
+    int z; // offset 0x8, size 0x4
+};
+union MATRIX3 {
+    float m[9]; // offset 0x0, size 0x24
+    float m33[3][3]; // offset 0x0, size 0x24
+};
+union MATRIX4 {
+    float m[16]; // offset 0x0, size 0x40
+    float m44[4][4]; // offset 0x0, size 0x40
+};
+struct MEMCLASS {
+};
+// total size: 0x1C
+struct MUTEX {
+    int reserved[7]; // offset 0x0, size 0x1C
+};
+// total size: 0x8
+// innerer Typ von MagazineBackground
+struct bTNode_MagazineBackground_ : public bNode {
+};
+// total size: 0x14
+struct MagazineBackground : public bTNode_MagazineBackground_ {
+    unsigned int BackgroundHash; // offset 0x8, size 0x4
+    unsigned int TextureHash; // offset 0xC, size 0x4
+    enum eBackgroundStyle BackgroundStyle; // offset 0x10, size 0x4
+};
+// total size: 0x8
+// innerer Typ von MagazineCamera
+struct bTNode_MagazineCamera_ : public bNode {
+};
+// total size: 0x38
+struct MagazineCamera : public bTNode_MagazineCamera_ {
+    unsigned int CameraHash; // offset 0x8, size 0x4
+    float Orientation_H; // offset 0xC, size 0x4
+    float Orientation_V; // offset 0x10, size 0x4
+    float Orientation_Z; // offset 0x14, size 0x4
+    float Offset_X; // offset 0x18, size 0x4
+    float Offset_Y; // offset 0x1C, size 0x4
+    float Offset_Z; // offset 0x20, size 0x4
+    float FOV; // offset 0x24, size 0x4
+    float RollAngle; // offset 0x28, size 0x4
+    float LookAt_X; // offset 0x2C, size 0x4
+    float LookAt_Y; // offset 0x30, size 0x4
+    float LookAt_Z; // offset 0x34, size 0x4
+};
+// total size: 0x8
+// innerer Typ von MagazineEvent
+struct bTNode_MagazineEvent_ : public bNode {
+};
+// total size: 0xC
+struct MagazineEvent : public bTNode_MagazineEvent_ {
+    unsigned int EventHash; // offset 0x8, size 0x4
+};
+// total size: 0x8
+// innerer Typ von MagazineFemale
+struct bTNode_MagazineFemale_ : public bNode {
+};
+// total size: 0x10
+struct MagazineFemale : public bTNode_MagazineFemale_ {
+    unsigned int GirlHash; // offset 0x8, size 0x4
+    unsigned int TextureHash; // offset 0xC, size 0x4
+};
+// total size: 0x8
+// innerer Typ von MagazineHeadline
+struct bTNode_MagazineHeadline_ : public bNode {
+};
+// total size: 0xA8
+struct MagazineHeadline : public bTNode_MagazineHeadline_ {
+    char Headline[64]; // offset 0x8, size 0x40
+    char Headline_After_Car_Name[64]; // offset 0x48, size 0x40
+    unsigned int Hash; // offset 0x88, size 0x4
+    unsigned int IsCarSpecific; // offset 0x8C, size 0x4
+    unsigned int IsTwoParts; // offset 0x90, size 0x4
+    float PosX; // offset 0x94, size 0x4
+    float PosY; // offset 0x98, size 0x4
+    float ScaleX; // offset 0x9C, size 0x4
+    float ScaleY; // offset 0xA0, size 0x4
+    unsigned char ColorR; // offset 0xA4, size 0x1
+    unsigned char ColorG; // offset 0xA5, size 0x1
+    unsigned char ColorB; // offset 0xA6, size 0x1
+};
+// total size: 0x8
+// innerer Typ von MagazineName
+struct bTNode_MagazineName_ : public bNode {
+};
+// total size: 0x10
+struct MagazineName : public bTNode_MagazineName_ {
+    unsigned int NameHash; // offset 0x8, size 0x4
+    unsigned int TextureHash; // offset 0xC, size 0x4
+};
+// total size: 0x8
+struct MagazineName2ThumbMapping {
+    unsigned int MagazineNameHash; // offset 0x0, size 0x4
+    unsigned int ThumbImageNameHash; // offset 0x4, size 0x4
+};
+// total size: 0x40
+struct MagazineScreenDebugData {
+    int ComboIx; // offset 0x0, size 0x4
+    int NumCombinationsTotal; // offset 0x4, size 0x4
+    int NumCombinationsOtherSetups_Before; // offset 0x8, size 0x4
+    int NumSetups; // offset 0xC, size 0x4
+    int NumMastheads; // offset 0x10, size 0x4
+    int NumHeadlines; // offset 0x14, size 0x4
+    int NumBackgrounds; // offset 0x18, size 0x4
+    int NumCameras; // offset 0x1C, size 0x4
+    int NumFemales; // offset 0x20, size 0x4
+    int EventIndex; // offset 0x24, size 0x4
+    int MagazineSetupIndex; // offset 0x28, size 0x4
+    int MastheadIndex; // offset 0x2C, size 0x4
+    int HeadlineIndex; // offset 0x30, size 0x4
+    int BackgroundIndex; // offset 0x34, size 0x4
+    int CameraIndex; // offset 0x38, size 0x4
+    int FemaleIndex; // offset 0x3C, size 0x4
+};
+// total size: 0x8
+// innerer Typ von MagazineSetup
+struct bTNode_MagazineSetup_ : public bNode {
+};
+// total size: 0x168
+struct MagazineSetup : public bTNode_MagazineSetup_ {
+    unsigned int MagSetupHash; // offset 0x8, size 0x4
+    unsigned int MagSetupFlags; // offset 0xC, size 0x4
+    int NumMastheads; // offset 0x10, size 0x4
+    int NumHeadlines; // offset 0x14, size 0x4
+    int NumGirls; // offset 0x18, size 0x4
+    int NumBackgrounds; // offset 0x1C, size 0x4
+    int NumCameraAngles; // offset 0x20, size 0x4
+    unsigned int ChooseFromAllFlags; // offset 0x24, size 0x4
+    int PossibleMastheads[16]; // offset 0x28, size 0x40
+    int PossibleHeadlines[16]; // offset 0x68, size 0x40
+    int PossibleGirls[16]; // offset 0xA8, size 0x40
+    int PossibleBackgrounds[16]; // offset 0xE8, size 0x40
+    int PossibleCameraAngles[16]; // offset 0x128, size 0x40
+};
+// total size: 0x8
+struct bTList_EventSetup_ : public bList {
+};
+// total size: 0x8
+struct bTList_MagazineBackground_ : public bList {
+};
+// total size: 0x8
+struct bTList_MagazineCamera_ : public bList {
+};
+// total size: 0x8
+struct bTList_MagazineEvent_ : public bList {
+};
+// total size: 0x8
+struct bTList_MagazineFemale_ : public bList {
+};
+// total size: 0x8
+struct bTList_MagazineHeadline_ : public bList {
+};
+// total size: 0x8
+struct bTList_MagazineName_ : public bList {
+};
+// total size: 0x8
+struct bTList_MagazineSetup_ : public bList {
+};
+// total size: 0x44
+struct MagazineTemplateDatabase {
+    struct bTList_MagazineEvent_ EventList; // offset 0x0, size 0x8
+    struct bTList_MagazineName_ NameList; // offset 0x8, size 0x8
+    struct bTList_MagazineHeadline_ Headlines; // offset 0x10, size 0x8
+    struct bTList_MagazineFemale_ Females; // offset 0x18, size 0x8
+    struct bTList_MagazineBackground_ Backgrounds; // offset 0x20, size 0x8
+    struct bTList_MagazineCamera_ Cameras; // offset 0x28, size 0x8
+    struct bTList_MagazineSetup_ MagazineSetups; // offset 0x30, size 0x8
+    struct bTList_EventSetup_ EventSetups; // offset 0x38, size 0x8
+    const struct __vtbl_ptr_type * _vptr_MagazineTemplateDatabase; // offset 0x40, size 0x4
+};
+// total size: 0xC
+struct MatchPhaseInput {
+    float mAngle; // offset 0x0, size 0x4
+    float mDAngle; // offset 0x4, size 0x4
+    float mSearchLength; // offset 0x8, size 0x4
+};
+// total size: 0x18
+struct MemBlockInfo_t {
+    const char * name; // offset 0x0, size 0x4
+    int size; // offset 0x4, size 0x4
+    int alignment; // offset 0x8, size 0x4
+    int alignmentOffset; // offset 0xC, size 0x4
+    int flags; // offset 0x10, size 0x4
+    void * addr; // offset 0x14, size 0x4
+};
+// total size: 0x8
+struct bTList_AllocationHeader_ : public bList {
+};
+// total size: 0x8
+struct bTList_FreeBlock_ : public bList {
+};
+// total size: 0x54
+struct MemoryPool {
+    const char * pDebugName; // offset 0x0, size 0x4
+    struct bTList_FreeBlock_ FreeBlockList; // offset 0x4, size 0x8
+    struct bTList_AllocationHeader_ AllocationHeaderList; // offset 0xC, size 0x8
+    int NumAllocations; // offset 0x14, size 0x4
+    int TotalNumAllocations; // offset 0x18, size 0x4
+    int PoolSize; // offset 0x1C, size 0x4
+    int AmountAllocated; // offset 0x20, size 0x4
+    int MostAmountAllocated; // offset 0x24, size 0x4
+    int AmountFree; // offset 0x28, size 0x4
+    int LeastAmountFree; // offset 0x2C, size 0x4
+    bool DebugFillEnabled; // offset 0x30, size 0x1
+    bool DebugTracingEnabled; // offset 0x34, size 0x1
+    struct MUTEX Mutex; // offset 0x38, size 0x1C
+};
+// total size: 0x4
+struct MemoryPoolManager {
+    const struct __vtbl_ptr_type * _vptr_MemoryPoolManager; // offset 0x0, size 0x4
+};
+// total size: 0x10
+struct ScreenConstructorData {
+    const char * PackageName; // offset 0x0, size 0x4
+    struct FEPackage * pPackage; // offset 0x4, size 0x4
+    struct PersistentMenuScreenData * PersistentData; // offset 0x8, size 0x4
+    unsigned int HelpHash; // offset 0xC, size 0x4
+};
+// total size: 0xC
+// innerer Typ von MenuScreen
+struct SoundImplementer {
+    bool PlayedSpeech; // offset 0x0, size 0x1
+    unsigned int PackageHash; // offset 0x4, size 0x4
+    const struct __vtbl_ptr_type * _vptr_SoundImplementer; // offset 0x8, size 0x4
+};
+// total size: 0x3C
+struct MenuScreen : public SoundImplementer {
+    const char * PackageName; // offset 0xC, size 0x4
+    struct ScreenConstructorData ConstructData; // offset 0x10, size 0x10
+    bool IsGarageScreen; // offset 0x20, size 0x1
+    struct FEObject * RightButton; // offset 0x24, size 0x4
+    struct FEObject * LeftButton; // offset 0x28, size 0x4
+    struct FEObject * UpButton; // offset 0x2C, size 0x4
+    struct FEObject * DownButton; // offset 0x30, size 0x4
+    bool MenuBarIsActive; // offset 0x34, size 0x1
+    unsigned int uiHelpHash; // offset 0x38, size 0x4
+};
+// total size: 0x6C
+struct MiscCarTunings {
+    float DriftYawMomentCoeff[3]; // offset 0x0, size 0xC
+    float DriftYawAngularVelCoeff; // offset 0xC, size 0x4
+    float DriftTractionSplit; // offset 0x10, size 0x4
+    float DriftTractionPercent[4]; // offset 0x14, size 0x10
+    float DriftWeightCoeff[4]; // offset 0x24, size 0x10
+    float DriftInertiaZTensorCoeff[4]; // offset 0x34, size 0x10
+    float DriftAeroReduction; // offset 0x44, size 0x4
+    float DriftTorqueSplit; // offset 0x48, size 0x4
+    float BurnoutFrictionCoeff[4]; // offset 0x4C, size 0x10
+    float PerfectShiftNeutralMultiplier; // offset 0x5C, size 0x4
+    float RoadTorqueBalanceFactorNormal; // offset 0x60, size 0x4
+    float RoadTorqueBalanceFactorDrift; // offset 0x64, size 0x4
+    float RoadTorqueBalanceFactorNeutral; // offset 0x68, size 0x4
+};
+struct MobileTopology {
+};
+// total size: 0xC
+struct MtxStack {
+    unsigned int numMtx; // offset 0x0, size 0x4
+    float (* stackBase)[4]; // offset 0x4, size 0x4
+    float (* stackPtr)[4]; // offset 0x8, size 0x4
+};
+// total size: 0x28
+struct OSAlarm {
+    void (* handler)(struct OSAlarm *, OSContext *); // offset 0x0, size 0x4
+    unsigned int tag; // offset 0x4, size 0x4
+    long long fire; // offset 0x8, size 0x8
+    struct OSAlarm * prev; // offset 0x10, size 0x4
+    struct OSAlarm * next; // offset 0x14, size 0x4
+    long long period; // offset 0x18, size 0x8
+    long long start; // offset 0x20, size 0x8
+};
+// total size: 0x28
+struct OSCalendarTime {
+    int sec; // offset 0x0, size 0x4
+    int min; // offset 0x4, size 0x4
+    int hour; // offset 0x8, size 0x4
+    int mday; // offset 0xC, size 0x4
+    int mon; // offset 0x10, size 0x4
+    int year; // offset 0x14, size 0x4
+    int wday; // offset 0x18, size 0x4
+    int yday; // offset 0x1C, size 0x4
+    int msec; // offset 0x20, size 0x4
+    int usec; // offset 0x24, size 0x4
+};
+// total size: 0x8
+struct OSThreadQueue {
+    OSThread * head; // offset 0x0, size 0x4
+    OSThread * tail; // offset 0x4, size 0x4
+};
+// total size: 0x8
+struct OSCond {
+    OSThreadQueue queue; // offset 0x0, size 0x8
+};
+// total size: 0x2C8
+struct OSContext {
+    unsigned long gpr[32]; // offset 0x0, size 0x80
+    unsigned int cr; // offset 0x80, size 0x4
+    unsigned int lr; // offset 0x84, size 0x4
+    unsigned int ctr; // offset 0x88, size 0x4
+    unsigned int xer; // offset 0x8C, size 0x4
+    double fpr[32]; // offset 0x90, size 0x100
+    unsigned int fpscr_pad; // offset 0x190, size 0x4
+    unsigned int fpscr; // offset 0x194, size 0x4
+    unsigned int srr0; // offset 0x198, size 0x4
+    unsigned int srr1; // offset 0x19C, size 0x4
+    unsigned short mode; // offset 0x1A0, size 0x2
+    unsigned short state; // offset 0x1A2, size 0x2
+    unsigned long gqr[8]; // offset 0x1A4, size 0x20
+    unsigned int psf_pad; // offset 0x1C4, size 0x4
+    double psf[32]; // offset 0x1C8, size 0x100
+};
+// total size: 0x30
+struct OSFontHeader {
+    unsigned short fontType; // offset 0x0, size 0x2
+    unsigned short firstChar; // offset 0x2, size 0x2
+    unsigned short lastChar; // offset 0x4, size 0x2
+    unsigned short invalChar; // offset 0x6, size 0x2
+    unsigned short ascent; // offset 0x8, size 0x2
+    unsigned short descent; // offset 0xA, size 0x2
+    unsigned short width; // offset 0xC, size 0x2
+    unsigned short leading; // offset 0xE, size 0x2
+    unsigned short cellWidth; // offset 0x10, size 0x2
+    unsigned short cellHeight; // offset 0x12, size 0x2
+    unsigned int sheetSize; // offset 0x14, size 0x4
+    unsigned short sheetFormat; // offset 0x18, size 0x2
+    unsigned short sheetColumn; // offset 0x1A, size 0x2
+    unsigned short sheetRow; // offset 0x1C, size 0x2
+    unsigned short sheetWidth; // offset 0x1E, size 0x2
+    unsigned short sheetHeight; // offset 0x20, size 0x2
+    unsigned short widthTable; // offset 0x22, size 0x2
+    unsigned int sheetImage; // offset 0x24, size 0x4
+    unsigned int sheetFullSize; // offset 0x28, size 0x4
+    unsigned char c0; // offset 0x2C, size 0x1
+    unsigned char c1; // offset 0x2D, size 0x1
+    unsigned char c2; // offset 0x2E, size 0x1
+    unsigned char c3; // offset 0x2F, size 0x1
+};
+// total size: 0x8
+struct OSImportInfo {
+    unsigned int id; // offset 0x0, size 0x4
+    unsigned int offset; // offset 0x4, size 0x4
+};
+// total size: 0x20
+struct OSMessageQueue {
+    OSThreadQueue queueSend; // offset 0x0, size 0x8
+    OSThreadQueue queueReceive; // offset 0x8, size 0x8
+    void * * msgArray; // offset 0x10, size 0x4
+    int msgCount; // offset 0x14, size 0x4
+    int firstIndex; // offset 0x18, size 0x4
+    int usedCount; // offset 0x1C, size 0x4
+};
+// total size: 0x8
+struct OSModuleLink {
+    struct OSModuleInfo * next; // offset 0x0, size 0x4
+    struct OSModuleInfo * prev; // offset 0x4, size 0x4
+};
+// total size: 0x20
+struct OSModuleInfo {
+    unsigned int id; // offset 0x0, size 0x4
+    struct OSModuleLink link; // offset 0x4, size 0x8
+    unsigned int numSections; // offset 0xC, size 0x4
+    unsigned int sectionInfoOffset; // offset 0x10, size 0x4
+    unsigned int nameOffset; // offset 0x14, size 0x4
+    unsigned int nameSize; // offset 0x18, size 0x4
+    unsigned int version; // offset 0x1C, size 0x4
+};
+// total size: 0x4C
+struct OSModuleHeader {
+    struct OSModuleInfo info; // offset 0x0, size 0x20
+    unsigned int bssSize; // offset 0x20, size 0x4
+    unsigned int relOffset; // offset 0x24, size 0x4
+    unsigned int impOffset; // offset 0x28, size 0x4
+    unsigned int impSize; // offset 0x2C, size 0x4
+    unsigned char prologSection; // offset 0x30, size 0x1
+    unsigned char epilogSection; // offset 0x31, size 0x1
+    unsigned char unresolvedSection; // offset 0x32, size 0x1
+    unsigned char bssSection; // offset 0x33, size 0x1
+    unsigned int prolog; // offset 0x34, size 0x4
+    unsigned int epilog; // offset 0x38, size 0x4
+    unsigned int unresolved; // offset 0x3C, size 0x4
+    unsigned int align; // offset 0x40, size 0x4
+    unsigned int bssAlign; // offset 0x44, size 0x4
+    unsigned int fixSize; // offset 0x48, size 0x4
+};
+// total size: 0x8
+struct OSModuleQueue {
+    struct OSModuleInfo * head; // offset 0x0, size 0x4
+    struct OSModuleInfo * tail; // offset 0x4, size 0x4
+};
+// total size: 0x8
+struct OSMutexLink {
+    struct OSMutex * next; // offset 0x0, size 0x4
+    struct OSMutex * prev; // offset 0x4, size 0x4
+};
+// total size: 0x18
+struct OSMutex {
+    struct OSThreadQueue queue; // offset 0x0, size 0x8
+    OSThread * thread; // offset 0x8, size 0x4
+    int count; // offset 0xC, size 0x4
+    struct OSMutexLink link; // offset 0x10, size 0x8
+};
+// total size: 0x8
+struct OSMutexQueue {
+    struct OSMutex * head; // offset 0x0, size 0x4
+    struct OSMutex * tail; // offset 0x4, size 0x4
+};
+// total size: 0x8
+struct OSRel {
+    unsigned short offset; // offset 0x0, size 0x2
+    unsigned char type; // offset 0x2, size 0x1
+    unsigned char section; // offset 0x3, size 0x1
+    unsigned int addend; // offset 0x4, size 0x4
+};
+// total size: 0x10
+struct OSResetFunctionInfo {
+    int (* func)(int); // offset 0x0, size 0x4
+    unsigned int priority; // offset 0x4, size 0x4
+    struct OSResetFunctionInfo * next; // offset 0x8, size 0x4
+    struct OSResetFunctionInfo * prev; // offset 0xC, size 0x4
+};
+// total size: 0x8
+struct OSSectionInfo {
+    unsigned int offset; // offset 0x0, size 0x4
+    unsigned int size; // offset 0x4, size 0x4
+};
+// total size: 0xC
+struct OSSemaphore {
+    int count; // offset 0x0, size 0x4
+    OSThreadQueue queue; // offset 0x4, size 0x8
+};
+// total size: 0x30
+struct OSStopwatch {
+    char * name; // offset 0x0, size 0x4
+    unsigned int hits; // offset 0x4, size 0x4
+    long long total; // offset 0x8, size 0x8
+    long long min; // offset 0x10, size 0x8
+    long long max; // offset 0x18, size 0x8
+    long long last; // offset 0x20, size 0x8
+    int running; // offset 0x28, size 0x4
+    unsigned int _padding; // offset 0x2C, size 0x4
+};
+// total size: 0x8
+struct OSThreadLink {
+    OSThread * next; // offset 0x0, size 0x4
+    OSThread * prev; // offset 0x4, size 0x4
+};
+// total size: 0x318
+struct OSThread {
+    OSContext context; // offset 0x0, size 0x2C8
+    unsigned short state; // offset 0x2C8, size 0x2
+    unsigned short attr; // offset 0x2CA, size 0x2
+    int suspend; // offset 0x2CC, size 0x4
+    int priority; // offset 0x2D0, size 0x4
+    int base; // offset 0x2D4, size 0x4
+    void * val; // offset 0x2D8, size 0x4
+    struct OSThreadQueue * queue; // offset 0x2DC, size 0x4
+    struct OSThreadLink link; // offset 0x2E0, size 0x8
+    struct OSThreadQueue queueJoin; // offset 0x2E8, size 0x8
+    struct OSMutex * mutex; // offset 0x2F0, size 0x4
+    struct OSMutexQueue queueMutex; // offset 0x2F4, size 0x8
+    struct OSThreadLink linkActive; // offset 0x2FC, size 0x8
+    unsigned char * stackBase; // offset 0x304, size 0x4
+    unsigned long * stackEnd; // offset 0x308, size 0x4
+    int error; // offset 0x30C, size 0x4
+    void * specific[2]; // offset 0x310, size 0x8
+};
+struct ObjectPool_FEKeyNode_256_ {
+};
+struct ObjectPool_FEMessageResponse_64_ {
+};
+struct ObjectPool_FEScript_32_ {
+};
+// total size: 0x4
+struct PPC_DMA_L_t {
+    unsigned int lcAddr : 27; // offset 0x0, size 0x4
+    unsigned int dmaLd : 1; // offset 0x0, size 0x4
+    unsigned int dmaLenL : 2; // offset 0x0, size 0x4
+    unsigned int dmaTrigger : 1; // offset 0x0, size 0x4
+    unsigned int dmaFlush : 1; // offset 0x0, size 0x4
+};
+union PPC_DMA_L_u {
+    unsigned int val; // offset 0x0, size 0x4
+    PPC_DMA_L_t f; // offset 0x0, size 0x4
+};
+// total size: 0x4
+struct PPC_DMA_U_t {
+    unsigned int memAddr : 27; // offset 0x0, size 0x4
+    unsigned int dmaLenU : 5; // offset 0x0, size 0x4
+};
+union PPC_DMA_U_u {
+    unsigned int val; // offset 0x0, size 0x4
+    PPC_DMA_U_t f; // offset 0x0, size 0x4
+};
+// total size: 0x4
+struct PPC_GQR_t {
+    unsigned int _pad0 : 2; // offset 0x0, size 0x4
+    unsigned int loadScale : 6; // offset 0x0, size 0x4
+    unsigned int _pad1 : 5; // offset 0x0, size 0x4
+    unsigned int loadType : 3; // offset 0x0, size 0x4
+    unsigned int _pad2 : 2; // offset 0x0, size 0x4
+    unsigned int storeScale : 6; // offset 0x0, size 0x4
+    unsigned int _pad3 : 5; // offset 0x0, size 0x4
+    unsigned int storeType : 3; // offset 0x0, size 0x4
+};
+union PPC_GQR_u {
+    unsigned int val; // offset 0x0, size 0x4
+    PPC_GQR_t f; // offset 0x0, size 0x4
+};
+union Parameter {
+    int iVal; // offset 0x0, size 0x4
+    float fVal; // offset 0x0, size 0x4
+};
+struct PerfMeter {
+};
+// total size: 0x4
+struct PersistentMenuScreenData {
+    int CurrentActiveObject; // offset 0x0, size 0x4
+};
+struct PhaseChan {
+};
+// total size: 0x4
+struct PhaseValue {
+    float mAngle; // offset 0x0, size 0x4
+};
+struct PhysicsSystem {
+};
+// total size: 0x58
+struct PhysicsUpgradeSpecification {
+    int UpgradeLevel[11]; // offset 0x0, size 0x2C
+    int JunkmanPart[11]; // offset 0x2C, size 0x2C
+};
+// total size: 0x84
+struct PidError {
+    struct Average aTimes; // offset 0x0, size 0x28
+    struct Average aIntegral; // offset 0x28, size 0x28
+    struct Average aDerivative; // offset 0x50, size 0x28
+    float fFrequency; // offset 0x78, size 0x4
+    float fCurrentError; // offset 0x7C, size 0x4
+    float fPreviousError; // offset 0x80, size 0x4
+};
+struct PostRaceCameraCoordinator {
+};
+struct PreRaceCameraCoordinator {
+};
+struct PreviewRoute {
+};
+// total size: 0xC
+struct ProfileDataEntry {
+    const char * SectionName; // offset 0x0, size 0x4
+    int Depth; // offset 0x4, size 0x4
+    unsigned int Ticks; // offset 0x8, size 0x4
+};
+// total size: 0x1
+struct ProfileManager {
+};
+// total size: 0x1
+struct ProfileNode {
+};
+struct ProfileSectionEntry {
+};
+// total size: 0x10
+struct Quaternion {
+    float x; // offset 0x0, size 0x4
+    float y; // offset 0x4, size 0x4
+    float z; // offset 0x8, size 0x4
+    float w; // offset 0xC, size 0x4
+};
+// total size: 0x8
+// innerer Typ von QueuedFile
+struct bTNode_QueuedFile_ : public bNode {
+};
+// total size: 0x74
+struct QueuedFile : public bTNode_QueuedFile_ {
+    void * pBuf; // offset 0x8, size 0x4
+    char Filename[48]; // offset 0xC, size 0x30
+    int FilePos; // offset 0x3C, size 0x4
+    int NumBytes; // offset 0x40, size 0x4
+    int NumRead; // offset 0x44, size 0x4
+    int BlockSize; // offset 0x48, size 0x4
+    int Priority; // offset 0x4C, size 0x4
+    int DisableJoylog; // offset 0x50, size 0x4
+    void * CallbackFunction; // offset 0x54, size 0x4
+    int CallbackParam; // offset 0x58, size 0x4
+    int CallbackParam2; // offset 0x5C, size 0x4
+    int CallbackModeUseParam2; // offset 0x60, size 0x4
+    int Handle; // offset 0x64, size 0x4
+    enum QueuedFileStatus Status; // offset 0x68, size 0x4
+    int AbortFlag; // offset 0x6C, size 0x4
+    float StartReadTime; // offset 0x70, size 0x4
+};
+// total size: 0x54
+struct QueuedFileBundle {
+    signed char * ReadBuffer; // offset 0x0, size 0x4
+    int ReadBufferBot; // offset 0x4, size 0x4
+    int ReadBufferTop; // offset 0x8, size 0x4
+    int NumBytesQueued; // offset 0xC, size 0x4
+    int NumQueuedFiles; // offset 0x10, size 0x4
+    struct QueuedFile * QueuedFiles[16]; // offset 0x14, size 0x40
+};
+// total size: 0x2C
+struct QuickSpline {
+    unsigned int nHash; // offset 0x0, size 0x4
+    enum QuickSplineEndPointType EndPointType; // offset 0x4, size 0x4
+    enum QuickSplineBasisType BasisType; // offset 0x8, size 0x4
+    float MaxParam; // offset 0xC, size 0x4
+    float MinParam; // offset 0x10, size 0x4
+    float Length; // offset 0x14, size 0x4
+    char ControlPointsDirty; // offset 0x18, size 0x1
+    char BufferWasAllocated; // offset 0x19, size 0x1
+    char MinControlPoints; // offset 0x1A, size 0x1
+    unsigned short MaxControlPoints; // offset 0x1C, size 0x2
+    unsigned short NumControlPoints; // offset 0x1E, size 0x2
+    struct bVector4 * pControlPointBuffer; // offset 0x20, size 0x4
+    struct bVector4 * pControlPoints; // offset 0x24, size 0x4
+    struct bMatrix4 * pBasisMatricies; // offset 0x28, size 0x4
+};
+// total size: 0x8
+struct bTNode_RCQueuedMessage_ : public bNode {
+};
+// total size: 0x10
+struct RCQueuedMessage : public bTNode_RCQueuedMessage_ {
+    enum RCMessage Msg; // offset 0x8, size 0x4
+    int Param; // offset 0xC, size 0x4
+};
+// total size: 0x4
+struct REALELEMENT {
+    struct REALELEMENT * link; // offset 0x0, size 0x4
+};
+// total size: 0x34
+struct REALQUEUE {
+    unsigned int count; // offset 0x0, size 0x4
+    unsigned int flags; // offset 0x4, size 0x4
+    REALELEMENT * head; // offset 0x8, size 0x4
+    REALELEMENT * tail; // offset 0xC, size 0x4
+    QUEUEFUNC * prifunc; // offset 0x10, size 0x4
+    void * context; // offset 0x14, size 0x4
+    MUTEX mutex; // offset 0x18, size 0x1C
+};
+// total size: 0x8
+struct REQUESTQUEUE {
+    struct REQUESTSTRUCTtag * head; // offset 0x0, size 0x4
+    struct REQUESTSTRUCTtag * tail; // offset 0x4, size 0x4
+};
+// total size: 0x30
+struct REQUESTSTRUCTtag {
+    int id; // offset 0x0, size 0x4
+    struct REQUESTSTRUCTtag * nextreq; // offset 0x4, size 0x4
+    int bytesread; // offset 0x8, size 0x4
+    int releaseflag; // offset 0xC, size 0x4
+    int cancelflag; // offset 0x10, size 0x4
+    char * loadaddr; // offset 0x14, size 0x4
+    void (* callback)(int); // offset 0x18, size 0x4
+    volatile int fop; // offset 0x1C, size 0x4
+    int fhandle; // offset 0x20, size 0x4
+    int foffset; // offset 0x24, size 0x4
+    int readsize; // offset 0x28, size 0x4
+    char * destaddr; // offset 0x2C, size 0x4
+};
+// total size: 0x8
+struct bTList_RCQueuedMessage_ : public bList {
+};
+// total size: 0xB8
+struct RaceCoordinator {
+    enum RCState CurrentRCState; // offset 0x0, size 0x4
+    struct Timer CurrentRCStateStartTime; // offset 0x4, size 0x4
+    struct bTList_RCQueuedMessage_ RCQueuedMessageList; // offset 0x8, size 0x8
+    int RCExecutingMessage; // offset 0x10, size 0x4
+    enum RCState InitialRCState; // offset 0x14, size 0x4
+    int InitialRaceStage; // offset 0x18, size 0x4
+    int DisplayingCountdownNumber; // offset 0x1C, size 0x4
+    int PausedJoystickPort; // offset 0x20, size 0x4
+    enum RCState BeforePauseRCState; // offset 0x24, size 0x4
+    bool bAlreadyPaused; // offset 0x28, size 0x1
+    bool bPauseRequestedDuringNIS; // offset 0x2C, size 0x1
+    enum RCState BeforeTutorialState; // offset 0x30, size 0x4
+    unsigned int CurrentTutorialMessage; // offset 0x34, size 0x4
+    struct DemoCameraCoordinator * pDemoCameraCoordinator; // offset 0x38, size 0x4
+    struct FlyByCameraCoordinator * pFlyByCameraCoordinator; // offset 0x3C, size 0x4
+    struct PreRaceCameraCoordinator * pPreRaceCameraCoordinator; // offset 0x40, size 0x4
+    struct IntroNisCameraCoordinator * pIntroNisCameraCoordinator; // offset 0x44, size 0x4
+    struct EndingNisCameraCoordinator * pEndingNisCameraCoordinator; // offset 0x48, size 0x4
+    int BeforeFirstRace; // offset 0x4C, size 0x4
+    struct cPostRaceScreenMgrInterface * pPostRaceScreenMgr; // offset 0x50, size 0x4
+    struct ReplayScreen * pReplayScreen; // offset 0x54, size 0x4
+    int mNumRewinds; // offset 0x58, size 0x4
+    struct CameraMover * mpCameraMover; // offset 0x5C, size 0x4
+    struct CameraDataItems * mpCD; // offset 0x60, size 0x4
+    struct TrackRoutePoint * mIncidentPoint; // offset 0x64, size 0x4
+    struct bVector3 mIncidentCoord; // offset 0x68, size 0x10
+    struct bVector3 mFinalPosition; // offset 0x78, size 0x10
+    struct bVector3 mStartPosition; // offset 0x88, size 0x10
+    struct bVector3 * mpEyeVerts; // offset 0x98, size 0x4
+    struct bVector3 * mpBankVerts; // offset 0x9C, size 0x4
+    struct bVector3 * mpFOVtable; // offset 0xA0, size 0x4
+    struct Car * mpHighlightCar; // offset 0xA4, size 0x4
+    struct Car * mpHighlightCar2; // offset 0xA8, size 0x4
+    int mViewID; // offset 0xAC, size 0x4
+    struct PreviewRoute * mpRoute; // offset 0xB0, size 0x4
+    int mDemoPlayerNumber; // offset 0xB4, size 0x4
+};
+// total size: 0x8060
+struct ReadStatus {
+    FileReadStateEnum CurState; // offset 0x0, size 0x4
+    int MemBase; // offset 0x4, size 0x4
+    int FileBase; // offset 0x8, size 0x4
+    int Size; // offset 0xC, size 0x4
+    int MBS; // offset 0x10, size 0x4
+    int MSA; // offset 0x14, size 0x4
+    int ME; // offset 0x18, size 0x4
+    int MEA; // offset 0x1C, size 0x4
+    int FBS; // offset 0x20, size 0x4
+    int FSA; // offset 0x24, size 0x4
+    int FE; // offset 0x28, size 0x4
+    int FEA; // offset 0x2C, size 0x4
+    int SD; // offset 0x30, size 0x4
+    int TA; // offset 0x34, size 0x4
+    int ret; // offset 0x38, size 0x4
+    volatile HANDLE * handle; // offset 0x3C, size 0x4
+    volatile void * MemPointer; // offset 0x40, size 0x4
+    volatile long parmFileBase; // offset 0x44, size 0x4
+    volatile long parmSize; // offset 0x48, size 0x4
+    char Data[32768]; // offset 0x60, size 0x8000
+};
+// total size: 0x8
+struct bTNode_RecyclingThumbnailNode_ : public bNode {
+};
+// total size: 0x20
+struct RecyclingThumbnailNode : public bTNode_RecyclingThumbnailNode_ {
+    unsigned int Item; // offset 0x8, size 0x4
+    unsigned int TextureHash; // offset 0xC, size 0x4
+    struct FEObject * FEngObject; // offset 0x10, size 0x4
+    float XPos; // offset 0x14, size 0x4
+    unsigned int OriginalColor; // offset 0x18, size 0x4
+    bool IsGreyOut; // offset 0x1C, size 0x1
+};
+// total size: 0x8
+struct bTList_RecyclingThumbnailNode_ : public bList {
+};
+// total size: 0x8
+struct bTList_ThumbObject_ : public bList {
+};
+// total size: 0x58
+struct RecyclingThumbnailScroller {
+    bool DoneAddingNodes; // offset 0x0, size 0x1
+    struct bTList_ThumbObject_ ThumbObjectList; // offset 0x4, size 0x8
+    struct bTList_ThumbObject_ CyclingObjectList; // offset 0xC, size 0x8
+    struct bTList_RecyclingThumbnailNode_ NodeList; // offset 0x14, size 0x8
+    struct RecyclingThumbnailNode * CurrentNode; // offset 0x1C, size 0x4
+    struct ThumbObject * CurrentThumbObject; // offset 0x20, size 0x4
+    bool SplineLeft; // offset 0x24, size 0x1
+    bool SplineStarted; // offset 0x28, size 0x1
+    struct tCubic1D * AnimateCubic; // offset 0x2C, size 0x4
+    float SelectedX; // offset 0x30, size 0x4
+    float SelectedY; // offset 0x34, size 0x4
+    float CurrentAddPos; // offset 0x38, size 0x4
+    int NumThumbObjectsInPackage; // offset 0x3C, size 0x4
+    const char * PackageName; // offset 0x40, size 0x4
+    const char * GroupName; // offset 0x44, size 0x4
+    struct FEObject * MasterObject; // offset 0x48, size 0x4
+    struct FEObject * CurrentAlloc; // offset 0x4C, size 0x4
+    float PulseState; // offset 0x50, size 0x4
+    const struct __vtbl_ptr_type * _vptr_RecyclingThumbnailScroller; // offset 0x54, size 0x4
+};
+struct RenderContext {
+};
+struct RenderContextBase {
+};
+struct RenderContextExtension {
+};
+struct RenderContextPrivate {
+};
+struct RenderMethod {
+};
+// total size: 0x10
+struct ReplaySpecialEventInfo {
+    enum eReplaySpecialEvent Event; // offset 0x0, size 0x4
+    int WorldLoopCounter; // offset 0x4, size 0x4
+    int Param1; // offset 0x8, size 0x4
+    int Param2; // offset 0xC, size 0x4
+};
+// total size: 0x8
+struct bTList_ReplaySnapshot_ : public bList {
+};
+// total size: 0x50B8
+struct ReplayManager {
+    int ReplayingFlag; // offset 0x0, size 0x4
+    int CapturingFlag; // offset 0x4, size 0x4
+    int RemoveDataError; // offset 0x8, size 0x4
+    int ChecksumErrorFlag; // offset 0xC, size 0x4
+    int PausedFlag; // offset 0x10, size 0x4
+    int SlowMotionFlag; // offset 0x14, size 0x4
+    int ReplayPausedThisFrame; // offset 0x18, size 0x4
+    int NextFancyDebugTime; // offset 0x1C, size 0x4
+    int FancyReplayInProgress; // offset 0x20, size 0x4
+    int FancyJoyEventNumber; // offset 0x24, size 0x4
+    int NumFancyJoyEvents; // offset 0x28, size 0x4
+    unsigned char FancyJoyEventTable[32]; // offset 0x2C, size 0x20
+    int NextInstantReplaySnapshotTime; // offset 0x4C, size 0x4
+    int BeginCapturingLoopCount; // offset 0x50, size 0x4
+    int EndCapturingLoopCount; // offset 0x54, size 0x4
+    int FinishedAllCapturing; // offset 0x58, size 0x4
+    struct Timer BeginningOfTime; // offset 0x5C, size 0x4
+    struct Timer EndOfTime; // offset 0x60, size 0x4
+    struct bRepeat * pRepeat; // offset 0x64, size 0x4
+    struct bTList_ReplaySnapshot_ FreeReplaySnapshotList; // offset 0x68, size 0x8
+    struct bTList_ReplaySnapshot_ ReplaySnapshotList; // offset 0x70, size 0x8
+    int MaxNumSnapshots; // offset 0x78, size 0x4
+    int MaxNumInstantReplaySnapshots; // offset 0x7C, size 0x4
+    int MaxNumAutoReplaySnapshots; // offset 0x80, size 0x4
+    int MaxNumLapSnapshots; // offset 0x84, size 0x4
+    int MaxNumHighlightSnapshots; // offset 0x88, size 0x4
+    int NumInstantReplaySnapshots; // offset 0x8C, size 0x4
+    int NumLapSnapshots; // offset 0x90, size 0x4
+    int NumHighlightSnapshots; // offset 0x94, size 0x4
+    float LapSnapshotSpacing; // offset 0x98, size 0x4
+    int NextHighlightNumber; // offset 0x9C, size 0x4
+    int EndCurrentHighlightTime; // offset 0xA0, size 0x4
+    int LastSnapshotTime; // offset 0xA4, size 0x4
+    int NumSnapshotsTaken; // offset 0xA8, size 0x4
+    int LastSnapshotIndex; // offset 0xAC, size 0x4
+    int SnapshotTimeTable[4096]; // offset 0xB0, size 0x4000
+    int NumSpecialEvents; // offset 0x40B0, size 0x4
+    int LastSpecialEventNumber; // offset 0x40B4, size 0x4
+    struct ReplaySpecialEventInfo SpecialEventTable[256]; // offset 0x40B8, size 0x1000
+};
+struct ReplayScreen {
+};
+// total size: 0x10
+struct ReplaySnapshotSectionInfo {
+    const char * Name; // offset 0x0, size 0x4
+    void * Object; // offset 0x4, size 0x4
+    short Number; // offset 0x8, size 0x2
+    char NumMoveData; // offset 0xA, size 0x1
+    char ChecksumErrorDetected; // offset 0xB, size 0x1
+    int Size; // offset 0xC, size 0x4
+};
+// total size: 0x8
+struct bTNode_ReplaySnapshot_ : public bNode {
+};
+// total size: 0x9558
+struct ReplaySnapshot : public bTNode_ReplaySnapshot_ {
+    char Name[32]; // offset 0x8, size 0x20
+    struct Timer BeginTime; // offset 0x28, size 0x4
+    struct Timer EndTime; // offset 0x2C, size 0x4
+    int BeginLoopTime; // offset 0x30, size 0x4
+    int EndLoopTime; // offset 0x34, size 0x4
+    int MemoryImageLoadedFlag; // offset 0x38, size 0x4
+    char TakingSnapshotFlag; // offset 0x3C, size 0x1
+    char RestoringSnapshotFlag; // offset 0x3D, size 0x1
+    char TakingChecksumFlag; // offset 0x3E, size 0x1
+    char VerifyingChecksumFlag; // offset 0x3F, size 0x1
+    char CurrentSectionDepth; // offset 0x40, size 0x1
+    char OverflowedFlag; // offset 0x41, size 0x1
+    short CurrentSectionNumber; // offset 0x42, size 0x2
+    int PrintDepth; // offset 0x44, size 0x4
+    int PrintLoopCounter; // offset 0x48, size 0x4
+    struct ReplaySnapshotSectionInfo SectionInfo[16]; // offset 0x4C, size 0x100
+    float TotalInterestingValue; // offset 0x14C, size 0x4
+    int DataPosition; // offset 0x150, size 0x4
+    int SizeofData; // offset 0x154, size 0x4
+    unsigned char Data[37888]; // offset 0x158, size 0x9400
+};
+struct RigidBody {
+};
+// total size: 0x14
+struct RigidBodyMover : public Mover {
+};
+// total size: 0x28
+struct RuntimeAllocConstructorPool {
+    struct SymbolPool conspool; // offset 0x0, size 0x14
+    struct SymbolPool despool; // offset 0x14, size 0x14
+};
+struct RuntimeAllocDestructorEntry {
+};
+// total size: 0x6
+struct S16Vec {
+    short x; // offset 0x0, size 0x2
+    short y; // offset 0x2, size 0x2
+    short z; // offset 0x4, size 0x2
+};
+// total size: 0x14
+struct SCATTERREQUEST {
+    int num; // offset 0x0, size 0x4
+    const char * * names; // offset 0x4, size 0x4
+    void * * buffers; // offset 0x8, size 0x4
+    int flags; // offset 0xC, size 0x4
+    int abortflag; // offset 0x10, size 0x4
+};
+// total size: 0x8
+struct SCOORD {
+    int x; // offset 0x0, size 0x4
+    int y; // offset 0x4, size 0x4
+};
+// total size: 0x10
+struct SHAPE {
+    unsigned int type : 8; // offset 0x0, size 0x4
+    int next : 24; // offset 0x0, size 0x4
+    short width; // offset 0x4, size 0x2
+    short height; // offset 0x6, size 0x2
+    short centerx; // offset 0x8, size 0x2
+    short centery; // offset 0xA, size 0x2
+    unsigned int reserved : 1; // offset 0xC, size 0x4
+    unsigned int transposed : 1; // offset 0xC, size 0x4
+    unsigned int swizzled : 1; // offset 0xC, size 0x4
+    unsigned int referenced : 1; // offset 0xC, size 0x4
+    int shapex : 12; // offset 0xC, size 0x4
+    unsigned int mipmaps : 4; // offset 0xC, size 0x4
+    int shapey : 12; // offset 0xC, size 0x4
+};
+// total size: 0x8
+struct SHAPETABLEENTRY {
+    char id[4]; // offset 0x0, size 0x4
+    int offset; // offset 0x4, size 0x4
+};
+// total size: 0x18
+struct SHAPEFILE {
+    char type[4]; // offset 0x0, size 0x4
+    int len; // offset 0x4, size 0x4
+    int num; // offset 0x8, size 0x4
+    char creator[4]; // offset 0xC, size 0x4
+    SHAPETABLEENTRY tbl[1]; // offset 0x10, size 0x8
+};
+// total size: 0x28
+struct SIGNAL {
+    int reserved[10]; // offset 0x0, size 0x28
+};
+union SN_PS_type {
+    double ps; // offset 0x0, size 0x8
+    unsigned char flt[8]; // offset 0x0, Typ tflt fehlt im DWARF
+};
+// total size: 0x8
+struct STREAMCHUNKHDR {
+    int type; // offset 0x0, size 0x4
+    int size; // offset 0x4, size 0x4
+};
+// total size: 0x50
+struct STRUCT_DSP_TASK {
+    volatile unsigned long state; // offset 0x0, size 0x4
+    volatile unsigned long priority; // offset 0x4, size 0x4
+    volatile unsigned long flags; // offset 0x8, size 0x4
+    unsigned short * iram_mmem_addr; // offset 0xC, size 0x4
+    unsigned int iram_length; // offset 0x10, size 0x4
+    unsigned int iram_addr; // offset 0x14, size 0x4
+    unsigned short * dram_mmem_addr; // offset 0x18, size 0x4
+    unsigned int dram_length; // offset 0x1C, size 0x4
+    unsigned int dram_addr; // offset 0x20, size 0x4
+    unsigned short dsp_init_vector; // offset 0x24, size 0x2
+    unsigned short dsp_resume_vector; // offset 0x26, size 0x2
+    void (* init_cb)(void *); // offset 0x28, size 0x4
+    void (* res_cb)(void *); // offset 0x2C, size 0x4
+    void (* done_cb)(void *); // offset 0x30, size 0x4
+    void (* req_cb)(void *); // offset 0x34, size 0x4
+    struct STRUCT_DSP_TASK * next; // offset 0x38, size 0x4
+    struct STRUCT_DSP_TASK * prev; // offset 0x3C, size 0x4
+    long long t_context; // offset 0x40, size 0x8
+    long long t_task; // offset 0x48, size 0x8
+};
+// total size: 0x24
+struct SYNC_TRANSFER_OP {
+    volatile int priority; // offset 0x0, size 0x4
+    volatile int handle; // offset 0x4, size 0x4
+    volatile int offset; // offset 0x8, size 0x4
+    volatile int amount; // offset 0xC, size 0x4
+    volatile int result; // offset 0x10, size 0x4
+    volatile int requested; // offset 0x14, size 0x4
+    volatile void * buffer; // offset 0x18, size 0x4
+    int (* opfunc)(int, int, void *, int, int, void *); // offset 0x1C, size 0x4
+    int fileop; // offset 0x20, size 0x4
+};
+// total size: 0x14
+// virtuell: ~SampleMover() override | void DoTimestep(float t) override
+struct SampleMover : public Mover {
+};
+// total size: 0x20
+struct ScannerConfig {
+    char ConfigurationNumbers[8]; // offset 0x0, size 0x8
+    enum JoyEvent Event; // offset 0x8, size 0x4
+    unsigned short (* Scanner)(struct EventNode *, unsigned int *, unsigned int *, struct ScannerConfig *, struct Joystick *); // offset 0xC, size 0x4
+    unsigned char Xor1; // offset 0x10, size 0x1
+    unsigned char Xor2; // offset 0x11, size 0x1
+    unsigned char Shift1; // offset 0x12, size 0x1
+    unsigned char Shift2; // offset 0x13, size 0x1
+    unsigned char Param; // offset 0x14, size 0x1
+    unsigned char AnalogDeviceNumber; // offset 0x15, size 0x1
+    unsigned char ValidDuringReplay; // offset 0x16, size 0x1
+    unsigned int ButtonTexture; // offset 0x18, size 0x4
+    char * ButtonName; // offset 0x1C, size 0x4
+};
+// total size: 0xC
+struct SceneryBoundingBox {
+    short BBoxMin[3]; // offset 0x0, size 0x6
+    short BBoxMax[3]; // offset 0x6, size 0x6
+};
+// total size: 0xC
+struct SceneryDrawInfo {
+    struct eModel * pModel; // offset 0x0, size 0x4
+    struct bMatrix4 * pMatrix; // offset 0x4, size 0x4
+    struct SceneryInstance * SceneryInst; // offset 0x8, size 0x4
+};
+// total size: 0x48
+struct SceneryInfo {
+    unsigned int NameHash[6]; // offset 0x0, size 0x18
+    short FarClipSize[4]; // offset 0x18, size 0x8
+    short Dummy; // offset 0x20, size 0x2
+    struct eModel * pModel[6]; // offset 0x24, size 0x18
+    char IsFacadeFlag[6]; // offset 0x3C, size 0x6
+    char Dummy2; // offset 0x42, size 0x1
+    float Radius; // offset 0x44, size 0x4
+};
+// total size: 0x30
+struct SceneryInstance : public SceneryBoundingBox {
+    short SceneryInfoNumber; // offset 0xC, size 0x2
+    short ExcludeFlags; // offset 0xE, size 0x2
+    float Position[3]; // offset 0x10, size 0xC
+    short Rotation[9]; // offset 0x1C, size 0x12
+    short Pad; // offset 0x2E, size 0x2
+};
+// total size: 0x168
+struct SceneryLogInfo {
+    char MeshName[32]; // offset 0x0, size 0x20
+    char InstanceMeshName[32]; // offset 0x20, size 0x20
+    char BBGFilename[48]; // offset 0x40, size 0x30
+    char SmokeableTypeName[32]; // offset 0x70, size 0x20
+    unsigned int NameHash[6]; // offset 0x90, size 0x18
+    struct bVector3 Position; // offset 0xA8, size 0x10
+    struct bMatrix4 Matrix; // offset 0xB8, size 0x40
+    struct bVector3 BBoxMin; // offset 0xF8, size 0x10
+    struct bVector3 BBoxMax; // offset 0x108, size 0x10
+    int SectionNumber; // offset 0x118, size 0x4
+    int SceneryInfoNumber; // offset 0x11C, size 0x4
+    int SceneryInstanceNumber; // offset 0x120, size 0x4
+    int ExcludeFlags; // offset 0x124, size 0x4
+    float Radius; // offset 0x128, size 0x4
+    int SmokeableFlag; // offset 0x12C, size 0x4
+    unsigned int SmokeableHash; // offset 0x130, size 0x4
+    int FlattenIfDrivenOver; // offset 0x134, size 0x4
+    int IncludedAsTopology; // offset 0x138, size 0x4
+    int IsTrafficLight; // offset 0x13C, size 0x4
+    char SoundEventType[32]; // offset 0x140, size 0x20
+    int NumPolysWorld; // offset 0x160, size 0x4
+    int NumPolysMemory; // offset 0x164, size 0x4
+};
+// total size: 0x8
+struct bTNode_ScenerySectionHeader_ : public bNode {
+};
+// total size: 0x3C
+struct ScenerySectionHeader : public bTNode_ScenerySectionHeader_ {
+    int EndianSwapped; // offset 0x8, size 0x4
+    int SectionNumber; // offset 0xC, size 0x4
+    int NumPolygonsInMemory; // offset 0x10, size 0x4
+    int NumPolygonsInWorld; // offset 0x14, size 0x4
+    struct SceneryInfo * pSceneryInfo; // offset 0x18, size 0x4
+    int NumSceneryInfo; // offset 0x1C, size 0x4
+    struct SceneryInstance * pSceneryInstance; // offset 0x20, size 0x4
+    int NumSceneryInstances; // offset 0x24, size 0x4
+    struct SceneryTreeNode * SceneryTreeNodeTable; // offset 0x28, size 0x4
+    int NumSceneryTreeNodes; // offset 0x2C, size 0x4
+    struct SceneryTreeGroupNode * SceneryTreeGroupNodeTable; // offset 0x30, size 0x4
+    int NumSceneryTreeGroupNodes; // offset 0x34, size 0x4
+    int ViewsVisibleThisFrame; // offset 0x38, size 0x4
+};
+struct SceneryTreeGroupNode {
+};
+// total size: 0x18
+struct SceneryTreeNode : public SceneryBoundingBox {
+    short NumChildren; // offset 0xC, size 0x2
+    short ChildCodes[5]; // offset 0xE, size 0xA
+};
+// total size: 0x8
+struct bTList_ScrollerDatumNode_ : public bList {
+};
+// total size: 0x8
+struct bTNode_ScrollerDatum_ : public bNode {
+};
+// total size: 0x10
+struct ScrollerDatum : public bTNode_ScrollerDatum_ {
+    struct bTList_ScrollerDatumNode_ Strings; // offset 0x8, size 0x8
+};
+// total size: 0x8
+struct bTNode_ScrollerDatumNode_ : public bNode {
+};
+// total size: 0x88
+struct ScrollerDatumNode : public bTNode_ScrollerDatumNode_ {
+    char String[128]; // offset 0x8, size 0x80
+};
+// total size: 0x8
+struct bTList_ScrollerSlotNode_ : public bList {
+};
+// total size: 0x8
+struct bTNode_ScrollerSlot_ : public bNode {
+};
+// total size: 0x14
+struct ScrollerSlot : public bTNode_ScrollerSlot_ {
+    struct bTList_ScrollerSlotNode_ FEStrings; // offset 0x8, size 0x8
+    struct FEObject * pBacking; // offset 0x10, size 0x4
+};
+// total size: 0x8
+struct bTNode_ScrollerSlotNode_ : public bNode {
+};
+// total size: 0xC
+struct ScrollerSlotNode : public bTNode_ScrollerSlotNode_ {
+    struct FEObject * String; // offset 0x8, size 0x4
+};
+// total size: 0x8
+struct bTList_ScrollerDatum_ : public bList {
+};
+// total size: 0x8
+struct bTList_ScrollerSlot_ : public bList {
+};
+// total size: 0x1C
+struct Scrollerina {
+    struct bTList_ScrollerSlot_ Slots; // offset 0x0, size 0x8
+    struct bTList_ScrollerDatum_ Data; // offset 0x8, size 0x8
+    struct ScrollerDatum * SelectedDatum; // offset 0x10, size 0x4
+    struct ScrollerDatum * TopDatum; // offset 0x14, size 0x4
+    struct ScrollerSlot * SelectedSlot; // offset 0x18, size 0x4
+};
+// total size: 0x20
+struct ScrollyLogic {
+    int mnNumVisuals; // offset 0x0, size 0x4
+    int mnMaxItems; // offset 0x4, size 0x4
+    int mnItems; // offset 0x8, size 0x4
+    int mnNumVisible; // offset 0xC, size 0x4
+    int mnActive; // offset 0x10, size 0x4
+    int mnCurSel; // offset 0x14, size 0x4
+    int mnTop; // offset 0x18, size 0x4
+    int mnBottom; // offset 0x1C, size 0x4
+};
+// total size: 0x28
+// virtuell: ~SemiWheelMover() override | void DoTimestep(float t) override
+struct SemiWheelMover : public Mover {
+    struct bVector3 AxisOffset; // offset 0x14, size 0x10
+    float CurrentAngle; // offset 0x24, size 0x4
+};
+// total size: 0x8
+struct bTNode_SetupStats_ : public bNode {
+};
+// total size: 0xC
+struct SetupStats : public bTNode_SetupStats_ {
+    int NumCombinations; // offset 0x8, size 0x4
+};
+// total size: 0x10
+struct SkeletonData : public AnimationTarget {
+    unsigned short mCoreSkelCheckSum; // offset 0x4, size 0x2
+    unsigned short mFlags; // offset 0x6, size 0x2
+    int mNumBones; // offset 0x8, size 0x4
+    float * mInvBoneScales; // offset 0xC, size 0x4
+};
+// total size: 0x10
+struct Skeleton : public SkeletonData {
+};
+// total size: 0x4
+struct SkidMaker {
+    struct SkidSet * pSkidSet; // offset 0x0, size 0x4
+};
+// total size: 0x10
+struct SkidSegment {
+    float Position[3]; // offset 0x0, size 0xC
+    signed char DeltaPosition[3]; // offset 0xC, size 0x3
+    unsigned char Intensity; // offset 0xF, size 0x1
+};
+// total size: 0x8
+// innerer Typ von SkidSet
+struct bTNode_SkidSet_ : public bNode {
+};
+// total size: 0xF8
+struct SkidSet : public bTNode_SkidSet_ {
+    struct bVector3 LastNormal; // offset 0x8, size 0x10
+    float LastSegmentLength; // offset 0x18, size 0x4
+    struct Car * pCar; // offset 0x1C, size 0x4
+    int bCarVisibleInPlayerViews; // offset 0x20, size 0x4
+    struct Clan * pClan; // offset 0x24, size 0x4
+    struct bPNode * pClanNode; // offset 0x28, size 0x4
+    struct SkidMaker * pSkidMaker; // offset 0x2C, size 0x4
+    int TheTerrainType; // offset 0x30, size 0x4
+    struct bVector3 Position; // offset 0x34, size 0x10
+    struct bVector3 BBoxMax; // offset 0x44, size 0x10
+    struct bVector3 BBoxMin; // offset 0x54, size 0x10
+    struct SkidSegment SkidSegments[8]; // offset 0x64, size 0x80
+    int NumSkidSegments; // offset 0xE4, size 0x4
+    struct bVector3 BBoxCentre; // offset 0xE8, size 0x10
+};
+// total size: 0x4
+struct SlotPoolEntry {
+    struct SlotPoolEntry * Next; // offset 0x0, size 0x4
+};
+// total size: 0x8
+// innerer Typ von SlotPool
+struct bTNode_SlotPool_ : public bNode {
+};
+// total size: 0x34
+struct SlotPool : public bTNode_SlotPool_ {
+    struct SlotPool * NextSlotPool; // offset 0x8, size 0x4
+    const char * DebugName; // offset 0xC, size 0x4
+    struct SlotPoolEntry * FreeSlots; // offset 0x10, size 0x4
+    enum SlotPoolFlags Flags; // offset 0x14, size 0x4
+    int NumAllocatedSlots; // offset 0x18, size 0x4
+    int MostNumAllocatedSlots; // offset 0x1C, size 0x4
+    int MemoryPool; // offset 0x20, size 0x4
+    int NumSlots; // offset 0x24, size 0x4
+    int SlotSize; // offset 0x28, size 0x4
+    int TotalNumSlots; // offset 0x2C, size 0x4
+    struct SlotPoolEntry Slots[1]; // offset 0x30, size 0x4
+};
+// total size: 0x8
+struct bTList_SlotPool_ : public bList {
+};
+// total size: 0xC
+struct SlotPoolManager {
+    int Initialized; // offset 0x0, size 0x4
+    struct bTList_SlotPool_ SlotPoolList; // offset 0x4, size 0x8
+};
+struct SmokeableInfo {
+};
+struct SoundObject {
+};
+// total size: 0x8
+struct bTList_SpaceNode_ : public bList {
+};
+// total size: 0x8
+// innerer Typ von SpaceNode
+struct bTNode_SpaceNode_ : public bNode {
+};
+// total size: 0xF0
+struct SpaceNode : public bTNode_SpaceNode_ {
+    struct bTList_SpaceNode_ ChildrenList; // offset 0x8, size 0x8
+    struct bMatrix4 WorldMatrix; // offset 0x10, size 0x40
+    struct bMatrix4 LocalMatrix; // offset 0x50, size 0x40
+    struct bVector3 WorldVelocity; // offset 0x90, size 0x10
+    struct bVector3 LocalVelocity; // offset 0xA0, size 0x10
+    struct bVector3 WorldAngularVelocity; // offset 0xB0, size 0x10
+    struct bVector3 LocalAngularVelocity; // offset 0xC0, size 0x10
+    unsigned int NameHash; // offset 0xD0, size 0x4
+    const char * Name; // offset 0xD4, size 0x4
+    unsigned int ReferenceCount; // offset 0xD8, size 0x4
+    unsigned int LastUpdateTimeStamp; // offset 0xDC, size 0x4
+    struct SpaceNode * Parent; // offset 0xE0, size 0x4
+    unsigned int Dirty; // offset 0xE4, size 0x4
+    struct bMatrix4 * BlendingMatrices; // offset 0xE8, size 0x4
+    unsigned int pad1; // offset 0xEC, size 0x4
+};
+// total size: 0x30
+struct Spline {
+    int ControlPointBufferSize; // offset 0x0, size 0x4
+    int NumControlPoints; // offset 0x4, size 0x4
+    enum SplineType Type; // offset 0x8, size 0x4
+    struct bVector3 * pControlPoints; // offset 0xC, size 0x4
+    struct bVector3 * pControlPointArray; // offset 0x10, size 0x4
+    int Dirty; // offset 0x14, size 0x4
+    int TableSize; // offset 0x18, size 0x4
+    int CalLevel; // offset 0x1C, size 0x4
+    float Length; // offset 0x20, size 0x4
+    float CalTableStep; // offset 0x24, size 0x4
+    int CalTableSize; // offset 0x28, size 0x4
+    float * pCalTable; // offset 0x2C, size 0x4
+};
+// total size: 0x1
+struct State {
+};
+// total size: 0x4
+struct StateTest {
+    const struct __vtbl_ptr_type * _vptr_StateTest; // offset 0x0, size 0x4
+};
+// total size: 0xC
+struct StompEntry {
+    int nType; // offset 0x0, size 0x4
+    union {
+        void * pData; // offset 0x0, size 0x4
+        int (* pFuncInt)(bool, int); // offset 0x0, size 0x4
+        float (* pFuncFloat)(bool, float); // offset 0x0, size 0x4
+    }; // offset 0x4, size 0x4
+    union {
+        int nData; // offset 0x0, size 0x4
+        float fData; // offset 0x0, size 0x4
+    }; // offset 0x8, size 0x4
+};
+// total size: 0xC
+struct Stomper {
+    bool bEnabled; // offset 0x0, size 0x1
+    char * pStack; // offset 0x4, size 0x4
+    enum eStomper nCurrent; // offset 0x8, size 0x4
+};
+// total size: 0x10
+struct SubTitleDesc {
+    int numTitles; // offset 0x0, size 0x4
+    char * movieName; // offset 0x4, size 0x4
+    unsigned int * time; // offset 0x8, size 0x4
+    unsigned int * titleHash; // offset 0xC, size 0x4
+};
+// total size: 0x10
+// innerer Typ von DynamicLoader
+struct Symbol {
+    const char * name; // offset 0x0, size 0x4
+    const char * type; // offset 0x4, size 0x4
+    void * data; // offset 0x8, size 0x4
+    bool isInternalRef; // offset 0xC, size 0x1
+};
+// total size: 0x4
+struct SymbolEntry {
+    void * Address; // offset 0x0, size 0x4
+};
+// total size: 0x1
+struct System {
+};
+struct TAR {
+};
+struct TARExtension {
+};
+struct TARPrivate {
+};
+// total size: 0x8
+struct TEXDescriptor {
+    TEXHeader * textureHeader; // offset 0x0, size 0x4
+    CLUTHeader * CLUTHeader; // offset 0x4, size 0x4
+};
+// total size: 0x24
+struct TEXHeader {
+    unsigned short height; // offset 0x0, size 0x2
+    unsigned short width; // offset 0x2, size 0x2
+    unsigned int format; // offset 0x4, size 0x4
+    char * data; // offset 0x8, size 0x4
+    GXTexWrapMode wrapS; // offset 0xC, size 0x4
+    GXTexWrapMode wrapT; // offset 0x10, size 0x4
+    GXTexFilter minFilter; // offset 0x14, size 0x4
+    GXTexFilter magFilter; // offset 0x18, size 0x4
+    float LODBias; // offset 0x1C, size 0x4
+    unsigned char edgeLODEnable; // offset 0x20, size 0x1
+    unsigned char minLOD; // offset 0x21, size 0x1
+    unsigned char maxLOD; // offset 0x22, size 0x1
+    unsigned char unpacked; // offset 0x23, size 0x1
+};
+// total size: 0xC
+struct TEXPalette {
+    unsigned int versionNumber; // offset 0x0, size 0x4
+    unsigned int numDescriptors; // offset 0x4, size 0x4
+    TEXDescriptor * descriptorArray; // offset 0x8, size 0x4
+};
+// total size: 0x318
+struct THREAD {
+    int reserved[198]; // offset 0x0, size 0x318
+};
+// total size: 0x10
+struct TableBase {
+    int NumEntries; // offset 0x0, size 0x4
+    float MinArg; // offset 0x4, size 0x4
+    float MaxArg; // offset 0x8, size 0x4
+    float IndexMultiplier; // offset 0xC, size 0x4
+};
+// total size: 0x14
+struct Table : public TableBase {
+    float * pTable; // offset 0x10, size 0x4
+};
+// total size: 0x658
+struct TerrainEffectEmitters {
+    struct bTList_AcidEmitter_ EmitterList[7][29]; // offset 0x0, size 0x658
+};
+// total size: 0x94
+struct TerrainTypeInfo {
+    char * Name; // offset 0x0, size 0x4
+    unsigned int NameHash; // offset 0x4, size 0x4
+    enum TerrainType Type; // offset 0x8, size 0x4
+    char ShouldTireMakeRoadSound; // offset 0xC, size 0x1
+    char ShouldCameraGoThroughIt; // offset 0xD, size 0x1
+    char * SkidTextureName; // offset 0x10, size 0x4
+    float SkidWidthMultiplier; // offset 0x14, size 0x4
+    float RoadNoiseGridSpacingInverse; // offset 0x18, size 0x4
+    float RoadNoiseScale; // offset 0x1C, size 0x4
+    float ElevationOffset; // offset 0x20, size 0x4
+    float StaticFrictionMultiplier; // offset 0x24, size 0x4
+    float DynamicFrictionMultiplier; // offset 0x28, size 0x4
+    float RollingFrictionMultiplier; // offset 0x2C, size 0x4
+    float CollisionPriority; // offset 0x30, size 0x4
+    float ForceMagnitude; // offset 0x34, size 0x4
+    float ForceFrequency; // offset 0x38, size 0x4
+    unsigned int DebugTopologyColour; // offset 0x3C, size 0x4
+    const char * DriveOverEmitterGroup; // offset 0x40, size 0x4
+    float DriveOverMinSpeed; // offset 0x44, size 0x4
+    float DriveOverMaxSpeed; // offset 0x48, size 0x4
+    const char * DriveOver2EmitterGroup; // offset 0x4C, size 0x4
+    float DriveOver2MinSpeed; // offset 0x50, size 0x4
+    float DriveOver2MaxSpeed; // offset 0x54, size 0x4
+    const char * SkidSmokeEmitterGroup; // offset 0x58, size 0x4
+    float SkidSmokeMinSpeed; // offset 0x5C, size 0x4
+    float SkidSmokeMaxSpeed; // offset 0x60, size 0x4
+    const char * TireSpewEmitterGroup; // offset 0x64, size 0x4
+    float TireSpewMinSpeed; // offset 0x68, size 0x4
+    float TireSpewMaxSpeed; // offset 0x6C, size 0x4
+    const char * BottomOutEmitterGroup; // offset 0x70, size 0x4
+    float BottomOutMinImpact; // offset 0x74, size 0x4
+    float BottomOutMaxImpact; // offset 0x78, size 0x4
+    const char * CollisionImpactEmitterGroup; // offset 0x7C, size 0x4
+    float CollisionImpactMinForce; // offset 0x80, size 0x4
+    float CollisionImpactMaxForce; // offset 0x84, size 0x4
+    const char * CollisionScrapeEmitterGroup; // offset 0x88, size 0x4
+    float CollisionScrapeMinSpeed; // offset 0x8C, size 0x4
+    float CollisionScrapeMaxSpeed; // offset 0x90, size 0x4
+};
+// total size: 0x14
+// virtuell: ~TestMover() override | void DoTimestep(float t) override
+struct TestMover : public Mover {
+};
+// total size: 0x34
+struct TextureAnim {
+    char Name[24]; // offset 0x0, size 0x18
+    unsigned int NameHash; // offset 0x18, size 0x4
+    int NumFrames; // offset 0x1C, size 0x4
+    int FramesPerSecond; // offset 0x20, size 0x4
+    int TimeBase; // offset 0x24, size 0x4
+    struct TextureAnimEntry * TextureAnimTable; // offset 0x28, size 0x4
+    int Valid; // offset 0x2C, size 0x4
+    int CurrentFrame; // offset 0x30, size 0x4
+};
+// total size: 0x10
+struct TextureAnimEntry {
+    unsigned int NameHash; // offset 0x0, size 0x4
+    struct TextureInfo * pTextureInfo; // offset 0x4, size 0x4
+    void * pPlatAnimData; // offset 0x8, size 0x4
+    unsigned int pad; // offset 0xC, size 0x4
+};
+// total size: 0x8
+// innerer Typ von TextureAnimPack
+struct bTNode_TextureAnimPack_ : public bNode {
+};
+// total size: 0x18
+struct TextureAnimPack : public bTNode_TextureAnimPack_ {
+    struct TextureAnim * TextureAnimTable; // offset 0x8, size 0x4
+    struct TextureAnimEntry * TextureAnimEntryTable; // offset 0xC, size 0x4
+    int NumTextureAnims; // offset 0x10, size 0x4
+    int NumTextureAnimEntries; // offset 0x14, size 0x4
+};
+// total size: 0x10
+struct TextureAnimPackHeader {
+    int Version; // offset 0x0, size 0x4
+    struct TextureAnimPack * pTextureAnimPack; // offset 0x4, size 0x4
+    int EndianSwapped; // offset 0x8, size 0x4
+    int pad; // offset 0xC, size 0x4
+};
+// total size: 0x8
+struct TextureIndexEntry {
+    unsigned int NameHash; // offset 0x0, size 0x4
+    struct TextureInfo * pTextureInfo; // offset 0x4, size 0x4
+};
+// total size: 0x4
+struct TextureInfoPlatInterface {
+    struct TextureInfoPlatInfo * PlatInfo; // offset 0x0, size 0x4
+};
+// total size: 0x8
+// innerer Typ von TextureInfo
+struct bTNode_TextureInfo_ : public bNode {
+};
+// total size: 0x7C
+struct TextureInfo : public TextureInfoPlatInterface, public bTNode_TextureInfo_ {
+    char DebugName[24]; // offset 0xC, size 0x18
+    unsigned int NameHash; // offset 0x24, size 0x4
+    unsigned int ClassNameHash; // offset 0x28, size 0x4
+    unsigned int ImageParentHash; // offset 0x2C, size 0x4
+    int ImagePlacement; // offset 0x30, size 0x4
+    int PalettePlacement; // offset 0x34, size 0x4
+    int ImageSize; // offset 0x38, size 0x4
+    int PaletteSize; // offset 0x3C, size 0x4
+    int BaseImageSize; // offset 0x40, size 0x4
+    short Width; // offset 0x44, size 0x2
+    short Height; // offset 0x46, size 0x2
+    char ShiftWidth; // offset 0x48, size 0x1
+    char ShiftHeight; // offset 0x49, size 0x1
+    unsigned char ImageCompressionType; // offset 0x4A, size 0x1
+    unsigned char PaletteCompressionType; // offset 0x4B, size 0x1
+    short NumPaletteEntries; // offset 0x4C, size 0x2
+    char NumMipMapLevels; // offset 0x4E, size 0x1
+    char TilableUV; // offset 0x4F, size 0x1
+    char BiasLevel; // offset 0x50, size 0x1
+    char RenderingOrder; // offset 0x51, size 0x1
+    char ScrollType; // offset 0x52, size 0x1
+    char UsedFlag; // offset 0x53, size 0x1
+    char ApplyAlphaSorting; // offset 0x54, size 0x1
+    char AlphaUsageType; // offset 0x55, size 0x1
+    char AlphaBlendType; // offset 0x56, size 0x1
+    char bWriteZ; // offset 0x57, size 0x1
+    short ScrollTimeStep; // offset 0x58, size 0x2
+    short ScrollSpeedS; // offset 0x5A, size 0x2
+    short ScrollSpeedT; // offset 0x5C, size 0x2
+    short OffsetS; // offset 0x5E, size 0x2
+    short OffsetT; // offset 0x60, size 0x2
+    short ScaleS; // offset 0x62, size 0x2
+    short ScaleT; // offset 0x64, size 0x2
+    struct TexturePack * pTexturePack; // offset 0x68, size 0x4
+    struct TextureInfo * pImageParent; // offset 0x6C, size 0x4
+    void * ImageData; // offset 0x70, size 0x4
+    void * PaletteData; // offset 0x74, size 0x4
+    int ReferenceCount; // offset 0x78, size 0x4
+};
+struct TextureInfoPlat {
+};
+// total size: 0x20
+struct _GXTexObj {
+    unsigned long dummy[8]; // offset 0x0, size 0x20
+};
+// total size: 0xC
+struct _GXTlutObj {
+    unsigned long dummy[3]; // offset 0x0, size 0xC
+};
+// total size: 0x2C
+struct TextureInfoPlatInfoOBJ {
+    struct _GXTlutObj objClut; // offset 0x0, size 0xC
+    struct _GXTexObj obj; // offset 0xC, size 0x20
+};
+// total size: 0x8
+// innerer Typ von TextureInfoPlatInfo
+struct bTNode_TextureInfoPlatInfo_ : public bNode {
+};
+// total size: 0x3C
+struct TextureInfoPlatInfo : public bTNode_TextureInfoPlatInfo_ {
+    struct TextureInfoPlatInfoOBJ ImageInfos; // offset 0x8, size 0x2C
+    struct eTextureBucket * pActiveBucket; // offset 0x34, size 0x4
+    unsigned int Format; // offset 0x38, size 0x4
+};
+// total size: 0x8
+// innerer Typ von TexturePack
+struct bTNode_TexturePack_ : public bNode {
+};
+// total size: 0x84
+struct TexturePack : public bTNode_TexturePack_ {
+    char Name[32]; // offset 0x8, size 0x20
+    char Filename[64]; // offset 0x28, size 0x40
+    unsigned int NameHash; // offset 0x68, size 0x4
+    int InventoryHandle; // offset 0x6C, size 0x4
+    struct TexturePackHeader * pPackHeader; // offset 0x70, size 0x4
+    struct TextureInfo * TextureInfoTable; // offset 0x74, size 0x4
+    struct TextureInfoPlatInfo * TextureInfoPlatInfoTable; // offset 0x78, size 0x4
+    int NumTextures; // offset 0x7C, size 0x4
+    int TextureDataSize; // offset 0x80, size 0x4
+};
+// total size: 0x7C
+struct TexturePackHeader {
+    int Version; // offset 0x0, size 0x4
+    char Name[32]; // offset 0x4, size 0x20
+    char Filename[64]; // offset 0x24, size 0x40
+    unsigned int PermChunkByteOffset; // offset 0x64, size 0x4
+    unsigned int PermChunkByteSize; // offset 0x68, size 0x4
+    int EndianSwapped; // offset 0x6C, size 0x4
+    struct TexturePack * pTexturePack; // offset 0x70, size 0x4
+    struct TextureIndexEntry * TextureIndexEntryTable; // offset 0x74, size 0x4
+    struct eStreamingEntry * TextureStreamEntryTable; // offset 0x78, size 0x4
+};
+struct TextureRenderContext {
+};
+// total size: 0x8
+// innerer Typ von ThumbObject
+struct bTNode_ThumbObject_ : public bNode {
+};
+// total size: 0x10
+struct ThumbObject : public bTNode_ThumbObject_ {
+    struct FEObject * Object; // offset 0x8, size 0x4
+    struct RecyclingThumbnailNode * ThumbNode; // offset 0xC, size 0x4
+};
+// total size: 0x8
+struct bTNode_ThumbnailNode_ : public bNode {
+};
+// total size: 0x28
+struct ThumbnailNode : public bTNode_ThumbnailNode_ {
+    unsigned int Item; // offset 0x8, size 0x4
+    struct FEObject * FEngObject; // offset 0xC, size 0x4
+    float XPos; // offset 0x10, size 0x4
+    unsigned int OriginalColor; // offset 0x14, size 0x4
+    bool IsGreyOut; // offset 0x18, size 0x1
+    bool IsFlashable; // offset 0x1C, size 0x1
+    float OrigWidth; // offset 0x20, size 0x4
+    float OrigHeight; // offset 0x24, size 0x4
+};
+// total size: 0x8
+struct bTList_ThumbnailNode_ : public bList {
+};
+// total size: 0x3C
+struct ThumbnailScroller {
+    struct bTList_ThumbnailNode_ NodeList; // offset 0x0, size 0x8
+    struct ThumbnailNode * CurrentNode; // offset 0x8, size 0x4
+    struct tCubic1D * AnimateCubic; // offset 0xC, size 0x4
+    float SelectedX; // offset 0x10, size 0x4
+    float SelectedY; // offset 0x14, size 0x4
+    float CurrentAddPos; // offset 0x18, size 0x4
+    const char * PackageName; // offset 0x1C, size 0x4
+    const char * GroupName; // offset 0x20, size 0x4
+    struct FEObject * MasterObject; // offset 0x24, size 0x4
+    float MasterWidth; // offset 0x28, size 0x4
+    float MasterHeight; // offset 0x2C, size 0x4
+    struct FEObject * CurrentAlloc; // offset 0x30, size 0x4
+    float PulseState; // offset 0x34, size 0x4
+    const struct __vtbl_ptr_type * _vptr_ThumbnailScroller; // offset 0x38, size 0x4
+};
+// total size: 0x8
+struct bVector2 {
+    float x; // offset 0x0, size 0x4
+    float y; // offset 0x4, size 0x4
+};
+// total size: 0x2C0
+struct TopologyCoordinate {
+    struct bVector2 InterestBBoxMin; // offset 0x0, size 0x8
+    struct bVector2 InterestBBoxMax; // offset 0x8, size 0x8
+    struct bVector2 CachedBBoxMin; // offset 0x10, size 0x8
+    struct bVector2 CachedBBoxMax; // offset 0x18, size 0x8
+    struct TrackPolygon * TrackPolygonTable[160]; // offset 0x20, size 0x280
+    int TotalNumTrackPolygons; // offset 0x2A0, size 0x4
+    int NumTrackPolygons; // offset 0x2A4, size 0x4
+    int NumVerticalTrackPolygons; // offset 0x2A8, size 0x4
+    int NumUpsideDownTrackPolygons; // offset 0x2AC, size 0x4
+    struct TrackPolygon * pPreviousTrackPolygon; // offset 0x2B0, size 0x4
+    unsigned int pCaffeineObjInterestBBox; // offset 0x2B4, size 0x4
+    unsigned int pCaffeineObjCachedBBox; // offset 0x2B8, size 0x4
+    unsigned int pCaffeineObjPosition; // offset 0x2BC, size 0x4
+};
+// total size: 0x10
+struct TopologyEntry {
+    enum TerrainType Type; // offset 0x0, size 0x4
+    float Lat; // offset 0x4, size 0x4
+    float Elevation; // offset 0x8, size 0x4
+    float Slope; // offset 0xC, size 0x4
+};
+// total size: 0x8
+struct bTList_TrackPolygon_ : public bList {
+};
+// total size: 0x4C
+struct TopologyTree {
+    struct TopologyTreeNode * pNodeTable; // offset 0x0, size 0x4
+    int NumNodes; // offset 0x4, size 0x4
+    struct TopologyTreeSquare * pSquareTable; // offset 0x8, size 0x4
+    int NumSquares; // offset 0xC, size 0x4
+    struct TopologyTreePolygon * pPolygonTable; // offset 0x10, size 0x4
+    int NumPolygons; // offset 0x14, size 0x4
+    unsigned short * pPolygonIndexTable; // offset 0x18, size 0x4
+    int NumPolygonIndicies; // offset 0x1C, size 0x4
+    struct LString * pPolygonNameTable; // offset 0x20, size 0x4
+    struct bVector3 ExtentsMin; // offset 0x24, size 0x10
+    struct bVector3 ExtentsMax; // offset 0x34, size 0x10
+    struct bTList_TrackPolygon_ TrackPolygonList; // offset 0x44, size 0x8
+};
+// total size: 0x70
+struct TopologyTreeFilePolygon {
+    struct bVector3 Vertices[4]; // offset 0x0, size 0x40
+    enum TerrainType Type; // offset 0x40, size 0x4
+    unsigned int TextureNameHash; // offset 0x44, size 0x4
+    short NumVertices; // offset 0x48, size 0x2
+    short ScenerySectionNumber; // offset 0x4A, size 0x2
+    short IsVertical; // offset 0x4C, size 0x2
+    short IsUpsideDown; // offset 0x4E, size 0x2
+    char DebugName[32]; // offset 0x50, size 0x20
+};
+// total size: 0x8
+struct TopologyTreeNode {
+    unsigned short ChildrenNodeNumbers[4]; // offset 0x0, size 0x8
+};
+// total size: 0x20
+struct TopologyTreePolygon {
+    char UsedByNeighbourFlag; // offset 0x0, size 0x1
+    unsigned char MaxMinBits; // offset 0x1, size 0x1
+    unsigned char Type; // offset 0x2, size 0x1
+    unsigned char Flags; // offset 0x3, size 0x1
+    short ZBase; // offset 0x4, size 0x2
+    short TrackPolygonNumber; // offset 0x6, size 0x2
+    short VerticesX[4]; // offset 0x8, size 0x8
+    short VerticesY[4]; // offset 0x10, size 0x8
+    short VerticesZ[4]; // offset 0x18, size 0x8
+};
+// total size: 0x10
+struct TopologyTreeSquare {
+    struct bVector2 Center; // offset 0x0, size 0x8
+    int FirstPolygonIndex; // offset 0x8, size 0x4
+    int NumPolygons; // offset 0xC, size 0x4
+};
+// total size: 0x8
+struct TrackHeader {
+    float TrackLength; // offset 0x0, size 0x4
+    int StartingTroughNumber; // offset 0x4, size 0x4
+};
+// total size: 0x8
+// innerer Typ von TrackPolygon
+struct bTNode_TrackPolygon_ : public bNode {
+};
+// total size: 0x74
+struct TrackPolygon : public bTNode_TrackPolygon_ {
+    char ReferenceCount; // offset 0x8, size 0x1
+    char NumVertices; // offset 0x9, size 0x1
+    char Flags; // offset 0xA, size 0x1
+    char TheTerrainType; // offset 0xB, size 0x1
+    struct TopologyTreePolygon * pPolygon; // offset 0xC, size 0x4
+    struct TrackPolygonCollisionBody * pCollisionBody; // offset 0x10, size 0x4
+    struct bVector2 BBoxMin; // offset 0x14, size 0x8
+    struct bVector2 BBoxMax; // offset 0x1C, size 0x8
+    struct bVector3 Vertices[4]; // offset 0x24, size 0x40
+    float Normal[3]; // offset 0x64, size 0xC
+    float PlaneDistance; // offset 0x70, size 0x4
+};
+struct TrackPolygonCollisionBody {
+};
+// total size: 0x8
+// innerer Typ von TrackPositionMarker
+struct bTNode_TrackPositionMarker_ : public bNode {
+};
+// total size: 0x30
+struct TrackPositionMarker : public bTNode_TrackPositionMarker_ {
+    unsigned int NameHash; // offset 0x8, size 0x4
+    int Param; // offset 0xC, size 0x4
+    struct bVector3 Position; // offset 0x10, size 0x10
+    unsigned short Angle; // offset 0x20, size 0x2
+    short Padding0; // offset 0x22, size 0x2
+    int Padding1; // offset 0x24, size 0x4
+    int Padding2; // offset 0x28, size 0x4
+    int Padding3; // offset 0x2C, size 0x4
+};
+struct TrackRoutePoint {
+};
+// total size: 0x10
+struct TrainInfo {
+    float Speed; // offset 0x0, size 0x4
+    int dummy; // offset 0x4, size 0x4
+    int dummy2; // offset 0x8, size 0x4
+    int dummy3; // offset 0xC, size 0x4
+};
+// total size: 0x40
+struct Transform {
+    union MATRIX4 m; // offset 0x0, size 0x40
+};
+// total size: 0x14
+struct ValidJoystickConfiguration {
+    int JoystickType; // offset 0x0, size 0x4
+    char ConfigurationNumbers[10]; // offset 0x4, size 0xA
+    unsigned char SteerHysterysis; // offset 0xE, size 0x1
+    unsigned char SteerDeadZoneSize; // offset 0xF, size 0x1
+    unsigned char ThrottleHysterysis; // offset 0x10, size 0x1
+    unsigned char ThrottleDeadZoneSize; // offset 0x11, size 0x1
+    unsigned char BrakeHysterysis; // offset 0x12, size 0x1
+    unsigned char BrakeDeadZoneSize; // offset 0x13, size 0x1
+};
+// total size: 0xC
+struct Vec {
+    float x; // offset 0x0, size 0x4
+    float y; // offset 0x4, size 0x4
+    float z; // offset 0x8, size 0x4
+};
+// total size: 0xC
+struct VerbosityControl {
+    int mBaseVerbosity; // offset 0x0, size 0x4
+    int mDefaultBaseVerbosity; // offset 0x4, size 0x4
+    int mInitialized; // offset 0x8, size 0x4
+};
+struct ViewPort {
+};
+struct VisibleData {
+};
+// total size: 0x60
+struct WeatherQuery {
+    float Rain; // offset 0x0, size 0x4
+    float Fog; // offset 0x4, size 0x4
+    float Snow; // offset 0x8, size 0x4
+    float Wind; // offset 0xC, size 0x4
+    unsigned int FogColour; // offset 0x10, size 0x4
+    float FogStart; // offset 0x14, size 0x4
+    float RootScale; // offset 0x18, size 0x4
+    float HitScale; // offset 0x1C, size 0x4
+    const char * RegionR; // offset 0x20, size 0x4
+    unsigned int RegionR_Colour; // offset 0x24, size 0x4
+    float RegionR_FogStart; // offset 0x28, size 0x4
+    float RegionR_Scale; // offset 0x2C, size 0x4
+    const char * Region0; // offset 0x30, size 0x4
+    unsigned int Region0_Colour; // offset 0x34, size 0x4
+    float Region0_FogStart; // offset 0x38, size 0x4
+    float Region0_Scale; // offset 0x3C, size 0x4
+    const char * Region1; // offset 0x40, size 0x4
+    unsigned int Region1_Colour; // offset 0x44, size 0x4
+    float Region1_FogStart; // offset 0x48, size 0x4
+    float Region1_Scale; // offset 0x4C, size 0x4
+    const char * Region2; // offset 0x50, size 0x4
+    unsigned int Region2_Colour; // offset 0x54, size 0x4
+    float Region2_FogStart; // offset 0x58, size 0x4
+    float Region2_Scale; // offset 0x5C, size 0x4
+};
+// total size: 0x8
+// innerer Typ von WeatherRegion
+struct bTNode_WeatherRegion_ : public bNode {
+};
+// total size: 0xE8
+struct WeatherRegion : public bTNode_WeatherRegion_ {
+    char Name[32]; // offset 0x8, size 0x20
+    char GroupName[32]; // offset 0x28, size 0x20
+    int Type; // offset 0x48, size 0x4
+    unsigned int FogColour; // offset 0x4C, size 0x4
+    float FogStart; // offset 0x50, size 0x4
+    float Parameter1; // offset 0x54, size 0x4
+    float PositionX; // offset 0x58, size 0x4
+    float PositionY; // offset 0x5C, size 0x4
+    float PositionZ; // offset 0x60, size 0x4
+    float Radius; // offset 0x64, size 0x4
+    float Intensity; // offset 0x68, size 0x4
+    float FarFalloffStart; // offset 0x6C, size 0x4
+    float AABBmaxX; // offset 0x70, size 0x4
+    float AABBmaxY; // offset 0x74, size 0x4
+    float AABBmaxZ; // offset 0x78, size 0x4
+    float AABBminX; // offset 0x7C, size 0x4
+    float AABBminY; // offset 0x80, size 0x4
+    float AABBminZ; // offset 0x84, size 0x4
+    float FogFalloff; // offset 0x88, size 0x4
+    float FogFalloffX; // offset 0x8C, size 0x4
+    float FogFalloffY; // offset 0x90, size 0x4
+    float padFloat; // offset 0x94, size 0x4
+    unsigned int NameHash; // offset 0x98, size 0x4
+    unsigned int GroupNameHash; // offset 0x9C, size 0x4
+    int Shape; // offset 0xA0, size 0x4
+    int Blend; // offset 0xA4, size 0x4
+    float m00; // offset 0xA8, size 0x4
+    float m01; // offset 0xAC, size 0x4
+    float m02; // offset 0xB0, size 0x4
+    float m03; // offset 0xB4, size 0x4
+    float m10; // offset 0xB8, size 0x4
+    float m11; // offset 0xBC, size 0x4
+    float m12; // offset 0xC0, size 0x4
+    float m13; // offset 0xC4, size 0x4
+    float m20; // offset 0xC8, size 0x4
+    float m21; // offset 0xCC, size 0x4
+    float m22; // offset 0xD0, size 0x4
+    float m23; // offset 0xD4, size 0x4
+    float m30; // offset 0xD8, size 0x4
+    float m31; // offset 0xDC, size 0x4
+    float m32; // offset 0xE0, size 0x4
+    float m33; // offset 0xE4, size 0x4
+};
+// total size: 0x8
+// innerer Typ von WeatherRegionPack
+struct bTNode_WeatherRegionPack_ : public bNode {
+};
+// total size: 0x10
+struct WeatherRegionPack : public bTNode_WeatherRegionPack_ {
+    int Version; // offset 0x8, size 0x4
+    int NumRegions; // offset 0xC, size 0x4
+};
+struct WorldEntityList {
+};
+struct WorldEntityRegistration {
+};
+// total size: 0x8
+struct bTList_WorldEntityType_ : public bList {
+};
+// total size: 0x8
+struct bTList_WorldEntity_ : public bList {
+};
+// total size: 0x8
+// innerer Typ von WorldEntityType
+struct bTNode_WorldEntityType_ : public bNode {
+};
+// total size: 0x34
+struct WorldEntityType : public bTNode_WorldEntityType_ {
+    struct WorldEntity * (* mpSpawnFunction)(int, int); // offset 0x8, size 0x4
+    char * mTypeName; // offset 0xC, size 0x4
+    unsigned int mTypeHash; // offset 0x10, size 0x4
+    unsigned int mParentTypeHash; // offset 0x14, size 0x4
+    bool mAutoListing; // offset 0x18, size 0x1
+    int mMasterIDNumber; // offset 0x1C, size 0x4
+    struct bTList_WorldEntityType_ ChildTypeList; // offset 0x20, size 0x8
+    struct WorldEntityType * mpParentType; // offset 0x28, size 0x4
+    struct bTList_WorldEntity_ WorldEntityList; // offset 0x2C, size 0x8
+};
+// total size: 0x8
+// innerer Typ von WorldModel
+struct bTNode_WorldModel_ : public bNode {
+};
+// total size: 0x64
+struct WorldModel : public bTNode_WorldModel_ {
+    struct eModel * pModel; // offset 0x8, size 0x4
+    struct eModel * pReflectionModel; // offset 0xC, size 0x4
+    int Enabled; // offset 0x10, size 0x4
+    int RenderInSplitScreen; // offset 0x14, size 0x4
+    int mInvisibleInside; // offset 0x18, size 0x4
+    bool AddLighting; // offset 0x1C, size 0x1
+    struct bMatrix4 Matrix; // offset 0x20, size 0x40
+    struct SpaceNode * pSpaceNode; // offset 0x60, size 0x4
+};
+// total size: 0x20
+struct WorldObjectAnimationInfo {
+    unsigned int NameHash[3]; // offset 0x0, size 0xC
+    unsigned int AnimSkeletalName; // offset 0xC, size 0x4
+    unsigned int AnimSkeletalSkel; // offset 0x10, size 0x4
+    float AnimSpeed; // offset 0x14, size 0x4
+    int AnimPlayControl; // offset 0x18, size 0x4
+    float AnimDelayTime; // offset 0x1C, size 0x4
+};
+struct WorldObjectCollisionBody {
+};
+// total size: 0xA0
+struct WorldObjectInfo {
+    unsigned int TypeHash; // offset 0x0, size 0x4
+    unsigned int NameHash; // offset 0x4, size 0x4
+    unsigned int CollisionVolumeHash; // offset 0x8, size 0x4
+    unsigned int Cohort; // offset 0xC, size 0x4
+    struct bMatrix4 Matrix; // offset 0x10, size 0x40
+    unsigned int LODNameHash[4]; // offset 0x50, size 0x10
+    unsigned short FarClipSize[4]; // offset 0x60, size 0x8
+    unsigned int Driveable; // offset 0x68, size 0x4
+    unsigned int SoundHash; // offset 0x6C, size 0x4
+    unsigned int ParentNameHash; // offset 0x70, size 0x4
+    unsigned int IsAvoidable; // offset 0x74, size 0x4
+    unsigned int dummy2; // offset 0x78, size 0x4
+    unsigned int dummy3; // offset 0x7C, size 0x4
+    struct WorldObjectAnimationInfo AnimInfo; // offset 0x80, size 0x20
+};
+// total size: 0x10
+struct _AXPBADDR {
+    unsigned short loopFlag; // offset 0x0, size 0x2
+    unsigned short format; // offset 0x2, size 0x2
+    unsigned short loopAddressHi; // offset 0x4, size 0x2
+    unsigned short loopAddressLo; // offset 0x6, size 0x2
+    unsigned short endAddressHi; // offset 0x8, size 0x2
+    unsigned short endAddressLo; // offset 0xA, size 0x2
+    unsigned short currentAddressHi; // offset 0xC, size 0x2
+    unsigned short currentAddressLo; // offset 0xE, size 0x2
+};
+// total size: 0x28
+struct _AXPBADPCM {
+    unsigned short a[8][2]; // offset 0x0, size 0x20
+    unsigned short gain; // offset 0x20, size 0x2
+    unsigned short pred_scale; // offset 0x22, size 0x2
+    unsigned short yn1; // offset 0x24, size 0x2
+    unsigned short yn2; // offset 0x26, size 0x2
+};
+// total size: 0x6
+struct _AXPBADPCMLOOP {
+    unsigned short loop_pred_scale; // offset 0x0, size 0x2
+    unsigned short loop_yn1; // offset 0x2, size 0x2
+    unsigned short loop_yn2; // offset 0x4, size 0x2
+};
+// total size: 0x12
+struct _AXPBDPOP {
+    short aL; // offset 0x0, size 0x2
+    short aAuxAL; // offset 0x2, size 0x2
+    short aAuxBL; // offset 0x4, size 0x2
+    short aR; // offset 0x6, size 0x2
+    short aAuxAR; // offset 0x8, size 0x2
+    short aAuxBR; // offset 0xA, size 0x2
+    short aS; // offset 0xC, size 0x2
+    short aAuxAS; // offset 0xE, size 0x2
+    short aAuxBS; // offset 0x10, size 0x2
+};
+// total size: 0x6
+struct _AXPBFIR {
+    unsigned short numCoefs; // offset 0x0, size 0x2
+    unsigned short coefsHi; // offset 0x2, size 0x2
+    unsigned short coefsLo; // offset 0x4, size 0x2
+};
+// total size: 0xE
+struct _AXPBITD {
+    unsigned short flag; // offset 0x0, size 0x2
+    unsigned short bufferHi; // offset 0x2, size 0x2
+    unsigned short bufferLo; // offset 0x4, size 0x2
+    unsigned short shiftL; // offset 0x6, size 0x2
+    unsigned short shiftR; // offset 0x8, size 0x2
+    unsigned short targetShiftL; // offset 0xA, size 0x2
+    unsigned short targetShiftR; // offset 0xC, size 0x2
+};
+// total size: 0x8
+struct _AXPBLPF {
+    unsigned short on; // offset 0x0, size 0x2
+    unsigned short yn1; // offset 0x2, size 0x2
+    unsigned short a0; // offset 0x4, size 0x2
+    unsigned short b0; // offset 0x6, size 0x2
+};
+// total size: 0x24
+struct _AXPBMIX {
+    unsigned short vL; // offset 0x0, size 0x2
+    unsigned short vDeltaL; // offset 0x2, size 0x2
+    unsigned short vR; // offset 0x4, size 0x2
+    unsigned short vDeltaR; // offset 0x6, size 0x2
+    unsigned short vAuxAL; // offset 0x8, size 0x2
+    unsigned short vDeltaAuxAL; // offset 0xA, size 0x2
+    unsigned short vAuxAR; // offset 0xC, size 0x2
+    unsigned short vDeltaAuxAR; // offset 0xE, size 0x2
+    unsigned short vAuxBL; // offset 0x10, size 0x2
+    unsigned short vDeltaAuxBL; // offset 0x12, size 0x2
+    unsigned short vAuxBR; // offset 0x14, size 0x2
+    unsigned short vDeltaAuxBR; // offset 0x16, size 0x2
+    unsigned short vAuxBS; // offset 0x18, size 0x2
+    unsigned short vDeltaAuxBS; // offset 0x1A, size 0x2
+    unsigned short vS; // offset 0x1C, size 0x2
+    unsigned short vDeltaS; // offset 0x1E, size 0x2
+    unsigned short vAuxAS; // offset 0x20, size 0x2
+    unsigned short vDeltaAuxAS; // offset 0x22, size 0x2
+};
+// total size: 0xE
+struct _AXPBSRC {
+    unsigned short ratioHi; // offset 0x0, size 0x2
+    unsigned short ratioLo; // offset 0x2, size 0x2
+    unsigned short currentAddressFrac; // offset 0x4, size 0x2
+    unsigned short last_samples[4]; // offset 0x6, size 0x8
+};
+// total size: 0xE
+struct _AXPBUPDATE {
+    unsigned short updNum[5]; // offset 0x0, size 0xA
+    unsigned short dataHi; // offset 0xA, size 0x2
+    unsigned short dataLo; // offset 0xC, size 0x2
+};
+// total size: 0x4
+struct _AXPBVE {
+    unsigned short currentVolume; // offset 0x0, size 0x2
+    short currentDelta; // offset 0x2, size 0x2
+};
+// total size: 0xF4
+// Achtung: verschiedene Größen in den Übersetzungseinheiten: ['// total size: 0xEC', '// total size: 0xF4']
+struct _AXPB {
+    unsigned short nextHi; // offset 0x0, size 0x2
+    unsigned short nextLo; // offset 0x2, size 0x2
+    unsigned short currHi; // offset 0x4, size 0x2
+    unsigned short currLo; // offset 0x6, size 0x2
+    unsigned short srcSelect; // offset 0x8, size 0x2
+    unsigned short coefSelect; // offset 0xA, size 0x2
+    unsigned short mixerCtrl; // offset 0xC, size 0x2
+    unsigned short state; // offset 0xE, size 0x2
+    unsigned short type; // offset 0x10, size 0x2
+    AXPBMIX mix; // offset 0x12, size 0x24
+    AXPBITD itd; // offset 0x36, size 0xE
+    AXPBUPDATE update; // offset 0x44, size 0xE
+    AXPBDPOP dpop; // offset 0x52, size 0x12
+    AXPBVE ve; // offset 0x64, size 0x4
+    AXPBFIR fir; // offset 0x68, size 0x6
+    AXPBADDR addr; // offset 0x6E, size 0x10
+    AXPBADPCM adpcm; // offset 0x7E, size 0x28
+    AXPBSRC src; // offset 0xA6, size 0xE
+    AXPBADPCMLOOP adpcmLoop; // offset 0xB4, size 0x6
+    AXPBLPF lpf; // offset 0xBA, size 0x8
+    unsigned short pad[25]; // offset 0xC2, size 0x32
+};
+// total size: 0x40
+struct _AXPBITDBUFFER {
+    short data[32]; // offset 0x0, size 0x40
+};
+// total size: 0x100
+struct _AXPBU {
+    unsigned short data[128]; // offset 0x0, size 0x100
+};
+// total size: 0x38
+struct _AXPROFILE {
+    long long axFrameStart; // offset 0x0, size 0x8
+    long long auxProcessingStart; // offset 0x8, size 0x8
+    long long auxProcessingEnd; // offset 0x10, size 0x8
+    long long userCallbackStart; // offset 0x18, size 0x8
+    long long userCallbackEnd; // offset 0x20, size 0x8
+    long long axFrameEnd; // offset 0x28, size 0x8
+    unsigned int axNumVoices; // offset 0x30, size 0x4
+    unsigned int __padding; // offset 0x34, size 0x4
+};
+// total size: 0x36
+struct _AXSPB {
+    unsigned short dpopLHi; // offset 0x0, size 0x2
+    unsigned short dpopLLo; // offset 0x2, size 0x2
+    short dpopLDelta; // offset 0x4, size 0x2
+    unsigned short dpopRHi; // offset 0x6, size 0x2
+    unsigned short dpopRLo; // offset 0x8, size 0x2
+    short dpopRDelta; // offset 0xA, size 0x2
+    unsigned short dpopSHi; // offset 0xC, size 0x2
+    unsigned short dpopSLo; // offset 0xE, size 0x2
+    short dpopSDelta; // offset 0x10, size 0x2
+    unsigned short dpopALHi; // offset 0x12, size 0x2
+    unsigned short dpopALLo; // offset 0x14, size 0x2
+    short dpopALDelta; // offset 0x16, size 0x2
+    unsigned short dpopARHi; // offset 0x18, size 0x2
+    unsigned short dpopARLo; // offset 0x1A, size 0x2
+    short dpopARDelta; // offset 0x1C, size 0x2
+    unsigned short dpopASHi; // offset 0x1E, size 0x2
+    unsigned short dpopASLo; // offset 0x20, size 0x2
+    short dpopASDelta; // offset 0x22, size 0x2
+    unsigned short dpopBLHi; // offset 0x24, size 0x2
+    unsigned short dpopBLLo; // offset 0x26, size 0x2
+    short dpopBLDelta; // offset 0x28, size 0x2
+    unsigned short dpopBRHi; // offset 0x2A, size 0x2
+    unsigned short dpopBRLo; // offset 0x2C, size 0x2
+    short dpopBRDelta; // offset 0x2E, size 0x2
+    unsigned short dpopBSHi; // offset 0x30, size 0x2
+    unsigned short dpopBSLo; // offset 0x32, size 0x2
+    short dpopBSDelta; // offset 0x34, size 0x2
+};
+// total size: 0x22C
+// Achtung: verschiedene Größen in den Übersetzungseinheiten: ['// total size: 0x224', '// total size: 0x22C']
+struct _AXVPB {
+    void * next; // offset 0x0, size 0x4
+    void * prev; // offset 0x4, size 0x4
+    void * next1; // offset 0x8, size 0x4
+    unsigned int priority; // offset 0xC, size 0x4
+    void (* callback)(void *); // offset 0x10, size 0x4
+    unsigned int userContext; // offset 0x14, size 0x4
+    unsigned int index; // offset 0x18, size 0x4
+    unsigned int sync; // offset 0x1C, size 0x4
+    unsigned int depop; // offset 0x20, size 0x4
+    unsigned int updateMS; // offset 0x24, size 0x4
+    unsigned int updateCounter; // offset 0x28, size 0x4
+    unsigned int updateTotal; // offset 0x2C, size 0x4
+    unsigned short * updateWrite; // offset 0x30, size 0x4
+    unsigned short updateData[128]; // offset 0x34, size 0x100
+    void * itdBuffer; // offset 0x134, size 0x4
+    AXPB pb; // offset 0x138, size 0xF4
+};
+// total size: 0x18
+struct _Bigint {
+    struct _Bigint * _next; // offset 0x0, size 0x4
+    int _k; // offset 0x4, size 0x4
+    int _maxwds; // offset 0x8, size 0x4
+    int _sign; // offset 0xC, size 0x4
+    int _wds; // offset 0x10, size 0x4
+    unsigned int _x[1]; // offset 0x14, size 0x4
+};
+// total size: 0x4
+struct _GXColor {
+    unsigned char r; // offset 0x0, size 0x1
+    unsigned char g; // offset 0x1, size 0x1
+    unsigned char b; // offset 0x2, size 0x1
+    unsigned char a; // offset 0x3, size 0x1
+};
+// total size: 0x8
+struct _GXColorS10 {
+    short r; // offset 0x0, size 0x2
+    short g; // offset 0x2, size 0x2
+    short b; // offset 0x4, size 0x2
+    short a; // offset 0x6, size 0x2
+};
+// total size: 0x14
+struct _GXFogAdjTable {
+    unsigned short r[10]; // offset 0x0, size 0x14
+};
+// total size: 0x40
+struct _GXLightObj {
+    unsigned long dummy[16]; // offset 0x0, size 0x40
+};
+// total size: 0x3C
+struct _GXRenderModeObj {
+    VITVMode viTVmode; // offset 0x0, size 0x4
+    unsigned short fbWidth; // offset 0x4, size 0x2
+    unsigned short efbHeight; // offset 0x6, size 0x2
+    unsigned short xfbHeight; // offset 0x8, size 0x2
+    unsigned short viXOrigin; // offset 0xA, size 0x2
+    unsigned short viYOrigin; // offset 0xC, size 0x2
+    unsigned short viWidth; // offset 0xE, size 0x2
+    unsigned short viHeight; // offset 0x10, size 0x2
+    VIXFBMode xFBmode; // offset 0x14, size 0x4
+    unsigned char field_rendering; // offset 0x18, size 0x1
+    unsigned char aa; // offset 0x19, size 0x1
+    unsigned char sample_pattern[12][2]; // offset 0x1A, size 0x18
+    unsigned char vfilter[7]; // offset 0x32, size 0x7
+};
+// total size: 0x10
+struct _GXTexRegion {
+    unsigned long dummy[4]; // offset 0x0, size 0x10
+};
+// total size: 0x10
+struct _GXTlutRegion {
+    unsigned long dummy[4]; // offset 0x0, size 0x10
+};
+// total size: 0x10
+struct _GXVtxAttrFmtList {
+    GXAttr attr; // offset 0x0, size 0x4
+    GXCompCnt cnt; // offset 0x4, size 0x4
+    GXCompType type; // offset 0x8, size 0x4
+    unsigned char frac; // offset 0xC, size 0x1
+};
+// total size: 0x8
+struct _GXVtxDescList {
+    GXAttr attr; // offset 0x0, size 0x4
+    GXAttrType type; // offset 0x4, size 0x4
+};
+union __dmath {
+    unsigned int i[2]; // offset 0x0, size 0x8
+    double d; // offset 0x0, size 0x8
+};
+// total size: 0x28
+struct __exception {
+    int type; // offset 0x0, size 0x4
+    char * name; // offset 0x4, size 0x4
+    double arg1; // offset 0x8, size 0x8
+    double arg2; // offset 0x10, size 0x8
+    double retval; // offset 0x18, size 0x8
+    int err; // offset 0x20, size 0x4
+};
+// total size: 0x10
+struct __fmath_type {
+    float x; // offset 0x0, size 0x4
+    float y; // offset 0x4, size 0x4
+    float z; // offset 0x8, size 0x4
+    float w; // offset 0xC, size 0x4
+};
+// total size: 0x8
+struct __sbuf {
+    unsigned char * _base; // offset 0x0, size 0x4
+    int _size; // offset 0x4, size 0x4
+};
+// total size: 0x60
+struct __sFILE {
+    unsigned char * _p; // offset 0x0, size 0x4
+    int _r; // offset 0x4, size 0x4
+    int _w; // offset 0x8, size 0x4
+    short _flags; // offset 0xC, size 0x2
+    short _file; // offset 0xE, size 0x2
+    struct __sbuf _bf; // offset 0x10, size 0x8
+    int _lbfsize; // offset 0x18, size 0x4
+    void * _cookie; // offset 0x1C, size 0x4
+    int (* _read)(void *, char *, int); // offset 0x20, size 0x4
+    int (* _write)(void *, const char *, int); // offset 0x24, size 0x4
+    int (* _seek)(void *, long, int); // offset 0x28, size 0x4
+    int (* _close)(void *); // offset 0x2C, size 0x4
+    struct __sbuf _ub; // offset 0x30, size 0x8
+    unsigned char * _up; // offset 0x38, size 0x4
+    int _ur; // offset 0x3C, size 0x4
+    unsigned char _ubuf[10]; // offset 0x40, size 0xA
+    unsigned char _nbuf[1]; // offset 0x4A, size 0x1
+    struct __sbuf _lb; // offset 0x4C, size 0x8
+    int _blksize; // offset 0x54, size 0x4
+    int _offset; // offset 0x58, size 0x4
+    struct _reent * _data; // offset 0x5C, size 0x4
+};
+// total size: 0x60
+struct __va_regsave_t {
+    long __gp_save[8]; // offset 0x0, size 0x20
+    double __fp_save[8]; // offset 0x20, size 0x40
+};
+// total size: 0x8
+struct __vtbl_ptr_type {
+    short __delta; // offset 0x0, size 0x2
+    short __index; // offset 0x2, size 0x2
+    void * __pfn; // offset 0x4, size 0x4
+    short __delta2; // offset 0x4, size 0x2
+};
+// total size: 0x88
+struct _atexit {
+    struct _atexit * _next; // offset 0x0, size 0x4
+    int _ind; // offset 0x4, size 0x4
+    void (* _fns[32])(); // offset 0x8, size 0x80
+};
+// total size: 0xC
+struct _glue {
+    struct _glue * _next; // offset 0x0, size 0x4
+    int _niobs; // offset 0x4, size 0x4
+    struct __sFILE * _iobs; // offset 0x8, size 0x4
+};
+// total size: 0x24
+struct tm {
+    int tm_sec; // offset 0x0, size 0x4
+    int tm_min; // offset 0x4, size 0x4
+    int tm_hour; // offset 0x8, size 0x4
+    int tm_mday; // offset 0xC, size 0x4
+    int tm_mon; // offset 0x10, size 0x4
+    int tm_year; // offset 0x14, size 0x4
+    int tm_wday; // offset 0x18, size 0x4
+    int tm_yday; // offset 0x1C, size 0x4
+    int tm_isdst; // offset 0x20, size 0x4
+};
+// total size: 0x304
+struct _reent {
+    int _errno; // offset 0x0, size 0x4
+    struct __sFILE * _stdin; // offset 0x4, size 0x4
+    struct __sFILE * _stdout; // offset 0x8, size 0x4
+    struct __sFILE * _stderr; // offset 0xC, size 0x4
+    int _inc; // offset 0x10, size 0x4
+    char _emergency[25]; // offset 0x14, size 0x19
+    int _current_category; // offset 0x30, size 0x4
+    const char * _current_locale; // offset 0x34, size 0x4
+    int __sdidinit; // offset 0x38, size 0x4
+    void (* __cleanup)(struct _reent *); // offset 0x3C, size 0x4
+    struct _Bigint * _result; // offset 0x40, size 0x4
+    int _result_k; // offset 0x44, size 0x4
+    struct _Bigint * _p5s; // offset 0x48, size 0x4
+    struct _Bigint * * _freelist; // offset 0x4C, size 0x4
+    int _cvtlen; // offset 0x50, size 0x4
+    char * _cvtbuf; // offset 0x54, size 0x4
+    union {
+        struct {
+            unsigned int _rand_next; // offset 0x0, size 0x4
+            char * _strtok_last; // offset 0x4, size 0x4
+            char _asctime_buf[26]; // offset 0x8, size 0x1A
+            struct tm _localtime_buf; // offset 0x24, size 0x24
+            int _gamma_signgam; // offset 0x48, size 0x4
+        } _reent; // offset 0x0, size 0x4C
+        struct {
+            unsigned char * _nextf[30]; // offset 0x0, size 0x78
+            unsigned int _nmalloc[30]; // offset 0x78, size 0x78
+        } _unused; // offset 0x0, size 0xF0
+    } _new; // offset 0x58, size 0xF0
+    struct _atexit * _atexit; // offset 0x148, size 0x4
+    struct _atexit _atexit0; // offset 0x14C, size 0x88
+    void (* * _sig_func)(int); // offset 0x1D4, size 0x4
+    struct _glue __sglue; // offset 0x1D8, size 0xC
+    struct __sFILE __sf[3]; // offset 0x1E4, size 0x120
+};
+// total size: 0x8
+struct _types_fd_set {
+    long fds_bits[2]; // offset 0x0, size 0x8
+};
+// total size: 0x8
+struct bChunk {
+    unsigned int ID; // offset 0x0, size 0x4
+    int Size; // offset 0x4, size 0x4
+};
+// total size: 0xE8
+struct bFile {
+    int OpenFlags; // offset 0x0, size 0x4
+    int FileSize; // offset 0x4, size 0x4
+    int Position; // offset 0x8, size 0x4
+    int FileHandle; // offset 0xC, size 0x4
+    struct CachedRealFileHandle * pCachedRealFileHandle; // offset 0x10, size 0x4
+    int CloseAfterCallbacks; // offset 0x14, size 0x4
+    struct bFileDirectoryEntry * pDirectoryEntry; // offset 0x18, size 0x4
+    int NumPendingCallbacks; // offset 0x1C, size 0x4
+    char Filename[200]; // offset 0x20, size 0xC8
+};
+// total size: 0x8
+struct bTNode_bFileCallbackEntry_ : public bNode {
+};
+// total size: 0x18
+struct bFileCallbackEntry : public bTNode_bFileCallbackEntry_ {
+    struct bFile * File; // offset 0x8, size 0x4
+    void (* Callback)(struct bFile *, int); // offset 0xC, size 0x4
+    int CallbackParam; // offset 0x10, size 0x4
+    int Fop; // offset 0x14, size 0x4
+};
+// total size: 0x4
+struct bFileClosePacket {
+    int FileID; // offset 0x0, size 0x4
+};
+// total size: 0x18
+struct bFileDirectoryEntry {
+    unsigned int Hash; // offset 0x0, size 0x4
+    int FileNumber; // offset 0x4, size 0x4
+    int LocalSectorOffset; // offset 0x8, size 0x4
+    int TotalSectorOffset; // offset 0xC, size 0x4
+    int Size; // offset 0x10, size 0x4
+    unsigned int Checksum; // offset 0x14, size 0x4
+};
+// total size: 0xDC
+struct bFileOpenPacket {
+    char OpenFlags; // offset 0x0, size 0x1
+    char CDInDrive; // offset 0x1, size 0x1
+    char WarnIfCantOpen; // offset 0x2, size 0x1
+    char FutureExpansion; // offset 0x3, size 0x1
+    int FileID; // offset 0x4, size 0x4
+    int FilePositionAddress; // offset 0x8, size 0x4
+    unsigned int CDChecksum; // offset 0xC, size 0x4
+    int CDSize; // offset 0x10, size 0x4
+    char Filename[200]; // offset 0x14, size 0xC8
+};
+// total size: 0x10
+struct bFileReadPacket {
+    int FileID; // offset 0x0, size 0x4
+    int Position; // offset 0x4, size 0x4
+    int Address; // offset 0x8, size 0x4
+    int NumBytes; // offset 0xC, size 0x4
+};
+// total size: 0x7E0
+struct bFileWritePacket {
+    int FileID; // offset 0x0, size 0x4
+    int Position; // offset 0x4, size 0x4
+    unsigned char Data[2008]; // offset 0x8, size 0x7D8
+};
+// total size: 0x8
+struct bFixVector2 {
+    int x; // offset 0x0, size 0x4
+    int y; // offset 0x4, size 0x4
+};
+// total size: 0xC
+struct bFixVector3 {
+    int x; // offset 0x0, size 0x4
+    int y; // offset 0x4, size 0x4
+    int z; // offset 0x8, size 0x4
+};
+// total size: 0x88
+struct bFunkCodeineAddServerPacket {
+    struct bFunkPacket * pReceivePackets; // offset 0x0, size 0x4
+    int MaxReceivePackets; // offset 0x4, size 0x4
+    char Name[128]; // offset 0x8, size 0x80
+};
+// total size: 0x8
+struct bFunkJoylogCaptureInitPacket {
+    int BufferAddress; // offset 0x0, size 0x4
+    int BufferSizeAddress; // offset 0x4, size 0x4
+};
+// total size: 0x1C
+struct bFunkPacketHeader {
+    unsigned short TotalSize; // offset 0x0, size 0x2
+    unsigned char Type; // offset 0x2, size 0x1
+    unsigned char FunctionNum; // offset 0x3, size 0x1
+    unsigned int DestServer; // offset 0x4, size 0x4
+    unsigned int SourceServer; // offset 0x8, size 0x4
+    unsigned short PacketID; // offset 0xC, size 0x2
+    unsigned short Checksum; // offset 0xE, size 0x2
+    unsigned int ReturnBufferAddress; // offset 0x10, size 0x4
+    unsigned int ReturnCodeAddress; // offset 0x14, size 0x4
+    short ReturnCode; // offset 0x18, size 0x2
+    short MaxReturnSize; // offset 0x1A, size 0x2
+};
+// total size: 0x7FC
+struct bFunkPacket : public bFunkPacketHeader {
+    unsigned char Data[2016]; // offset 0x1C, size 0x7E0
+};
+// total size: 0x8
+// innerer Typ von bFunkServer
+struct bTNode_bFunkServer_ : public bNode {
+};
+// total size: 0x2D0
+// virtuell: virtual ~bFunkServer() | virtual bool CanDeliverPacket(unsigned int server_hash) | virtual bool DeliverPacket(struct bFunkPacket * packet)
+struct bFunkServer : public bTNode_bFunkServer_ {
+    unsigned int NameHash; // offset 0x8, size 0x4
+    char Name[64]; // offset 0xC, size 0x40
+    char FunctionTypes[128]; // offset 0x4C, size 0x80
+    void * FunctionTable[128]; // offset 0xCC, size 0x200
+    const struct __vtbl_ptr_type * _vptr_bFunkServer; // offset 0x2CC, size 0x4
+};
+// total size: 0x2E0
+// virtuell: ~bFunkServerPlatform() override | int Service() override | bool DeliverPacket(struct bFunkPacket * packet) override
+struct bFunkServerPlatform : public bFunkServer {
+    int MaxReceivePackets; // offset 0x2D0, size 0x4
+    int NextReceivePacketNum; // offset 0x2D4, size 0x4
+    bool ProcessingPacket; // offset 0x2D8, size 0x1
+    struct bFunkPacket * pReceivePackets; // offset 0x2DC, size 0x4
+};
+// total size: 0x44
+struct bMemoryTraceAllocatePacket {
+    int PoolID; // offset 0x0, size 0x4
+    int MemoryAddress; // offset 0x4, size 0x4
+    int Size; // offset 0x8, size 0x4
+    int DebugLine; // offset 0xC, size 0x4
+    int AllocationNumber; // offset 0x10, size 0x4
+    char DebugText[48]; // offset 0x14, size 0x30
+};
+// total size: 0x4
+struct bMemoryTraceDeletePoolPacket {
+    int PoolID; // offset 0x0, size 0x4
+};
+// total size: 0xC
+struct bMemoryTraceFreePacket {
+    int PoolID; // offset 0x0, size 0x4
+    int MemoryAddress; // offset 0x4, size 0x4
+    int Size; // offset 0x8, size 0x4
+};
+// total size: 0x24
+struct bMemoryTraceNewPoolPacket {
+    int PoolID; // offset 0x0, size 0x4
+    char Name[32]; // offset 0x4, size 0x20
+};
+// total size: 0x8
+struct bPList_QuickSpline_ : public bTList_bPNode_ {
+};
+// total size: 0x8
+// innerer Typ von bPList_QuickSpline_
+struct bPList_QuickSpline__bTList_bPNode_ : public bList {
+};
+// total size: 0x8
+// innerer Typ von bPList_SkidSet_
+struct bPList_SkidSet__bTList_bPNode_ : public bList {
+};
+// total size: 0x8
+// innerer Typ von bPNode
+struct bTNode_bPNode_ : public bNode {
+};
+// total size: 0xC
+struct bPNode : public bTNode_bPNode_ {
+    void * Object; // offset 0x8, size 0x4
+};
+// total size: 0x8
+struct bPolar {
+    float r; // offset 0x0, size 0x4
+    unsigned short a; // offset 0x4, size 0x2
+};
+// total size: 0x10
+struct bQuaternion {
+    float x; // offset 0x0, size 0x4
+    float y; // offset 0x4, size 0x4
+    float z; // offset 0x8, size 0x4
+    float w; // offset 0xC, size 0x4
+};
+// total size: 0x24
+struct bRepeatChannel {
+    int RepeatSize; // offset 0x0, size 0x4
+    int DefaultRemoveData; // offset 0x4, size 0x4
+    int AddDataSize; // offset 0x8, size 0x4
+    int AddRepeatCount; // offset 0xC, size 0x4
+    int AddLocation; // offset 0x10, size 0x4
+    int AddData; // offset 0x14, size 0x4
+    int RemoveRepeatCount; // offset 0x18, size 0x4
+    int RemoveLocation; // offset 0x1C, size 0x4
+    int RemoveData; // offset 0x20, size 0x4
+};
+// total size: 0x54
+struct bRepeat {
+    int Magic; // offset 0x0, size 0x4
+    int CodeineNeedsUpdating; // offset 0x4, size 0x4
+    int AddLocation; // offset 0x8, size 0x4
+    int HeaderSize; // offset 0xC, size 0x4
+    int RemoveLocation; // offset 0x10, size 0x4
+    int AddBufferSize; // offset 0x14, size 0x4
+    int NumChannels; // offset 0x18, size 0x4
+    int EnableCodeineCapturing; // offset 0x1C, size 0x4
+    int NumItemsAdded; // offset 0x20, size 0x4
+    int NumItemsRemoved; // offset 0x24, size 0x4
+    int RemoveDataError; // offset 0x28, size 0x4
+    int RecordingTime; // offset 0x2C, size 0x4
+    struct bRepeatChannel Channel[1]; // offset 0x30, size 0x24
+};
+struct bSpline {
+};
+// total size: 0x8
+struct bTList_CAnimSkeleton_ : public bList {
+};
+// total size: 0x8
+struct bTList_CachedRealFileHandle_ : public bList {
+};
+// total size: 0x8
+struct bTList_CameraMover_ : public bList {
+};
+// total size: 0x8
+struct bTList_Clan_ : public bList {
+};
+// total size: 0x8
+struct bTList_DebugTopology_ : public bList {
+};
+// total size: 0x8
+struct bTList_FernFlattener_ : public bList {
+};
+// total size: 0x8
+struct bTList_FernShaker_ : public bList {
+};
+// total size: 0x8
+struct bTList_Mover_ : public bList {
+};
+// total size: 0x8
+struct bTList_QueuedFile_ : public bList {
+};
+// total size: 0x8
+struct bTList_SetupStats_ : public bList {
+};
+// total size: 0x8
+struct bTList_WeatherRegion_ : public bList {
+};
+// total size: 0x8
+struct bTList_WorldEntityList_ : public bList {
+};
+// total size: 0x8
+struct bTList_WorldModel_ : public bList {
+};
+// total size: 0x8
+struct bTList_bFileCallbackEntry_ : public bList {
+};
+// total size: 0x8
+struct bTList_eDynamicLight_ : public bList {
+};
+// total size: 0x8
+struct bTList_eLightFlare_ : public bList {
+};
+// total size: 0x8
+struct bTList_eModel_ : public bList {
+};
+// total size: 0x8
+struct bTList_eSolid_ : public bList {
+};
+// total size: 0x8
+struct bTNode_eDynamicFrameMemory_ : public bNode {
+};
+// total size: 0x8
+struct bTNode_eDynamicLightPack_ : public bNode {
+};
+// total size: 0x8
+// innerer Typ von eDynamicLight
+struct bTNode_eDynamicLight_ : public bNode {
+};
+// total size: 0x8
+// innerer Typ von eLightFlarePackHeader
+struct bTNode_eLightFlarePackHeader_ : public bNode {
+};
+// total size: 0x8
+// innerer Typ von eLightFlare
+struct bTNode_eLightFlare_ : public bNode {
+};
+// total size: 0x8
+// innerer Typ von eLightMaterial
+struct bTNode_eLightMaterial_ : public bNode {
+};
+// total size: 0x8
+// innerer Typ von eLightPack
+struct bTNode_eLightPack_ : public bNode {
+};
+// total size: 0x8
+// innerer Typ von eModel
+struct bTNode_eModel_ : public bNode {
+};
+// total size: 0x8
+// innerer Typ von ePoly
+struct bTNode_ePoly_ : public bNode {
+};
+// total size: 0x8
+// innerer Typ von eSolidListHeader
+struct bTNode_eSolidListHeader_ : public bNode {
+};
+// total size: 0x8
+// innerer Typ von eSolid
+struct bTNode_eSolid_ : public bNode {
+};
+struct bVU0Float {
+};
+struct bVector3Reg {
+};
+// total size: 0x4
+struct bVirtualDestructNode {
+    const struct __vtbl_ptr_type * _vptr_bVirtualDestructNode; // offset 0x0, size 0x4
+};
+struct bad_alloc {
+};
+// total size: 0x20
+struct cCaptureBuffer {
+    struct TextureInfo * pCaptureTexture; // offset 0x0, size 0x4
+    int xOrigin; // offset 0x4, size 0x4
+    int yOrigin; // offset 0x8, size 0x4
+    int width; // offset 0xC, size 0x4
+    int height; // offset 0x10, size 0x4
+    char * pCapturePixels; // offset 0x14, size 0x4
+    unsigned char bInitialized; // offset 0x18, size 0x1
+    const struct __vtbl_ptr_type * _vptr_cCaptureBuffer; // offset 0x1C, size 0x4
+};
+// total size: 0x17C
+struct cDBFilesBase {
+    enum eFILE_SYS_STATES mState; // offset 0x0, size 0x4
+    enum eFILE_SYS_STATES mNextState; // offset 0x4, size 0x4
+    enum eFILE_SYS_STATES mCallBackState; // offset 0x8, size 0x4
+    enum eFILE_SYS_SUBSTATES mSubState; // offset 0xC, size 0x4
+    enum eFILE_SYS_SUBSTATES mPrevSubState; // offset 0x10, size 0x4
+    char mFileName[256]; // offset 0x14, size 0x100
+    void * mFileBuffer; // offset 0x114, size 0x4
+    int mFileBufferSize; // offset 0x118, size 0x4
+    int mNumCards; // offset 0x11C, size 0x4
+    int mFreeSpace; // offset 0x120, size 0x4
+    int mLastError; // offset 0x124, size 0x4
+    unsigned int mHash; // offset 0x128, size 0x4
+    void (* mCallback[9])(void *); // offset 0x12C, size 0x24
+    void * mParameter[9]; // offset 0x150, size 0x24
+    float mElapsedTime; // offset 0x174, size 0x4
+    const struct __vtbl_ptr_type * _vptr_cDBFilesBase; // offset 0x178, size 0x4
+};
+// total size: 0x180
+// virtuell: ~cDBFileSys() override
+struct cDBFileSys : public cDBFilesBase {
+    bool mFileExists; // offset 0x17C, size 0x1
+};
+struct cFEngRender {
+};
+// total size: 0x1
+struct cMC {
+};
+// total size: 0x30
+struct tCubic1D {
+    float Val; // offset 0x0, size 0x4
+    float dVal; // offset 0x4, size 0x4
+    float ValDesired; // offset 0x8, size 0x4
+    float dValDesired; // offset 0xC, size 0x4
+    float Coeff[4]; // offset 0x10, size 0x10
+    float time; // offset 0x20, size 0x4
+    float duration; // offset 0x24, size 0x4
+    float arrivalThreshold; // offset 0x28, size 0x4
+    short state; // offset 0x2C, size 0x2
+    short flags; // offset 0x2E, size 0x2
+};
+// total size: 0x90
+struct tCubic3D {
+    struct tCubic1D x; // offset 0x0, size 0x30
+    struct tCubic1D y; // offset 0x30, size 0x30
+    struct tCubic1D z; // offset 0x60, size 0x30
+};
+// total size: 0x198
+// virtuell: virtual void Update(float time) | virtual ~cPoint()
+struct cPoint {
+    struct tCubic3D mPos; // offset 0x0, size 0x90
+    struct tCubic3D mRot; // offset 0x90, size 0x90
+    struct tCubic1D mScale; // offset 0x120, size 0x30
+    struct tCubic1D mYScale; // offset 0x150, size 0x30
+    float mZBias; // offset 0x180, size 0x4
+    void (* mCallBackFunc)(int, int); // offset 0x184, size 0x4
+    void (* mUpdateFunc)(struct cPoint *, float); // offset 0x188, size 0x4
+    int mCBParam1; // offset 0x18C, size 0x4
+    int mCBParam2; // offset 0x190, size 0x4
+    const struct __vtbl_ptr_type * _vptr_cPoint; // offset 0x194, size 0x4
+};
+// total size: 0x1
+struct cPostRaceScreenMgrInterface {
+};
+// total size: 0x2C
+struct cQuarterSizeMap {
+    int QUARTER_SIZE_X; // offset 0x0, size 0x4
+    int QUARTER_SIZE_Y; // offset 0x4, size 0x4
+    struct cCaptureBuffer quarterSizeBuffer; // offset 0x8, size 0x20
+    const struct __vtbl_ptr_type * _vptr_cQuarterSizeMap; // offset 0x28, size 0x4
+};
+// total size: 0x4C
+struct cReflectMap {
+    int REFLECT_MAP_SIZE_X; // offset 0x0, size 0x4
+    int REFLECT_MAP_SIZE_Y; // offset 0x4, size 0x4
+    struct cCaptureBuffer reflectBuffer[2]; // offset 0x8, size 0x40
+    const struct __vtbl_ptr_type * _vptr_cReflectMap; // offset 0x48, size 0x4
+};
+// total size: 0x140
+struct cSphereMap {
+    struct _GXTexObj * cubeTex[6]; // offset 0x0, size 0x18
+    struct cCaptureBuffer cubeBuffer[6]; // offset 0x18, size 0xC0
+    struct TextureInfo * sphereTexture; // offset 0xD8, size 0x4
+    char * sphereTexturePixels; // offset 0xDC, size 0x4
+    unsigned char bInitialized; // offset 0xE0, size 0x1
+    void * DLSphere; // offset 0xE4, size 0x4
+    unsigned int DLSphereSz; // offset 0xE8, size 0x4
+    int SPHERE_MAP_SIZE_X; // offset 0xEC, size 0x4
+    int SPHERE_MAP_SIZE_Y; // offset 0xF0, size 0x4
+    enum _GXTexFmt SPHERE_MAP_FMT; // offset 0xF4, size 0x4
+    int SPHERE_MAP_TESS; // offset 0xF8, size 0x4
+    int CUBEFACE_SIZE; // offset 0xFC, size 0x4
+    unsigned char CubeFaceStart; // offset 0x100, size 0x1
+    unsigned char CubeFaceEnd; // offset 0x101, size 0x1
+    unsigned char CubeTevMode; // offset 0x102, size 0x1
+    float angle1[6]; // offset 0x104, size 0x18
+    char axis1[6]; // offset 0x11C, size 0x6
+    float angle2[6]; // offset 0x124, size 0x18
+    const struct __vtbl_ptr_type * _vptr_cSphereMap; // offset 0x13C, size 0x4
+};
+// total size: 0x8
+struct div_t {
+    int quot; // offset 0x0, size 0x4
+    int rem; // offset 0x4, size 0x4
+};
+struct eAnimationSolid {
+};
+struct eAnimationTree {
+};
+struct eAnimationTreeNode {
+};
+// total size: 0x200
+struct eDamageInfo {
+    float CurrentCells[64]; // offset 0x0, size 0x100
+    float PreviousCells[64]; // offset 0x100, size 0x100
+};
+// total size: 0x2
+struct eDamageVertex {
+    unsigned short Data; // offset 0x0, size 0x2
+};
+// total size: 0x14
+struct eDataRenderDynamic {
+    unsigned int * colourtable0; // offset 0x0, size 0x4
+    unsigned int * colourtable1; // offset 0x4, size 0x4
+    Mtx * trm; // offset 0x8, size 0x4
+    Mtx * hm; // offset 0xC, size 0x4
+    Mtx * hcm; // offset 0x10, size 0x4
+};
+struct eDmaChain {
+};
+struct eDmaData {
+};
+struct eDmaDataList {
+};
+// total size: 0x110
+struct eDynamicFrameMemory : public bTNode_eDynamicFrameMemory_ {
+    int Size; // offset 0x8, size 0x4
+    int Pad; // offset 0xC, size 0x4
+    char Data[256]; // offset 0x10, size 0x100
+};
+// total size: 0x60
+struct eLight {
+    unsigned int NameHash; // offset 0x0, size 0x4
+    unsigned char Type; // offset 0x4, size 0x1
+    unsigned char AttenuationType; // offset 0x5, size 0x1
+    unsigned char Shape; // offset 0x6, size 0x1
+    unsigned char State; // offset 0x7, size 0x1
+    unsigned int ExcludeNameHash; // offset 0x8, size 0x4
+    unsigned int Colour; // offset 0xC, size 0x4
+    float PositionX; // offset 0x10, size 0x4
+    float PositionY; // offset 0x14, size 0x4
+    float PositionZ; // offset 0x18, size 0x4
+    float Size; // offset 0x1C, size 0x4
+    float DirectionX; // offset 0x20, size 0x4
+    float DirectionY; // offset 0x24, size 0x4
+    float DirectionZ; // offset 0x28, size 0x4
+    float Intensity; // offset 0x2C, size 0x4
+    float FarStart; // offset 0x30, size 0x4
+    float FarEnd; // offset 0x34, size 0x4
+    float Falloff; // offset 0x38, size 0x4
+    short ScenerySectionNumber; // offset 0x3C, size 0x2
+    char Name[34]; // offset 0x3E, size 0x22
+};
+// total size: 0x68
+struct eDynamicLight : public bTNode_eDynamicLight_, public eLight {
+};
+// total size: 0x34
+struct eDynamicLightPack : public bTNode_eDynamicLightPack_ {
+    char Name[32]; // offset 0x8, size 0x20
+    int Enabled; // offset 0x28, size 0x4
+    struct bTList_eDynamicLight_ DynamicLightList; // offset 0x2C, size 0x8
+};
+// total size: 0xF00
+struct eEnvMap {
+    struct eView * Views[6]; // offset 0x0, size 0x18
+    struct Camera Cameras[6]; // offset 0x18, size 0xEE8
+};
+// total size: 0x10
+struct eFilter {
+    struct TextureInfo * pTexture; // offset 0x0, size 0x4
+    unsigned char aColour[4]; // offset 0x4, size 0x4
+    unsigned char nAlphaA; // offset 0x8, size 0x1
+    unsigned char nAlphaB; // offset 0x9, size 0x1
+    unsigned char nAlphaC; // offset 0xA, size 0x1
+    unsigned char nAlphaD; // offset 0xB, size 0x1
+    unsigned char bActive; // offset 0xC, size 0x1
+    unsigned char nAlphaFix; // offset 0xD, size 0x1
+    unsigned char nTextureFx; // offset 0xE, size 0x1
+    unsigned char nPadding; // offset 0xF, size 0x1
+};
+// total size: 0x14
+struct eFogParams {
+    float Start; // offset 0x0, size 0x4
+    float End; // offset 0x4, size 0x4
+    float Intensity; // offset 0x8, size 0x4
+    float FalloffY; // offset 0xC, size 0x4
+    GXColor FogColor; // offset 0x10, size 0x4
+};
+// total size: 0x1C0
+struct eLightContext {
+    struct bMatrix4 LocalColourMatrix; // offset 0x0, size 0x40
+    struct bMatrix4 LocalDirectionMatrix; // offset 0x40, size 0x40
+    struct bMatrix4 LocalLightPositions; // offset 0x80, size 0x40
+    struct bVector4 LocalEyePosition; // offset 0xC0, size 0x10
+    int NumLights; // offset 0xD0, size 0x4
+    float SunlightIntensity; // offset 0xD4, size 0x4
+    int pad1; // offset 0xD8, size 0x4
+    int pad2; // offset 0xDC, size 0x4
+    struct bMatrix4 EnvMapMatrix; // offset 0xE0, size 0x40
+    struct bVector4 Harmonics[10]; // offset 0x120, size 0xA0
+};
+// total size: 0x50
+struct eLightFlare : public bTNode_eLightFlare_ {
+    unsigned int NameHash; // offset 0x8, size 0x4
+    char Enabled; // offset 0xC, size 0x1
+    char Type; // offset 0xD, size 0x1
+    short Flags; // offset 0xE, size 0x2
+    float PositionX; // offset 0x10, size 0x4
+    float PositionY; // offset 0x14, size 0x4
+    float PositionZ; // offset 0x18, size 0x4
+    float ReflectPosZ; // offset 0x1C, size 0x4
+    float DirectionX; // offset 0x20, size 0x4
+    float DirectionY; // offset 0x24, size 0x4
+    float DirectionZ; // offset 0x28, size 0x4
+    short ScenerySectionNumber; // offset 0x2C, size 0x2
+    char Name[34]; // offset 0x2E, size 0x22
+};
+// total size: 0x40
+struct eLightFlarePackHeader : public bTNode_eLightFlarePackHeader_ {
+    unsigned int Version; // offset 0x8, size 0x4
+    unsigned int NameHash; // offset 0xC, size 0x4
+    char Name[32]; // offset 0x10, size 0x20
+    unsigned int NumLightFlares; // offset 0x30, size 0x4
+    unsigned int pad; // offset 0x34, size 0x4
+    struct bTList_eLightFlare_ LightFlareList; // offset 0x38, size 0x8
+};
+// total size: 0x70
+struct eLightMaterialData {
+    float DiffuseMinScale; // offset 0x0, size 0x4
+    float DiffuseMinR; // offset 0x4, size 0x4
+    float DiffuseMinG; // offset 0x8, size 0x4
+    float DiffuseMinB; // offset 0xC, size 0x4
+    float DiffuseMaxScale; // offset 0x10, size 0x4
+    float DiffuseMaxR; // offset 0x14, size 0x4
+    float DiffuseMaxG; // offset 0x18, size 0x4
+    float DiffuseMaxB; // offset 0x1C, size 0x4
+    float DiffuseMinA; // offset 0x20, size 0x4
+    float DiffuseMaxA; // offset 0x24, size 0x4
+    float SpecularPower; // offset 0x28, size 0x4
+    float SpecularMinScale; // offset 0x2C, size 0x4
+    float SpecularMinR; // offset 0x30, size 0x4
+    float SpecularMinG; // offset 0x34, size 0x4
+    float SpecularMinB; // offset 0x38, size 0x4
+    float SpecularMaxScale; // offset 0x3C, size 0x4
+    float SpecularMaxR; // offset 0x40, size 0x4
+    float SpecularMaxG; // offset 0x44, size 0x4
+    float SpecularMaxB; // offset 0x48, size 0x4
+    float EnvmapPower; // offset 0x4C, size 0x4
+    float EnvmapMinScale; // offset 0x50, size 0x4
+    float EnvmapMinR; // offset 0x54, size 0x4
+    float EnvmapMinG; // offset 0x58, size 0x4
+    float EnvmapMinB; // offset 0x5C, size 0x4
+    float EnvmapMaxScale; // offset 0x60, size 0x4
+    float EnvmapMaxR; // offset 0x64, size 0x4
+    float EnvmapMaxG; // offset 0x68, size 0x4
+    float EnvmapMaxB; // offset 0x6C, size 0x4
+};
+// total size: 0x4
+// innerer Typ von eLightMaterial
+struct eLightMaterialPlatInterface {
+    struct eLightMaterialPlatInfo * PlatInfo; // offset 0x0, size 0x4
+};
+// total size: 0xA0
+struct eLightMaterial : public eLightMaterialPlatInterface, public bTNode_eLightMaterial_ {
+    unsigned int NameHash; // offset 0xC, size 0x4
+    unsigned int Version; // offset 0x10, size 0x4
+    char Name[28]; // offset 0x14, size 0x1C
+    struct eLightMaterialData feData; // offset 0x30, size 0x70
+};
+// total size: 0x8
+struct eLightMaterialEntry {
+    unsigned int NameHash; // offset 0x0, size 0x4
+    struct eLightMaterial * LightMaterial; // offset 0x4, size 0x4
+};
+struct eLightMaterialPlatInfo {
+};
+// total size: 0x1C
+struct eLightPack : public bTNode_eLightPack_ {
+    int Version; // offset 0x8, size 0x4
+    struct vAABBTree * LightTree; // offset 0xC, size 0x4
+    int NumTreeNodes; // offset 0x10, size 0x4
+    struct eLight * LightArray; // offset 0x14, size 0x4
+    int NumLights; // offset 0x18, size 0x4
+};
+// total size: 0x18
+struct eModel : public bTNode_eModel_ {
+    unsigned int NameHash; // offset 0x8, size 0x4
+    struct eSolid * Solid; // offset 0xC, size 0x4
+    struct eReplacementTextureTable * pReplacementTextureTable; // offset 0x10, size 0x4
+    int NumReplacementTextures; // offset 0x14, size 0x4
+};
+// total size: 0xC
+struct eNormalSmoother {
+    struct eSmoothVertex * SmoothVertexTable; // offset 0x0, size 0x4
+    struct eSmoothVertexPlat * SmoothVertexPlatTable; // offset 0x4, size 0x4
+    short NumSmoothVertex; // offset 0x8, size 0x2
+    short NumSmoothVertexPlat; // offset 0xA, size 0x2
+};
+// total size: 0x30
+struct ePointSprite3D {
+    float X; // offset 0x0, size 0x4
+    float Y; // offset 0x4, size 0x4
+    float Z; // offset 0x8, size 0x4
+    float Radius; // offset 0xC, size 0x4
+    float S1; // offset 0x10, size 0x4
+    float T1; // offset 0x14, size 0x4
+    float S0; // offset 0x18, size 0x4
+    float T0; // offset 0x1C, size 0x4
+    unsigned int Colour; // offset 0x20, size 0x4
+    unsigned int pad0; // offset 0x24, size 0x4
+    float Cos; // offset 0x28, size 0x4
+    float Sin; // offset 0x2C, size 0x4
+};
+// total size: 0x90
+struct ePoly : public bTNode_ePoly_ {
+    struct bVector3 Vertices[4]; // offset 0x8, size 0x40
+    float UVs[4][3]; // offset 0x48, size 0x30
+    unsigned char Colours[4][4]; // offset 0x78, size 0x10
+    struct eDynamicFrameMemory * pDynamicFrameMemory; // offset 0x88, size 0x4
+    unsigned char ApplyAspectRatio; // offset 0x8C, size 0x1
+    unsigned char Flailer; // offset 0x8D, size 0x1
+};
+// total size: 0x50
+struct ePositionMarker {
+    unsigned int NameHash; // offset 0x0, size 0x4
+    int iParam0; // offset 0x4, size 0x4
+    float fParam0; // offset 0x8, size 0x4
+    float fParam1; // offset 0xC, size 0x4
+    struct bMatrix4 Matrix; // offset 0x10, size 0x40
+};
+// total size: 0x44
+struct eRenderTarget {
+    enum TARGET_ID ID; // offset 0x0, size 0x4
+    const char * Name; // offset 0x4, size 0x4
+    int Active; // offset 0x8, size 0x4
+    int ScissorX; // offset 0xC, size 0x4
+    int ScissorY; // offset 0x10, size 0x4
+    int ScissorW; // offset 0x14, size 0x4
+    int ScissorH; // offset 0x18, size 0x4
+    int FrameAddress; // offset 0x1C, size 0x4
+    int FrameWidth; // offset 0x20, size 0x4
+    int FrameHeight; // offset 0x24, size 0x4
+    int IgnoreAlphaTextures; // offset 0x28, size 0x4
+    enum FILTER_ID CopyFilterID; // offset 0x2C, size 0x4
+    struct _GXColor BackgroundColour; // offset 0x30, size 0x4
+    int ClearBackground; // offset 0x34, size 0x4
+    struct bMatrix4 * WorldClip; // offset 0x38, size 0x4
+    struct bMatrix4 * WorldView; // offset 0x3C, size 0x4
+    struct bMatrix4 * ViewScreen; // offset 0x40, size 0x4
+};
+// total size: 0x10
+struct eReplacementTextureTable {
+    unsigned int hOldNameHash; // offset 0x0, size 0x4
+    unsigned int hNewNameHash; // offset 0x4, size 0x4
+    struct TextureInfo * pTextureInfo; // offset 0x8, size 0x4
+    struct TextureInfo * * ppReplacedTextureInfo; // offset 0xC, size 0x4
+};
+struct eRigidAnimation {
+};
+// total size: 0x8
+struct eSmoothVertex {
+    unsigned int VertexHash; // offset 0x0, size 0x4
+    unsigned char SmoothingGroupNumber; // offset 0x4, size 0x1
+    char NX; // offset 0x5, size 0x1
+    char NY; // offset 0x6, size 0x1
+    char NZ; // offset 0x7, size 0x1
+};
+// total size: 0xC
+struct eSmoothVertexPlat {
+    unsigned int VertexHash; // offset 0x0, size 0x4
+    unsigned int SmoothingGroup; // offset 0x4, size 0x4
+    unsigned int VertexOffset; // offset 0x8, size 0x4
+};
+// total size: 0x4
+struct eSolidPlatInterface {
+    struct eSolidPlatInfo * PlatInfo; // offset 0x0, size 0x4
+};
+// total size: 0x98
+struct eSolid : public eSolidPlatInterface, public bTNode_eSolid_ {
+    unsigned char Version; // offset 0xC, size 0x1
+    unsigned char EndianSwapped; // offset 0xD, size 0x1
+    unsigned short Flags; // offset 0xE, size 0x2
+    unsigned int NameHash; // offset 0x10, size 0x4
+    short NumPolys; // offset 0x14, size 0x2
+    short NumVerts; // offset 0x16, size 0x2
+    char NumBones; // offset 0x18, size 0x1
+    char NumTextureTableEntries; // offset 0x19, size 0x1
+    char NumLightMaterials; // offset 0x1A, size 0x1
+    char NumPositionMarkerTableEntries; // offset 0x1B, size 0x1
+    int ReferencedFrameCounter; // offset 0x1C, size 0x4
+    float AABBMinX; // offset 0x20, size 0x4
+    float AABBMinY; // offset 0x24, size 0x4
+    float AABBMinZ; // offset 0x28, size 0x4
+    struct eTextureEntry * pTextureTable; // offset 0x2C, size 0x4
+    float AABBMaxX; // offset 0x30, size 0x4
+    float AABBMaxY; // offset 0x34, size 0x4
+    float AABBMaxZ; // offset 0x38, size 0x4
+    struct eLightMaterialEntry * LightMaterialTable; // offset 0x3C, size 0x4
+    struct bMatrix4 PivotMatrix; // offset 0x40, size 0x40
+    struct ePositionMarker * PositionMarkerTable; // offset 0x80, size 0x4
+    struct eNormalSmoother * NormalSmoother; // offset 0x84, size 0x4
+    struct bTList_eModel_ ModelList; // offset 0x88, size 0x8
+    struct eDamageVertex * DamageVertexTable; // offset 0x90, size 0x4
+    char Name[4]; // offset 0x94, size 0x4
+};
+// total size: 0x8
+struct eSolidIndexEntry {
+    unsigned int NameHash; // offset 0x0, size 0x4
+    struct eSolid * Solid; // offset 0x4, size 0x4
+};
+// total size: 0x80
+struct eSolidListHeader : public bTNode_eSolidListHeader_ {
+    int Version; // offset 0x8, size 0x4
+    int NumSolids; // offset 0xC, size 0x4
+    char Filename[56]; // offset 0x10, size 0x38
+    char GroupName[32]; // offset 0x48, size 0x20
+    unsigned int PermChunkByteOffset; // offset 0x68, size 0x4
+    unsigned int PermChunkByteSize; // offset 0x6C, size 0x4
+    short MaxSolidChunkByteAlignment; // offset 0x70, size 0x2
+    short EndianSwapped; // offset 0x72, size 0x2
+    int InventoryHandle; // offset 0x74, size 0x4
+    struct eSolidIndexEntry * SolidIndexEntryTable; // offset 0x78, size 0x4
+    struct eStreamingEntry * SolidStreamEntryTable; // offset 0x7C, size 0x4
+};
+// total size: 0x24
+struct eSolidPlatInfo {
+    unsigned short Version; // offset 0x0, size 0x2
+    unsigned short StripFlags; // offset 0x2, size 0x2
+    unsigned short NumStrips; // offset 0x4, size 0x2
+    unsigned short NumIdxClrTable; // offset 0x6, size 0x2
+    unsigned int SizeofStripData; // offset 0x8, size 0x4
+    unsigned int DataOffset0; // offset 0xC, size 0x4
+    unsigned int DataOffset1; // offset 0x10, size 0x4
+    unsigned int DataOffset2; // offset 0x14, size 0x4
+    unsigned int DataOffset3; // offset 0x18, size 0x4
+    struct eStripEntry * StripEntryTable; // offset 0x1C, size 0x4
+    unsigned char * StripDataStart; // offset 0x20, size 0x4
+};
+struct eStreamingEntry {
+};
+// total size: 0x1
+// innerer Typ von eStripDataE
+struct eStripData {
+};
+// total size: 0x1
+struct eStripDataE : public eStripData {
+};
+// total size: 0x10
+struct eStripEntry {
+    unsigned int DataOffset; // offset 0x0, size 0x4
+    unsigned short DataSize; // offset 0x4, size 0x2
+    unsigned short Flags; // offset 0x6, size 0x2
+    unsigned char NumVerts; // offset 0x8, size 0x1
+    unsigned char PolyGroupNumber; // offset 0x9, size 0x1
+    char TextureNumber; // offset 0xA, size 0x1
+    char LightMaterialIndex; // offset 0xB, size 0x1
+    unsigned char VertexDescription; // offset 0xC, size 0x1
+    unsigned char VertexFormat; // offset 0xD, size 0x1
+    unsigned short DataDLSize; // offset 0xE, size 0x2
+};
+struct eTextureBucket {
+};
+// total size: 0x8
+struct eTextureEntry {
+    unsigned int NameHash; // offset 0x0, size 0x4
+    struct TextureInfo * pTextureInfo; // offset 0x4, size 0x4
+};
+struct eVertexAnimator {
+};
+// total size: 0x4
+struct eViewPlatInterface {
+    struct eViewPlatInfo * PlatInfo; // offset 0x0, size 0x4
+};
+// total size: 0x54
+struct eView : public eViewPlatInterface {
+    enum EVIEW_ID ID; // offset 0x4, size 0x4
+    char Active; // offset 0x8, size 0x1
+    char LetterBox; // offset 0x9, size 0x1
+    char NisPlaying; // offset 0xA, size 0x1
+    char pad1; // offset 0xB, size 0x1
+    float H; // offset 0xC, size 0x4
+    float NearZ; // offset 0x10, size 0x4
+    float FarZ; // offset 0x14, size 0x4
+    float FovBias; // offset 0x18, size 0x4
+    float FovDegrees; // offset 0x1C, size 0x4
+    int BlackAndWhiteMode; // offset 0x20, size 0x4
+    struct bVector3 ViewDirection; // offset 0x24, size 0x10
+    struct Camera * pCamera; // offset 0x34, size 0x4
+    struct bTList_CameraMover_ CameraMoverList; // offset 0x38, size 0x8
+    unsigned int WeatherQueryCounter; // offset 0x40, size 0x4
+    struct TextureInfo * pBlendMask; // offset 0x44, size 0x4
+    struct eLightContext * WorldLightContext; // offset 0x48, size 0x4
+    struct eRenderTarget * RenderTargetTable[2]; // offset 0x4C, size 0x8
+};
+// total size: 0x174
+struct eViewPlatInfo {
+    struct bMatrix4 WorldViewMatrix; // offset 0x0, size 0x40
+    struct bMatrix4 ViewScreenMatrix; // offset 0x40, size 0x40
+    struct bMatrix4 WorldClipMatrix; // offset 0x80, size 0x40
+    struct bMatrix4 WorldScreenMatrix; // offset 0xC0, size 0x40
+    float (* LightPerspectiveProjection)[4][4]; // offset 0x100, size 0x4
+    struct eView * HeadlightView; // offset 0x104, size 0x4
+    struct eView * ReflectionView; // offset 0x108, size 0x4
+    float aspect; // offset 0x10C, size 0x4
+    float fovscl; // offset 0x110, size 0x4
+    struct bVector4 ClippingPlanes[6]; // offset 0x114, size 0x60
+};
+// total size: 0x18
+struct eflock {
+    short l_type; // offset 0x0, size 0x2
+    short l_whence; // offset 0x2, size 0x2
+    long l_start; // offset 0x4, size 0x4
+    long l_len; // offset 0x8, size 0x4
+    short l_pid; // offset 0xC, size 0x2
+    short l_xxx; // offset 0xE, size 0x2
+    long l_rpid; // offset 0x10, size 0x4
+    long l_rsys; // offset 0x14, size 0x4
+};
+// total size: 0x10
+struct fVector4 {
+    struct __fmath_type coord; // offset 0x0, size 0x10
+};
+// total size: 0x40
+struct fMatrix4 {
+    struct fVector4 v0; // offset 0x0, size 0x10
+    struct fVector4 v1; // offset 0x10, size 0x10
+    struct fVector4 v2; // offset 0x20, size 0x10
+    struct fVector4 v3; // offset 0x30, size 0x10
+};
+// total size: 0x10
+struct fVector2 {
+    struct __fmath_type coord; // offset 0x0, size 0x10
+};
+// total size: 0x10
+struct fVector3 {
+    struct __fmath_type coord; // offset 0x0, size 0x10
+};
+// total size: 0x10
+struct fVectorW {
+    struct __fmath_type coord; // offset 0x0, size 0x10
+};
+// total size: 0x10
+struct fVectorX {
+    struct __fmath_type coord; // offset 0x0, size 0x10
+};
+// total size: 0x10
+struct fVectorY {
+    struct __fmath_type coord; // offset 0x0, size 0x10
+};
+// total size: 0x10
+struct fVectorZ {
+    struct __fmath_type coord; // offset 0x0, size 0x10
+};
+// total size: 0x10
+struct flock {
+    short l_type; // offset 0x0, size 0x2
+    short l_whence; // offset 0x2, size 0x2
+    long l_start; // offset 0x4, size 0x4
+    long l_len; // offset 0x8, size 0x4
+    short l_pid; // offset 0xC, size 0x2
+    short l_xxx; // offset 0xE, size 0x2
+};
+// total size: 0x8
+struct ldiv_t {
+    long quot; // offset 0x0, size 0x4
+    long rem; // offset 0x4, size 0x4
+};
+// total size: 0x3C
+struct stat {
+    short st_dev; // offset 0x0, size 0x2
+    unsigned short st_ino; // offset 0x2, size 0x2
+    unsigned int st_mode; // offset 0x4, size 0x4
+    unsigned short st_nlink; // offset 0x8, size 0x2
+    unsigned short st_uid; // offset 0xA, size 0x2
+    unsigned short st_gid; // offset 0xC, size 0x2
+    short st_rdev; // offset 0xE, size 0x2
+    int st_size; // offset 0x10, size 0x4
+    int st_atime; // offset 0x14, size 0x4
+    long st_spare1; // offset 0x18, size 0x4
+    int st_mtime; // offset 0x1C, size 0x4
+    long st_spare2; // offset 0x20, size 0x4
+    int st_ctime; // offset 0x24, size 0x4
+    long st_spare3; // offset 0x28, size 0x4
+    long st_blksize; // offset 0x2C, size 0x4
+    long st_blocks; // offset 0x30, size 0x4
+    long st_spare4[2]; // offset 0x34, size 0x8
+};
+// total size: 0x60
+struct tCubic2D {
+    struct tCubic1D x; // offset 0x0, size 0x30
+    struct tCubic1D y; // offset 0x30, size 0x30
+};
+// total size: 0x8
+struct tFESettingsFile {
+    unsigned int fileSize; // offset 0x0, size 0x4
+    unsigned short palMode; // offset 0x4, size 0x2
+    unsigned short autoSave; // offset 0x6, size 0x2
+};
+// total size: 0x8
+struct tGraph_bVector2_ {
+    struct GraphEntry_bVector2_ * GraphData; // offset 0x0, size 0x4
+    int NumEntries; // offset 0x4, size 0x4
+};
+// total size: 0x8
+struct tGraph_bVector3_ {
+    struct GraphEntry_bVector3_ * GraphData; // offset 0x0, size 0x4
+    int NumEntries; // offset 0x4, size 0x4
+};
+// total size: 0x8
+struct tGraph_bVector4_ {
+    struct GraphEntry_bVector4_ * GraphData; // offset 0x0, size 0x4
+    int NumEntries; // offset 0x4, size 0x4
+};
+// total size: 0x8
+struct tGraph_float_ {
+    struct GraphEntry_float_ * GraphData; // offset 0x0, size 0x4
+    int NumEntries; // offset 0x4, size 0x4
+};
+// total size: 0x1C
+struct tTTFontHeader {
+    int mChunkID; // offset 0x0, size 0x4
+    int mChunkSize; // offset 0x4, size 0x4
+    int mHashID; // offset 0x8, size 0x4
+    int mNumGlyphs; // offset 0xC, size 0x4
+    int mNumKerningPairs; // offset 0x10, size 0x4
+    struct tTTGlyph * mGlyph; // offset 0x14, size 0x4
+    struct tTTKerningPair * mKerningPair; // offset 0x18, size 0x4
+};
+// total size: 0x20
+struct tTTGlyph {
+    short mID; // offset 0x0, size 0x2
+    short mNumKerningPairs; // offset 0x2, size 0x2
+    float mPosX; // offset 0x4, size 0x4
+    float mPosY; // offset 0x8, size 0x4
+    float mWidth; // offset 0xC, size 0x4
+    float mHeight; // offset 0x10, size 0x4
+    float mAdvance; // offset 0x14, size 0x4
+    float mOffset; // offset 0x18, size 0x4
+    struct tTTKerningPair * mKerningTable; // offset 0x1C, size 0x4
+};
+// total size: 0x8
+struct tTTKerningPair {
+    int mGlyph; // offset 0x0, size 0x4
+    float mXOffset; // offset 0x4, size 0x4
+};
+// total size: 0x14
+struct tTable_bVector2_ : public TableBase {
+    struct bVector2 * pTable; // offset 0x10, size 0x4
+};
+// total size: 0x14
+struct tTable_bVector3_ : public TableBase {
+    struct bVector3 * pTable; // offset 0x10, size 0x4
+};
+// total size: 0x14
+struct tTable_bVector4_ : public TableBase {
+    struct bVector4 * pTable; // offset 0x10, size 0x4
+};
+// total size: 0x14
+struct tTable_float_ : public TableBase {
+    float * pTable; // offset 0x10, size 0x4
+};
+union uPPCWGPipe {
+    unsigned char u8; // offset 0x0, size 0x1
+    unsigned short u16; // offset 0x0, size 0x2
+    unsigned int u32; // offset 0x0, size 0x4
+    unsigned long long u64; // offset 0x0, size 0x8
+    char s8; // offset 0x0, size 0x1
+    short s16; // offset 0x0, size 0x2
+    int s32; // offset 0x0, size 0x4
+    long long s64; // offset 0x0, size 0x8
+    float f32; // offset 0x0, size 0x4
+    double f64; // offset 0x0, size 0x8
+};
+// total size: 0x30
+struct vAABB {
+    float PositionX; // offset 0x0, size 0x4
+    float PositionY; // offset 0x4, size 0x4
+    float PositionZ; // offset 0x8, size 0x4
+    short ParentIndex; // offset 0xC, size 0x2
+    short NumChildren; // offset 0xE, size 0x2
+    float ExtentX; // offset 0x10, size 0x4
+    float ExtentY; // offset 0x14, size 0x4
+    float ExtentZ; // offset 0x18, size 0x4
+    short ChildrenIndicies[10]; // offset 0x1C, size 0x14
+};
+// total size: 0x10
+struct vAABBTree {
+    struct vAABB * NodeArray; // offset 0x0, size 0x4
+    short NumLeafNodes; // offset 0x4, size 0x2
+    short NumParentNodes; // offset 0x6, size 0x2
+    short TotalNodes; // offset 0x8, size 0x2
+    short Depth; // offset 0xA, size 0x2
+    int pad1; // offset 0xC, size 0x4
+};
+// total size: 0x20
+struct vSphere {
+    float PositionX; // offset 0x0, size 0x4
+    float PositionY; // offset 0x4, size 0x4
+    float PositionZ; // offset 0x8, size 0x4
+    float Radius; // offset 0xC, size 0x4
+    unsigned short ParentIndex; // offset 0x10, size 0x2
+    unsigned short ChildrenIndicies[7]; // offset 0x12, size 0xE
+};

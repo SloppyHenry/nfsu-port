@@ -1,0 +1,607 @@
+interface,slot,offset,method,deklariert_in,signatur
+IUnknown,0,0x0,QueryInterface,IUnknown,"HRESULT QueryInterface(const GUID *riid, void **ppvObj)"
+IUnknown,1,0x4,AddRef,IUnknown,ULONG AddRef()
+IUnknown,2,0x8,Release,IUnknown,ULONG Release()
+IDirect3D9,0,0x0,QueryInterface,IUnknown,"HRESULT QueryInterface(const GUID *riid, void **ppvObj)"
+IDirect3D9,1,0x4,AddRef,IUnknown,ULONG AddRef()
+IDirect3D9,2,0x8,Release,IUnknown,ULONG Release()
+IDirect3D9,3,0xc,RegisterSoftwareDevice,IDirect3D9,HRESULT RegisterSoftwareDevice(void *pInitializeFunction)
+IDirect3D9,4,0x10,GetAdapterCount,IDirect3D9,UINT GetAdapterCount()
+IDirect3D9,5,0x14,GetAdapterIdentifier,IDirect3D9,"HRESULT GetAdapterIdentifier(UINT Adapter, DWORD Flags, void *pIdentifier)"
+IDirect3D9,6,0x18,GetAdapterModeCount,IDirect3D9,"UINT GetAdapterModeCount(UINT Adapter, DWORD Format)"
+IDirect3D9,7,0x1c,EnumAdapterModes,IDirect3D9,"HRESULT EnumAdapterModes(UINT Adapter, DWORD Format, UINT Mode, void *pMode)"
+IDirect3D9,8,0x20,GetAdapterDisplayMode,IDirect3D9,"HRESULT GetAdapterDisplayMode(UINT Adapter, void *pMode)"
+IDirect3D9,9,0x24,CheckDeviceType,IDirect3D9,"HRESULT CheckDeviceType(UINT Adapter, DWORD DevType, DWORD AdapterFormat, DWORD BackBufferFormat, BOOL bWindowed)"
+IDirect3D9,10,0x28,CheckDeviceFormat,IDirect3D9,"HRESULT CheckDeviceFormat(UINT Adapter, DWORD DeviceType, DWORD AdapterFormat, DWORD Usage, DWORD RType, DWORD CheckFormat)"
+IDirect3D9,11,0x2c,CheckDeviceMultiSampleType,IDirect3D9,"HRESULT CheckDeviceMultiSampleType(UINT Adapter, DWORD DeviceType, DWORD SurfaceFormat, BOOL Windowed, DWORD MultiSampleType, DWORD *pQualityLevels)"
+IDirect3D9,12,0x30,CheckDepthStencilMatch,IDirect3D9,"HRESULT CheckDepthStencilMatch(UINT Adapter, DWORD DeviceType, DWORD AdapterFormat, DWORD RenderTargetFormat, DWORD DepthStencilFormat)"
+IDirect3D9,13,0x34,CheckDeviceFormatConversion,IDirect3D9,"HRESULT CheckDeviceFormatConversion(UINT Adapter, DWORD DeviceType, DWORD SourceFormat, DWORD TargetFormat)"
+IDirect3D9,14,0x38,GetDeviceCaps,IDirect3D9,"HRESULT GetDeviceCaps(UINT Adapter, DWORD DeviceType, void *pCaps)"
+IDirect3D9,15,0x3c,GetAdapterMonitor,IDirect3D9,void *GetAdapterMonitor(UINT Adapter)
+IDirect3D9,16,0x40,CreateDevice,IDirect3D9,"HRESULT CreateDevice(UINT Adapter, DWORD DeviceType, void *hFocusWindow, DWORD BehaviorFlags, void *pPresentationParameters, IDirect3DDevice9 **ppReturnedDeviceInterface)"
+IDirect3DDevice9,0,0x0,QueryInterface,IUnknown,"HRESULT QueryInterface(const GUID *riid, void **ppvObj)"
+IDirect3DDevice9,1,0x4,AddRef,IUnknown,ULONG AddRef()
+IDirect3DDevice9,2,0x8,Release,IUnknown,ULONG Release()
+IDirect3DDevice9,3,0xc,TestCooperativeLevel,IDirect3DDevice9,HRESULT TestCooperativeLevel()
+IDirect3DDevice9,4,0x10,GetAvailableTextureMem,IDirect3DDevice9,UINT GetAvailableTextureMem()
+IDirect3DDevice9,5,0x14,EvictManagedResources,IDirect3DDevice9,HRESULT EvictManagedResources()
+IDirect3DDevice9,6,0x18,GetDirect3D,IDirect3DDevice9,HRESULT GetDirect3D(IDirect3D9 **ppD3D9)
+IDirect3DDevice9,7,0x1c,GetDeviceCaps,IDirect3DDevice9,HRESULT GetDeviceCaps(void *pCaps)
+IDirect3DDevice9,8,0x20,GetDisplayMode,IDirect3DDevice9,"HRESULT GetDisplayMode(UINT iSwapChain, void *pMode)"
+IDirect3DDevice9,9,0x24,GetCreationParameters,IDirect3DDevice9,HRESULT GetCreationParameters(void *pParameters)
+IDirect3DDevice9,10,0x28,SetCursorProperties,IDirect3DDevice9,"HRESULT SetCursorProperties(UINT XHotSpot, UINT YHotSpot, IDirect3DSurface9 *pCursorBitmap)"
+IDirect3DDevice9,11,0x2c,SetCursorPosition,IDirect3DDevice9,"void SetCursorPosition(int X, int Y, DWORD Flags)"
+IDirect3DDevice9,12,0x30,ShowCursor,IDirect3DDevice9,BOOL ShowCursor(BOOL bShow)
+IDirect3DDevice9,13,0x34,CreateAdditionalSwapChain,IDirect3DDevice9,"HRESULT CreateAdditionalSwapChain(void *pPresentationParameters, IDirect3DSwapChain9 **pSwapChain)"
+IDirect3DDevice9,14,0x38,GetSwapChain,IDirect3DDevice9,"HRESULT GetSwapChain(UINT iSwapChain, IDirect3DSwapChain9 **pSwapChain)"
+IDirect3DDevice9,15,0x3c,GetNumberOfSwapChains,IDirect3DDevice9,UINT GetNumberOfSwapChains()
+IDirect3DDevice9,16,0x40,Reset,IDirect3DDevice9,HRESULT Reset(void *pPresentationParameters)
+IDirect3DDevice9,17,0x44,Present,IDirect3DDevice9,"HRESULT Present(const void *pSourceRect, const void *pDestRect, void *hDestWindowOverride, const void *pDirtyRegion)"
+IDirect3DDevice9,18,0x48,GetBackBuffer,IDirect3DDevice9,"HRESULT GetBackBuffer(UINT iSwapChain, UINT iBackBuffer, DWORD Type, IDirect3DSurface9 **ppBackBuffer)"
+IDirect3DDevice9,19,0x4c,GetRasterStatus,IDirect3DDevice9,"HRESULT GetRasterStatus(UINT iSwapChain, void *pRasterStatus)"
+IDirect3DDevice9,20,0x50,SetDialogBoxMode,IDirect3DDevice9,HRESULT SetDialogBoxMode(BOOL bEnableDialogs)
+IDirect3DDevice9,21,0x54,SetGammaRamp,IDirect3DDevice9,"void SetGammaRamp(UINT iSwapChain, DWORD Flags, const void *pRamp)"
+IDirect3DDevice9,22,0x58,GetGammaRamp,IDirect3DDevice9,"void GetGammaRamp(UINT iSwapChain, void *pRamp)"
+IDirect3DDevice9,23,0x5c,CreateTexture,IDirect3DDevice9,"HRESULT CreateTexture(UINT Width, UINT Height, UINT Levels, DWORD Usage, DWORD Format, DWORD Pool, IDirect3DTexture9 **ppTexture, void **pSharedHandle)"
+IDirect3DDevice9,24,0x60,CreateVolumeTexture,IDirect3DDevice9,"HRESULT CreateVolumeTexture(UINT Width, UINT Height, UINT Depth, UINT Levels, DWORD Usage, DWORD Format, DWORD Pool, IDirect3DVolumeTexture9 **ppVolumeTexture, void **pSharedHandle)"
+IDirect3DDevice9,25,0x64,CreateCubeTexture,IDirect3DDevice9,"HRESULT CreateCubeTexture(UINT EdgeLength, UINT Levels, DWORD Usage, DWORD Format, DWORD Pool, IDirect3DCubeTexture9 **ppCubeTexture, void **pSharedHandle)"
+IDirect3DDevice9,26,0x68,CreateVertexBuffer,IDirect3DDevice9,"HRESULT CreateVertexBuffer(UINT Length, DWORD Usage, DWORD FVF, DWORD Pool, IDirect3DVertexBuffer9 **ppVertexBuffer, void **pSharedHandle)"
+IDirect3DDevice9,27,0x6c,CreateIndexBuffer,IDirect3DDevice9,"HRESULT CreateIndexBuffer(UINT Length, DWORD Usage, DWORD Format, DWORD Pool, IDirect3DIndexBuffer9 **ppIndexBuffer, void **pSharedHandle)"
+IDirect3DDevice9,28,0x70,CreateRenderTarget,IDirect3DDevice9,"HRESULT CreateRenderTarget(UINT Width, UINT Height, DWORD Format, DWORD MultiSample, DWORD MultisampleQuality, BOOL Lockable, IDirect3DSurface9 **ppSurface, void **pSharedHandle)"
+IDirect3DDevice9,29,0x74,CreateDepthStencilSurface,IDirect3DDevice9,"HRESULT CreateDepthStencilSurface(UINT Width, UINT Height, DWORD Format, DWORD MultiSample, DWORD MultisampleQuality, BOOL Discard, IDirect3DSurface9 **ppSurface, void **pSharedHandle)"
+IDirect3DDevice9,30,0x78,UpdateSurface,IDirect3DDevice9,"HRESULT UpdateSurface(IDirect3DSurface9 *pSourceSurface, const void *pSourceRect, IDirect3DSurface9 *pDestinationSurface, const void *pDestPoint)"
+IDirect3DDevice9,31,0x7c,UpdateTexture,IDirect3DDevice9,"HRESULT UpdateTexture(IDirect3DBaseTexture9 *pSourceTexture, IDirect3DBaseTexture9 *pDestinationTexture)"
+IDirect3DDevice9,32,0x80,GetRenderTargetData,IDirect3DDevice9,"HRESULT GetRenderTargetData(IDirect3DSurface9 *pRenderTarget, IDirect3DSurface9 *pDestSurface)"
+IDirect3DDevice9,33,0x84,GetFrontBufferData,IDirect3DDevice9,"HRESULT GetFrontBufferData(UINT iSwapChain, IDirect3DSurface9 *pDestSurface)"
+IDirect3DDevice9,34,0x88,StretchRect,IDirect3DDevice9,"HRESULT StretchRect(IDirect3DSurface9 *pSourceSurface, const void *pSourceRect, IDirect3DSurface9 *pDestSurface, const void *pDestRect, DWORD Filter)"
+IDirect3DDevice9,35,0x8c,ColorFill,IDirect3DDevice9,"HRESULT ColorFill(IDirect3DSurface9 *pSurface, const void *pRect, DWORD color)"
+IDirect3DDevice9,36,0x90,CreateOffscreenPlainSurface,IDirect3DDevice9,"HRESULT CreateOffscreenPlainSurface(UINT Width, UINT Height, DWORD Format, DWORD Pool, IDirect3DSurface9 **ppSurface, void **pSharedHandle)"
+IDirect3DDevice9,37,0x94,SetRenderTarget,IDirect3DDevice9,"HRESULT SetRenderTarget(DWORD RenderTargetIndex, IDirect3DSurface9 *pRenderTarget)"
+IDirect3DDevice9,38,0x98,GetRenderTarget,IDirect3DDevice9,"HRESULT GetRenderTarget(DWORD RenderTargetIndex, IDirect3DSurface9 **ppRenderTarget)"
+IDirect3DDevice9,39,0x9c,SetDepthStencilSurface,IDirect3DDevice9,HRESULT SetDepthStencilSurface(IDirect3DSurface9 *pNewZStencil)
+IDirect3DDevice9,40,0xa0,GetDepthStencilSurface,IDirect3DDevice9,HRESULT GetDepthStencilSurface(IDirect3DSurface9 **ppZStencilSurface)
+IDirect3DDevice9,41,0xa4,BeginScene,IDirect3DDevice9,HRESULT BeginScene()
+IDirect3DDevice9,42,0xa8,EndScene,IDirect3DDevice9,HRESULT EndScene()
+IDirect3DDevice9,43,0xac,Clear,IDirect3DDevice9,"HRESULT Clear(DWORD Count, const void *pRects, DWORD Flags, DWORD Color, float Z, DWORD Stencil)"
+IDirect3DDevice9,44,0xb0,SetTransform,IDirect3DDevice9,"HRESULT SetTransform(DWORD State, const void *pMatrix)"
+IDirect3DDevice9,45,0xb4,GetTransform,IDirect3DDevice9,"HRESULT GetTransform(DWORD State, void *pMatrix)"
+IDirect3DDevice9,46,0xb8,MultiplyTransform,IDirect3DDevice9,"HRESULT MultiplyTransform(DWORD State, const void *pMatrix)"
+IDirect3DDevice9,47,0xbc,SetViewport,IDirect3DDevice9,HRESULT SetViewport(const void *pViewport)
+IDirect3DDevice9,48,0xc0,GetViewport,IDirect3DDevice9,HRESULT GetViewport(void *pViewport)
+IDirect3DDevice9,49,0xc4,SetMaterial,IDirect3DDevice9,HRESULT SetMaterial(const void *pMaterial)
+IDirect3DDevice9,50,0xc8,GetMaterial,IDirect3DDevice9,HRESULT GetMaterial(void *pMaterial)
+IDirect3DDevice9,51,0xcc,SetLight,IDirect3DDevice9,"HRESULT SetLight(DWORD Index, const void *pLight)"
+IDirect3DDevice9,52,0xd0,GetLight,IDirect3DDevice9,"HRESULT GetLight(DWORD Index, void *pLight)"
+IDirect3DDevice9,53,0xd4,LightEnable,IDirect3DDevice9,"HRESULT LightEnable(DWORD Index, BOOL Enable)"
+IDirect3DDevice9,54,0xd8,GetLightEnable,IDirect3DDevice9,"HRESULT GetLightEnable(DWORD Index, BOOL *pEnable)"
+IDirect3DDevice9,55,0xdc,SetClipPlane,IDirect3DDevice9,"HRESULT SetClipPlane(DWORD Index, const float *pPlane)"
+IDirect3DDevice9,56,0xe0,GetClipPlane,IDirect3DDevice9,"HRESULT GetClipPlane(DWORD Index, float *pPlane)"
+IDirect3DDevice9,57,0xe4,SetRenderState,IDirect3DDevice9,"HRESULT SetRenderState(DWORD State, DWORD Value)"
+IDirect3DDevice9,58,0xe8,GetRenderState,IDirect3DDevice9,"HRESULT GetRenderState(DWORD State, DWORD *pValue)"
+IDirect3DDevice9,59,0xec,CreateStateBlock,IDirect3DDevice9,"HRESULT CreateStateBlock(DWORD Type, IDirect3DStateBlock9 **ppSB)"
+IDirect3DDevice9,60,0xf0,BeginStateBlock,IDirect3DDevice9,HRESULT BeginStateBlock()
+IDirect3DDevice9,61,0xf4,EndStateBlock,IDirect3DDevice9,HRESULT EndStateBlock(IDirect3DStateBlock9 **ppSB)
+IDirect3DDevice9,62,0xf8,SetClipStatus,IDirect3DDevice9,HRESULT SetClipStatus(const void *pClipStatus)
+IDirect3DDevice9,63,0xfc,GetClipStatus,IDirect3DDevice9,HRESULT GetClipStatus(void *pClipStatus)
+IDirect3DDevice9,64,0x100,GetTexture,IDirect3DDevice9,"HRESULT GetTexture(DWORD Stage, IDirect3DBaseTexture9 **ppTexture)"
+IDirect3DDevice9,65,0x104,SetTexture,IDirect3DDevice9,"HRESULT SetTexture(DWORD Stage, IDirect3DBaseTexture9 *pTexture)"
+IDirect3DDevice9,66,0x108,GetTextureStageState,IDirect3DDevice9,"HRESULT GetTextureStageState(DWORD Stage, DWORD Type, DWORD *pValue)"
+IDirect3DDevice9,67,0x10c,SetTextureStageState,IDirect3DDevice9,"HRESULT SetTextureStageState(DWORD Stage, DWORD Type, DWORD Value)"
+IDirect3DDevice9,68,0x110,GetSamplerState,IDirect3DDevice9,"HRESULT GetSamplerState(DWORD Sampler, DWORD Type, DWORD *pValue)"
+IDirect3DDevice9,69,0x114,SetSamplerState,IDirect3DDevice9,"HRESULT SetSamplerState(DWORD Sampler, DWORD Type, DWORD Value)"
+IDirect3DDevice9,70,0x118,ValidateDevice,IDirect3DDevice9,HRESULT ValidateDevice(DWORD *pNumPasses)
+IDirect3DDevice9,71,0x11c,SetPaletteEntries,IDirect3DDevice9,"HRESULT SetPaletteEntries(UINT PaletteNumber, const void *pEntries)"
+IDirect3DDevice9,72,0x120,GetPaletteEntries,IDirect3DDevice9,"HRESULT GetPaletteEntries(UINT PaletteNumber, void *pEntries)"
+IDirect3DDevice9,73,0x124,SetCurrentTexturePalette,IDirect3DDevice9,HRESULT SetCurrentTexturePalette(UINT PaletteNumber)
+IDirect3DDevice9,74,0x128,GetCurrentTexturePalette,IDirect3DDevice9,HRESULT GetCurrentTexturePalette(UINT *PaletteNumber)
+IDirect3DDevice9,75,0x12c,SetScissorRect,IDirect3DDevice9,HRESULT SetScissorRect(const void *pRect)
+IDirect3DDevice9,76,0x130,GetScissorRect,IDirect3DDevice9,HRESULT GetScissorRect(void *pRect)
+IDirect3DDevice9,77,0x134,SetSoftwareVertexProcessing,IDirect3DDevice9,HRESULT SetSoftwareVertexProcessing(BOOL bSoftware)
+IDirect3DDevice9,78,0x138,GetSoftwareVertexProcessing,IDirect3DDevice9,BOOL GetSoftwareVertexProcessing()
+IDirect3DDevice9,79,0x13c,SetNPatchMode,IDirect3DDevice9,HRESULT SetNPatchMode(float nSegments)
+IDirect3DDevice9,80,0x140,GetNPatchMode,IDirect3DDevice9,float GetNPatchMode()
+IDirect3DDevice9,81,0x144,DrawPrimitive,IDirect3DDevice9,"HRESULT DrawPrimitive(DWORD PrimitiveType, UINT StartVertex, UINT PrimitiveCount)"
+IDirect3DDevice9,82,0x148,DrawIndexedPrimitive,IDirect3DDevice9,"HRESULT DrawIndexedPrimitive(DWORD PrimitiveType, int BaseVertexIndex, UINT MinVertexIndex, UINT NumVertices, UINT startIndex, UINT primCount)"
+IDirect3DDevice9,83,0x14c,DrawPrimitiveUP,IDirect3DDevice9,"HRESULT DrawPrimitiveUP(DWORD PrimitiveType, UINT PrimitiveCount, const void *pVertexStreamZeroData, UINT VertexStreamZeroStride)"
+IDirect3DDevice9,84,0x150,DrawIndexedPrimitiveUP,IDirect3DDevice9,"HRESULT DrawIndexedPrimitiveUP(DWORD PrimitiveType, UINT MinVertexIndex, UINT NumVertices, UINT PrimitiveCount, const void *pIndexData, DWORD IndexDataFormat, const void *pVertexStreamZeroData, UINT VertexStreamZeroStride)"
+IDirect3DDevice9,85,0x154,ProcessVertices,IDirect3DDevice9,"HRESULT ProcessVertices(UINT SrcStartIndex, UINT DestIndex, UINT VertexCount, IDirect3DVertexBuffer9 *pDestBuffer, IDirect3DVertexDeclaration9 *pVertexDecl, DWORD Flags)"
+IDirect3DDevice9,86,0x158,CreateVertexDeclaration,IDirect3DDevice9,"HRESULT CreateVertexDeclaration(const void *pVertexElements, IDirect3DVertexDeclaration9 **ppDecl)"
+IDirect3DDevice9,87,0x15c,SetVertexDeclaration,IDirect3DDevice9,HRESULT SetVertexDeclaration(IDirect3DVertexDeclaration9 *pDecl)
+IDirect3DDevice9,88,0x160,GetVertexDeclaration,IDirect3DDevice9,HRESULT GetVertexDeclaration(IDirect3DVertexDeclaration9 **ppDecl)
+IDirect3DDevice9,89,0x164,SetFVF,IDirect3DDevice9,HRESULT SetFVF(DWORD FVF)
+IDirect3DDevice9,90,0x168,GetFVF,IDirect3DDevice9,HRESULT GetFVF(DWORD *pFVF)
+IDirect3DDevice9,91,0x16c,CreateVertexShader,IDirect3DDevice9,"HRESULT CreateVertexShader(const DWORD *pFunction, IDirect3DVertexShader9 **ppShader)"
+IDirect3DDevice9,92,0x170,SetVertexShader,IDirect3DDevice9,HRESULT SetVertexShader(IDirect3DVertexShader9 *pShader)
+IDirect3DDevice9,93,0x174,GetVertexShader,IDirect3DDevice9,HRESULT GetVertexShader(IDirect3DVertexShader9 **ppShader)
+IDirect3DDevice9,94,0x178,SetVertexShaderConstantF,IDirect3DDevice9,"HRESULT SetVertexShaderConstantF(UINT StartRegister, const float *pConstantData, UINT Vector4fCount)"
+IDirect3DDevice9,95,0x17c,GetVertexShaderConstantF,IDirect3DDevice9,"HRESULT GetVertexShaderConstantF(UINT StartRegister, float *pConstantData, UINT Vector4fCount)"
+IDirect3DDevice9,96,0x180,SetVertexShaderConstantI,IDirect3DDevice9,"HRESULT SetVertexShaderConstantI(UINT StartRegister, const int *pConstantData, UINT Vector4iCount)"
+IDirect3DDevice9,97,0x184,GetVertexShaderConstantI,IDirect3DDevice9,"HRESULT GetVertexShaderConstantI(UINT StartRegister, int *pConstantData, UINT Vector4iCount)"
+IDirect3DDevice9,98,0x188,SetVertexShaderConstantB,IDirect3DDevice9,"HRESULT SetVertexShaderConstantB(UINT StartRegister, const BOOL *pConstantData, UINT BoolCount)"
+IDirect3DDevice9,99,0x18c,GetVertexShaderConstantB,IDirect3DDevice9,"HRESULT GetVertexShaderConstantB(UINT StartRegister, BOOL *pConstantData, UINT BoolCount)"
+IDirect3DDevice9,100,0x190,SetStreamSource,IDirect3DDevice9,"HRESULT SetStreamSource(UINT StreamNumber, IDirect3DVertexBuffer9 *pStreamData, UINT OffsetInBytes, UINT Stride)"
+IDirect3DDevice9,101,0x194,GetStreamSource,IDirect3DDevice9,"HRESULT GetStreamSource(UINT StreamNumber, IDirect3DVertexBuffer9 **ppStreamData, UINT *pOffsetInBytes, UINT *pStride)"
+IDirect3DDevice9,102,0x198,SetStreamSourceFreq,IDirect3DDevice9,"HRESULT SetStreamSourceFreq(UINT StreamNumber, UINT Setting)"
+IDirect3DDevice9,103,0x19c,GetStreamSourceFreq,IDirect3DDevice9,"HRESULT GetStreamSourceFreq(UINT StreamNumber, UINT *pSetting)"
+IDirect3DDevice9,104,0x1a0,SetIndices,IDirect3DDevice9,HRESULT SetIndices(IDirect3DIndexBuffer9 *pIndexData)
+IDirect3DDevice9,105,0x1a4,GetIndices,IDirect3DDevice9,HRESULT GetIndices(IDirect3DIndexBuffer9 **ppIndexData)
+IDirect3DDevice9,106,0x1a8,CreatePixelShader,IDirect3DDevice9,"HRESULT CreatePixelShader(const DWORD *pFunction, IDirect3DPixelShader9 **ppShader)"
+IDirect3DDevice9,107,0x1ac,SetPixelShader,IDirect3DDevice9,HRESULT SetPixelShader(IDirect3DPixelShader9 *pShader)
+IDirect3DDevice9,108,0x1b0,GetPixelShader,IDirect3DDevice9,HRESULT GetPixelShader(IDirect3DPixelShader9 **ppShader)
+IDirect3DDevice9,109,0x1b4,SetPixelShaderConstantF,IDirect3DDevice9,"HRESULT SetPixelShaderConstantF(UINT StartRegister, const float *pConstantData, UINT Vector4fCount)"
+IDirect3DDevice9,110,0x1b8,GetPixelShaderConstantF,IDirect3DDevice9,"HRESULT GetPixelShaderConstantF(UINT StartRegister, float *pConstantData, UINT Vector4fCount)"
+IDirect3DDevice9,111,0x1bc,SetPixelShaderConstantI,IDirect3DDevice9,"HRESULT SetPixelShaderConstantI(UINT StartRegister, const int *pConstantData, UINT Vector4iCount)"
+IDirect3DDevice9,112,0x1c0,GetPixelShaderConstantI,IDirect3DDevice9,"HRESULT GetPixelShaderConstantI(UINT StartRegister, int *pConstantData, UINT Vector4iCount)"
+IDirect3DDevice9,113,0x1c4,SetPixelShaderConstantB,IDirect3DDevice9,"HRESULT SetPixelShaderConstantB(UINT StartRegister, const BOOL *pConstantData, UINT BoolCount)"
+IDirect3DDevice9,114,0x1c8,GetPixelShaderConstantB,IDirect3DDevice9,"HRESULT GetPixelShaderConstantB(UINT StartRegister, BOOL *pConstantData, UINT BoolCount)"
+IDirect3DDevice9,115,0x1cc,DrawRectPatch,IDirect3DDevice9,"HRESULT DrawRectPatch(UINT Handle, const float *pNumSegs, const void *pRectPatchInfo)"
+IDirect3DDevice9,116,0x1d0,DrawTriPatch,IDirect3DDevice9,"HRESULT DrawTriPatch(UINT Handle, const float *pNumSegs, const void *pTriPatchInfo)"
+IDirect3DDevice9,117,0x1d4,DeletePatch,IDirect3DDevice9,HRESULT DeletePatch(UINT Handle)
+IDirect3DDevice9,118,0x1d8,CreateQuery,IDirect3DDevice9,"HRESULT CreateQuery(DWORD Type, IDirect3DQuery9 **ppQuery)"
+IDirect3DSwapChain9,0,0x0,QueryInterface,IUnknown,"HRESULT QueryInterface(const GUID *riid, void **ppvObj)"
+IDirect3DSwapChain9,1,0x4,AddRef,IUnknown,ULONG AddRef()
+IDirect3DSwapChain9,2,0x8,Release,IUnknown,ULONG Release()
+IDirect3DSwapChain9,3,0xc,Present,IDirect3DSwapChain9,"HRESULT Present(const void *pSourceRect, const void *pDestRect, void *hDestWindowOverride, const void *pDirtyRegion, DWORD dwFlags)"
+IDirect3DSwapChain9,4,0x10,GetFrontBufferData,IDirect3DSwapChain9,HRESULT GetFrontBufferData(IDirect3DSurface9 *pDestSurface)
+IDirect3DSwapChain9,5,0x14,GetBackBuffer,IDirect3DSwapChain9,"HRESULT GetBackBuffer(UINT iBackBuffer, DWORD Type, IDirect3DSurface9 **ppBackBuffer)"
+IDirect3DSwapChain9,6,0x18,GetRasterStatus,IDirect3DSwapChain9,HRESULT GetRasterStatus(void *pRasterStatus)
+IDirect3DSwapChain9,7,0x1c,GetDisplayMode,IDirect3DSwapChain9,HRESULT GetDisplayMode(void *pMode)
+IDirect3DSwapChain9,8,0x20,GetDevice,IDirect3DSwapChain9,HRESULT GetDevice(IDirect3DDevice9 **ppDevice)
+IDirect3DSwapChain9,9,0x24,GetPresentParameters,IDirect3DSwapChain9,HRESULT GetPresentParameters(void *pPresentationParameters)
+IDirect3DResource9,0,0x0,QueryInterface,IUnknown,"HRESULT QueryInterface(const GUID *riid, void **ppvObj)"
+IDirect3DResource9,1,0x4,AddRef,IUnknown,ULONG AddRef()
+IDirect3DResource9,2,0x8,Release,IUnknown,ULONG Release()
+IDirect3DResource9,3,0xc,GetDevice,IDirect3DResource9,HRESULT GetDevice(IDirect3DDevice9 **ppDevice)
+IDirect3DResource9,4,0x10,SetPrivateData,IDirect3DResource9,"HRESULT SetPrivateData(const GUID *refguid, const void *pData, DWORD SizeOfData, DWORD Flags)"
+IDirect3DResource9,5,0x14,GetPrivateData,IDirect3DResource9,"HRESULT GetPrivateData(const GUID *refguid, void *pData, DWORD *pSizeOfData)"
+IDirect3DResource9,6,0x18,FreePrivateData,IDirect3DResource9,HRESULT FreePrivateData(const GUID *refguid)
+IDirect3DResource9,7,0x1c,SetPriority,IDirect3DResource9,DWORD SetPriority(DWORD PriorityNew)
+IDirect3DResource9,8,0x20,GetPriority,IDirect3DResource9,DWORD GetPriority()
+IDirect3DResource9,9,0x24,PreLoad,IDirect3DResource9,void PreLoad()
+IDirect3DResource9,10,0x28,GetType,IDirect3DResource9,DWORD GetType()
+IDirect3DBaseTexture9,0,0x0,QueryInterface,IUnknown,"HRESULT QueryInterface(const GUID *riid, void **ppvObj)"
+IDirect3DBaseTexture9,1,0x4,AddRef,IUnknown,ULONG AddRef()
+IDirect3DBaseTexture9,2,0x8,Release,IUnknown,ULONG Release()
+IDirect3DBaseTexture9,3,0xc,GetDevice,IDirect3DResource9,HRESULT GetDevice(IDirect3DDevice9 **ppDevice)
+IDirect3DBaseTexture9,4,0x10,SetPrivateData,IDirect3DResource9,"HRESULT SetPrivateData(const GUID *refguid, const void *pData, DWORD SizeOfData, DWORD Flags)"
+IDirect3DBaseTexture9,5,0x14,GetPrivateData,IDirect3DResource9,"HRESULT GetPrivateData(const GUID *refguid, void *pData, DWORD *pSizeOfData)"
+IDirect3DBaseTexture9,6,0x18,FreePrivateData,IDirect3DResource9,HRESULT FreePrivateData(const GUID *refguid)
+IDirect3DBaseTexture9,7,0x1c,SetPriority,IDirect3DResource9,DWORD SetPriority(DWORD PriorityNew)
+IDirect3DBaseTexture9,8,0x20,GetPriority,IDirect3DResource9,DWORD GetPriority()
+IDirect3DBaseTexture9,9,0x24,PreLoad,IDirect3DResource9,void PreLoad()
+IDirect3DBaseTexture9,10,0x28,GetType,IDirect3DResource9,DWORD GetType()
+IDirect3DBaseTexture9,11,0x2c,SetLOD,IDirect3DBaseTexture9,DWORD SetLOD(DWORD LODNew)
+IDirect3DBaseTexture9,12,0x30,GetLOD,IDirect3DBaseTexture9,DWORD GetLOD()
+IDirect3DBaseTexture9,13,0x34,GetLevelCount,IDirect3DBaseTexture9,DWORD GetLevelCount()
+IDirect3DBaseTexture9,14,0x38,SetAutoGenFilterType,IDirect3DBaseTexture9,HRESULT SetAutoGenFilterType(DWORD FilterType)
+IDirect3DBaseTexture9,15,0x3c,GetAutoGenFilterType,IDirect3DBaseTexture9,DWORD GetAutoGenFilterType()
+IDirect3DBaseTexture9,16,0x40,GenerateMipSubLevels,IDirect3DBaseTexture9,void GenerateMipSubLevels()
+IDirect3DTexture9,0,0x0,QueryInterface,IUnknown,"HRESULT QueryInterface(const GUID *riid, void **ppvObj)"
+IDirect3DTexture9,1,0x4,AddRef,IUnknown,ULONG AddRef()
+IDirect3DTexture9,2,0x8,Release,IUnknown,ULONG Release()
+IDirect3DTexture9,3,0xc,GetDevice,IDirect3DResource9,HRESULT GetDevice(IDirect3DDevice9 **ppDevice)
+IDirect3DTexture9,4,0x10,SetPrivateData,IDirect3DResource9,"HRESULT SetPrivateData(const GUID *refguid, const void *pData, DWORD SizeOfData, DWORD Flags)"
+IDirect3DTexture9,5,0x14,GetPrivateData,IDirect3DResource9,"HRESULT GetPrivateData(const GUID *refguid, void *pData, DWORD *pSizeOfData)"
+IDirect3DTexture9,6,0x18,FreePrivateData,IDirect3DResource9,HRESULT FreePrivateData(const GUID *refguid)
+IDirect3DTexture9,7,0x1c,SetPriority,IDirect3DResource9,DWORD SetPriority(DWORD PriorityNew)
+IDirect3DTexture9,8,0x20,GetPriority,IDirect3DResource9,DWORD GetPriority()
+IDirect3DTexture9,9,0x24,PreLoad,IDirect3DResource9,void PreLoad()
+IDirect3DTexture9,10,0x28,GetType,IDirect3DResource9,DWORD GetType()
+IDirect3DTexture9,11,0x2c,SetLOD,IDirect3DBaseTexture9,DWORD SetLOD(DWORD LODNew)
+IDirect3DTexture9,12,0x30,GetLOD,IDirect3DBaseTexture9,DWORD GetLOD()
+IDirect3DTexture9,13,0x34,GetLevelCount,IDirect3DBaseTexture9,DWORD GetLevelCount()
+IDirect3DTexture9,14,0x38,SetAutoGenFilterType,IDirect3DBaseTexture9,HRESULT SetAutoGenFilterType(DWORD FilterType)
+IDirect3DTexture9,15,0x3c,GetAutoGenFilterType,IDirect3DBaseTexture9,DWORD GetAutoGenFilterType()
+IDirect3DTexture9,16,0x40,GenerateMipSubLevels,IDirect3DBaseTexture9,void GenerateMipSubLevels()
+IDirect3DTexture9,17,0x44,GetLevelDesc,IDirect3DTexture9,"HRESULT GetLevelDesc(UINT Level, void *pDesc)"
+IDirect3DTexture9,18,0x48,GetSurfaceLevel,IDirect3DTexture9,"HRESULT GetSurfaceLevel(UINT Level, IDirect3DSurface9 **ppSurfaceLevel)"
+IDirect3DTexture9,19,0x4c,LockRect,IDirect3DTexture9,"HRESULT LockRect(UINT Level, void *pLockedRect, const void *pRect, DWORD Flags)"
+IDirect3DTexture9,20,0x50,UnlockRect,IDirect3DTexture9,HRESULT UnlockRect(UINT Level)
+IDirect3DTexture9,21,0x54,AddDirtyRect,IDirect3DTexture9,HRESULT AddDirtyRect(const void *pDirtyRect)
+IDirect3DCubeTexture9,0,0x0,QueryInterface,IUnknown,"HRESULT QueryInterface(const GUID *riid, void **ppvObj)"
+IDirect3DCubeTexture9,1,0x4,AddRef,IUnknown,ULONG AddRef()
+IDirect3DCubeTexture9,2,0x8,Release,IUnknown,ULONG Release()
+IDirect3DCubeTexture9,3,0xc,GetDevice,IDirect3DResource9,HRESULT GetDevice(IDirect3DDevice9 **ppDevice)
+IDirect3DCubeTexture9,4,0x10,SetPrivateData,IDirect3DResource9,"HRESULT SetPrivateData(const GUID *refguid, const void *pData, DWORD SizeOfData, DWORD Flags)"
+IDirect3DCubeTexture9,5,0x14,GetPrivateData,IDirect3DResource9,"HRESULT GetPrivateData(const GUID *refguid, void *pData, DWORD *pSizeOfData)"
+IDirect3DCubeTexture9,6,0x18,FreePrivateData,IDirect3DResource9,HRESULT FreePrivateData(const GUID *refguid)
+IDirect3DCubeTexture9,7,0x1c,SetPriority,IDirect3DResource9,DWORD SetPriority(DWORD PriorityNew)
+IDirect3DCubeTexture9,8,0x20,GetPriority,IDirect3DResource9,DWORD GetPriority()
+IDirect3DCubeTexture9,9,0x24,PreLoad,IDirect3DResource9,void PreLoad()
+IDirect3DCubeTexture9,10,0x28,GetType,IDirect3DResource9,DWORD GetType()
+IDirect3DCubeTexture9,11,0x2c,SetLOD,IDirect3DBaseTexture9,DWORD SetLOD(DWORD LODNew)
+IDirect3DCubeTexture9,12,0x30,GetLOD,IDirect3DBaseTexture9,DWORD GetLOD()
+IDirect3DCubeTexture9,13,0x34,GetLevelCount,IDirect3DBaseTexture9,DWORD GetLevelCount()
+IDirect3DCubeTexture9,14,0x38,SetAutoGenFilterType,IDirect3DBaseTexture9,HRESULT SetAutoGenFilterType(DWORD FilterType)
+IDirect3DCubeTexture9,15,0x3c,GetAutoGenFilterType,IDirect3DBaseTexture9,DWORD GetAutoGenFilterType()
+IDirect3DCubeTexture9,16,0x40,GenerateMipSubLevels,IDirect3DBaseTexture9,void GenerateMipSubLevels()
+IDirect3DCubeTexture9,17,0x44,GetLevelDesc,IDirect3DCubeTexture9,"HRESULT GetLevelDesc(UINT Level, void *pDesc)"
+IDirect3DCubeTexture9,18,0x48,GetCubeMapSurface,IDirect3DCubeTexture9,"HRESULT GetCubeMapSurface(DWORD FaceType, UINT Level, IDirect3DSurface9 **ppCubeMapSurface)"
+IDirect3DCubeTexture9,19,0x4c,LockRect,IDirect3DCubeTexture9,"HRESULT LockRect(DWORD FaceType, UINT Level, void *pLockedRect, const void *pRect, DWORD Flags)"
+IDirect3DCubeTexture9,20,0x50,UnlockRect,IDirect3DCubeTexture9,"HRESULT UnlockRect(DWORD FaceType, UINT Level)"
+IDirect3DCubeTexture9,21,0x54,AddDirtyRect,IDirect3DCubeTexture9,"HRESULT AddDirtyRect(DWORD FaceType, const void *pDirtyRect)"
+IDirect3DVolumeTexture9,0,0x0,QueryInterface,IUnknown,"HRESULT QueryInterface(const GUID *riid, void **ppvObj)"
+IDirect3DVolumeTexture9,1,0x4,AddRef,IUnknown,ULONG AddRef()
+IDirect3DVolumeTexture9,2,0x8,Release,IUnknown,ULONG Release()
+IDirect3DVolumeTexture9,3,0xc,GetDevice,IDirect3DResource9,HRESULT GetDevice(IDirect3DDevice9 **ppDevice)
+IDirect3DVolumeTexture9,4,0x10,SetPrivateData,IDirect3DResource9,"HRESULT SetPrivateData(const GUID *refguid, const void *pData, DWORD SizeOfData, DWORD Flags)"
+IDirect3DVolumeTexture9,5,0x14,GetPrivateData,IDirect3DResource9,"HRESULT GetPrivateData(const GUID *refguid, void *pData, DWORD *pSizeOfData)"
+IDirect3DVolumeTexture9,6,0x18,FreePrivateData,IDirect3DResource9,HRESULT FreePrivateData(const GUID *refguid)
+IDirect3DVolumeTexture9,7,0x1c,SetPriority,IDirect3DResource9,DWORD SetPriority(DWORD PriorityNew)
+IDirect3DVolumeTexture9,8,0x20,GetPriority,IDirect3DResource9,DWORD GetPriority()
+IDirect3DVolumeTexture9,9,0x24,PreLoad,IDirect3DResource9,void PreLoad()
+IDirect3DVolumeTexture9,10,0x28,GetType,IDirect3DResource9,DWORD GetType()
+IDirect3DVolumeTexture9,11,0x2c,SetLOD,IDirect3DBaseTexture9,DWORD SetLOD(DWORD LODNew)
+IDirect3DVolumeTexture9,12,0x30,GetLOD,IDirect3DBaseTexture9,DWORD GetLOD()
+IDirect3DVolumeTexture9,13,0x34,GetLevelCount,IDirect3DBaseTexture9,DWORD GetLevelCount()
+IDirect3DVolumeTexture9,14,0x38,SetAutoGenFilterType,IDirect3DBaseTexture9,HRESULT SetAutoGenFilterType(DWORD FilterType)
+IDirect3DVolumeTexture9,15,0x3c,GetAutoGenFilterType,IDirect3DBaseTexture9,DWORD GetAutoGenFilterType()
+IDirect3DVolumeTexture9,16,0x40,GenerateMipSubLevels,IDirect3DBaseTexture9,void GenerateMipSubLevels()
+IDirect3DVolumeTexture9,17,0x44,GetLevelDesc,IDirect3DVolumeTexture9,"HRESULT GetLevelDesc(UINT Level, void *pDesc)"
+IDirect3DVolumeTexture9,18,0x48,GetVolumeLevel,IDirect3DVolumeTexture9,"HRESULT GetVolumeLevel(UINT Level, void **ppVolumeLevel)"
+IDirect3DVolumeTexture9,19,0x4c,LockBox,IDirect3DVolumeTexture9,"HRESULT LockBox(UINT Level, void *pLockedVolume, const void *pBox, DWORD Flags)"
+IDirect3DVolumeTexture9,20,0x50,UnlockBox,IDirect3DVolumeTexture9,HRESULT UnlockBox(UINT Level)
+IDirect3DVolumeTexture9,21,0x54,AddDirtyBox,IDirect3DVolumeTexture9,HRESULT AddDirtyBox(const void *pDirtyBox)
+IDirect3DSurface9,0,0x0,QueryInterface,IUnknown,"HRESULT QueryInterface(const GUID *riid, void **ppvObj)"
+IDirect3DSurface9,1,0x4,AddRef,IUnknown,ULONG AddRef()
+IDirect3DSurface9,2,0x8,Release,IUnknown,ULONG Release()
+IDirect3DSurface9,3,0xc,GetDevice,IDirect3DResource9,HRESULT GetDevice(IDirect3DDevice9 **ppDevice)
+IDirect3DSurface9,4,0x10,SetPrivateData,IDirect3DResource9,"HRESULT SetPrivateData(const GUID *refguid, const void *pData, DWORD SizeOfData, DWORD Flags)"
+IDirect3DSurface9,5,0x14,GetPrivateData,IDirect3DResource9,"HRESULT GetPrivateData(const GUID *refguid, void *pData, DWORD *pSizeOfData)"
+IDirect3DSurface9,6,0x18,FreePrivateData,IDirect3DResource9,HRESULT FreePrivateData(const GUID *refguid)
+IDirect3DSurface9,7,0x1c,SetPriority,IDirect3DResource9,DWORD SetPriority(DWORD PriorityNew)
+IDirect3DSurface9,8,0x20,GetPriority,IDirect3DResource9,DWORD GetPriority()
+IDirect3DSurface9,9,0x24,PreLoad,IDirect3DResource9,void PreLoad()
+IDirect3DSurface9,10,0x28,GetType,IDirect3DResource9,DWORD GetType()
+IDirect3DSurface9,11,0x2c,GetContainer,IDirect3DSurface9,"HRESULT GetContainer(const GUID *riid, void **ppContainer)"
+IDirect3DSurface9,12,0x30,GetDesc,IDirect3DSurface9,HRESULT GetDesc(void *pDesc)
+IDirect3DSurface9,13,0x34,LockRect,IDirect3DSurface9,"HRESULT LockRect(void *pLockedRect, const void *pRect, DWORD Flags)"
+IDirect3DSurface9,14,0x38,UnlockRect,IDirect3DSurface9,HRESULT UnlockRect()
+IDirect3DSurface9,15,0x3c,GetDC,IDirect3DSurface9,HRESULT GetDC(void **phdc)
+IDirect3DSurface9,16,0x40,ReleaseDC,IDirect3DSurface9,HRESULT ReleaseDC(void *hdc)
+IDirect3DVertexBuffer9,0,0x0,QueryInterface,IUnknown,"HRESULT QueryInterface(const GUID *riid, void **ppvObj)"
+IDirect3DVertexBuffer9,1,0x4,AddRef,IUnknown,ULONG AddRef()
+IDirect3DVertexBuffer9,2,0x8,Release,IUnknown,ULONG Release()
+IDirect3DVertexBuffer9,3,0xc,GetDevice,IDirect3DResource9,HRESULT GetDevice(IDirect3DDevice9 **ppDevice)
+IDirect3DVertexBuffer9,4,0x10,SetPrivateData,IDirect3DResource9,"HRESULT SetPrivateData(const GUID *refguid, const void *pData, DWORD SizeOfData, DWORD Flags)"
+IDirect3DVertexBuffer9,5,0x14,GetPrivateData,IDirect3DResource9,"HRESULT GetPrivateData(const GUID *refguid, void *pData, DWORD *pSizeOfData)"
+IDirect3DVertexBuffer9,6,0x18,FreePrivateData,IDirect3DResource9,HRESULT FreePrivateData(const GUID *refguid)
+IDirect3DVertexBuffer9,7,0x1c,SetPriority,IDirect3DResource9,DWORD SetPriority(DWORD PriorityNew)
+IDirect3DVertexBuffer9,8,0x20,GetPriority,IDirect3DResource9,DWORD GetPriority()
+IDirect3DVertexBuffer9,9,0x24,PreLoad,IDirect3DResource9,void PreLoad()
+IDirect3DVertexBuffer9,10,0x28,GetType,IDirect3DResource9,DWORD GetType()
+IDirect3DVertexBuffer9,11,0x2c,Lock,IDirect3DVertexBuffer9,"HRESULT Lock(UINT OffsetToLock, UINT SizeToLock, void **ppbData, DWORD Flags)"
+IDirect3DVertexBuffer9,12,0x30,Unlock,IDirect3DVertexBuffer9,HRESULT Unlock()
+IDirect3DVertexBuffer9,13,0x34,GetDesc,IDirect3DVertexBuffer9,HRESULT GetDesc(void *pDesc)
+IDirect3DIndexBuffer9,0,0x0,QueryInterface,IUnknown,"HRESULT QueryInterface(const GUID *riid, void **ppvObj)"
+IDirect3DIndexBuffer9,1,0x4,AddRef,IUnknown,ULONG AddRef()
+IDirect3DIndexBuffer9,2,0x8,Release,IUnknown,ULONG Release()
+IDirect3DIndexBuffer9,3,0xc,GetDevice,IDirect3DResource9,HRESULT GetDevice(IDirect3DDevice9 **ppDevice)
+IDirect3DIndexBuffer9,4,0x10,SetPrivateData,IDirect3DResource9,"HRESULT SetPrivateData(const GUID *refguid, const void *pData, DWORD SizeOfData, DWORD Flags)"
+IDirect3DIndexBuffer9,5,0x14,GetPrivateData,IDirect3DResource9,"HRESULT GetPrivateData(const GUID *refguid, void *pData, DWORD *pSizeOfData)"
+IDirect3DIndexBuffer9,6,0x18,FreePrivateData,IDirect3DResource9,HRESULT FreePrivateData(const GUID *refguid)
+IDirect3DIndexBuffer9,7,0x1c,SetPriority,IDirect3DResource9,DWORD SetPriority(DWORD PriorityNew)
+IDirect3DIndexBuffer9,8,0x20,GetPriority,IDirect3DResource9,DWORD GetPriority()
+IDirect3DIndexBuffer9,9,0x24,PreLoad,IDirect3DResource9,void PreLoad()
+IDirect3DIndexBuffer9,10,0x28,GetType,IDirect3DResource9,DWORD GetType()
+IDirect3DIndexBuffer9,11,0x2c,Lock,IDirect3DIndexBuffer9,"HRESULT Lock(UINT OffsetToLock, UINT SizeToLock, void **ppbData, DWORD Flags)"
+IDirect3DIndexBuffer9,12,0x30,Unlock,IDirect3DIndexBuffer9,HRESULT Unlock()
+IDirect3DIndexBuffer9,13,0x34,GetDesc,IDirect3DIndexBuffer9,HRESULT GetDesc(void *pDesc)
+IDirect3DStateBlock9,0,0x0,QueryInterface,IUnknown,"HRESULT QueryInterface(const GUID *riid, void **ppvObj)"
+IDirect3DStateBlock9,1,0x4,AddRef,IUnknown,ULONG AddRef()
+IDirect3DStateBlock9,2,0x8,Release,IUnknown,ULONG Release()
+IDirect3DStateBlock9,3,0xc,GetDevice,IDirect3DStateBlock9,HRESULT GetDevice(IDirect3DDevice9 **ppDevice)
+IDirect3DStateBlock9,4,0x10,Capture,IDirect3DStateBlock9,HRESULT Capture()
+IDirect3DStateBlock9,5,0x14,Apply,IDirect3DStateBlock9,HRESULT Apply()
+IDirect3DVertexDeclaration9,0,0x0,QueryInterface,IUnknown,"HRESULT QueryInterface(const GUID *riid, void **ppvObj)"
+IDirect3DVertexDeclaration9,1,0x4,AddRef,IUnknown,ULONG AddRef()
+IDirect3DVertexDeclaration9,2,0x8,Release,IUnknown,ULONG Release()
+IDirect3DVertexDeclaration9,3,0xc,GetDevice,IDirect3DVertexDeclaration9,HRESULT GetDevice(IDirect3DDevice9 **ppDevice)
+IDirect3DVertexDeclaration9,4,0x10,GetDeclaration,IDirect3DVertexDeclaration9,"HRESULT GetDeclaration(void *pElement, UINT *pNumElements)"
+IDirect3DVertexShader9,0,0x0,QueryInterface,IUnknown,"HRESULT QueryInterface(const GUID *riid, void **ppvObj)"
+IDirect3DVertexShader9,1,0x4,AddRef,IUnknown,ULONG AddRef()
+IDirect3DVertexShader9,2,0x8,Release,IUnknown,ULONG Release()
+IDirect3DVertexShader9,3,0xc,GetDevice,IDirect3DVertexShader9,HRESULT GetDevice(IDirect3DDevice9 **ppDevice)
+IDirect3DVertexShader9,4,0x10,GetFunction,IDirect3DVertexShader9,"HRESULT GetFunction(void *pData, UINT *pSizeOfData)"
+IDirect3DPixelShader9,0,0x0,QueryInterface,IUnknown,"HRESULT QueryInterface(const GUID *riid, void **ppvObj)"
+IDirect3DPixelShader9,1,0x4,AddRef,IUnknown,ULONG AddRef()
+IDirect3DPixelShader9,2,0x8,Release,IUnknown,ULONG Release()
+IDirect3DPixelShader9,3,0xc,GetDevice,IDirect3DPixelShader9,HRESULT GetDevice(IDirect3DDevice9 **ppDevice)
+IDirect3DPixelShader9,4,0x10,GetFunction,IDirect3DPixelShader9,"HRESULT GetFunction(void *pData, UINT *pSizeOfData)"
+IDirect3DQuery9,0,0x0,QueryInterface,IUnknown,"HRESULT QueryInterface(const GUID *riid, void **ppvObj)"
+IDirect3DQuery9,1,0x4,AddRef,IUnknown,ULONG AddRef()
+IDirect3DQuery9,2,0x8,Release,IUnknown,ULONG Release()
+IDirect3DQuery9,3,0xc,GetDevice,IDirect3DQuery9,HRESULT GetDevice(IDirect3DDevice9 **ppDevice)
+IDirect3DQuery9,4,0x10,GetType,IDirect3DQuery9,DWORD GetType()
+IDirect3DQuery9,5,0x14,GetDataSize,IDirect3DQuery9,DWORD GetDataSize()
+IDirect3DQuery9,6,0x18,Issue,IDirect3DQuery9,HRESULT Issue(DWORD dwIssueFlags)
+IDirect3DQuery9,7,0x1c,GetData,IDirect3DQuery9,"HRESULT GetData(void *pData, DWORD dwSize, DWORD dwGetDataFlags)"
+IDirectSound,0,0x0,QueryInterface,IUnknown,"HRESULT QueryInterface(const GUID *riid, void **ppvObj)"
+IDirectSound,1,0x4,AddRef,IUnknown,ULONG AddRef()
+IDirectSound,2,0x8,Release,IUnknown,ULONG Release()
+IDirectSound,3,0xc,CreateSoundBuffer,IDirectSound,"HRESULT CreateSoundBuffer(const void *pcDSBufferDesc, IDirectSoundBuffer **ppDSBuffer, void *pUnkOuter)"
+IDirectSound,4,0x10,GetCaps,IDirectSound,HRESULT GetCaps(void *pDSCaps)
+IDirectSound,5,0x14,DuplicateSoundBuffer,IDirectSound,"HRESULT DuplicateSoundBuffer(IDirectSoundBuffer *pDSBufferOriginal, IDirectSoundBuffer **ppDSBufferDuplicate)"
+IDirectSound,6,0x18,SetCooperativeLevel,IDirectSound,"HRESULT SetCooperativeLevel(void *hwnd, DWORD dwLevel)"
+IDirectSound,7,0x1c,Compact,IDirectSound,HRESULT Compact()
+IDirectSound,8,0x20,GetSpeakerConfig,IDirectSound,HRESULT GetSpeakerConfig(DWORD *pdwSpeakerConfig)
+IDirectSound,9,0x24,SetSpeakerConfig,IDirectSound,HRESULT SetSpeakerConfig(DWORD dwSpeakerConfig)
+IDirectSound,10,0x28,Initialize,IDirectSound,HRESULT Initialize(const GUID *pcGuidDevice)
+IDirectSound8,0,0x0,QueryInterface,IUnknown,"HRESULT QueryInterface(const GUID *riid, void **ppvObj)"
+IDirectSound8,1,0x4,AddRef,IUnknown,ULONG AddRef()
+IDirectSound8,2,0x8,Release,IUnknown,ULONG Release()
+IDirectSound8,3,0xc,CreateSoundBuffer,IDirectSound,"HRESULT CreateSoundBuffer(const void *pcDSBufferDesc, IDirectSoundBuffer **ppDSBuffer, void *pUnkOuter)"
+IDirectSound8,4,0x10,GetCaps,IDirectSound,HRESULT GetCaps(void *pDSCaps)
+IDirectSound8,5,0x14,DuplicateSoundBuffer,IDirectSound,"HRESULT DuplicateSoundBuffer(IDirectSoundBuffer *pDSBufferOriginal, IDirectSoundBuffer **ppDSBufferDuplicate)"
+IDirectSound8,6,0x18,SetCooperativeLevel,IDirectSound,"HRESULT SetCooperativeLevel(void *hwnd, DWORD dwLevel)"
+IDirectSound8,7,0x1c,Compact,IDirectSound,HRESULT Compact()
+IDirectSound8,8,0x20,GetSpeakerConfig,IDirectSound,HRESULT GetSpeakerConfig(DWORD *pdwSpeakerConfig)
+IDirectSound8,9,0x24,SetSpeakerConfig,IDirectSound,HRESULT SetSpeakerConfig(DWORD dwSpeakerConfig)
+IDirectSound8,10,0x28,Initialize,IDirectSound,HRESULT Initialize(const GUID *pcGuidDevice)
+IDirectSound8,11,0x2c,VerifyCertification,IDirectSound8,HRESULT VerifyCertification(DWORD *pdwCertified)
+IDirectSoundBuffer,0,0x0,QueryInterface,IUnknown,"HRESULT QueryInterface(const GUID *riid, void **ppvObj)"
+IDirectSoundBuffer,1,0x4,AddRef,IUnknown,ULONG AddRef()
+IDirectSoundBuffer,2,0x8,Release,IUnknown,ULONG Release()
+IDirectSoundBuffer,3,0xc,GetCaps,IDirectSoundBuffer,HRESULT GetCaps(void *pDSBufferCaps)
+IDirectSoundBuffer,4,0x10,GetCurrentPosition,IDirectSoundBuffer,"HRESULT GetCurrentPosition(DWORD *pdwCurrentPlayCursor, DWORD *pdwCurrentWriteCursor)"
+IDirectSoundBuffer,5,0x14,GetFormat,IDirectSoundBuffer,"HRESULT GetFormat(void *pwfxFormat, DWORD dwSizeAllocated, DWORD *pdwSizeWritten)"
+IDirectSoundBuffer,6,0x18,GetVolume,IDirectSoundBuffer,HRESULT GetVolume(long *plVolume)
+IDirectSoundBuffer,7,0x1c,GetPan,IDirectSoundBuffer,HRESULT GetPan(long *plPan)
+IDirectSoundBuffer,8,0x20,GetFrequency,IDirectSoundBuffer,HRESULT GetFrequency(DWORD *pdwFrequency)
+IDirectSoundBuffer,9,0x24,GetStatus,IDirectSoundBuffer,HRESULT GetStatus(DWORD *pdwStatus)
+IDirectSoundBuffer,10,0x28,Initialize,IDirectSoundBuffer,"HRESULT Initialize(IDirectSound *pDirectSound, const void *pcDSBufferDesc)"
+IDirectSoundBuffer,11,0x2c,Lock,IDirectSoundBuffer,"HRESULT Lock(DWORD dwOffset, DWORD dwBytes, void **ppvAudioPtr1, DWORD *pdwAudioBytes1, void **ppvAudioPtr2, DWORD *pdwAudioBytes2, DWORD dwFlags)"
+IDirectSoundBuffer,12,0x30,Play,IDirectSoundBuffer,"HRESULT Play(DWORD dwReserved1, DWORD dwPriority, DWORD dwFlags)"
+IDirectSoundBuffer,13,0x34,SetCurrentPosition,IDirectSoundBuffer,HRESULT SetCurrentPosition(DWORD dwNewPosition)
+IDirectSoundBuffer,14,0x38,SetFormat,IDirectSoundBuffer,HRESULT SetFormat(const void *pcfxFormat)
+IDirectSoundBuffer,15,0x3c,SetVolume,IDirectSoundBuffer,HRESULT SetVolume(long lVolume)
+IDirectSoundBuffer,16,0x40,SetPan,IDirectSoundBuffer,HRESULT SetPan(long lPan)
+IDirectSoundBuffer,17,0x44,SetFrequency,IDirectSoundBuffer,HRESULT SetFrequency(DWORD dwFrequency)
+IDirectSoundBuffer,18,0x48,Stop,IDirectSoundBuffer,HRESULT Stop()
+IDirectSoundBuffer,19,0x4c,Unlock,IDirectSoundBuffer,"HRESULT Unlock(void *pvAudioPtr1, DWORD dwAudioBytes1, void *pvAudioPtr2, DWORD dwAudioBytes2)"
+IDirectSoundBuffer,20,0x50,Restore,IDirectSoundBuffer,HRESULT Restore()
+IDirectSoundBuffer8,0,0x0,QueryInterface,IUnknown,"HRESULT QueryInterface(const GUID *riid, void **ppvObj)"
+IDirectSoundBuffer8,1,0x4,AddRef,IUnknown,ULONG AddRef()
+IDirectSoundBuffer8,2,0x8,Release,IUnknown,ULONG Release()
+IDirectSoundBuffer8,3,0xc,GetCaps,IDirectSoundBuffer,HRESULT GetCaps(void *pDSBufferCaps)
+IDirectSoundBuffer8,4,0x10,GetCurrentPosition,IDirectSoundBuffer,"HRESULT GetCurrentPosition(DWORD *pdwCurrentPlayCursor, DWORD *pdwCurrentWriteCursor)"
+IDirectSoundBuffer8,5,0x14,GetFormat,IDirectSoundBuffer,"HRESULT GetFormat(void *pwfxFormat, DWORD dwSizeAllocated, DWORD *pdwSizeWritten)"
+IDirectSoundBuffer8,6,0x18,GetVolume,IDirectSoundBuffer,HRESULT GetVolume(long *plVolume)
+IDirectSoundBuffer8,7,0x1c,GetPan,IDirectSoundBuffer,HRESULT GetPan(long *plPan)
+IDirectSoundBuffer8,8,0x20,GetFrequency,IDirectSoundBuffer,HRESULT GetFrequency(DWORD *pdwFrequency)
+IDirectSoundBuffer8,9,0x24,GetStatus,IDirectSoundBuffer,HRESULT GetStatus(DWORD *pdwStatus)
+IDirectSoundBuffer8,10,0x28,Initialize,IDirectSoundBuffer,"HRESULT Initialize(IDirectSound *pDirectSound, const void *pcDSBufferDesc)"
+IDirectSoundBuffer8,11,0x2c,Lock,IDirectSoundBuffer,"HRESULT Lock(DWORD dwOffset, DWORD dwBytes, void **ppvAudioPtr1, DWORD *pdwAudioBytes1, void **ppvAudioPtr2, DWORD *pdwAudioBytes2, DWORD dwFlags)"
+IDirectSoundBuffer8,12,0x30,Play,IDirectSoundBuffer,"HRESULT Play(DWORD dwReserved1, DWORD dwPriority, DWORD dwFlags)"
+IDirectSoundBuffer8,13,0x34,SetCurrentPosition,IDirectSoundBuffer,HRESULT SetCurrentPosition(DWORD dwNewPosition)
+IDirectSoundBuffer8,14,0x38,SetFormat,IDirectSoundBuffer,HRESULT SetFormat(const void *pcfxFormat)
+IDirectSoundBuffer8,15,0x3c,SetVolume,IDirectSoundBuffer,HRESULT SetVolume(long lVolume)
+IDirectSoundBuffer8,16,0x40,SetPan,IDirectSoundBuffer,HRESULT SetPan(long lPan)
+IDirectSoundBuffer8,17,0x44,SetFrequency,IDirectSoundBuffer,HRESULT SetFrequency(DWORD dwFrequency)
+IDirectSoundBuffer8,18,0x48,Stop,IDirectSoundBuffer,HRESULT Stop()
+IDirectSoundBuffer8,19,0x4c,Unlock,IDirectSoundBuffer,"HRESULT Unlock(void *pvAudioPtr1, DWORD dwAudioBytes1, void *pvAudioPtr2, DWORD dwAudioBytes2)"
+IDirectSoundBuffer8,20,0x50,Restore,IDirectSoundBuffer,HRESULT Restore()
+IDirectSoundBuffer8,21,0x54,SetFX,IDirectSoundBuffer8,"HRESULT SetFX(DWORD dwEffectsCount, void *pDSFXDesc, DWORD *pdwResultCodes)"
+IDirectSoundBuffer8,22,0x58,AcquireResources,IDirectSoundBuffer8,"HRESULT AcquireResources(DWORD dwFlags, DWORD dwEffectsCount, DWORD *pdwResultCodes)"
+IDirectSoundBuffer8,23,0x5c,GetObjectInPath,IDirectSoundBuffer8,"HRESULT GetObjectInPath(const GUID *rguidObject, DWORD dwIndex, const GUID *rguidInterface, void **ppObject)"
+IDirectSound3DBuffer,0,0x0,QueryInterface,IUnknown,"HRESULT QueryInterface(const GUID *riid, void **ppvObj)"
+IDirectSound3DBuffer,1,0x4,AddRef,IUnknown,ULONG AddRef()
+IDirectSound3DBuffer,2,0x8,Release,IUnknown,ULONG Release()
+IDirectSound3DBuffer,3,0xc,GetAllParameters,IDirectSound3DBuffer,HRESULT GetAllParameters(void *pDs3dBuffer)
+IDirectSound3DBuffer,4,0x10,GetConeAngles,IDirectSound3DBuffer,"HRESULT GetConeAngles(DWORD *pdwInsideConeAngle, DWORD *pdwOutsideConeAngle)"
+IDirectSound3DBuffer,5,0x14,GetConeOrientation,IDirectSound3DBuffer,HRESULT GetConeOrientation(void *pvOrientation)
+IDirectSound3DBuffer,6,0x18,GetConeOutsideVolume,IDirectSound3DBuffer,HRESULT GetConeOutsideVolume(long *plConeOutsideVolume)
+IDirectSound3DBuffer,7,0x1c,GetMaxDistance,IDirectSound3DBuffer,HRESULT GetMaxDistance(float *pflMaxDistance)
+IDirectSound3DBuffer,8,0x20,GetMinDistance,IDirectSound3DBuffer,HRESULT GetMinDistance(float *pflMinDistance)
+IDirectSound3DBuffer,9,0x24,GetMode,IDirectSound3DBuffer,HRESULT GetMode(DWORD *pdwMode)
+IDirectSound3DBuffer,10,0x28,GetPosition,IDirectSound3DBuffer,HRESULT GetPosition(void *pvPosition)
+IDirectSound3DBuffer,11,0x2c,GetVelocity,IDirectSound3DBuffer,HRESULT GetVelocity(void *pvVelocity)
+IDirectSound3DBuffer,12,0x30,SetAllParameters,IDirectSound3DBuffer,"HRESULT SetAllParameters(const void *pcDs3dBuffer, DWORD dwApply)"
+IDirectSound3DBuffer,13,0x34,SetConeAngles,IDirectSound3DBuffer,"HRESULT SetConeAngles(DWORD dwInsideConeAngle, DWORD dwOutsideConeAngle, DWORD dwApply)"
+IDirectSound3DBuffer,14,0x38,SetConeOrientation,IDirectSound3DBuffer,"HRESULT SetConeOrientation(float x, float y, float z, DWORD dwApply)"
+IDirectSound3DBuffer,15,0x3c,SetConeOutsideVolume,IDirectSound3DBuffer,"HRESULT SetConeOutsideVolume(long lConeOutsideVolume, DWORD dwApply)"
+IDirectSound3DBuffer,16,0x40,SetMaxDistance,IDirectSound3DBuffer,"HRESULT SetMaxDistance(float flMaxDistance, DWORD dwApply)"
+IDirectSound3DBuffer,17,0x44,SetMinDistance,IDirectSound3DBuffer,"HRESULT SetMinDistance(float flMinDistance, DWORD dwApply)"
+IDirectSound3DBuffer,18,0x48,SetMode,IDirectSound3DBuffer,"HRESULT SetMode(DWORD dwMode, DWORD dwApply)"
+IDirectSound3DBuffer,19,0x4c,SetPosition,IDirectSound3DBuffer,"HRESULT SetPosition(float x, float y, float z, DWORD dwApply)"
+IDirectSound3DBuffer,20,0x50,SetVelocity,IDirectSound3DBuffer,"HRESULT SetVelocity(float x, float y, float z, DWORD dwApply)"
+IDirectSound3DListener,0,0x0,QueryInterface,IUnknown,"HRESULT QueryInterface(const GUID *riid, void **ppvObj)"
+IDirectSound3DListener,1,0x4,AddRef,IUnknown,ULONG AddRef()
+IDirectSound3DListener,2,0x8,Release,IUnknown,ULONG Release()
+IDirectSound3DListener,3,0xc,GetAllParameters,IDirectSound3DListener,HRESULT GetAllParameters(void *pListener)
+IDirectSound3DListener,4,0x10,GetDistanceFactor,IDirectSound3DListener,HRESULT GetDistanceFactor(float *pflDistanceFactor)
+IDirectSound3DListener,5,0x14,GetDopplerFactor,IDirectSound3DListener,HRESULT GetDopplerFactor(float *pflDopplerFactor)
+IDirectSound3DListener,6,0x18,GetOrientation,IDirectSound3DListener,"HRESULT GetOrientation(void *pvOrientFront, void *pvOrientTop)"
+IDirectSound3DListener,7,0x1c,GetPosition,IDirectSound3DListener,HRESULT GetPosition(void *pvPosition)
+IDirectSound3DListener,8,0x20,GetRolloffFactor,IDirectSound3DListener,HRESULT GetRolloffFactor(float *pflRolloffFactor)
+IDirectSound3DListener,9,0x24,GetVelocity,IDirectSound3DListener,HRESULT GetVelocity(void *pvVelocity)
+IDirectSound3DListener,10,0x28,SetAllParameters,IDirectSound3DListener,"HRESULT SetAllParameters(const void *pcListener, DWORD dwApply)"
+IDirectSound3DListener,11,0x2c,SetDistanceFactor,IDirectSound3DListener,"HRESULT SetDistanceFactor(float flDistanceFactor, DWORD dwApply)"
+IDirectSound3DListener,12,0x30,SetDopplerFactor,IDirectSound3DListener,"HRESULT SetDopplerFactor(float flDopplerFactor, DWORD dwApply)"
+IDirectSound3DListener,13,0x34,SetOrientation,IDirectSound3DListener,"HRESULT SetOrientation(float xFront, float yFront, float zFront, float xTop, float yTop, float zTop, DWORD dwApply)"
+IDirectSound3DListener,14,0x38,SetPosition,IDirectSound3DListener,"HRESULT SetPosition(float x, float y, float z, DWORD dwApply)"
+IDirectSound3DListener,15,0x3c,SetRolloffFactor,IDirectSound3DListener,"HRESULT SetRolloffFactor(float flRolloffFactor, DWORD dwApply)"
+IDirectSound3DListener,16,0x40,SetVelocity,IDirectSound3DListener,"HRESULT SetVelocity(float x, float y, float z, DWORD dwApply)"
+IDirectSound3DListener,17,0x44,CommitDeferredSettings,IDirectSound3DListener,HRESULT CommitDeferredSettings()
+IDirectSoundNotify,0,0x0,QueryInterface,IUnknown,"HRESULT QueryInterface(const GUID *riid, void **ppvObj)"
+IDirectSoundNotify,1,0x4,AddRef,IUnknown,ULONG AddRef()
+IDirectSoundNotify,2,0x8,Release,IUnknown,ULONG Release()
+IDirectSoundNotify,3,0xc,SetNotificationPositions,IDirectSoundNotify,"HRESULT SetNotificationPositions(DWORD dwPositionNotifies, const void *pcPositionNotifies)"
+IKsPropertySet,0,0x0,QueryInterface,IUnknown,"HRESULT QueryInterface(const GUID *riid, void **ppvObj)"
+IKsPropertySet,1,0x4,AddRef,IUnknown,ULONG AddRef()
+IKsPropertySet,2,0x8,Release,IUnknown,ULONG Release()
+IKsPropertySet,3,0xc,Get,IKsPropertySet,"HRESULT Get(const GUID *rguidPropSet, ULONG ulId, void *pInstanceData, ULONG ulInstanceLength, void *pPropertyData, ULONG ulDataLength, ULONG *pulBytesReturned)"
+IKsPropertySet,4,0x10,Set,IKsPropertySet,"HRESULT Set(const GUID *rguidPropSet, ULONG ulId, void *pInstanceData, ULONG ulInstanceLength, void *pPropertyData, ULONG ulDataLength)"
+IKsPropertySet,5,0x14,QuerySupport,IKsPropertySet,"HRESULT QuerySupport(const GUID *rguidPropSet, ULONG ulId, ULONG *pulTypeSupport)"
+IDirectInput8A,0,0x0,QueryInterface,IUnknown,"HRESULT QueryInterface(const GUID *riid, void **ppvObj)"
+IDirectInput8A,1,0x4,AddRef,IUnknown,ULONG AddRef()
+IDirectInput8A,2,0x8,Release,IUnknown,ULONG Release()
+IDirectInput8A,3,0xc,CreateDevice,IDirectInput8A,"HRESULT CreateDevice(const GUID *rguid, IDirectInputDevice8A **lplpDirectInputDevice, void *pUnkOuter)"
+IDirectInput8A,4,0x10,EnumDevices,IDirectInput8A,"HRESULT EnumDevices(DWORD dwDevType, void *lpCallback, void *pvRef, DWORD dwFlags)"
+IDirectInput8A,5,0x14,GetDeviceStatus,IDirectInput8A,HRESULT GetDeviceStatus(const GUID *rguidInstance)
+IDirectInput8A,6,0x18,RunControlPanel,IDirectInput8A,"HRESULT RunControlPanel(void *hwndOwner, DWORD dwFlags)"
+IDirectInput8A,7,0x1c,Initialize,IDirectInput8A,"HRESULT Initialize(void *hinst, DWORD dwVersion)"
+IDirectInput8A,8,0x20,FindDevice,IDirectInput8A,"HRESULT FindDevice(const GUID *rguidClass, const char *ptszName, GUID *pguidInstance)"
+IDirectInput8A,9,0x24,EnumDevicesBySemantics,IDirectInput8A,"HRESULT EnumDevicesBySemantics(const char *ptszUserName, void *lpdiActionFormat, void *lpCallback, void *pvRef, DWORD dwFlags)"
+IDirectInput8A,10,0x28,ConfigureDevices,IDirectInput8A,"HRESULT ConfigureDevices(void *lpdiCallback, void *lpdiCDParams, DWORD dwFlags, void *pvRefData)"
+IDirectInputDevice8A,0,0x0,QueryInterface,IUnknown,"HRESULT QueryInterface(const GUID *riid, void **ppvObj)"
+IDirectInputDevice8A,1,0x4,AddRef,IUnknown,ULONG AddRef()
+IDirectInputDevice8A,2,0x8,Release,IUnknown,ULONG Release()
+IDirectInputDevice8A,3,0xc,GetCapabilities,IDirectInputDevice8A,HRESULT GetCapabilities(void *lpDIDevCaps)
+IDirectInputDevice8A,4,0x10,EnumObjects,IDirectInputDevice8A,"HRESULT EnumObjects(void *lpCallback, void *pvRef, DWORD dwFlags)"
+IDirectInputDevice8A,5,0x14,GetProperty,IDirectInputDevice8A,"HRESULT GetProperty(const GUID *rguidProp, void *pdiph)"
+IDirectInputDevice8A,6,0x18,SetProperty,IDirectInputDevice8A,"HRESULT SetProperty(const GUID *rguidProp, const void *pdiph)"
+IDirectInputDevice8A,7,0x1c,Acquire,IDirectInputDevice8A,HRESULT Acquire()
+IDirectInputDevice8A,8,0x20,Unacquire,IDirectInputDevice8A,HRESULT Unacquire()
+IDirectInputDevice8A,9,0x24,GetDeviceState,IDirectInputDevice8A,"HRESULT GetDeviceState(DWORD cbData, void *lpvData)"
+IDirectInputDevice8A,10,0x28,GetDeviceData,IDirectInputDevice8A,"HRESULT GetDeviceData(DWORD cbObjectData, void *rgdod, DWORD *pdwInOut, DWORD dwFlags)"
+IDirectInputDevice8A,11,0x2c,SetDataFormat,IDirectInputDevice8A,HRESULT SetDataFormat(const void *lpdf)
+IDirectInputDevice8A,12,0x30,SetEventNotification,IDirectInputDevice8A,HRESULT SetEventNotification(void *hEvent)
+IDirectInputDevice8A,13,0x34,SetCooperativeLevel,IDirectInputDevice8A,"HRESULT SetCooperativeLevel(void *hwnd, DWORD dwFlags)"
+IDirectInputDevice8A,14,0x38,GetObjectInfo,IDirectInputDevice8A,"HRESULT GetObjectInfo(void *pdidoi, DWORD dwObj, DWORD dwHow)"
+IDirectInputDevice8A,15,0x3c,GetDeviceInfo,IDirectInputDevice8A,HRESULT GetDeviceInfo(void *pdidi)
+IDirectInputDevice8A,16,0x40,RunControlPanel,IDirectInputDevice8A,"HRESULT RunControlPanel(void *hwndOwner, DWORD dwFlags)"
+IDirectInputDevice8A,17,0x44,Initialize,IDirectInputDevice8A,"HRESULT Initialize(void *hinst, DWORD dwVersion, const GUID *rguid)"
+IDirectInputDevice8A,18,0x48,CreateEffect,IDirectInputDevice8A,"HRESULT CreateEffect(const GUID *rguid, const void *lpeff, IDirectInputEffect **ppdeff, void *punkOuter)"
+IDirectInputDevice8A,19,0x4c,EnumEffects,IDirectInputDevice8A,"HRESULT EnumEffects(void *lpCallback, void *pvRef, DWORD dwEffType)"
+IDirectInputDevice8A,20,0x50,GetEffectInfo,IDirectInputDevice8A,"HRESULT GetEffectInfo(void *pdei, const GUID *rguid)"
+IDirectInputDevice8A,21,0x54,GetForceFeedbackState,IDirectInputDevice8A,HRESULT GetForceFeedbackState(DWORD *pdwOut)
+IDirectInputDevice8A,22,0x58,SendForceFeedbackCommand,IDirectInputDevice8A,HRESULT SendForceFeedbackCommand(DWORD dwFlags)
+IDirectInputDevice8A,23,0x5c,EnumCreatedEffectObjects,IDirectInputDevice8A,"HRESULT EnumCreatedEffectObjects(void *lpCallback, void *pvRef, DWORD fl)"
+IDirectInputDevice8A,24,0x60,Escape,IDirectInputDevice8A,HRESULT Escape(void *pesc)
+IDirectInputDevice8A,25,0x64,Poll,IDirectInputDevice8A,HRESULT Poll()
+IDirectInputDevice8A,26,0x68,SendDeviceData,IDirectInputDevice8A,"HRESULT SendDeviceData(DWORD cbObjectData, const void *rgdod, DWORD *pdwInOut, DWORD fl)"
+IDirectInputDevice8A,27,0x6c,EnumEffectsInFile,IDirectInputDevice8A,"HRESULT EnumEffectsInFile(const char *lpszFileName, void *pec, void *pvRef, DWORD dwFlags)"
+IDirectInputDevice8A,28,0x70,WriteEffectToFile,IDirectInputDevice8A,"HRESULT WriteEffectToFile(const char *lpszFileName, DWORD dwEntries, void *rgDiFileEft, DWORD dwFlags)"
+IDirectInputDevice8A,29,0x74,BuildActionMap,IDirectInputDevice8A,"HRESULT BuildActionMap(void *lpdiaf, const char *lpszUserName, DWORD dwFlags)"
+IDirectInputDevice8A,30,0x78,SetActionMap,IDirectInputDevice8A,"HRESULT SetActionMap(void *lpdiaf, const char *lpszUserName, DWORD dwFlags)"
+IDirectInputDevice8A,31,0x7c,GetImageInfo,IDirectInputDevice8A,HRESULT GetImageInfo(void *lpdiDevImageInfoHeader)
+IDirectInputEffect,0,0x0,QueryInterface,IUnknown,"HRESULT QueryInterface(const GUID *riid, void **ppvObj)"
+IDirectInputEffect,1,0x4,AddRef,IUnknown,ULONG AddRef()
+IDirectInputEffect,2,0x8,Release,IUnknown,ULONG Release()
+IDirectInputEffect,3,0xc,Initialize,IDirectInputEffect,"HRESULT Initialize(void *hinst, DWORD dwVersion, const GUID *rguid)"
+IDirectInputEffect,4,0x10,GetEffectGuid,IDirectInputEffect,HRESULT GetEffectGuid(GUID *pguid)
+IDirectInputEffect,5,0x14,GetParameters,IDirectInputEffect,"HRESULT GetParameters(void *peff, DWORD dwFlags)"
+IDirectInputEffect,6,0x18,SetParameters,IDirectInputEffect,"HRESULT SetParameters(const void *peff, DWORD dwFlags)"
+IDirectInputEffect,7,0x1c,Start,IDirectInputEffect,"HRESULT Start(DWORD dwIterations, DWORD dwFlags)"
+IDirectInputEffect,8,0x20,Stop,IDirectInputEffect,HRESULT Stop()
+IDirectInputEffect,9,0x24,GetEffectStatus,IDirectInputEffect,HRESULT GetEffectStatus(DWORD *pdwFlags)
+IDirectInputEffect,10,0x28,Download,IDirectInputEffect,HRESULT Download()
+IDirectInputEffect,11,0x2c,Unload,IDirectInputEffect,HRESULT Unload()
+IDirectInputEffect,12,0x30,Escape,IDirectInputEffect,HRESULT Escape(void *pesc)
+IDirectInputA,0,0x0,QueryInterface,IUnknown,"HRESULT QueryInterface(const GUID *riid, void **ppvObj)"
+IDirectInputA,1,0x4,AddRef,IUnknown,ULONG AddRef()
+IDirectInputA,2,0x8,Release,IUnknown,ULONG Release()
+IDirectInputA,3,0xc,CreateDevice,IDirectInputA,"HRESULT CreateDevice(const GUID *rguid, IDirectInputDeviceA **lplpDirectInputDevice, void *pUnkOuter)"
+IDirectInputA,4,0x10,EnumDevices,IDirectInputA,"HRESULT EnumDevices(DWORD dwDevType, void *lpCallback, void *pvRef, DWORD dwFlags)"
+IDirectInputA,5,0x14,GetDeviceStatus,IDirectInputA,HRESULT GetDeviceStatus(const GUID *rguidInstance)
+IDirectInputA,6,0x18,RunControlPanel,IDirectInputA,"HRESULT RunControlPanel(void *hwndOwner, DWORD dwFlags)"
+IDirectInputA,7,0x1c,Initialize,IDirectInputA,"HRESULT Initialize(void *hinst, DWORD dwVersion)"
+IDirectInputA,8,0x20,FindDevice,IDirectInputA,"HRESULT FindDevice(const GUID *rguidClass, const char *ptszName, GUID *pguidInstance)"
+IDirectInputA,9,0x24,CreateDeviceEx,IDirectInputA,"HRESULT CreateDeviceEx(const GUID *rguid, const GUID *riid, void **pvOut, void *lpUnknownOuter)"
+IDirectInputDeviceA,0,0x0,QueryInterface,IUnknown,"HRESULT QueryInterface(const GUID *riid, void **ppvObj)"
+IDirectInputDeviceA,1,0x4,AddRef,IUnknown,ULONG AddRef()
+IDirectInputDeviceA,2,0x8,Release,IUnknown,ULONG Release()
+IDirectInputDeviceA,3,0xc,GetCapabilities,IDirectInputDeviceA,HRESULT GetCapabilities(void *lpDIDevCaps)
+IDirectInputDeviceA,4,0x10,EnumObjects,IDirectInputDeviceA,"HRESULT EnumObjects(void *lpCallback, void *pvRef, DWORD dwFlags)"
+IDirectInputDeviceA,5,0x14,GetProperty,IDirectInputDeviceA,"HRESULT GetProperty(const GUID *rguidProp, void *pdiph)"
+IDirectInputDeviceA,6,0x18,SetProperty,IDirectInputDeviceA,"HRESULT SetProperty(const GUID *rguidProp, const void *pdiph)"
+IDirectInputDeviceA,7,0x1c,Acquire,IDirectInputDeviceA,HRESULT Acquire()
+IDirectInputDeviceA,8,0x20,Unacquire,IDirectInputDeviceA,HRESULT Unacquire()
+IDirectInputDeviceA,9,0x24,GetDeviceState,IDirectInputDeviceA,"HRESULT GetDeviceState(DWORD cbData, void *lpvData)"
+IDirectInputDeviceA,10,0x28,GetDeviceData,IDirectInputDeviceA,"HRESULT GetDeviceData(DWORD cbObjectData, void *rgdod, DWORD *pdwInOut, DWORD dwFlags)"
+IDirectInputDeviceA,11,0x2c,SetDataFormat,IDirectInputDeviceA,HRESULT SetDataFormat(const void *lpdf)
+IDirectInputDeviceA,12,0x30,SetEventNotification,IDirectInputDeviceA,HRESULT SetEventNotification(void *hEvent)
+IDirectInputDeviceA,13,0x34,SetCooperativeLevel,IDirectInputDeviceA,"HRESULT SetCooperativeLevel(void *hwnd, DWORD dwFlags)"
+IDirectInputDeviceA,14,0x38,GetObjectInfo,IDirectInputDeviceA,"HRESULT GetObjectInfo(void *pdidoi, DWORD dwObj, DWORD dwHow)"
+IDirectInputDeviceA,15,0x3c,GetDeviceInfo,IDirectInputDeviceA,HRESULT GetDeviceInfo(void *pdidi)
+IDirectInputDeviceA,16,0x40,RunControlPanel,IDirectInputDeviceA,"HRESULT RunControlPanel(void *hwndOwner, DWORD dwFlags)"
+IDirectInputDeviceA,17,0x44,Initialize,IDirectInputDeviceA,"HRESULT Initialize(void *hinst, DWORD dwVersion, const GUID *rguid)"
+IDirectInputDeviceA,18,0x48,CreateEffect,IDirectInputDeviceA,"HRESULT CreateEffect(const GUID *rguid, const void *lpeff, IDirectInputEffect **ppdeff, void *punkOuter)"
+IDirectInputDeviceA,19,0x4c,EnumEffects,IDirectInputDeviceA,"HRESULT EnumEffects(void *lpCallback, void *pvRef, DWORD dwEffType)"
+IDirectInputDeviceA,20,0x50,GetEffectInfo,IDirectInputDeviceA,"HRESULT GetEffectInfo(void *pdei, const GUID *rguid)"
+IDirectInputDeviceA,21,0x54,GetForceFeedbackState,IDirectInputDeviceA,HRESULT GetForceFeedbackState(DWORD *pdwOut)
+IDirectInputDeviceA,22,0x58,SendForceFeedbackCommand,IDirectInputDeviceA,HRESULT SendForceFeedbackCommand(DWORD dwFlags)
+IDirectInputDeviceA,23,0x5c,EnumCreatedEffectObjects,IDirectInputDeviceA,"HRESULT EnumCreatedEffectObjects(void *lpCallback, void *pvRef, DWORD fl)"
+IDirectInputDeviceA,24,0x60,Escape,IDirectInputDeviceA,HRESULT Escape(void *pesc)
+IDirectInputDeviceA,25,0x64,Poll,IDirectInputDeviceA,HRESULT Poll()
+IDirectInputDeviceA,26,0x68,SendDeviceData,IDirectInputDeviceA,"HRESULT SendDeviceData(DWORD cbObjectData, const void *rgdod, DWORD *pdwInOut, DWORD fl)"
+IDirectInputDeviceA,27,0x6c,EnumEffectsInFile,IDirectInputDeviceA,"HRESULT EnumEffectsInFile(const char *lpszFileName, void *pec, void *pvRef, DWORD dwFlags)"
+IDirectInputDeviceA,28,0x70,WriteEffectToFile,IDirectInputDeviceA,"HRESULT WriteEffectToFile(const char *lpszFileName, DWORD dwEntries, void *rgDiFileEft, DWORD dwFlags)"
+IDirectDraw,0,0x0,QueryInterface,IUnknown,"HRESULT QueryInterface(const GUID *riid, void **ppvObj)"
+IDirectDraw,1,0x4,AddRef,IUnknown,ULONG AddRef()
+IDirectDraw,2,0x8,Release,IUnknown,ULONG Release()
+IDirectDraw,3,0xc,Compact,IDirectDraw,HRESULT Compact()
+IDirectDraw,4,0x10,CreateClipper,IDirectDraw,"HRESULT CreateClipper(DWORD dwFlags, void **lplpDDClipper, void *pUnkOuter)"
+IDirectDraw,5,0x14,CreatePalette,IDirectDraw,"HRESULT CreatePalette(DWORD dwFlags, void *lpDDColorArray, void **lplpDDPalette, void *pUnkOuter)"
+IDirectDraw,6,0x18,CreateSurface,IDirectDraw,"HRESULT CreateSurface(void *lpDDSurfaceDesc, void **lplpDDSurface, void *pUnkOuter)"
+IDirectDraw,7,0x1c,DuplicateSurface,IDirectDraw,"HRESULT DuplicateSurface(void *lpDDSurface, void **lplpDupDDSurface)"
+IDirectDraw,8,0x20,EnumDisplayModes,IDirectDraw,"HRESULT EnumDisplayModes(DWORD dwFlags, void *lpDDSurfaceDesc, void *lpContext, void *lpEnumModesCallback)"
+IDirectDraw,9,0x24,EnumSurfaces,IDirectDraw,"HRESULT EnumSurfaces(DWORD dwFlags, void *lpDDSD, void *lpContext, void *lpEnumSurfacesCallback)"
+IDirectDraw,10,0x28,FlipToGDISurface,IDirectDraw,HRESULT FlipToGDISurface()
+IDirectDraw,11,0x2c,GetCaps,IDirectDraw,"HRESULT GetCaps(void *lpDDDriverCaps, void *lpDDHELCaps)"
+IDirectDraw,12,0x30,GetDisplayMode,IDirectDraw,HRESULT GetDisplayMode(void *lpDDSurfaceDesc)
+IDirectDraw,13,0x34,GetFourCCCodes,IDirectDraw,"HRESULT GetFourCCCodes(DWORD *lpNumCodes, DWORD *lpCodes)"
+IDirectDraw,14,0x38,GetGDISurface,IDirectDraw,HRESULT GetGDISurface(void **lplpGDIDDSSurface)
+IDirectDraw,15,0x3c,GetMonitorFrequency,IDirectDraw,HRESULT GetMonitorFrequency(DWORD *lpdwFrequency)
+IDirectDraw,16,0x40,GetScanLine,IDirectDraw,HRESULT GetScanLine(DWORD *lpdwScanLine)
+IDirectDraw,17,0x44,GetVerticalBlankStatus,IDirectDraw,HRESULT GetVerticalBlankStatus(BOOL *lpbIsInVB)
+IDirectDraw,18,0x48,Initialize,IDirectDraw,HRESULT Initialize(GUID *lpGUID)
+IDirectDraw,19,0x4c,RestoreDisplayMode,IDirectDraw,HRESULT RestoreDisplayMode()
+IDirectDraw,20,0x50,SetCooperativeLevel,IDirectDraw,"HRESULT SetCooperativeLevel(void *hWnd, DWORD dwFlags)"
+IDirectDraw,21,0x54,SetDisplayMode,IDirectDraw,"HRESULT SetDisplayMode(DWORD dwWidth, DWORD dwHeight, DWORD dwBpp)"
+IDirectDraw,22,0x58,WaitForVerticalBlank,IDirectDraw,"HRESULT WaitForVerticalBlank(DWORD dwFlags, void *hEvent)"
+IDirectDraw2,0,0x0,QueryInterface,IUnknown,"HRESULT QueryInterface(const GUID *riid, void **ppvObj)"
+IDirectDraw2,1,0x4,AddRef,IUnknown,ULONG AddRef()
+IDirectDraw2,2,0x8,Release,IUnknown,ULONG Release()
+IDirectDraw2,3,0xc,Compact,IDirectDraw,HRESULT Compact()
+IDirectDraw2,4,0x10,CreateClipper,IDirectDraw,"HRESULT CreateClipper(DWORD dwFlags, void **lplpDDClipper, void *pUnkOuter)"
+IDirectDraw2,5,0x14,CreatePalette,IDirectDraw,"HRESULT CreatePalette(DWORD dwFlags, void *lpDDColorArray, void **lplpDDPalette, void *pUnkOuter)"
+IDirectDraw2,6,0x18,CreateSurface,IDirectDraw,"HRESULT CreateSurface(void *lpDDSurfaceDesc, void **lplpDDSurface, void *pUnkOuter)"
+IDirectDraw2,7,0x1c,DuplicateSurface,IDirectDraw,"HRESULT DuplicateSurface(void *lpDDSurface, void **lplpDupDDSurface)"
+IDirectDraw2,8,0x20,EnumDisplayModes,IDirectDraw,"HRESULT EnumDisplayModes(DWORD dwFlags, void *lpDDSurfaceDesc, void *lpContext, void *lpEnumModesCallback)"
+IDirectDraw2,9,0x24,EnumSurfaces,IDirectDraw,"HRESULT EnumSurfaces(DWORD dwFlags, void *lpDDSD, void *lpContext, void *lpEnumSurfacesCallback)"
+IDirectDraw2,10,0x28,FlipToGDISurface,IDirectDraw,HRESULT FlipToGDISurface()
+IDirectDraw2,11,0x2c,GetCaps,IDirectDraw,"HRESULT GetCaps(void *lpDDDriverCaps, void *lpDDHELCaps)"
+IDirectDraw2,12,0x30,GetDisplayMode,IDirectDraw,HRESULT GetDisplayMode(void *lpDDSurfaceDesc)
+IDirectDraw2,13,0x34,GetFourCCCodes,IDirectDraw,"HRESULT GetFourCCCodes(DWORD *lpNumCodes, DWORD *lpCodes)"
+IDirectDraw2,14,0x38,GetGDISurface,IDirectDraw,HRESULT GetGDISurface(void **lplpGDIDDSSurface)
+IDirectDraw2,15,0x3c,GetMonitorFrequency,IDirectDraw,HRESULT GetMonitorFrequency(DWORD *lpdwFrequency)
+IDirectDraw2,16,0x40,GetScanLine,IDirectDraw,HRESULT GetScanLine(DWORD *lpdwScanLine)
+IDirectDraw2,17,0x44,GetVerticalBlankStatus,IDirectDraw,HRESULT GetVerticalBlankStatus(BOOL *lpbIsInVB)
+IDirectDraw2,18,0x48,Initialize,IDirectDraw,HRESULT Initialize(GUID *lpGUID)
+IDirectDraw2,19,0x4c,RestoreDisplayMode,IDirectDraw,HRESULT RestoreDisplayMode()
+IDirectDraw2,20,0x50,SetCooperativeLevel,IDirectDraw,"HRESULT SetCooperativeLevel(void *hWnd, DWORD dwFlags)"
+IDirectDraw2,21,0x54,SetDisplayMode,IDirectDraw2,"HRESULT SetDisplayMode(DWORD dwWidth, DWORD dwHeight, DWORD dwBPP, DWORD dwRefreshRate, DWORD dwFlags)"
+IDirectDraw2,22,0x58,WaitForVerticalBlank,IDirectDraw,"HRESULT WaitForVerticalBlank(DWORD dwFlags, void *hEvent)"
+IDirectDraw2,23,0x5c,GetAvailableVidMem,IDirectDraw2,"HRESULT GetAvailableVidMem(void *lpDDSCaps, DWORD *lpdwTotal, DWORD *lpdwFree)"
+IDirectDraw7,0,0x0,QueryInterface,IUnknown,"HRESULT QueryInterface(const GUID *riid, void **ppvObj)"
+IDirectDraw7,1,0x4,AddRef,IUnknown,ULONG AddRef()
+IDirectDraw7,2,0x8,Release,IUnknown,ULONG Release()
+IDirectDraw7,3,0xc,Compact,IDirectDraw,HRESULT Compact()
+IDirectDraw7,4,0x10,CreateClipper,IDirectDraw,"HRESULT CreateClipper(DWORD dwFlags, void **lplpDDClipper, void *pUnkOuter)"
+IDirectDraw7,5,0x14,CreatePalette,IDirectDraw,"HRESULT CreatePalette(DWORD dwFlags, void *lpDDColorArray, void **lplpDDPalette, void *pUnkOuter)"
+IDirectDraw7,6,0x18,CreateSurface,IDirectDraw,"HRESULT CreateSurface(void *lpDDSurfaceDesc, void **lplpDDSurface, void *pUnkOuter)"
+IDirectDraw7,7,0x1c,DuplicateSurface,IDirectDraw,"HRESULT DuplicateSurface(void *lpDDSurface, void **lplpDupDDSurface)"
+IDirectDraw7,8,0x20,EnumDisplayModes,IDirectDraw,"HRESULT EnumDisplayModes(DWORD dwFlags, void *lpDDSurfaceDesc, void *lpContext, void *lpEnumModesCallback)"
+IDirectDraw7,9,0x24,EnumSurfaces,IDirectDraw,"HRESULT EnumSurfaces(DWORD dwFlags, void *lpDDSD, void *lpContext, void *lpEnumSurfacesCallback)"
+IDirectDraw7,10,0x28,FlipToGDISurface,IDirectDraw,HRESULT FlipToGDISurface()
+IDirectDraw7,11,0x2c,GetCaps,IDirectDraw,"HRESULT GetCaps(void *lpDDDriverCaps, void *lpDDHELCaps)"
+IDirectDraw7,12,0x30,GetDisplayMode,IDirectDraw,HRESULT GetDisplayMode(void *lpDDSurfaceDesc)
+IDirectDraw7,13,0x34,GetFourCCCodes,IDirectDraw,"HRESULT GetFourCCCodes(DWORD *lpNumCodes, DWORD *lpCodes)"
+IDirectDraw7,14,0x38,GetGDISurface,IDirectDraw,HRESULT GetGDISurface(void **lplpGDIDDSSurface)
+IDirectDraw7,15,0x3c,GetMonitorFrequency,IDirectDraw,HRESULT GetMonitorFrequency(DWORD *lpdwFrequency)
+IDirectDraw7,16,0x40,GetScanLine,IDirectDraw,HRESULT GetScanLine(DWORD *lpdwScanLine)
+IDirectDraw7,17,0x44,GetVerticalBlankStatus,IDirectDraw,HRESULT GetVerticalBlankStatus(BOOL *lpbIsInVB)
+IDirectDraw7,18,0x48,Initialize,IDirectDraw,HRESULT Initialize(GUID *lpGUID)
+IDirectDraw7,19,0x4c,RestoreDisplayMode,IDirectDraw,HRESULT RestoreDisplayMode()
+IDirectDraw7,20,0x50,SetCooperativeLevel,IDirectDraw,"HRESULT SetCooperativeLevel(void *hWnd, DWORD dwFlags)"
+IDirectDraw7,21,0x54,SetDisplayMode,IDirectDraw2,"HRESULT SetDisplayMode(DWORD dwWidth, DWORD dwHeight, DWORD dwBPP, DWORD dwRefreshRate, DWORD dwFlags)"
+IDirectDraw7,22,0x58,WaitForVerticalBlank,IDirectDraw,"HRESULT WaitForVerticalBlank(DWORD dwFlags, void *hEvent)"
+IDirectDraw7,23,0x5c,GetAvailableVidMem,IDirectDraw2,"HRESULT GetAvailableVidMem(void *lpDDSCaps, DWORD *lpdwTotal, DWORD *lpdwFree)"
+IDirectDraw7,24,0x60,GetSurfaceFromDC,IDirectDraw7,"HRESULT GetSurfaceFromDC(void *hdc, void **lpDDS)"
+IDirectDraw7,25,0x64,RestoreAllSurfaces,IDirectDraw7,HRESULT RestoreAllSurfaces()
+IDirectDraw7,26,0x68,TestCooperativeLevel,IDirectDraw7,HRESULT TestCooperativeLevel()
+IDirectDraw7,27,0x6c,GetDeviceIdentifier,IDirectDraw7,"HRESULT GetDeviceIdentifier(void *lpdddi, DWORD dwFlags)"
+IDirectDraw7,28,0x70,StartModeTest,IDirectDraw7,"HRESULT StartModeTest(void *lpModesToTest, DWORD dwNumEntries, DWORD dwFlags)"
+IDirectDraw7,29,0x74,EvaluateMode,IDirectDraw7,"HRESULT EvaluateMode(DWORD dwFlags, DWORD *pSecondsUntilTimeout)"

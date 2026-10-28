@@ -1,0 +1,25 @@
+.DS_Store
+# Spieldaten (nur lesen, nie committen)
+/game/
+# lokale Referenzen (nfsmw, entpackte GC-ELF, DWARF-Dumps, Shader-Klartexte)
+/refs/*
+!/refs/README.md
+# erzeugte Exporte und Ghidra-Projekte
+/decompiled/full/out*/
+/decompiled/full/build*/
+/decompiled/full/project*/
+/decompiled/full/*.log
+/decompiled/gc/project*/
+/decompiled/gc/out*/
+/decompiled/speed/inventar/snapshot
+/decompiled/speed/inventar/*.json
+/decompiled/speed/inventar/*.err
+# Build-Ausgaben
+/port/build*/
+__pycache__/
+/tools/emu/.venv/
+/decompiled/gc/*.log
+__pycache__/
+# aus Speed.exe abgeleitet: nie ins Repository (Release-Hygiene)
+/decompiled/speed/src/
+/port/src/**/*_tables.cpp
