@@ -6,6 +6,20 @@ import hashlib, struct
 KNOWN_SHA256 = {"1f72abe1e5c527c0a161e382d489605f483dd36c4ce7a2f4d561a0964c5db235"}
 
 
+class ZeroImage:
+    """Platzhalter ohne Speed.exe (nur Kompilierprüfung, z. B. CI): alle Bytes null."""
+    def read(self, addr, n):
+        return b"\0" * n
+
+    def u32(self, addr):
+        return 0
+
+
+def open_image(path):
+    """Speed.exe öffnen; der Pfad STUB liefert Nullen (Programm baut, verhält sich aber falsch)."""
+    return ZeroImage() if path == "STUB" else PEImage(path)
+
+
 class PEImage:
     def __init__(self, path, check=True):
         self.data = open(path, "rb").read()

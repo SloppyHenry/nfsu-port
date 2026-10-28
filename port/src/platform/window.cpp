@@ -17,7 +17,7 @@ int run_clear_window(int frames) {
         SDL_Quit();
         return 1;
     }
-    SDL_GPUDevice* gpu = SDL_CreateGPUDevice(SDL_GPU_SHADERFORMAT_MSL, true, nullptr);
+    SDL_GPUDevice* gpu = SDL_CreateGPUDevice(SDL_GPU_SHADERFORMAT_MSL | SDL_GPU_SHADERFORMAT_SPIRV | SDL_GPU_SHADERFORMAT_DXIL, true, nullptr);
     if (!gpu || !SDL_ClaimWindowForGPUDevice(gpu, window)) {
         std::fprintf(stderr, "SDL_GPU: %s\n", SDL_GetError());
         if (gpu) SDL_DestroyGPUDevice(gpu);

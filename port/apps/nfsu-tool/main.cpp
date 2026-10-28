@@ -15,7 +15,7 @@
 #include "formats/texture_pack.hpp"
 #include "platform/video.hpp"
 
-static bool load(const std::string& p, std::vector<uint8_t>& out) {
+static bool load(const std::filesystem::path& p, std::vector<uint8_t>& out) {
     std::ifstream f(p, std::ios::binary);
     if (!f) return false;
     out.assign(std::istreambuf_iterator<char>(f), {});

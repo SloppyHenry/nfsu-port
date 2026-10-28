@@ -9,6 +9,10 @@ Anlass: Nutzerentscheidung D10 (2026-10-28) – der Port soll auf macOS, Linux u
 - `port/src/platform/window.cpp:20` erzwingt `SDL_GPU_SHADERFORMAT_MSL`, `apps/viewer/main.cpp` `SDL_GPU_SHADERFORMAT_METALLIB`
 - Rest (Formate, Spielcode, Pfade, Audio, Video über libavcodec) ist bereits plattformneutral; zlib über `find_package(ZLIB)`
 
+## Bereits erledigt (2026-10-28, Build)
+- CMake/Presets portabel (MSVC-Optionen, Sanitizer als Option, kein festes arm64), `NFSU_FETCH_DEPS`, `FFMPEG_ROOT`, `NFSU_STUB_TABLES`, Viewer baut überall, Device fordert MSL|SPIR-V|DXIL an
+- CI `.github/workflows/build.yml` (ubuntu-24.04, macos-14, windows-2022)
+
 ## Aufgaben
 1. Shader einmal in HLSL (SM 5/6, Inhalt 1:1 zu den MSL-Fassungen bzw. den `.efx`-Vorlagen) unter `port/src/render/shaders/`.
 2. Übersetzung zur Bauzeit mit SDL_shadercross (oder DXC + SPIRV-Cross) nach SPIR-V, DXIL und MSL; Abhängigkeit braucht Rückfrage (Download).

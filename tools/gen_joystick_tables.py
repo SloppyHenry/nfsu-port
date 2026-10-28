@@ -3,7 +3,7 @@
 port/src/game/misc/joystick_tables.cpp. Liest die Abschnitte direkt aus der PE-Datei (WP-30.1)."""
 import os, struct, sys
 sys.path.insert(0, os.path.dirname(__file__))
-from pe_image import PEImage
+from pe_image import open_image
 # Aufruf: gen_….py [Speed.exe] [Ausgabe.cpp] (Standard: game/pc/Speed.exe, Quellbaum)
 REPO = os.path.join(os.path.dirname(__file__), "..")
 EXE = sys.argv[1] if len(sys.argv) > 1 else os.path.join(REPO, "game", "pc", "Speed.exe")
@@ -11,7 +11,7 @@ OUT = sys.argv[2] if len(sys.argv) > 2 else os.path.join(REPO, "port", "build", 
 
 KINDS = {0x553CE0: "SK_TypeChanged", 0x553D20: "SK_ButtonPress", 0x553D80: "SK_ButtonChange",
          0x553DD0: "SK_TwoButtonAxis", 0x553E60: "SK_AnalogRepeat", 0x554080: "SK_AnalogGraph"}
-e = PEImage(EXE)
+e = open_image(EXE)
 
 def cstr(addr):
     if addr == 0: return None
@@ -38,6 +38,8 @@ for i in range(n):
     name = cstr(nameptr)
     nm = "nullptr" if name is None else '"' + name.replace("\\", "\\\\").replace('"', '\\"') + '"'
     out.append(f"    {{{{{', '.join(map(str, cfgs))}}}, {ev}, {KINDS[fn]}, {x1}, {x2}, {s1}, {s2}, {param}, {analog}, {valid}, 0x{tex:08x}u, {nm}}},")
+if n == 0:  # Platzhalter: C++ erlaubt kein leeres Feld
+    out.append("    {{0, 0, 0, 0, 0, 0, 0, 0}, 0, SK_TypeChanged, 0, 0, 0, 0, 0, 0, 0, 0u, nullptr},")
 out.append("};")
 m = e.u32(0x6F6370)
 out.append(f"\nconst int kNumValidConfigs = {m};")
@@ -46,6 +48,8 @@ for i in range(m):
     b = e.read(0x6F62F8 + 0x14 * i, 0x14)
     t = struct.unpack("<I", b[:4])[0]
     out.append(f"    {{{t}, {{{', '.join(str(x) for x in b[4:14])}}}, {{{', '.join(str(x) for x in b[14:20])}}}}},")
+if m == 0:
+    out.append("    {0, {0}, {0}},")
 out.append("};")
 out += ["", "}  // namespace nfsu", ""]
 open(OUT, "w").write("\n".join(out))

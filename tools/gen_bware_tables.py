@@ -3,12 +3,12 @@
 bASin: 0x6e46b8, Eintrag 8 Byte {int16 winkel, int16 pad, float steigung}; bFixATan: 0x6e5148 und 0x6e5250 (uint16)."""
 import os, struct, sys
 sys.path.insert(0, os.path.dirname(__file__))
-from pe_image import PEImage
+from pe_image import open_image
 # Aufruf: gen_….py [Speed.exe] [Ausgabe.cpp] (Standard: game/pc/Speed.exe, Quellbaum)
 REPO = os.path.join(os.path.dirname(__file__), "..")
 EXE = sys.argv[1] if len(sys.argv) > 1 else os.path.join(REPO, "game", "pc", "Speed.exe")
 OUT = sys.argv[2] if len(sys.argv) > 2 else os.path.join(REPO, "port", "build", "generated", "game", "base", "bware_tables.cpp")
-e = PEImage(EXE)
+e = open_image(EXE)
 N_ASIN = 208  # Stufe 11 reicht bis Index 11*16+31
 asin = [struct.unpack("<hhf", e.read(0x6E46B8 + 8 * i, 8)) for i in range(N_ASIN)]
 fine = struct.unpack("<132H", e.read(0x6E5148, 264))
