@@ -25,6 +25,7 @@ Status: `offen` (Voraussetzungen fehlen) · `bereit` · `in Arbeit` · `teilweis
 | 16 | Video (MAD) | 2 | 10, (15) | **erledigt** | 2026-10-27 | libavcodec (ADR-002); 45/45 Filme bitgleich zu ffmpeg; Gleichlauf (Ton vom Nutzer angehört, sauber): Ton vorab im Strom, Bildtakt ab Tonstart (Verspätung im Mittel < 4 ms); Seitenverhältnis gehört zu den FEng-Daten (WP-37/38) |
 | 17 | Shader und Renderzustände | 2 | 10, 04 | **erledigt** (bis auf Lauf im Viewer) | 2026-10-27 | 7 Effekte, Setzstellen und Vertexdeklarationen dokumentiert (`plan/RENDER-ZUSTAENDE.md`), `nfsu-tool efx-decode`, `ADR-003`; alle 7 Effekte als MSL neu geschrieben und kompiliert (nicht gelaufen); Test im Viewer gehört zu WP-18 |
 | 18 | Strecken-Viewer | 2 | 13, 14, 17 | **erledigt** (Tasteneingabe im Fenster ungetestet) | 2026-10-27 | `nfsu-viewer` rendert alle Regionen texturiert mit Streckenführung aus TRACKB, Materialtransparenz (Test/Blend/additiv), 60 fps; Szenerie-Schlüssel ist `name_hash(Solidname)`; offen: Nebel/Licht, dynamisches LOD, Eingabetest |
+| 19 | **Plattformunabhängige Grafik und Build** (D10) | 2 | 10, 17, 18 | bereit | 2026-10-28 | Shader HLSL → SPIR-V/DXIL/MSL, Device ohne Metal-Zwang; einziger macOS-gebundener Teil |
 | 30 | Basis (bWare), Hilfsfunktionen, Dateien, Spielablauf | 3 | 01, 02, 03, 04, 05, 07, 08, 10, 11 | **teilweise** (30.1: Spline, Point, Timer; 30.2: bWare-Mathe, QuickSpline, Listen; 30.3: Table, Average/PidError, LZ) | 2026-10-28 | 436 Fkt., 3 Pakete; 30.1 hat 80 von 144 Funktionen; 30.2 (Teil): bSin/bASin/bATan/bFixATan, Zufall, Zeichenketten, Vektoren, Boxen, Matrizen, Quaternionen, QuickSpline (13/14), bList; 58 Funktionen im Emulator getestet. Rest von 30.2: bFile (WP-43-nah), Localize, Slider, EasterEggs, Speicherpools, Plattformzeitgeber; 30.3 (Teil): Table/Average/PidError/Linear/LZCompress, 26 Fkt.; Rest (Speicherpool, bOutput, utillib-Block) offen |
 | 31 | Ecstasy-Engine, Render-Spielseite | 3 | wie 30, nach 30 | offen | | 257 Fkt., 3 Pakete |
 | 32 | Welt-Infrastruktur (Streaming, Topologie, Weltobjekte) | 3 | wie 30, nach 30 | offen | | 409 Fkt., 4 Pakete |
@@ -64,3 +65,4 @@ Status: `offen` (Voraussetzungen fehlen) · `bereit` · `in Arbeit` · `teilweis
 | D7 | verhaltensgleich statt byte-identisch | vorgeschlagen |
 | D8 | `indep/`-Code aus GC-Dekompilat rekonstruieren, PC als Abgleich | **ja** (2026-10-20) |
 | D9 | decomp-toolkit (dtk) herunterladen | **ja** (2026-10-20) |
+| D10 | Zielplattformen | **macOS, Linux, Windows** (2026-10-28) |

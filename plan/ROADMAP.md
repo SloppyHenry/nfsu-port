@@ -1,7 +1,7 @@
-# Roadmap: NFS Underground nativ auf macOS (arm64)
+# Roadmap: NFS Underground nativ und plattformübergreifend
 
 ## Ziel
-Ein natives macOS-Programm (arm64, `.app`), das mit den Original-Spieldaten in `game/pc/` läuft und sich wie das PC-Original verhält. Kein Wine, keine Emulation zur Laufzeit.
+Ein natives Programm für macOS, Linux und Windows (64 Bit), das mit den Original-Spieldaten in `game/pc/` läuft und sich wie das PC-Original verhält. Kein Wine, keine Emulation zur Laufzeit.
 
 ## Strategie in einem Satz
 Das PC-Binary wird **nicht** als Ganzes nach C übersetzt und zum Kompilieren gezwungen. Stattdessen wird das Spiel **Subsystem für Subsystem als sauberer C++-Code neu aufgebaut**. Das Ghidra-Dekompilat dient dabei als Nachschlagewerk. Bibliotheken werden durch moderne Gegenstücke ersetzt, und die Windows-Schicht wird gegen SDL3/Metal ausgetauscht.
@@ -65,7 +65,8 @@ WP-30… + WP-40…44 ── WP-50 ── WP-51 ── WP-52 ── WP-53
 | D4 | GameCube-Fassung als Symbolquelle (eigener Dump)? | **erteilt 2026-10-20**. Das ISO liegt in `game/gc/`, die ELF hat volle Symbole | WP-07 |
 | D8 | Aus welchem Binary wird `indep/`-Code rekonstruiert? | **erteilt 2026-10-20**: GC-Dekompilat (mit Typen) als Vorlage, PC-Exe als Abgleich und Verhaltensreferenz | WP-3x |
 | D9 | Darf decomp-toolkit (`dtk`, Release-Binary von GitHub) heruntergeladen werden? | **erteilt 2026-10-20** | WP-07 |
-| D5 | Grafik-Backend | SDL3 + SDL_GPU (Metal), Shader per SDL_shadercross aus HLSL | WP-17, WP-40 |
+| D5 | Grafik-Backend | SDL3 + SDL_GPU (Metal, Vulkan, D3D12), Shader per SDL_shadercross aus HLSL | WP-17, WP-19, WP-40 |
+| D10 | Zielplattformen | macOS, Linux, Windows (64 Bit); Spielcode ohne Plattformcode (2026-10-28, Nutzer) | alle |
 | D6 | Sprache des Ports | C++17 (Original ist MSVC-C++ mit thiscall-Klassen) | alle |
 | D7 | Treue | Verhaltensgleich, **nicht** byte-identisch (kein Matching-Decomp) | alle |
 

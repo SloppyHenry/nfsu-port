@@ -1,4 +1,4 @@
-# WP-50 … WP-53 Integration bis zum spielbaren `.app`
+# WP-50 … WP-53 Integration bis zum spielbaren Programm (macOS-`.app`, Linux, Windows)
 
 **Phase 5 · Modell: Opus · Voraussetzungen: siehe je Paket**
 
@@ -17,7 +17,9 @@
 - `progress.py`: Alle `rekonstruieren`-Module sind fertig.
 - Fehlerliste aus Spieltests als `plan/BUGS.md`, als Grundlage für Nacharbeit-Pakete
 
-## WP-53 App-Bundle
-- `NFSU.app` mit Icon (aus `NFSU_icon.ico`), Info.plist, Ad-hoc-Signatur
+## WP-53 Pakete je Plattform
+- macOS: `NFSU.app` mit Icon (aus `NFSU_icon.ico`), Info.plist, Ad-hoc-Signatur
+- Linux: Programm + `.desktop`-Datei (AppImage optional); Windows: `.exe` mit Icon-Ressource
+- CI (GitHub Actions) baut alle drei Plattformen ohne Spieldaten bis auf die Tabellenerzeugung (braucht `Speed.exe`, daher in der CI nur Kompilierprüfung mit Platzhaltern)
 - Die Spieldaten werden **nicht** eingebettet. Beim ersten Start wird der Ordner gewählt und der Pfad gespeichert.
-- Fertig, wenn: Das `.app` startet per Doppelklick auf einem frischen Benutzerkonto, nachdem man den Datenordner gewählt hat.
+- Fertig, wenn: Das Programm startet auf jeder Plattform per Doppelklick auf einem frischen Benutzerkonto, nachdem man den Datenordner gewählt hat.

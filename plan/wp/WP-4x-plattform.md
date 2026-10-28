@@ -1,4 +1,4 @@
-# WP-40 … WP-44 Plattformschicht macOS
+# WP-40 … WP-44 Plattformschicht (SDL3, alle Zielplattformen)
 
 **Phase 4 · Voraussetzungen: WP-04 (COM-Vtables), WP-10; je Teilpaket eine Session oder mehr**
 
@@ -6,7 +6,7 @@ Grundsatz: Der Spielcode spricht **eigene, schmale Schnittstellen** an (`port/sr
 
 ## WP-40 Renderer (Modell: Opus, 3–6 Sessions)
 - Schnittstelle nach den tatsächlich genutzten D3D9-Funktionen: Texturen, Vertex- und Indexbuffer, Effekte bzw. Shader, Renderzustände, Rendertargets (Reflexionen, Motion Blur, Filter-Effekt), Present, Auflösung und Fenster
-- Umsetzung mit SDL_GPU (Metal): Pipeline-Cache je Zustandskombination, Shader aus WP-17
+- Umsetzung mit SDL_GPU (Metal, Vulkan, D3D12): Pipeline-Cache je Zustandskombination, Shader aus WP-17
 - Breitbild und hohe Auflösung als Option. Die vorhandenen `uniws`-Patches zeigen, wo das Original das Seitenverhältnis festlegt.
 - Fertig, wenn: Viewer (WP-18) und Frontend-Darstellung laufen über diese Schicht.
 
@@ -23,7 +23,7 @@ Grundsatz: Der Spielcode spricht **eigene, schmale Schnittstellen** an (`port/sr
 - Win32-Nachrichtenschleife (`pump_window_messages`) → SDL-Events
 - `QueryPerformanceCounter` → SDL-Zeit; Threads und Events → std::thread/SDL
 - Registry-Zugriffe (ADVAPI32) → Konfigurationsdatei
-- Speicherstände (SHFOLDER: Eigene Dateien) → `~/Library/Application Support/NFSU/`, im Originalformat (siehe `savestate` in `decompiled/speed`)
+- Speicherstände (SHFOLDER: Eigene Dateien) → `SDL_GetPrefPath("NFSU", "NFSU")` (je Plattform der übliche Ort), im Originalformat (siehe `savestate` in `decompiled/speed`)
 - Doppelstart-Sperre und CD-Prüfung (`frontend_disc_check`) entfallen bzw. liefern Erfolg.
 - Fertig, wenn: Booten ohne einen Win32-Aufruf möglich ist (Linkprüfung: keine Win32-Symbole).
 
